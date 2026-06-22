@@ -17,5 +17,3 @@ Think of this stage as setting up the **engine before adding the fuel**.
 ## 🌐 Live Website
 https://aasiom-website.vercel.app
 
-# aasiom-website
-Official website for AASIOM project
