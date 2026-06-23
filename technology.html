@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology — AASIOM Pvt Ltd</title>
+  <meta name="description" content="AASIOM's technology stack: Sky-Hive autonomous docking, VAYU-Net edge AI vision, MeshLink communications, and Sky-Command mission control.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Technology — AASIOM Pvt Ltd">
+  <meta property="og:description" content="Sky-Hive, VAYU-Net, MeshLink, and Sky-Command — AASIOM's four interlocking systems.">
+  <meta property="og:url" content="https://aasiom.com/technology">
+  <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AASIOM Technology">
+  <meta name="twitter:description" content="Four interlocking systems for autonomous aerial surveillance.">
+  <!-- Network Resilience & Async Fonts -->
+  <script>
+    window.retryAsset = function(el, attempt) {
+      if(attempt > 3) { document.documentElement.classList.add('fonts-failed'); return; }
+      setTimeout(function() {
+        var clone = el.cloneNode();
+        clone.onload = function() { this.onload=null; this.rel='stylesheet'; };
+        clone.onerror = function() { window.retryAsset(this, attempt+1); };
+        el.parentNode.insertBefore(clone, el.nextSibling);
+      }, attempt * 1000);
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="window.retryAsset?window.retryAsset(this,1):null">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
+  <link rel="apple-touch-icon" href="images/aasiom-tab.png">
+</head>
+<body>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="innovation.html">Innovation</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="section-label">Technology</span>
+      <h1>Four Systems.<br>One Network.</h1>
+      <p>Every component in AASIOM's stack is designed, built, and owned in India — from hardware to algorithms to communication protocols.</p>
+    </div>
+  </section>
+
+  <!-- Core Systems -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Core Systems</span>
+        <h2 class="section-title">The AASIOM Technology Stack</h2>
+        <p class="section-desc">Four interlocking systems that together create an autonomous aerial surveillance network capable of covering hundreds of kilometres continuously.</p>
+      </div>
+
+      <!-- Sky-Hive -->
+      <div class="mission-grid" style="margin-bottom: 80px;">
+        <div class="mission-content">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <div>
+              <span class="section-label" style="margin-bottom: 0;">System 01</span>
+              <h2 style="font-size: 1.8rem;">Sky-Hive</h2>
+            </div>
+          </div>
+          <p class="section-desc" style="margin-bottom: 24px;">
+            Autonomous drone docking, charging, and launch stations — the physical backbone of the surveillance network. Placed every 10-15 km along expressway corridors, each Sky-Hive manages a fleet of patrol drones.
+          </p>
+          <div class="tech-specs" style="margin-bottom: 20px;">
+            <span class="tech-spec-tag">Auto-Launch & Recovery</span>
+            <span class="tech-spec-tag">Solar + Grid Hybrid</span>
+            <span class="tech-spec-tag">IP67 Weather-Rated</span>
+            <span class="tech-spec-tag">Remote Diagnostics</span>
+            <span class="tech-spec-tag">Modular Design</span>
+          </div>
+          <ul class="mission-points">
+            <li><span class="check">✓</span>Conceptualizing automated drone launch, landing, and battery swaps</li>
+            <li><span class="check">✓</span>Targeting operations in rain, fog, dust, and up to 50°C</li>
+            <li><span class="check">✓</span>Designing for solar power with grid backup</li>
+          </ul>
+        </div>
+        <div class="mission-visual" style="display: flex; align-items: center; justify-content: center; min-height: 320px;">
+          <div style="text-align: center;">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1" style="margin-bottom: 16px;"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            <div style="font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--cyan);">SKY-HIVE</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--fg-2); letter-spacing: 0.1em; margin-top: 4px;">AUTONOMOUS DOCKING SYSTEM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VAYU-Net -->
+      <div class="mission-grid" style="margin-bottom: 80px;">
+        <div class="mission-visual" style="display: flex; align-items: center; justify-content: center; min-height: 320px;">
+          <div style="text-align: center;">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1" style="margin-bottom: 16px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <div style="font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--cyan);">VAYU-NET</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--fg-2); letter-spacing: 0.1em; margin-top: 4px;">EDGE AI VISION ENGINE</div>
+          </div>
+        </div>
+        <div class="mission-content">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <div>
+              <span class="section-label" style="margin-bottom: 0;">System 02</span>
+              <h2 style="font-size: 1.8rem;">VAYU-Net</h2>
+            </div>
+          </div>
+          <p class="section-desc" style="margin-bottom: 24px;">
+            On-board AI vision engine that processes drone camera feeds in real-time at the edge — no cloud dependency. Detects accidents, stalled vehicles, road debris, wrong-way drivers, and abnormal traffic patterns.
+          </p>
+          <div class="tech-specs" style="margin-bottom: 20px;">
+            <span class="tech-spec-tag">Computer Vision</span>
+            <span class="tech-spec-tag">Edge Inference</span>
+            <span class="tech-spec-tag">Night Vision</span>
+            <span class="tech-spec-tag">Fog Penetration</span>
+            <span class="tech-spec-tag">Anomaly Detection</span>
+          </div>
+          <ul class="mission-points">
+            <li><span class="check">✓</span>Targeting sub-second incident classification at the edge</li>
+            <li><span class="check">✓</span>Designing for darkness, fog, rain, and smoke conditions</li>
+            <li><span class="check">✓</span>Architecting continuous learning from operational data</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- MeshLink -->
+      <div class="mission-grid" style="margin-bottom: 80px;">
+        <div class="mission-content">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+            <div>
+              <span class="section-label" style="margin-bottom: 0;">System 03</span>
+              <h2 style="font-size: 1.8rem;">MeshLink</h2>
+            </div>
+          </div>
+          <p class="section-desc" style="margin-bottom: 24px;">
+            Resilient drone-to-ground communication mesh network. Ensures unbroken data relay even in connectivity dead zones common on long highway stretches, tunnels, and Ghat sections.
+          </p>
+          <div class="tech-specs" style="margin-bottom: 20px;">
+            <span class="tech-spec-tag">Mesh Topology</span>
+            <span class="tech-spec-tag">Low Latency</span>
+            <span class="tech-spec-tag">Auto-Healing</span>
+            <span class="tech-spec-tag">Encrypted</span>
+            <span class="tech-spec-tag">Redundant Paths</span>
+          </div>
+          <ul class="mission-points">
+            <li><span class="check">✓</span>Designing multi-hop relays to ensure coverage in dead zones</li>
+            <li><span class="check">✓</span>Planning end-to-end encryption for all data streams</li>
+            <li><span class="check">✓</span>Architecting self-healing network topology with automatic rerouting</li>
+          </ul>
+        </div>
+        <div class="mission-visual" style="display: flex; align-items: center; justify-content: center; min-height: 320px;">
+          <div style="text-align: center;">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1" style="margin-bottom: 16px;"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+            <div style="font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--cyan);">MESHLINK</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--fg-2); letter-spacing: 0.1em; margin-top: 4px;">RESILIENT COMMUNICATIONS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sky-Command -->
+      <div class="mission-grid">
+        <div class="mission-visual" style="display: flex; align-items: center; justify-content: center; min-height: 320px;">
+          <div style="text-align: center;">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1" style="margin-bottom: 16px;"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <div style="font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; color: var(--cyan);">SKY-COMMAND</div>
+            <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--fg-2); letter-spacing: 0.1em; margin-top: 4px;">MISSION CONTROL PLATFORM</div>
+          </div>
+        </div>
+        <div class="mission-content">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <div>
+              <span class="section-label" style="margin-bottom: 0;">System 04</span>
+              <h2 style="font-size: 1.8rem;">Sky-Command</h2>
+            </div>
+          </div>
+          <p class="section-desc" style="margin-bottom: 24px;">
+            The brain of the network. A real-time mission control platform that orchestrates all drones, processes VAYU-Net alerts, dispatches emergency services, and gives highway authorities a live operational dashboard.
+          </p>
+          <div class="tech-specs" style="margin-bottom: 20px;">
+            <span class="tech-spec-tag">Real-Time Dashboard</span>
+            <span class="tech-spec-tag">Auto-Dispatch</span>
+            <span class="tech-spec-tag">Fleet Management</span>
+            <span class="tech-spec-tag">Predictive Analytics</span>
+          </div>
+          <ul class="mission-points">
+            <li><span class="check">✓</span>Designing a live map for drone positions, incidents, and emergency units</li>
+            <li><span class="check">✓</span>Planning automated dispatch protocols for emergency services</li>
+            <li><span class="check">✓</span>Structuring historical analytics for highway safety policy planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future: Semiconductors -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Future Vision</span>
+        <h2 class="section-title">The Semiconductor Horizon</h2>
+        <p class="section-desc">Our long-term roadmap includes designing application-specific integrated circuits (ASICs) optimized for edge AI inference in surveillance and autonomous systems.</p>
+      </div>
+      <div class="domains-grid">
+        <div class="domain-card">
+          <div class="domain-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></div>
+          <h3>Edge AI ASICs</h3>
+          <p>Custom silicon designed specifically for real-time computer vision inference at the edge — lower power, higher throughput than general-purpose GPUs.</p>
+          <span class="domain-tag">Long-Term R&D</span>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3>Sovereign Silicon</h3>
+          <p>Reducing India's dependence on imported chips for critical infrastructure applications. Aligned with India's semiconductor mission.</p>
+          <span class="domain-tag">Strategic Vision</span>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h3>Full-Stack Integration</h3>
+          <p>When AASIOM designs both the software algorithm and the silicon it runs on, we can optimize the entire stack — from photon to decision.</p>
+          <span class="domain-tag">Competitive Moat</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <span class="section-label">Research Partners</span>
+        <h2>Building Deep Tech<br>Takes Deep Collaboration</h2>
+        <p>Universities, defence labs, and technology partners — we're looking for institutions that share our mission.</p>
+        <a href="contact.html" class="btn btn-primary">Partner With Us →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+          </a>
+          <p>Deep technology company building sovereign systems for India's critical infrastructure. Headquartered in Mumbai, India.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul>
+            <li><a href="innovation.html">Drone Systems</a></li>
+            <li><a href="innovation.html">Edge AI</a></li>
+            <li><a href="innovation.html">Semiconductors</a></li>
+            <li><a href="innovation.html">Mesh Comms</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="about.html">Make in India</a></li>
+            <li><a href="about.html">Atmanirbhar Bharat</a></li>
+            <li><a href="projects.html">Smart Highways</a></li>
+            <li><a href="about.html">Digital India</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 AASIOM Pvt Ltd. All rights reserved.</span>
+        <span class="footer-india">🇮🇳 Proudly Made in India</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/topo.js" defer></script>
+</body>
+</html>

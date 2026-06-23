@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — AASIOM Pvt Ltd</title>
+  <meta name="description" content="MH-ASLN: AASIOM's flagship autonomous highway surveillance system for Maharashtra's expressway network — deploying sovereign drone intelligence, edge AI, and mesh communications.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Projects — AASIOM Pvt Ltd">
+  <meta property="og:description" content="MH-ASLN: Autonomous highway surveillance for Maharashtra's expressway network.">
+  <meta property="og:url" content="https://aasiom.com/projects">
+  <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AASIOM Projects">
+  <meta name="twitter:description" content="Flagship MH-ASLN autonomous highway surveillance system for India.">
+  <!-- Network Resilience & Async Fonts -->
+  <script>
+    window.retryAsset = function(el, attempt) {
+      if(attempt > 3) { document.documentElement.classList.add('fonts-failed'); return; }
+      setTimeout(function() {
+        var clone = el.cloneNode();
+        clone.onload = function() { this.onload=null; this.rel='stylesheet'; };
+        clone.onerror = function() { window.retryAsset(this, attempt+1); };
+        el.parentNode.insertBefore(clone, el.nextSibling);
+      }, attempt * 1000);
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="window.retryAsset?window.retryAsset(this,1):null">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
+  <link rel="apple-touch-icon" href="images/aasiom-tab.png">
+</head>
+<body>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="innovation.html">Innovation</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header page-header--projects">
+    <!-- Animated radar rings -->
+    <div class="ph-radar" aria-hidden="true">
+      <div class="ph-radar-ring ph-radar-ring--1"></div>
+      <div class="ph-radar-ring ph-radar-ring--2"></div>
+      <div class="ph-radar-ring ph-radar-ring--3"></div>
+      <div class="ph-radar-sweep"></div>
+    </div>
+    <!-- Floating grid nodes -->
+    <div class="ph-nodes" aria-hidden="true">
+      <span class="ph-node" style="top:18%;left:8%;animation-delay:0s;"></span>
+      <span class="ph-node" style="top:28%;left:88%;animation-delay:1.2s;"></span>
+      <span class="ph-node" style="top:72%;left:14%;animation-delay:0.6s;"></span>
+      <span class="ph-node" style="top:65%;left:92%;animation-delay:1.8s;"></span>
+      <span class="ph-node ph-node--gold" style="top:12%;left:55%;animation-delay:0.3s;"></span>
+      <span class="ph-node ph-node--gold" style="top:82%;left:60%;animation-delay:1.5s;"></span>
+      <span class="ph-node" style="top:45%;left:5%;animation-delay:2.1s;"></span>
+      <span class="ph-node" style="top:50%;left:95%;animation-delay:0.9s;"></span>
+    </div>
+    <!-- Horizontal scan lines -->
+    <div class="ph-scanline" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="section-label">Projects</span>
+
+      <!-- Status indicator -->
+      <div class="ph-status-row">
+        <span class="ph-live-badge">
+          <span class="ph-live-dot"></span>
+          Flagship Project
+        </span>
+        <span class="ph-live-badge ph-live-badge--gold">
+          <svg width="10" height="10" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#f0c060"/></svg>
+          In Planning
+        </span>
+      </div>
+
+      <h1>MH-ASLN</h1>
+      <p class="ph-subtitle">Maharashtra Autonomous Surveillance &amp; Logistics Network</p>
+      <p>AASIOM's flagship project — a fully sovereign autonomous aerial surveillance system planned for Maharashtra's expressway corridors. Currently in active planning and concept development.</p>
+
+      <!-- Quick stat chips -->
+      <div class="ph-chips">
+        <div class="ph-chip">
+          <span class="ph-chip-value">713</span>
+          <span class="ph-chip-label">km corridor</span>
+        </div>
+        <div class="ph-chip">
+          <span class="ph-chip-value">&lt;60s</span>
+          <span class="ph-chip-label">response target</span>
+        </div>
+        <div class="ph-chip">
+          <span class="ph-chip-value">4</span>
+          <span class="ph-chip-label">sub-systems</span>
+        </div>
+        <div class="ph-chip">
+          <span class="ph-chip-value">0</span>
+          <span class="ph-chip-label">foreign deps</span>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="ph-scroll-hint" style="margin-top: 32px;">
+        <span style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--fg-3);opacity:0.5;">Scroll to explore</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--fg-3);opacity:0.4;animation:scrollBounce 2s ease-in-out infinite;margin-top:6px;">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Project Overview Card -->
+  <section class="section">
+    <div class="container">
+      <div class="project-hero">
+        <div class="project-hero-inner">
+          <div class="project-hero-content">
+            <div class="project-status">
+              <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#f0c060"/></svg>
+              In Planning — Concept Stage
+            </div>
+            <h2 style="font-size:1.8rem; margin-bottom:16px;">Autonomous Drone Surveillance<br>for Maharashtra's Expressways</h2>
+            <p style="color:var(--fg-2); font-size:0.95rem; line-height:1.8; margin-bottom:24px;">
+              MH-ASLN is AASIOM's planned flagship project — a network of sovereign autonomous drones, edge AI inference nodes, and encrypted mesh communications across Maharashtra's expressway corridors. The system is designed to provide continuous surveillance, rapid incident detection, and real-time command visibility with zero foreign technology dependencies.
+            </p>
+            <div class="project-features">
+              <div class="project-feature">
+                <span class="icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                Target: 24/7 Autonomous Operation
+              </div>
+              <div class="project-feature">
+                <span class="icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </span>
+                Target: Sub-60s Incident Response
+              </div>
+              <div class="project-feature">
+                <span class="icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </span>
+                100% Indigenous Technology (Goal)
+              </div>
+              <div class="project-feature">
+                <span class="icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+                </span>
+                Edge AI — No Cloud Dependency (Design Goal)
+              </div>
+            </div>
+          </div>
+          <div class="project-hero-visual">
+        <div style="width: 100%; height: 260px; background: var(--navy-900); border: 1px solid rgba(34,211,238,0.2); border-radius: 8px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; font-family: var(--font-mono); box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(34,211,238,0.4)" stroke-width="1.5" style="margin-bottom: 16px;">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+      <line x1="3" y1="9" x2="21" y2="9"/>
+      <line x1="9" y1="21" x2="9" y2="9"/>
+      </svg>
+      <div style="color: var(--cyan); font-size: 0.85rem; letter-spacing: 0.15em; margin-bottom: 8px;">MH-ASLN SPATIAL TELEMETRY</div>
+      <div style="color: var(--fg-3); font-size: 0.75rem; letter-spacing: 0.05em;">[ QGIS GRID COMPILATION IN PROGRESS ]</div>
+          </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-content">
+          <span class="section-label">The Problem</span>
+          <h2 class="section-title">Maharashtra's Expressways Are Flying Blind</h2>
+          <p class="section-desc">Maharashtra operates some of India's most critical road infrastructure — yet surveillance, incident detection, and emergency response remain dangerously inadequate, with systems that depend heavily on imported hardware and human reporting.</p>
+          <ul class="mission-points">
+            <li>
+              <span class="check" style="background:rgba(239,68,68,0.1); color:#f87171;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </span>
+              Average emergency response times exceeding 45 minutes across remote expressway sections.
+            </li>
+            <li>
+              <span class="check" style="background:rgba(239,68,68,0.1); color:#f87171;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </span>
+              Incident detection relies on mobile reporting, CCTV with poor coverage, and physical patrol — all with significant gaps.
+            </li>
+            <li>
+              <span class="check" style="background:rgba(239,68,68,0.1); color:#f87171;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </span>
+              Existing surveillance technology is predominantly imported, creating foreign dependency in critical national infrastructure.
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <strong style="color:var(--fg);">MH-ASLN addresses all three gaps</strong> — response time, detection coverage, and sovereignty — in a single integrated system.
+            </li>
+          </ul>
+        </div>
+
+        <div class="mission-visual">
+          <div class="mission-stat-row">
+            <div class="mission-stat-box">
+              <div class="num" style="color:#f87171;">45+</div>
+              <div class="label">Min avg response time today</div>
+            </div>
+            <div class="mission-stat-box">
+              <div class="num gold">&lt;60</div>
+              <div class="label">Sec target with MH-ASLN</div>
+            </div>
+          </div>
+          <div class="mission-stat-row">
+            <div class="mission-stat-box">
+              <div class="num" style="color:#f87171;">~40%</div>
+              <div class="label">Expressway km without real-time coverage</div>
+            </div>
+            <div class="mission-stat-box">
+              <div class="num gold">100%</div>
+              <div class="label">Corridor coverage target</div>
+            </div>
+          </div>
+          <div class="mission-stat-row">
+            <div class="mission-stat-box" style="flex:1">
+              <div class="num" style="font-size:1.3rem; -webkit-text-fill-color:var(--cyan); background:none;">713 km</div>
+              <div class="label">Target corridor: Mumbai–Pune + Samruddhi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Corridors -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Deployment Corridors</span>
+        <h2 class="section-title">Phase 1 Coverage Targets</h2>
+        <p class="section-desc mx-auto">MH-ASLN is designed for Maharashtra's two highest-priority expressway corridors, covering the most critical stretches of national economic and humanitarian importance.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div class="domain-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <div class="domain-icon" style="margin:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+                <path d="M3 12h18M3 6h18M3 18h18"/>
+              </svg>
+            </div>
+            <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--cyan); letter-spacing:0.1em;">CORRIDOR 01</span>
+          </div>
+          <h3>Mumbai–Pune Expressway</h3>
+          <p style="margin-bottom:16px;">The arterial expressway connecting India's financial capital to Pune — one of the highest-traffic and highest-risk corridors in Maharashtra, spanning challenging Western Ghats terrain.</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="tech-spec-tag">~94 km</span>
+            <span class="tech-spec-tag">High gradient terrain</span>
+            <span class="tech-spec-tag">Heavy traffic density</span>
+            <span class="tech-spec-tag">MSRDC jurisdiction</span>
+          </div>
+        </div>
+
+        <div class="domain-card">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <div class="domain-icon" style="margin:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5">
+                <path d="M3 12h18M3 6h18M3 18h18"/>
+              </svg>
+            </div>
+            <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--gold); letter-spacing:0.1em;">CORRIDOR 02</span>
+          </div>
+          <h3>Samruddhi Mahamarg</h3>
+          <p style="margin-bottom:16px;">Maharashtra's landmark 701 km expressway connecting Nagpur to Mumbai — the longest expressway in India and a critical artery for economic development across Vidarbha, Marathwada, and Konkan regions.</p>
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <span class="tech-spec-tag">701 km</span>
+            <span class="tech-spec-tag">Varied terrain</span>
+            <span class="tech-spec-tag">Remote sections</span>
+            <span class="tech-spec-tag">MSRDC jurisdiction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4-System Architecture -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">System Architecture</span>
+        <h2 class="section-title">Four Planned Sovereign Systems</h2>
+        <p class="section-desc mx-auto">MH-ASLN is designed as four interconnected sovereign systems — each addressing a distinct layer of the surveillance challenge, collectively forming a complete autonomous surveillance and response network. These are currently in the concept and planning stage.</p>
+      </div>
+
+      <div class="tech-feature-grid">
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M12 2a10 10 0 110 20A10 10 0 0112 2z"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <h3>Sky-Hive</h3>
+          <p style="font-size:0.82rem; font-family:var(--font-mono); color:var(--cyan); margin-bottom:12px;">Autonomous Drone Fleet Management</p>
+          <p>Sky-Hive is the planned autonomous multi-drone coordination system within MH-ASLN. The concept: a distributed fleet of VTOL drones that patrols designated expressway sections autonomously — self-dispatching on incident triggers, self-docking for recharge, and operating in continuous shifts without manual flight intervention.</p>
+          <div class="tech-specs">
+            <span class="tech-spec-tag">Autonomous dispatch</span>
+            <span class="tech-spec-tag">VTOL platform</span>
+            <span class="tech-spec-tag">Auto-dock &amp; recharge</span>
+            <span class="tech-spec-tag">Fleet coordination</span>
+            <span class="tech-spec-tag">Indigenous firmware</span>
+          </div>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>VAYU-Net</h3>
+          <p style="font-size:0.82rem; font-family:var(--font-mono); color:var(--cyan); margin-bottom:12px;">Edge AI Vision &amp; Inference Engine</p>
+          <p>VAYU-Net is the planned on-device intelligence layer of MH-ASLN. The design goal: all AI processing — accident detection, vehicle classification, debris identification, fire/smoke detection — runs entirely on the drone. No cloud latency. No data sovereignty risk. No external connectivity required for real-time decisions.</p>
+          <div class="tech-specs">
+            <span class="tech-spec-tag">On-device inference</span>
+            <span class="tech-spec-tag">Accident detection</span>
+            <span class="tech-spec-tag">Vehicle classification</span>
+            <span class="tech-spec-tag">Thermal vision</span>
+            <span class="tech-spec-tag">No cloud dependency</span>
+          </div>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1"/>
+            </svg>
+          </div>
+          <h3>MeshLink</h3>
+          <p style="font-size:0.82rem; font-family:var(--font-mono); color:var(--cyan); margin-bottom:12px;">Encrypted Resilient Communication Network</p>
+          <p>MeshLink is the planned communication backbone of MH-ASLN — an encrypted mesh protocol designed to enable drone-to-drone, drone-to-ground, and ground-to-command-centre communication across the entire corridor. Designed for resilience: if any node drops, the mesh self-heals. End-to-end encryption using indigenous cryptographic design.</p>
+          <div class="tech-specs">
+            <span class="tech-spec-tag">Mesh topology</span>
+            <span class="tech-spec-tag">Self-healing network</span>
+            <span class="tech-spec-tag">End-to-end encryption</span>
+            <span class="tech-spec-tag">Low-latency relay</span>
+            <span class="tech-spec-tag">Indigenous crypto</span>
+          </div>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3>Sky-Command</h3>
+          <p style="font-size:0.82rem; font-family:var(--font-mono); color:var(--gold); margin-bottom:12px;">Unified Situational Awareness &amp; Command Centre</p>
+          <p>Sky-Command is the planned operator-facing command and control interface — a unified dashboard designed to consolidate feeds from all active drones, AI-detected incidents, corridor status, and fleet telemetry. Built with MSRDC and highway authority operators as the intended users — single-screen situational awareness across the full corridor.</p>
+          <div class="tech-specs">
+            <span class="tech-spec-tag">Real-time dashboard</span>
+            <span class="tech-spec-tag">Incident alerts</span>
+            <span class="tech-spec-tag">Live drone feeds</span>
+            <span class="tech-spec-tag">Fleet telemetry</span>
+            <span class="tech-spec-tag">Operator-designed UX</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Execution Phases -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Execution Roadmap</span>
+        <h2 class="section-title">Five-Phase Deployment Plan</h2>
+        <p class="section-desc mx-auto">MH-ASLN follows a structured five-phase execution — from foundational R&amp;D through pilot deployment to full-scale rollout — with clear government milestones at each stage.</p>
+      </div>
+
+      <div class="phases-grid">
+        <div class="phase-card current">
+          <div class="phase-num">PHASE 00</div>
+          <h4>Foundation &amp; Formation</h4>
+          <p>Company incorporation, founding team assembly, concept development, and project planning.</p>
+          <div style="margin-top:12px; font-size:0.7rem; font-family:var(--font-mono); color:var(--cyan);">NOW ACTIVE</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">PHASE 01</div>
+          <h4>Prototype Development</h4>
+          <p>Build functional prototypes of all 4 systems. Lab testing. Edge AI model training. Drone platform integration.</p>
+          <div style="margin-top:12px; font-size:0.7rem; font-family:var(--font-mono); color:var(--fg-2);">3–6 MONTHS</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">PHASE 02</div>
+          <h4>Controlled Field Trial</h4>
+          <p>10 km live demonstration on a designated corridor section. MSRDC evaluation. System performance certification.</p>
+          <div style="margin-top:12px; font-size:0.7rem; font-family:var(--font-mono); color:var(--fg-2);">6–12 MONTHS</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">PHASE 03</div>
+          <h4>Government Procurement</h4>
+          <p>Formal partnership agreement. Full technical specification handover. Procurement and contract finalisation with MSRDC/NHAI.</p>
+          <div style="margin-top:12px; font-size:0.7rem; font-family:var(--font-mono); color:var(--fg-2);">12–18 MONTHS</div>
+        </div>
+        <div class="phase-card">
+          <div class="phase-num">PHASE 04</div>
+          <h4>Full Corridor Deployment</h4>
+          <p>Complete rollout across Mumbai-Pune and Samruddhi corridors. Operator training. 24/7 live operations handover.</p>
+          <div style="margin-top:12px; font-size:0.7rem; font-family:var(--font-mono); color:var(--fg-2);">18–36 MONTHS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projected Impact -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Target Metrics</span>
+        <h2 class="section-title">What We Are Designing For</h2>
+        <p class="section-desc mx-auto">These are the target performance specifications AASIOM is designing MH-ASLN to achieve — based on Maharashtra expressway incident data and infrastructure requirements.</p>
+      </div>
+
+      <div class="stats-grid" style="max-width:800px; margin:0 auto;">
+        <div class="stat-item">
+          <div class="stat-number">60s</div>
+          <div class="stat-label">Max incident detection-to-alert time</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">713</div>
+          <div class="stat-label">km of corridor under continuous watch</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Autonomous operation — no patrol gaps</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">0</div>
+          <div class="stat-label">Foreign technology dependencies in system</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <span class="section-label">Government &amp; Institutional Partners</span>
+        <h2>Interested in MH-ASLN?</h2>
+        <p>For MSRDC, NHAI, defence bodies, and strategic investors — we are ready to present a full technical demonstration and partnership proposal.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="contact.html" class="btn btn-primary">Request a Briefing &rarr;</a>
+          <a href="innovation.html" class="btn btn-outline">Explore Our Technology</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+          </a>
+          <p>India's sovereign deep-technology company — building autonomous systems, edge AI, and indigenous semiconductors for the nation's critical infrastructure. Headquartered in Mumbai, India.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>MH-ASLN Systems</h4>
+          <ul>
+            <li><a href="projects.html">Sky-Hive (Drones)</a></li>
+            <li><a href="projects.html">VAYU-Net (Edge AI)</a></li>
+            <li><a href="projects.html">MeshLink (Comms)</a></li>
+            <li><a href="projects.html">Sky-Command (C2)</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="about.html">Make in India</a></li>
+            <li><a href="about.html">Atmanirbhar Bharat</a></li>
+            <li><a href="projects.html">Smart Highways</a></li>
+            <li><a href="about.html">Digital India</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 AASIOM Pvt Ltd. All rights reserved.</span>
+        <span class="footer-india">&#127470;&#127475; Proudly Made in India</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/topo.js" defer></script>
+</body>
+</html>

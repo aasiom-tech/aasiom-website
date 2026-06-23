@@ -1,11 +1,428 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>AASIOM</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AASIOM Pvt Ltd — Sovereign Deep Technology for India</title>
+  <meta name="description"
+    content="AASIOM builds India's sovereign deep technology systems — autonomous aerial intelligence, edge AI, and indigenous semiconductors for critical national infrastructure.">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AASIOM Pvt Ltd — Sovereign Deep Technology for India">
+  <meta property="og:description"
+    content="India's sovereign deep-technology company — designing full-stack autonomous systems, edge AI, and indigenous semiconductors for national infrastructure.">
+  <meta property="og:url" content="https://aasiom.com">
+  <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AASIOM — Sovereign Deep Technology">
+  <meta name="twitter:description"
+    content="Building India's autonomous systems, edge AI, and indigenous semiconductors.">
+  <!-- Network Resilience & Async Fonts -->
+  <script>
+    window.retryAsset = function (el, attempt) {
+      if (attempt > 3) { document.documentElement.classList.add('fonts-failed'); return; }
+      setTimeout(function () {
+        var clone = el.cloneNode();
+        clone.onload = function () { this.onload = null; this.rel = 'stylesheet'; };
+        clone.onerror = function () { window.retryAsset(this, attempt + 1); };
+        el.parentNode.insertBefore(clone, el.nextSibling);
+      }, attempt * 1000);
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    as="style" onload="this.onload=null;this.rel='stylesheet'"
+    onerror="window.retryAsset?window.retryAsset(this,1):null">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
+  <link rel="apple-touch-icon" href="images/aasiom-tab.png">
 </head>
+
 <body>
-  <h1>AASIOM Website</h1>
-  <p>Project setup is ready.</p>
-  <p><strong>Note:</strong> This is an early development version. Final content and design will be added soon.</p>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="innovation.html">Innovation</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <!-- Star field injected by JS -->
+
+    <!-- Left data rail -->
+    <aside class="hero-rail hero-rail--left" aria-hidden="true">
+      <div class="rail-block">
+        <span class="rail-label">Status</span>
+        <span class="rail-value rail-value--live"><span class="rail-dot rail-dot--green"></span>Operational</span>
+      </div>
+      <div class="rail-block">
+        <span class="rail-label">Jurisdiction</span>
+        <span class="rail-value">India — MH</span>
+      </div>
+      <div class="rail-block">
+        <span class="rail-label">Classification</span>
+        <span class="rail-value">Private · Deep-Tech</span>
+      </div>
+      <div class="rail-block">
+        <span class="rail-label">Foreign Deps</span>
+        <span class="rail-value rail-value--zero">0</span>
+      </div>
+    </aside>
+
+    <!-- Center content -->
+    <div class="container hero-center">
+      <div class="hero-pill">
+        <span class="hero-pill-dot"></span>
+        Sovereign Deep-Tech &middot; India-Built &middot; IP-Protected
+      </div>
+      <h1 class="hero-title">
+        The Technology<br>That Protects India<br>
+        <span class="hero-accent">Must Be Built by India</span>
+      </h1>
+      <p class="hero-sub">
+        AASIOM is India's sovereign deep-technology company — designing full-stack autonomous systems, edge AI, and
+        indigenous semiconductors for the nation's most critical infrastructure. No foreign dependencies. No compromised
+        sovereignty.
+      </p>
+      <div class="hero-ctas">
+        <a href="about.html" class="btn btn-primary">Discover AASIOM <span class="btn-arrow">&#8599;</span></a>
+        <a href="projects.html" class="btn btn-ghost">View Projects</a>
+      </div>
+      <!-- Floating tech tags -->
+      <div class="hero-tags">
+        <span class="hero-tag">Drone Systems</span>
+        <span class="hero-tag gold">Edge AI</span>
+        <span class="hero-tag">Semiconductors</span>
+        <span class="hero-tag gold">Mesh Comms</span>
+        <span class="hero-tag">Zero Foreign Deps</span>
+      </div>
+    </div>
+
+    <!-- Right data rail -->
+    <aside class="hero-rail hero-rail--right" aria-hidden="true">
+      <div class="rail-block">
+        <span class="rail-label">Domains</span>
+        <span class="rail-value">3 Active</span>
+      </div>
+      <div class="rail-block">
+        <span class="rail-label">Flagship</span>
+        <span class="rail-value rail-value--cyan">MH-ASLN</span>
+      </div>
+      <div class="rail-block">
+        <span class="rail-label">IP Posture</span>
+        <span class="rail-value">100% Indigenous</span>
+      </div>
+      <div class="rail-block">
+        <span class="rail-label">Founded</span>
+        <span class="rail-value">2026</span>
+      </div>
+    </aside>
+
+    <!-- Planetary horizon arc -->
+    <div class="planet-wrap" aria-hidden="true">
+      <div class="planet-atmo"></div>
+      <div class="planet-ring-2"></div>
+      <div class="planet-ring-1"></div>
+      <div class="planet-orb"></div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">2026</div>
+          <div class="stat-label">Year Incorporated — Maharashtra</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Co-Founders</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Deep-Technology Domains</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Flagship Project in Planning</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why Trust AASIOM -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Why AASIOM</span>
+        <h2 class="section-title">Built for India's Sovereign Future</h2>
+        <p class="section-desc">Three foundational principles that define how we build, what we protect, and why
+          government bodies, defence institutions, and strategic investors trust AASIOM.</p>
+      </div>
+
+      <div class="domains-grid">
+        <div class="domain-card">
+          <div class="domain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3>Sovereignty First</h3>
+          <p>Every system AASIOM builds is designed from first principles — hardware, firmware, and software — with zero
+            foreign dependencies. India's critical infrastructure cannot rely on imported black boxes.</p>
+          <span class="domain-tag active">Strategic Principle</span>
+        </div>
+
+        <div class="domain-card">
+          <div class="domain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <rect x="9" y="9" width="6" height="6" />
+              <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2" />
+            </svg>
+          </div>
+          <h3>Full-Stack Indigenous</h3>
+          <p>From custom SoC architectures to edge-deployed neural networks to encrypted mesh communications — AASIOM
+            controls every layer of the technology stack. This is true Atmanirbharta, not branding.</p>
+          <span class="domain-tag active">Engineering Depth</span>
+        </div>
+
+        <div class="domain-card">
+          <div class="domain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            </svg>
+          </div>
+          <h3>IP-First Architecture</h3>
+          <p>Every novel system design, algorithm, and architecture at AASIOM is assessed for IP protection potential
+            before it is shared or demonstrated. Our intellectual property stays in India.</p>
+          <span class="domain-tag active">Strategic Posture</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Belief -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-visual">
+          <div class="mission-stat-row">
+            <div class="mission-stat-box">
+              <div class="num">2026</div>
+              <div class="label">Year Incorporated</div>
+            </div>
+            <div class="mission-stat-box">
+              <div class="num gold">MH</div>
+              <div class="label">Maharashtra HQ</div>
+            </div>
+          </div>
+          <div class="mission-stat-row">
+            <div class="mission-stat-box">
+              <div class="num">3</div>
+              <div class="label">Co-Founders</div>
+            </div>
+            <div class="mission-stat-box">
+              <div class="num gold">Gov</div>
+              <div class="label">Primary Deployment Model</div>
+            </div>
+          </div>
+          <div class="mission-stat-row">
+            <div class="mission-stat-box" style="flex:1">
+              <div class="num" style="font-size:1.1rem; letter-spacing:0.05em;">Atmanirbhar</div>
+              <div class="label">Make in India Aligned</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mission-content">
+          <span class="section-label">Our Belief</span>
+          <h2 class="section-title">India Is Not a Market.<br>India Is the Mission.</h2>
+          <p class="section-desc">AASIOM was not founded to build a product. It was founded on the belief that India's
+            sovereign capability gap — in autonomous systems, edge intelligence, and indigenous semiconductors — is a
+            national security risk that the private sector must close.</p>
+          <ul class="mission-points">
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              We design systems that India's government can deploy, own, and operate without foreign licence
+              dependencies.
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              We build for public sector scale — MSRDC, NHAI, defence bodies — not Silicon Valley growth metrics.
+            </li>
+            <li>
+              <span class="check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              Every rupee of R&amp;D investment strengthens India's permanent technical capability, not vendor lock-in.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Domains -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Technology Domains</span>
+        <h2 class="section-title">Three Horizons of Deep Technology</h2>
+        <p class="section-desc mx-auto">AASIOM's R&amp;D spans three interconnected domains — each a strategic national
+          capability, each wholly indigenous.</p>
+      </div>
+
+      <div class="tech-stack-preview">
+        <div class="tech-pill">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M12 2a10 10 0 110 20A10 10 0 0112 2z" />
+              <path d="M2 12h20" />
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+            </svg>
+          </div>
+          <div class="name">Drone Systems</div>
+          <div class="desc">Autonomous VTOL &amp; fixed-wing UAV platforms</div>
+        </div>
+        <div class="tech-pill">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+            </svg>
+          </div>
+          <div class="name">Edge AI</div>
+          <div class="desc">On-device inference without cloud dependency</div>
+        </div>
+        <div class="tech-pill">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M5 12.55a11 11 0 0114.08 0" />
+              <path d="M1.42 9a16 16 0 0121.16 0" />
+              <path d="M8.53 16.11a6 6 0 016.95 0" />
+              <circle cx="12" cy="20" r="1" />
+            </svg>
+          </div>
+          <div class="name">Mesh Comms</div>
+          <div class="desc">Encrypted resilient communication networks</div>
+        </div>
+        <div class="tech-pill">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5">
+              <rect x="4" y="4" width="16" height="16" rx="2" />
+              <rect x="9" y="9" width="6" height="6" />
+              <path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2" />
+            </svg>
+          </div>
+          <div class="name">Semiconductors</div>
+          <div class="desc">Custom SoC design — India's silicon future</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <a href="innovation.html" class="btn btn-outline">Explore Our R&amp;D Philosophy &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <span class="section-label">Partner with AASIOM</span>
+        <h2>Ready to Build India's Sovereign Infrastructure?</h2>
+        <p>Government bodies, defence institutions, and strategic investors — let's discuss how AASIOM's indigenous
+          technology can serve India's long-term mission.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="contact.html" class="btn btn-primary">Start a Conversation &rarr;</a>
+          <a href="projects.html" class="btn btn-outline">View Our Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+          </a>
+          <p>India's sovereign deep-technology company — building autonomous systems, edge AI, and indigenous
+            semiconductors for the nation's critical infrastructure. Headquartered in Mumbai, India.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul>
+            <li><a href="innovation.html">Drone Systems</a></li>
+            <li><a href="innovation.html">Edge AI</a></li>
+            <li><a href="innovation.html">Semiconductors</a></li>
+            <li><a href="innovation.html">Mesh Comms</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="about.html">Make in India</a></li>
+            <li><a href="about.html">Atmanirbhar Bharat</a></li>
+            <li><a href="projects.html">Smart Highways</a></li>
+            <li><a href="about.html">Digital India</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 AASIOM Pvt Ltd. All rights reserved.</span>
+        <span class="footer-india">&#127470;&#127475; Proudly Made in India</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/topo.js" defer></script>
 </body>
+
 </html>
