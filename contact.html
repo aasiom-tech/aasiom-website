@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Contact — AASIOM Pvt Ltd</title>
-  <meta name="description" content="Get in touch with AASIOM Pvt Ltd — government partnerships, research collaborations, and investment inquiries for India's sovereign deep technology.">
+  <meta name="description" content="Contact AASIOM for ANVIRA, highway incident response, fleet operations, insurance workflows, research collaboration, and operational-system discussions.">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact — AASIOM Pvt Ltd">
-  <meta property="og:description" content="Government partnerships, research collaborations, and investment inquiries.">
+  <meta property="og:description" content="Start a research-led conversation with AASIOM about ANVIRA, fleet operations, highway incidents, and claim-flow coordination.">
   <meta property="og:url" content="https://aasiom.com/contact">
   <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
+
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Contact AASIOM">
-  <meta name="twitter:description" content="Get in touch for partnerships, collaborations, and investment inquiries.">
-  <!-- Network Resilience & Async Fonts -->
+  <meta name="twitter:description" content="Contact AASIOM for ANVIRA and operational research conversations.">
+
   <script>
     window.retryAsset = function(el, attempt) {
       if(attempt > 3) { document.documentElement.classList.add('fonts-failed'); return; }
@@ -25,15 +28,338 @@
       }, attempt * 1000);
     };
   </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="window.retryAsset?window.retryAsset(this,1):null">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+  </noscript>
+
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
   <link rel="apple-touch-icon" href="images/aasiom-tab.png">
+
+  <style>
+    .contact-page {
+      overflow: hidden;
+    }
+
+    .contact-hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 105px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(34, 211, 238, 0.16), transparent 32%),
+        radial-gradient(circle at 82% 18%, rgba(240, 192, 96, 0.09), transparent 28%),
+        linear-gradient(180deg, rgba(6, 10, 22, 0.96), rgba(6, 10, 22, 0.78));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .contact-label {
+      display: inline-flex;
+      align-items: center;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 8px 14px;
+      border: 1px solid rgba(34, 211, 238, 0.28);
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.08);
+      margin-bottom: 28px;
+    }
+
+    .contact-title {
+      font-size: clamp(3.2rem, 7vw, 6.5rem);
+      line-height: 0.94;
+      letter-spacing: -0.07em;
+      font-weight: 900;
+      margin: 0 0 30px;
+    }
+
+    .contact-title span {
+      color: var(--cyan);
+      text-shadow: 0 0 28px rgba(34, 211, 238, 0.35);
+    }
+
+    .contact-hero-text {
+      max-width: 720px;
+      color: var(--fg-2);
+      font-size: 1.08rem;
+      line-height: 1.85;
+      margin-bottom: 30px;
+    }
+
+    .contact-note {
+      max-width: 640px;
+      padding-left: 18px;
+      border-left: 2px solid var(--cyan);
+      color: var(--fg);
+      line-height: 1.75;
+      font-size: 0.98rem;
+    }
+
+    .contact-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .contact-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.04);
+      color: var(--fg-2);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-direct-card {
+      padding: 34px;
+      border-radius: 30px;
+      border: 1px solid rgba(34, 211, 238, 0.20);
+      background:
+        radial-gradient(circle at 82% 18%, rgba(34, 211, 238, 0.12), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+      box-shadow: 0 26px 90px rgba(0,0,0,0.38);
+    }
+
+    .contact-direct-card h2 {
+      font-size: 2rem;
+      line-height: 1.15;
+      margin: 0 0 18px;
+    }
+
+    .contact-direct-card p {
+      color: var(--fg-2);
+      line-height: 1.8;
+      margin: 0 0 28px;
+    }
+
+    .contact-direct-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-direct-item {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      padding: 15px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.035);
+      color: var(--fg-2);
+      font-size: 0.94rem;
+    }
+
+    .contact-direct-item svg {
+      width: 20px;
+      height: 20px;
+      color: var(--cyan);
+      flex: none;
+    }
+
+    .contact-direct-item a {
+      color: var(--fg);
+    }
+
+    .contact-section {
+      padding: 110px 0;
+    }
+
+    .contact-intro {
+      max-width: 760px;
+      margin: 0 auto 56px;
+      text-align: center;
+    }
+
+    .contact-intro h2 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.055em;
+      margin: 16px 0 18px;
+      font-weight: 850;
+    }
+
+    .contact-intro p {
+      color: var(--fg-2);
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .engage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .engage-card {
+      min-height: 300px;
+      padding: 32px 28px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.035);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .engage-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34,211,238,0.32);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.32);
+    }
+
+    .engage-icon {
+      width: 66px;
+      height: 66px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      background: rgba(34,211,238,0.08);
+      border: 1px solid rgba(34,211,238,0.24);
+      color: var(--cyan);
+      box-shadow: 0 0 24px rgba(34,211,238,0.14);
+    }
+
+    .engage-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke-width: 1.7;
+      filter: drop-shadow(0 0 8px rgba(34,211,238,0.42));
+    }
+
+    .engage-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.15rem;
+      color: var(--fg);
+    }
+
+    .engage-card p {
+      color: var(--fg-2);
+      line-height: 1.75;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-form-layout {
+      display: grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .contact-form-panel {
+      padding: 34px;
+      border-radius: 30px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .contact-form-panel h3 {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+    }
+
+    .contact-form-panel > p {
+      color: var(--fg-2);
+      font-size: 0.94rem;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .contact-side-panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .contact-side-card {
+      padding: 28px;
+      border-radius: 26px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.035);
+    }
+
+    .contact-side-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+
+    .contact-side-card p {
+      color: var(--fg-2);
+      line-height: 1.7;
+      font-size: 0.94rem;
+      margin: 0;
+    }
+
+    .contact-side-card a {
+      color: var(--cyan);
+      word-break: break-word;
+    }
+
+    .contact-philosophy {
+      margin-top: 34px;
+      padding: 36px;
+      border-radius: 30px;
+      border: 1px solid rgba(34,211,238,0.18);
+      background:
+        radial-gradient(circle at 82% 20%, rgba(34,211,238,0.11), transparent 34%),
+        rgba(255,255,255,0.035);
+      text-align: center;
+    }
+
+    .contact-philosophy h2 {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .contact-philosophy p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--fg-2);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 980px) {
+      .contact-hero-grid,
+      .contact-form-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .engage-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .contact-hero {
+        padding: 130px 0 80px;
+      }
+
+      .engage-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body>
+
+<body class="contact-page">
   <div class="noise-overlay" aria-hidden="true"></div>
 
   <!-- Navigation -->
@@ -42,6 +368,7 @@
       <a href="index.html" class="nav-logo">
         <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
       </a>
+
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -51,216 +378,292 @@
         <li><a href="insights.html">Insights</a></li>
         <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
       </ul>
+
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
     </div>
   </nav>
 
-  <!-- Page Header -->
-  <section class="page-header page-header--contact">
-    <!-- Orbital rings -->
-    <div class="ph-orbital" aria-hidden="true">
-      <div class="ph-orbital-ring ph-orbital-ring--1"></div>
-      <div class="ph-orbital-ring ph-orbital-ring--2"></div>
-      <div class="ph-orbital-ring ph-orbital-ring--3"></div>
-    </div>
-    <!-- Floating nodes -->
-    <div class="ph-nodes" aria-hidden="true">
-      <span class="ph-node" style="top:14%;left:9%;animation-delay:0s;"></span>
-      <span class="ph-node" style="top:20%;left:86%;animation-delay:1.3s;"></span>
-      <span class="ph-node ph-node--gold" style="top:65%;left:7%;animation-delay:0.6s;"></span>
-      <span class="ph-node" style="top:75%;left:91%;animation-delay:1.9s;"></span>
-      <span class="ph-node ph-node--gold" style="top:10%;left:52%;animation-delay:0.2s;"></span>
-      <span class="ph-node" style="top:85%;left:42%;animation-delay:1.1s;"></span>
-    </div>
-
+  <!-- Hero -->
+  <section class="contact-hero">
     <div class="container">
-      <span class="section-label">Contact</span>
+      <div class="contact-hero-grid">
 
-      <!-- Status badges -->
-      <div class="ph-status-row">
-        <span class="ph-live-badge">
-          <span class="ph-live-dot"></span>
-          Open for Partnerships
-        </span>
-        <span class="ph-live-badge ph-live-badge--gold">
-          <svg width="10" height="10" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#f0c060"/></svg>
-          &lt;48hr Response
-        </span>
-      </div>
+        <div>
+          <div class="contact-label">Contact AASIOM</div>
 
-      <h1>Let's Build<br>India Together</h1>
-      <p>Government bodies, research institutions, and strategic investors — we are ready to discuss how AASIOM's sovereign technology can serve India's long-term mission.</p>
+          <h1 class="contact-title">
+            Start a real<br>
+            <span>conversation.</span>
+          </h1>
 
-      <!-- Accent tagline -->
-      <p class="ph-tagline">Sovereign partnerships for sovereign technology.<br>Every conversation matters.</p>
+          <p class="contact-hero-text">
+            AASIOM welcomes serious conversations with fleet operators, insurers, survey teams,
+            brokers, telematics teams, highway-assistance vendors, researchers, and infrastructure professionals.
+          </p>
 
-      <!-- Contact channel chips -->
-      <div class="ph-chips">
-        <div class="ph-chip">
-          <span class="ph-chip-value">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          </span>
-          <span class="ph-chip-label">Government</span>
+          <p class="contact-note">
+            This is not a sales-demo page. Share the operating problem, research context, or collaboration possibility first.
+          </p>
+
+          <div class="contact-chip-row">
+            <span class="contact-chip">ANVIRA</span>
+            <span class="contact-chip">Fleet operations</span>
+            <span class="contact-chip">Claims workflow</span>
+            <span class="contact-chip">Research collaboration</span>
+          </div>
         </div>
-        <div class="ph-chip">
-          <span class="ph-chip-value">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-          </span>
-          <span class="ph-chip-label">Research</span>
-        </div>
-        <div class="ph-chip">
-          <span class="ph-chip-value">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          </span>
-          <span class="ph-chip-label">Investment</span>
-        </div>
-        <div class="ph-chip">
-          <span class="ph-chip-value">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </span>
-          <span class="ph-chip-label">General</span>
-        </div>
-      </div>
 
-      <!-- Domain badges -->
-      <div class="ph-domain-row">
-        <span class="ph-domain-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          pvsao@aasiom.com
-        </span>
-        <span class="ph-domain-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Dadar (East), Mumbai
-        </span>
-        <span class="ph-domain-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Classified-Ready
-        </span>
-      </div>
+        <div class="contact-direct-card">
+          <h2>Direct contact</h2>
 
-      <!-- Scroll hint -->
-      <div class="ph-scroll-hint">
-        <span>Scroll to contact form</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          <p>
+            For serious conversations about AASIOM, ANVIRA, field research, and operational-system direction.
+          </p>
+
+          <div class="contact-direct-list">
+            <div class="contact-direct-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M4 4h16v16H4z"></path>
+                <path d="M4 7l8 6 8-6"></path>
+              </svg>
+              <a href="mailto:pvsao@aasiom.com">pvsao@aasiom.com</a>
+            </div>
+
+            <div class="contact-direct-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9 10.5a16 16 0 0 0 4.5 4.5l1.17-1.15a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <a href="tel:+917397813761">+91 7397813761</a>
+            </div>
+
+            <div class="contact-direct-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Dadar East, Mumbai</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Contact Grid -->
-  <section class="section">
+  <!-- Who We Engage With -->
+  <section class="contact-section">
     <div class="container">
-      <div class="contact-grid">
+      <div class="contact-intro">
+        <span class="section-label">Who We Engage With</span>
+        <h2>Built for serious operational conversations.</h2>
+        <p>
+          AASIOM is interested in people who understand the real cost of delayed incident response,
+          unclear handoffs, weak early information, and claim-flow friction.
+        </p>
+      </div>
 
-        <!-- Form -->
-        <div class="contact-form">
-          <h3 style="margin-bottom:8px;">Send Us a Message</h3>
-          <p style="color:var(--fg-2); font-size:0.9rem; margin-bottom:28px;">We respond within 2 business days.</p>
+      <div class="engage-grid">
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 7h11v8H3z"></path>
+              <path d="M14 10h4l3 3v2h-7z"></path>
+              <circle cx="7" cy="18" r="2"></circle>
+              <circle cx="18" cy="18" r="2"></circle>
+            </svg>
+          </div>
+          <h3>Fleet Operators</h3>
+          <p>
+            For teams handling breakdowns, accidents, driver reporting, dispatch delays,
+            vehicle downtime, and highway-response coordination.
+          </p>
+          <span class="domain-tag active">Fleet Context</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M7 3h10l2 2v16H5V5l2-2z"></path>
+              <path d="M9 9h6"></path>
+              <path d="M9 13h6"></path>
+              <path d="M9 17h4"></path>
+            </svg>
+          </div>
+          <h3>Insurers &amp; Survey Teams</h3>
+          <p>
+            For organisations studying cleaner claim evidence, faster assessment,
+            structured incident documentation, and claim leakage.
+          </p>
+          <span class="domain-tag active">Claims Workflow</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 8v4l3 2"></path>
+              <path d="M4 4l3 3"></path>
+              <path d="M20 4l-3 3"></path>
+            </svg>
+          </div>
+          <h3>Highway Assistance Vendors</h3>
+          <p>
+            For tow, rescue, repair, and assistance teams interested in earlier dispatch,
+            better location context, and cleaner incident information.
+          </p>
+          <span class="domain-tag">Response Network</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="6" cy="7" r="2"></circle>
+              <circle cx="18" cy="17" r="2"></circle>
+              <path d="M8 7h4a4 4 0 0 1 4 4v4"></path>
+              <path d="M6 9v6a2 2 0 0 0 2 2h8"></path>
+            </svg>
+          </div>
+          <h3>Brokers &amp; Telematics Teams</h3>
+          <p>
+            For teams working around vehicle data, intermediated claims, fleet workflows,
+            and incident information routing.
+          </p>
+          <span class="domain-tag">System Partners</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M4 19V5"></path>
+              <path d="M4 19h16"></path>
+              <path d="M7 15l3-4 3 2 4-6"></path>
+            </svg>
+          </div>
+          <h3>Researchers</h3>
+          <p>
+            For researchers and institutions interested in field notes, workflow mapping,
+            operational evidence, and responsible data handling.
+          </p>
+          <span class="domain-tag">Research Fit</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"></path>
+              <path d="M9 12l2 2 4-5"></path>
+            </svg>
+          </div>
+          <h3>ANVIRA Discussions</h3>
+          <p>
+            For focused conversations about ANVIRA’s operating thesis, field validation,
+            system direction, and possible design partnerships.
+          </p>
+          <span class="domain-tag">Current Focus</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact-section mission-section">
+    <div class="container">
+      <div class="contact-form-layout">
+
+        <div class="contact-form-panel">
+          <h3>Send a Message</h3>
+          <p>
+            Share the operational context first. A short, specific message is more useful than a generic partnership request.
+          </p>
 
           <form id="contactForm" action="#" method="POST">
             <div class="form-group">
               <label for="name" class="form-label">Full Name</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
             </div>
+
             <div class="form-group">
               <label for="email" class="form-label">Email Address</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="you@organization.gov.in" required>
+              <input type="email" id="email" name="email" class="form-input" placeholder="you@organization.com" required>
             </div>
+
             <div class="form-group">
               <label for="org" class="form-label">Organization</label>
-              <input type="text" id="org" name="org" class="form-input" placeholder="MSRDC, IIT, Ministry of...">
+              <input type="text" id="org" name="org" class="form-input" placeholder="Fleet company, insurer, research institution...">
             </div>
+
             <div class="form-group">
-              <label for="type" class="form-label">Inquiry Type</label>
+              <label for="role" class="form-label">Role / Function</label>
+              <input type="text" id="role" name="role" class="form-input" placeholder="Operations, claims, research, strategy...">
+            </div>
+
+            <div class="form-group">
+              <label for="type" class="form-label">Reason for Contact</label>
               <select id="type" name="type" class="form-select">
-                <option value="">Select inquiry type</option>
-                <option value="government">Government Partnership</option>
-                <option value="research">Research Collaboration</option>
-                <option value="investment">Strategic Investment</option>
-                <option value="demo">Technical Demonstration</option>
-                <option value="media">Media / Press</option>
-                <option value="general">General Inquiry</option>
+                <option value="">Select reason</option>
+                <option value="fleet">Fleet / logistics operations</option>
+                <option value="insurance">Insurance or claims workflow</option>
+                <option value="survey">Survey / assessment workflow</option>
+                <option value="assistance">Highway assistance / tow operations</option>
+                <option value="telematics">Telematics or data integration</option>
+                <option value="research">Research collaboration</option>
+                <option value="anvira">ANVIRA discussion</option>
+                <option value="media">Media / press</option>
+                <option value="general">General inquiry</option>
               </select>
             </div>
+
             <div class="form-group">
               <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-textarea" placeholder="Describe your interest in AASIOM's technology or partnership..." required></textarea>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what happens in your incident-response or claim workflow, where information gets delayed, or why you want to speak with AASIOM." required></textarea>
             </div>
+
             <button type="submit" class="btn btn-primary form-submit" style="width:100%; justify-content:center;">
               Send Message &rarr;
             </button>
           </form>
         </div>
 
-        <!-- Info Cards -->
-        <div class="contact-info-cards">
-
-          <div class="contact-info-card">
-            <div class="icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-              </svg>
-            </div>
-            <div class="contact-info-content">
-              <h3>Government &amp; Defence</h3>
-              <p>For MSRDC, highway authorities, defence bodies, and public sector technology partnerships.</p>
-              <a href="mailto:pvsao@aasiom.com">pvsao@aasiom.com</a>
-            </div>
+        <div class="contact-side-panel">
+          <div class="contact-side-card">
+            <h3>Founder Contact</h3>
+            <p>
+              For serious conversations about AASIOM, ANVIRA, field research, and system direction.
+              <br><br>
+              <a href="mailto:pvsao@aasiom.com">pvsao@aasiom.com</a><br>
+              <a href="tel:+917397813761">+91 7397813761</a>
+            </p>
           </div>
 
-          <div class="contact-info-card">
-            <div class="icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-              </svg>
-            </div>
-            <div class="contact-info-content">
-              <h3>Research Collaboration</h3>
-              <p>IITs, NITs, DRDO, ISRO, and technical institutions interested in joint sovereign R&amp;D.</p>
-              <a href="mailto:pvsao@aasiom.com">pvsao@aasiom.com</a>
-            </div>
+          <div class="contact-side-card">
+            <h3>Company Information</h3>
+            <p>
+              27, Ground Floor, Sunshine Plaza,<br>
+              Mumbai Marathi Granth Sangrahalaya Marg,<br>
+              Dadar East, Mumbai - 400014<br><br>
+              AASIOM Pvt Ltd — registered in India.
+            </p>
           </div>
 
-          <div class="contact-info-card">
-            <div class="icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-              </svg>
-            </div>
-            <div class="contact-info-content">
-              <h3>Strategic Investment</h3>
-              <p>Investors aligned with India's deep-tech sovereignty and national infrastructure mission.</p>
-              <a href="mailto:pvsao@aasiom.com">pvsao@aasiom.com</a>
-            </div>
+          <div class="contact-side-card">
+            <h3>How to Reach Out</h3>
+            <p>
+              Mention the operating problem, stakeholder context, and why the conversation matters.
+              This helps AASIOM respond with the right context.
+            </p>
           </div>
-
-          <div class="contact-info-card">
-            <div class="icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div class="contact-info-content">
-              <h3>Headquarters</h3>
-              <p>27, Ground Floor, Sunshine Plaza,<br>Mumbai Marathi Granth Sangrahalaya Marg,<br>Dadar (East), Mumbai-400 014</p>
-              <p style="margin-top:4px; font-size:0.82rem; color:var(--fg-2);">AASIOM Pvt Ltd — Registered in India</p>
-            </div>
-          </div>
-
-          <div class="contact-info-card">
-            <div class="icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div class="contact-info-content">
-              <h3>General Inquiries</h3>
-              <p>For all other questions, media requests, and information.</p>
-              <a href="mailto:pvsao@aasiom.com">pvsao@aasiom.com</a>
-              <span style="display:block; margin-top:6px;"><a href="tel:+917397813761">+91 7397813761</a></span>
-            </div>
-          </div>
-
         </div>
+
+      </div>
+
+      <div class="contact-philosophy">
+        <h2>Operational reality first. Technology second.</h2>
+        <p>
+          AASIOM is interested in conversations that begin with real workflows, real constraints,
+          and real problems worth solving.
+        </p>
       </div>
     </div>
   </section>
@@ -269,43 +672,52 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">
             <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
           </a>
-          <p>India's sovereign deep-technology company — building autonomous systems, edge AI, and indigenous semiconductors for the nation's critical infrastructure. Headquartered in Mumbai, India.</p>
+          <p>
+            AASIOM is an operational-research company building ANVIRA for highway incident response,
+            interstate fleet operations, and claim-flow coordination.
+          </p>
         </div>
+
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#team">Team</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="innovation.html">Innovation</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
-          <h4>Technology</h4>
+          <h4>Focus</h4>
           <ul>
-            <li><a href="innovation.html">Drone Systems</a></li>
-            <li><a href="innovation.html">Edge AI</a></li>
-            <li><a href="innovation.html">Semiconductors</a></li>
-            <li><a href="innovation.html">Mesh Comms</a></li>
+            <li><a href="projects.html">ANVIRA</a></li>
+            <li><a href="projects.html">Highway Response</a></li>
+            <li><a href="projects.html">Fleet Operations</a></li>
+            <li><a href="projects.html">Claims Flow</a></li>
           </ul>
         </div>
+
         <div class="footer-col">
-          <h4>Frameworks</h4>
+          <h4>Approach</h4>
           <ul>
-            <li><a href="about.html">Make in India</a></li>
-            <li><a href="about.html">Atmanirbhar Bharat</a></li>
-            <li><a href="projects.html">Smart Highways</a></li>
-            <li><a href="about.html">Digital India</a></li>
+            <li><a href="about.html">Field Research</a></li>
+            <li><a href="about.html">System Mapping</a></li>
+            <li><a href="about.html">Data Governance</a></li>
+            <li><a href="about.html">Technology Last</a></li>
           </ul>
         </div>
+
       </div>
+
       <div class="footer-bottom">
         <span>&copy; 2026 AASIOM Pvt Ltd. All rights reserved.</span>
-        <span class="footer-india">&#127470;&#127475; Proudly Made in India</span>
+        <span class="footer-india">Operational reality first. Technology second.</span>
       </div>
     </div>
   </footer>
