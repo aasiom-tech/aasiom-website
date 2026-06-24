@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>About — AASIOM Pvt Ltd</title>
   <meta name="description" content="AASIOM is an operational-research company building ANVIRA for highway incident response, fleet operations, and claim-flow coordination.">
+
   <meta property="og:type" content="website">
   <meta property="og:title" content="About — AASIOM Pvt Ltd">
-  <meta property="og:description" content="Founder-led, field-grounded, and focused on ANVIRA.">
+  <meta property="og:description" content="Field research before technology.">
   <meta property="og:url" content="https://aasiom.com/about">
   <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
+
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="About AASIOM">
   <meta name="twitter:description" content="AASIOM studies highway incident response, fleet operations, and claim-flow coordination before building technology.">
@@ -29,285 +32,355 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="window.retryAsset?window.retryAsset(this,1):null">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+  </noscript>
+
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
   <link rel="apple-touch-icon" href="images/aasiom-tab.png">
 
   <style>
-    .about-premium {
-      position: relative;
+    .about-page {
       overflow: hidden;
     }
 
-    .about-premium::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    .about-hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      padding: 150px 0 110px;
       background:
-        radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.12), transparent 32%),
-        radial-gradient(circle at 80% 10%, rgba(240, 192, 96, 0.08), transparent 30%),
-        linear-gradient(180deg, rgba(9, 15, 30, 0.35), rgba(9, 15, 30, 0));
-      pointer-events: none;
+        radial-gradient(circle at 18% 20%, rgba(34, 211, 238, 0.16), transparent 32%),
+        radial-gradient(circle at 82% 22%, rgba(240, 192, 96, 0.10), transparent 28%),
+        linear-gradient(180deg, rgba(6, 10, 22, 0.95), rgba(6, 10, 22, 0.78));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .about-hero-grid {
-      position: relative;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 56px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 64px;
       align-items: center;
-      z-index: 2;
     }
 
-    .about-eyebrow {
+    .about-label {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 8px 14px;
-      border: 1px solid rgba(34, 211, 238, 0.3);
-      border-radius: 999px;
       color: var(--cyan);
-      background: rgba(34, 211, 238, 0.08);
       font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      margin-bottom: 24px;
+      padding: 8px 14px;
+      border: 1px solid rgba(34, 211, 238, 0.28);
+      border-radius: 999px;
+      background: rgba(34, 211, 238, 0.08);
+      margin-bottom: 28px;
     }
 
-    .about-hero-title {
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 0.94;
-      letter-spacing: -0.07em;
-      margin: 0 0 28px;
+    .about-title {
+      font-size: clamp(3.4rem, 7vw, 6.8rem);
+      line-height: 0.92;
+      letter-spacing: -0.075em;
       font-weight: 900;
+      margin: 0 0 30px;
     }
 
-    .about-hero-title span {
+    .about-title span {
       color: var(--cyan);
       text-shadow: 0 0 28px rgba(34, 211, 238, 0.35);
     }
 
-    .about-hero-copy {
-      max-width: 720px;
+    .about-hero-text {
+      max-width: 710px;
       color: var(--fg-2);
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       line-height: 1.85;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
-    .about-hero-note {
-      color: var(--fg);
-      font-size: 1rem;
-      line-height: 1.7;
-      border-left: 2px solid var(--cyan);
+    .about-note {
+      max-width: 620px;
       padding-left: 18px;
-      margin-top: 28px;
+      border-left: 2px solid var(--cyan);
+      color: var(--fg);
+      line-height: 1.75;
+      font-size: 0.98rem;
     }
 
-    .about-signal-card {
-      padding: 28px;
-      border: 1px solid rgba(34, 211, 238, 0.18);
-      border-radius: 28px;
-      background:
-        linear-gradient(180deg, rgba(34, 211, 238, 0.09), rgba(255, 255, 255, 0.02)),
-        rgba(8, 14, 28, 0.84);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(16px);
-    }
-
-    .about-signal-top {
+    .about-chip-row {
       display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
     }
 
-    .about-signal-label {
+    .about-chip {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.04);
+      color: var(--fg-2);
       font-family: var(--font-mono);
-      color: var(--fg-3);
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .about-signal-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--cyan);
-      box-shadow: 0 0 20px rgba(34, 211, 238, 0.8);
+    .about-system-card {
+      padding: 32px;
+      border-radius: 30px;
+      border: 1px solid rgba(34, 211, 238, 0.20);
+      background:
+        radial-gradient(circle at 80% 18%, rgba(34, 211, 238, 0.12), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
+      box-shadow: 0 26px 90px rgba(0,0,0,0.38);
     }
 
-    .about-signal-title {
+    .about-system-card h2 {
       font-size: 2rem;
-      line-height: 1.1;
-      font-weight: 800;
-      margin-bottom: 18px;
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    .about-system-card p {
+      color: var(--fg-2);
+      line-height: 1.8;
+      margin: 0;
     }
 
     .about-flow {
       display: grid;
       gap: 12px;
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .about-flow-item {
       display: flex;
-      align-items: center;
       gap: 14px;
+      align-items: center;
       padding: 14px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.035);
       color: var(--fg-2);
       font-size: 0.92rem;
     }
 
     .about-flow-num {
-      font-family: var(--font-mono);
       color: var(--cyan);
+      font-family: var(--font-mono);
       font-size: 0.78rem;
     }
 
-    .about-section-title {
-      font-size: clamp(2rem, 4vw, 3.8rem);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
-      margin-bottom: 20px;
+    .about-block {
+      padding: 110px 0;
     }
 
     .about-split {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 60px;
+      grid-template-columns: 0.88fr 1.12fr;
+      gap: 70px;
       align-items: start;
     }
 
-    .about-large-copy {
-      color: var(--fg-2);
-      font-size: 1rem;
-      line-height: 1.85;
-      margin-bottom: 20px;
+    .about-section-title {
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.055em;
+      margin: 16px 0 0;
+      font-weight: 850;
     }
 
-    .about-metric-grid {
+    .about-copy {
+      color: var(--fg-2);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin: 0 0 22px;
+    }
+
+    .about-metrics {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 18px;
+      margin-top: 34px;
     }
 
     .about-metric {
-      min-height: 150px;
+      min-height: 140px;
       padding: 24px;
       border-radius: 24px;
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255,255,255,0.09);
       background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
     }
 
     .about-metric strong {
       display: block;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--fg);
       margin-bottom: 10px;
     }
 
     .about-metric span {
-      display: block;
       color: var(--fg-2);
-      line-height: 1.6;
       font-size: 0.9rem;
+      line-height: 1.6;
     }
 
-    .about-pro-icon {
-      width: 74px;
-      height: 74px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 22px;
-      margin-bottom: 26px;
-      background: rgba(34, 211, 238, 0.08);
-      border: 1px solid rgba(34, 211, 238, 0.2);
-      box-shadow: 0 0 26px rgba(34, 211, 238, 0.12);
+    .think-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
     }
 
-    .about-pro-icon svg {
-      width: 44px;
-      height: 44px;
-      color: var(--cyan);
-      stroke-width: 1.5;
-      filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.5));
-    }
-
-    .about-card-polished {
-      min-height: 360px;
-      padding: 34px 30px;
+    .think-card {
+      min-height: 330px;
+      padding: 32px 28px;
       border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.035);
       transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
-    .about-card-polished:hover {
-      transform: translateY(-8px);
-      border-color: rgba(34, 211, 238, 0.38);
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+    .think-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(34,211,238,0.32);
+      box-shadow: 0 22px 70px rgba(0,0,0,0.32);
     }
 
-    .about-card-polished h3 {
-      font-size: 1.2rem;
-      margin-bottom: 14px;
+    .think-icon {
+      width: 68px;
+      height: 68px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      background: rgba(34,211,238,0.08);
+      border: 1px solid rgba(34,211,238,0.24);
+      color: var(--cyan);
+      box-shadow: 0 0 24px rgba(34,211,238,0.14);
     }
 
-    .about-card-polished p {
+    .think-icon svg {
+      width: 38px;
+      height: 38px;
+      stroke-width: 1.7;
+      filter: drop-shadow(0 0 8px rgba(34,211,238,0.42));
+    }
+
+    .think-card h3 {
+      font-size: 1.15rem;
+      margin: 0 0 14px;
+      color: var(--fg);
+    }
+
+    .think-card p {
+      color: var(--fg-2);
+      font-size: 0.95rem;
       line-height: 1.75;
+      margin-bottom: 20px;
     }
 
-    .team-card-pro {
-      padding: 30px;
-      border-radius: 28px;
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .team-card {
       position: relative;
       overflow: hidden;
+      padding: 32px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.035);
     }
 
-    .team-card-pro::after {
+    .team-card::after {
       content: "";
       position: absolute;
       inset: auto 0 0 0;
       height: 3px;
       background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-      opacity: 0.7;
+      opacity: 0.65;
+    }
+
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      color: var(--fg);
+      font-weight: 800;
+      font-size: 1.25rem;
+      background: rgba(34,211,238,0.10);
+      border: 1px solid rgba(34,211,238,0.26);
+    }
+
+    .team-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .team-role {
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      line-height: 1.5;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .team-card p {
+      color: var(--fg-2);
+      line-height: 1.75;
+      font-size: 0.94rem;
+    }
+
+    .core-card {
+      max-width: 430px;
+      margin: 56px auto 0;
     }
 
     .research-name-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 16px;
+      margin-top: 34px;
     }
 
     .research-name-card {
       padding: 22px 18px;
-      border-radius: 20px;
       text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.035);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.035);
     }
 
     .research-name-card h3 {
-      font-size: 0.95rem;
-      line-height: 1.35;
       margin: 0;
       color: var(--fg);
+      font-size: 0.95rem;
+      line-height: 1.35;
     }
 
     .governance-panel {
-      padding: 36px;
+      padding: 38px;
       border-radius: 30px;
-      border: 1px solid rgba(34, 211, 238, 0.18);
+      border: 1px solid rgba(34,211,238,0.18);
       background:
-        radial-gradient(circle at 80% 20%, rgba(34, 211, 238, 0.10), transparent 32%),
-        rgba(255, 255, 255, 0.035);
+        radial-gradient(circle at 82% 20%, rgba(34,211,238,0.11), transparent 34%),
+        rgba(255,255,255,0.035);
     }
 
     @media (max-width: 980px) {
@@ -316,28 +389,38 @@
         grid-template-columns: 1fr;
       }
 
+      .think-grid,
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .research-name-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 620px) {
-      .about-metric-grid,
+    @media (max-width: 640px) {
+      .about-hero {
+        padding: 130px 0 80px;
+      }
+
+      .think-grid,
+      .team-grid,
+      .about-metrics,
       .research-name-grid {
         grid-template-columns: 1fr;
       }
 
-      .about-card-polished {
+      .think-card {
         min-height: auto;
       }
     }
   </style>
 </head>
 
-<body>
+<body class="about-page">
   <div class="noise-overlay" aria-hidden="true"></div>
 
-  <!-- Navigation -->
   <nav class="nav scrolled" id="navbar">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">
@@ -356,321 +439,215 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="page-header page-header--about about-premium">
+  <section class="about-hero">
     <div class="container">
       <div class="about-hero-grid">
-
         <div>
-          <div class="about-eyebrow">
-            <span>About AASIOM</span>
-          </div>
+          <div class="about-label">About AASIOM</div>
 
-          <h1 class="about-hero-title">
+          <h1 class="about-title">
             Fieldwork before<br>
             <span>technology.</span>
           </h1>
 
-          <p class="about-hero-copy">
-            AASIOM is an operational-research company studying highway incidents, fleet operations,
-            and claim-flow coordination before building technology. Its current focus is ANVIRA —
-            an incident-to-resolution system direction for highway freight.
+          <p class="about-hero-text">
+            AASIOM studies highway incidents, fleet operations, response delays, and claim-flow gaps before building technology.
+            Our current focus is ANVIRA — a system direction for improving how highway incidents are reported, coordinated, and documented.
           </p>
 
-          <p class="about-hero-note">
-            We do not begin with a product claim. We begin with the road, the dispatcher,
-            the driver, the responder, the insurer, and the handoffs between them.
+          <p class="about-note">
+            We start with the road, the driver, the fleet operator, the responder, the insurer, and the handoffs between them.
           </p>
 
-          <div class="ph-chips" style="margin-top:32px;">
-            <div class="ph-chip">
-              <span class="ph-chip-value">2026</span>
-              <span class="ph-chip-label">Incorporated</span>
-            </div>
-            <div class="ph-chip">
-              <span class="ph-chip-value">ANVIRA</span>
-              <span class="ph-chip-label">Current focus</span>
-            </div>
-            <div class="ph-chip">
-              <span class="ph-chip-value">Field</span>
-              <span class="ph-chip-label">Primary method</span>
-            </div>
+          <div class="about-chip-row">
+            <span class="about-chip">ANVIRA</span>
+            <span class="about-chip">Highway incidents</span>
+            <span class="about-chip">Fleet operations</span>
+            <span class="about-chip">Claims workflow</span>
           </div>
         </div>
 
-        <div class="about-signal-card">
-          <div class="about-signal-top">
-            <span class="about-signal-label">Operating thesis</span>
-            <span class="about-signal-dot"></span>
-          </div>
+        <div class="about-system-card">
+          <h2>Incident → response → claim</h2>
 
-          <div class="about-signal-title">
-            Incident → response → claim
-          </div>
-
-          <p style="color:var(--fg-2); line-height:1.8; margin:0;">
-            Highway incidents are not just emergency events. They are coordination chains where
-            every missed handoff can become downtime, confusion, weak evidence, or claim leakage.
+          <p>
+            A highway incident is not just one event. It is a chain of actions where every delayed call,
+            missing photo, unclear location, or weak handoff can create operational and financial loss.
           </p>
 
           <div class="about-flow">
-            <div class="about-flow-item">
-              <span class="about-flow-num">01</span>
-              <span>Driver reports the incident</span>
-            </div>
-            <div class="about-flow-item">
-              <span class="about-flow-num">02</span>
-              <span>Fleet tries to understand what happened</span>
-            </div>
-            <div class="about-flow-item">
-              <span class="about-flow-num">03</span>
-              <span>Assistance, survey, and claims enter later</span>
-            </div>
-            <div class="about-flow-item">
-              <span class="about-flow-num">04</span>
-              <span>Information loss becomes operational loss</span>
-            </div>
+            <div class="about-flow-item"><span class="about-flow-num">01</span><span>Driver reports the incident</span></div>
+            <div class="about-flow-item"><span class="about-flow-num">02</span><span>Fleet tries to verify what happened</span></div>
+            <div class="about-flow-item"><span class="about-flow-num">03</span><span>Assistance and survey teams enter later</span></div>
+            <div class="about-flow-item"><span class="about-flow-num">04</span><span>Information gaps affect claims and recovery</span></div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Why AASIOM Exists -->
-  <section class="section">
+  <section class="about-block">
     <div class="container">
       <div class="about-split">
         <div>
           <span class="section-label">Why AASIOM Exists</span>
-          <h2 class="about-section-title">The delay is a coordination gap.</h2>
+          <h2 class="about-section-title">The real delay is not only technical.</h2>
         </div>
 
         <div>
-          <p class="about-large-copy">
-            On the highway, the problem is rarely only about technology. A driver reports an incident,
-            the fleet tries to understand what happened, assistance is called, the insurer enters later,
-            and each handoff can lose time, location context, evidence, and accountability.
+          <p class="about-copy">
+            When a truck breaks down or meets with an accident, the first few minutes decide the quality of the entire response.
+            But information often moves through phone calls, WhatsApp messages, unclear locations, and incomplete reports.
           </p>
 
-          <p class="about-large-copy">
-            AASIOM was created to study these operating gaps directly. Before proposing a product,
-            we examine how incidents are reported, who acts first, what information is lost,
-            and where delays become operational or financial loss.
+          <p class="about-copy">
+            AASIOM exists to study this reality closely and build systems around it. We look at how incidents are reported,
+            how fleets coordinate, how responders are activated, and how claim evidence is created.
           </p>
 
-          <div class="about-metric-grid" style="margin-top:34px;">
-            <div class="about-metric">
-              <strong>Fieldwork</strong>
-              <span>The credibility source behind AASIOM’s operating thesis.</span>
-            </div>
-            <div class="about-metric">
-              <strong>ANVIRA</strong>
-              <span>The focused system direction for incident-to-resolution workflows.</span>
-            </div>
-            <div class="about-metric">
-              <strong>Fleets</strong>
-              <span>The primary buyer context where downtime and coordination gaps matter.</span>
-            </div>
-            <div class="about-metric">
-              <strong>Claims</strong>
-              <span>The financial workflow affected by weak early incident information.</span>
-            </div>
+          <div class="about-metrics">
+            <div class="about-metric"><strong>Field</strong><span>Research begins with real operating conditions.</span></div>
+            <div class="about-metric"><strong>Fleets</strong><span>Downtime, dispatch, response, and coordination matter.</span></div>
+            <div class="about-metric"><strong>Claims</strong><span>Early information affects evidence and settlement quality.</span></div>
+            <div class="about-metric"><strong>ANVIRA</strong><span>The focused system direction being shaped from this research.</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How We Think -->
-  <section class="section mission-section">
+  <section class="about-block mission-section">
     <div class="container">
       <div class="section-header center">
         <span class="section-label">How We Think</span>
-        <h2 class="section-title">Specificity Over Philosophy</h2>
+        <h2 class="section-title">Clear Systems. Real People. Useful Technology.</h2>
         <p class="section-desc mx-auto">
-          AASIOM’s work is strongest when it names the road, the role, the handoff,
-          the delay, and the decision point clearly.
+          AASIOM’s approach is simple: understand the problem properly, design around the people involved,
+          and build technology only where it makes the system work better.
         </p>
       </div>
 
-      <div class="domains-grid">
-
-        <div class="domain-card about-card-polished">
-          <div class="about-pro-icon">
+      <div class="think-grid">
+        <div class="think-card">
+          <div class="think-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M4 19V5"></path>
-              <path d="M4 19h16"></path>
-              <path d="M7 16l3-4 3 2 4-6"></path>
-              <circle cx="7" cy="16" r="1"></circle>
-              <circle cx="10" cy="12" r="1"></circle>
-              <circle cx="13" cy="14" r="1"></circle>
-              <circle cx="17" cy="8" r="1"></circle>
+              <path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M7 15l3-4 3 2 4-6"></path>
+              <circle cx="7" cy="15" r="1"></circle><circle cx="10" cy="11" r="1"></circle><circle cx="13" cy="13" r="1"></circle><circle cx="17" cy="7" r="1"></circle>
             </svg>
           </div>
-          <h3>Fieldwork Before Claims</h3>
-          <p>
-            We begin with observed field behaviour: who gets called, what information moves,
-            where handoffs break, and which delays create real operational loss.
-          </p>
-          <span class="domain-tag active">Operating Rule</span>
+          <h3>We Study the Real Situation First</h3>
+          <p>Before building anything, we study how a highway incident actually happens: who reports it, who responds, what gets delayed, and where information is lost.</p>
+          <span class="domain-tag active">Field Research</span>
         </div>
 
-        <div class="domain-card about-card-polished">
-          <div class="about-pro-icon">
+        <div class="think-card">
+          <div class="think-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="8" cy="7" r="3"></circle>
-              <circle cx="17" cy="8" r="2.5"></circle>
+              <circle cx="8" cy="7" r="3"></circle><circle cx="17" cy="8" r="2.5"></circle>
               <path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h1A4.5 4.5 0 0 1 13 18.5V20"></path>
               <path d="M14 20v-1a3.5 3.5 0 0 1 3.5-3.5H18a3.5 3.5 0 0 1 3.5 3.5v1"></path>
             </svg>
           </div>
-          <h3>People Before Interfaces</h3>
-          <p>
-            We design around the people who report, coordinate, assess, verify,
-            dispatch, and resolve incidents under pressure.
-          </p>
-          <span class="domain-tag active">Design Standard</span>
+          <h3>We Design Around People</h3>
+          <p>The system must work for drivers, fleet managers, responders, insurers, and survey teams. If they cannot use it under pressure, the technology has failed.</p>
+          <span class="domain-tag active">Human System</span>
         </div>
 
-        <div class="domain-card about-card-polished">
-          <div class="about-pro-icon">
+        <div class="think-card">
+          <div class="think-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <rect x="4" y="4" width="6" height="6" rx="1.5"></rect>
-              <rect x="14" y="4" width="6" height="6" rx="1.5"></rect>
-              <rect x="9" y="14" width="6" height="6" rx="1.5"></rect>
-              <path d="M10 7h4"></path>
-              <path d="M17 10v2a2 2 0 0 1-2 2h-3"></path>
-              <path d="M7 10v2a2 2 0 0 0 2 2h3"></path>
+              <path d="M4 6h16"></path><path d="M4 12h10"></path><path d="M4 18h7"></path>
+              <path d="M17 14l3 3-3 3"></path><path d="M14 17h6"></path>
             </svg>
           </div>
-          <h3>Technology Comes Last</h3>
-          <p>
-            Only after the incident-to-claim chain is understood do we decide
-            what software, automation, data flow, or intelligence layer should exist.
-          </p>
-          <span class="domain-tag active">Build Logic</span>
+          <h3>We Keep the Process Simple</h3>
+          <p>AASIOM focuses on reducing confusion: clearer reporting, faster routing, better coordination, and cleaner information for claim-related decisions.</p>
+          <span class="domain-tag active">Operational Clarity</span>
         </div>
 
-        <div class="domain-card about-card-polished">
-          <div class="about-pro-icon">
+        <div class="think-card">
+          <div class="think-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
               <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"></path>
               <path d="M9 12l2 2 4-5"></path>
             </svg>
           </div>
-          <h3>No Surveillance Framing</h3>
-          <p>
-            ANVIRA is not driver policing or citizen tracking. The focus is incident triage,
-            response coordination, evidence structure, and operational clarity.
-          </p>
-          <span class="domain-tag">Trust Boundary</span>
+          <h3>We Handle Data Carefully</h3>
+          <p>Incident information can be sensitive. We avoid unnecessary collection, unclear usage, and surveillance-style framing while designing ANVIRA.</p>
+          <span class="domain-tag">Data Discipline</span>
         </div>
 
-        <div class="domain-card about-card-polished">
-          <div class="about-pro-icon">
+        <div class="think-card">
+          <div class="think-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="12" cy="12" r="8"></circle>
-              <circle cx="12" cy="12" r="4"></circle>
-              <circle cx="12" cy="12" r="1.4"></circle>
-              <path d="M12 2v3"></path>
-              <path d="M12 19v3"></path>
-              <path d="M2 12h3"></path>
-              <path d="M19 12h3"></path>
+              <circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="4"></circle><circle cx="12" cy="12" r="1.4"></circle>
+              <path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path>
             </svg>
           </div>
-          <h3>One Wedge First</h3>
-          <p>
-            We focus on one sharp wedge first: highway incidents, fleet downtime,
-            response latency, and claim leakage.
-          </p>
-          <span class="domain-tag">Strategic Focus</span>
+          <h3>We Focus on One Problem Deeply</h3>
+          <p>Instead of claiming to solve everything, AASIOM is focused on highway incidents, fleet downtime, response delays, and claim-flow coordination.</p>
+          <span class="domain-tag">Focused Wedge</span>
         </div>
 
-        <div class="domain-card about-card-polished">
-          <div class="about-pro-icon">
+        <div class="think-card">
+          <div class="think-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M7 3h10l2 2v16H5V5l2-2z"></path>
-              <path d="M9 8h6"></path>
-              <path d="M9 12h6"></path>
-              <path d="M9 16h4"></path>
-              <path d="M17 3v4h2"></path>
+              <path d="M8 3h8l2 2v16H6V5l2-2z"></path>
+              <path d="M9 9h6"></path><path d="M9 13h6"></path><path d="M9 17h4"></path>
             </svg>
           </div>
-          <h3>Research-Led Decisions</h3>
-          <p>
-            Every decision begins with field observations, stakeholder conversations,
-            workflow mapping, and operational evidence.
-          </p>
-          <span class="domain-tag">Credibility Standard</span>
+          <h3>We Let Evidence Guide Decisions</h3>
+          <p>Every major decision should come from field observations, stakeholder conversations, workflow mapping, and real operational evidence.</p>
+          <span class="domain-tag">Evidence-Led</span>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Team -->
-  <section class="section" id="team">
+  <section class="about-block" id="team">
     <div class="container">
-      <div class="section-header center" style="margin-bottom:56px;">
+      <div class="section-header center">
         <span class="section-label">The Team</span>
-        <h2 class="section-title">The Team Behind AASIOM</h2>
-        <p class="section-desc mx-auto">
-          AASIOM is founder-led, field-grounded, and built around specific responsibilities.
-          The team is positioned by the work each person owns.
-        </p>
+        <h2 class="section-title">The People Behind AASIOM</h2>
+        <p class="section-desc mx-auto">AASIOM is built around clear responsibilities, not vague titles. Each person owns a specific part of the work.</p>
       </div>
 
-      <div class="domains-grid">
-        <div class="founder-card team-card-pro">
-          <div class="founder-avatar founder-avatar--cyan">O</div>
-          <h3 class="founder-name">Om Vinayak Muchandikar</h3>
-          <div class="founder-role">Founder — Field Research &amp; System Architecture</div>
-          <p class="founder-bio">
-            Runs corridor fieldwork and stakeholder interviews; defines the ANVIRA pipeline;
-            owns the operating thesis and external narrative.
-          </p>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">O</div>
+          <h3>Om Vinayak Muchandikar</h3>
+          <div class="team-role">Founder — Field Research &amp; System Architecture</div>
+          <p>Runs corridor fieldwork and stakeholder interviews; defines the ANVIRA pipeline; owns the operating thesis and external narrative.</p>
         </div>
 
-        <div class="founder-card team-card-pro">
-          <div class="founder-avatar founder-avatar--indigo">A</div>
-          <h3 class="founder-name">Aditya Prashant Sapkale</h3>
-          <div class="founder-role">Director — Partnerships, Operations &amp; Deal Execution</div>
-          <p class="founder-bio">
-            Owns design-partner relationships and corridor-access coordination; turns field findings
-            into pilots and runs day-to-day operations.
-          </p>
+        <div class="team-card">
+          <div class="team-avatar">A</div>
+          <h3>Aditya Prashant Sapkale</h3>
+          <div class="team-role">Director — Partnerships, Operations &amp; Deal Execution</div>
+          <p>Owns design-partner relationships and corridor-access coordination; turns field findings into pilots and runs day-to-day operations.</p>
         </div>
 
-        <div class="founder-card team-card-pro">
-          <div class="founder-avatar founder-avatar--gold">S</div>
-          <h3 class="founder-name">Siddhi Prashant Sapkale</h3>
-          <div class="founder-role">Director — Research Operations, Governance &amp; Data Discipline</div>
-          <p class="founder-bio">
-            Owns research operations, documentation rigour, data-governance discipline,
-            and the company’s corporate foundation.
-          </p>
+        <div class="team-card">
+          <div class="team-avatar">S</div>
+          <h3>Siddhi Prashant Sapkale</h3>
+          <div class="team-role">Director — Research Operations, Governance &amp; Data Discipline</div>
+          <p>Owns research operations, documentation rigour, data-governance discipline, and the company’s corporate foundation.</p>
         </div>
       </div>
 
-      <div class="section-header center" style="margin:76px 0 40px;">
+      <div class="section-header center" style="margin-top:80px;">
         <span class="section-label">Core Team</span>
         <h2 class="section-title">Systems &amp; Build</h2>
       </div>
 
-      <div class="domains-grid">
-        <div class="founder-card team-card-pro">
-          <div class="founder-avatar founder-avatar--indigo">T</div>
-          <h3 class="founder-name">Tejas Pawar</h3>
-          <div class="founder-role">Core Team — Systems &amp; Build</div>
-          <p class="founder-bio">
-            Builds and operates the ANVIRA processing pipeline; owns reliability and the
-            “no silent failures” engineering discipline.
-          </p>
-        </div>
+      <div class="team-card core-card">
+        <div class="team-avatar">T</div>
+        <h3>Tejas Pawar</h3>
+        <div class="team-role">Core Team — Systems &amp; Build</div>
+        <p>Builds and operates the ANVIRA processing pipeline; owns reliability and the “no silent failures” engineering discipline.</p>
       </div>
 
-      <div class="section-header center" style="margin:76px 0 34px;">
+      <div class="section-header center" style="margin-top:80px;">
         <span class="section-label">Research Team</span>
         <h2 class="section-title">Research Team</h2>
       </div>
@@ -685,8 +662,7 @@
     </div>
   </section>
 
-  <!-- Data Governance -->
-  <section class="section mission-section">
+  <section class="about-block mission-section">
     <div class="container">
       <div class="about-split">
         <div>
@@ -695,41 +671,27 @@
         </div>
 
         <div class="governance-panel">
-          <p class="about-large-copy">
-            AASIOM’s work may involve operational conversations, field observations, incident workflows,
-            and stakeholder inputs. These details are handled carefully because data trust is part of the system.
+          <p class="about-copy">
+            AASIOM’s work may involve operational conversations, field observations, incident workflows, and stakeholder inputs.
+            These details are handled carefully because data trust is part of the system.
           </p>
 
-          <p class="about-large-copy">
-            We aim to collect only what is necessary for research and system understanding. Sensitive
-            operational details are handled with restraint, and public insights should avoid exposing private,
-            personal, or commercially sensitive information.
+          <p class="about-copy">
+            We aim to collect only what is necessary for research and system understanding.
+            Sensitive operational details should be handled with restraint, clear purpose, and controlled access.
           </p>
 
-          <div class="about-metric-grid" style="margin-top:30px;">
-            <div class="about-metric">
-              <strong>Consent</strong>
-              <span>Stakeholder inputs handled with clear research purpose.</span>
-            </div>
-            <div class="about-metric">
-              <strong>DPDP</strong>
-              <span>Governance posture aligned with responsible data handling.</span>
-            </div>
-            <div class="about-metric">
-              <strong>Minimal</strong>
-              <span>Only necessary operational data should be collected.</span>
-            </div>
-            <div class="about-metric">
-              <strong>Controlled</strong>
-              <span>Access, retention, and sharing must be treated with discipline.</span>
-            </div>
+          <div class="about-metrics">
+            <div class="about-metric"><strong>Consent</strong><span>Stakeholder inputs handled with clear research purpose.</span></div>
+            <div class="about-metric"><strong>DPDP</strong><span>Governance posture aligned with responsible data handling.</span></div>
+            <div class="about-metric"><strong>Minimal</strong><span>Only necessary operational data should be collected.</span></div>
+            <div class="about-metric"><strong>Controlled</strong><span>Access, retention, and sharing must be treated with discipline.</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -784,4 +746,5 @@
   <script src="js/main.js" defer></script>
   <script src="js/topo.js" defer></script>
 </body>
-</html>
+</html> 
+          
