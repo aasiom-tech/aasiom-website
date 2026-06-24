@@ -190,62 +190,109 @@
   </section>
 
 <!-- How We Think -->
-<section class="section mission-section">
+<section class="about-block mission-section">
   <div class="container">
-
     <div class="section-header center">
       <span class="section-label">How We Think</span>
-
-      <h2 class="section-title">How We Build Trust Before Technology</h2>
-
+      <h2 class="section-title">Clear Systems. Real People. Useful Technology.</h2>
       <p class="section-desc mx-auto">
-        AASIOM does not begin by selling software. We first understand the real problem on the road,
-        then design technology around the people who actually use it.
+        AASIOM’s approach is simple: understand the problem properly, design around the people involved,
+        and build technology only where it makes the system work better.
       </p>
     </div>
 
     <style>
-      .thinking-icon {
+      .think-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-top: 56px;
+        align-items: stretch;
+      }
+
+      .think-card {
+        min-height: 390px;
+        padding: 34px 30px;
+        border-radius: 28px;
+        border: 1px solid rgba(255,255,255,0.09);
+        background: rgba(255,255,255,0.035);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .think-icon {
         width: 68px;
         height: 68px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         border-radius: 20px;
-        margin-bottom: 24px;
-        background: rgba(34, 211, 238, 0.08);
-        border: 1px solid rgba(34, 211, 238, 0.24);
-        color: #22d3ee;
-        box-shadow: 0 0 24px rgba(34, 211, 238, 0.15);
+        margin-bottom: 26px;
+        background: rgba(34,211,238,0.08);
+        border: 1px solid rgba(34,211,238,0.24);
+        color: var(--cyan);
+        box-shadow: 0 0 24px rgba(34,211,238,0.14);
       }
 
-      .thinking-icon svg {
+      .think-icon svg {
         width: 38px;
         height: 38px;
         stroke-width: 1.7;
-        filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.45));
+        filter: drop-shadow(0 0 8px rgba(34,211,238,0.42));
       }
 
-      .thinking-card {
-        min-height: 330px;
-        padding: 32px 28px;
-      }
-
-      .thinking-card h3 {
+      .think-card h3 {
         font-size: 1.15rem;
-        margin-bottom: 14px;
+        margin: 0 0 16px;
+        color: var(--fg);
       }
 
-      .thinking-card p {
+      .think-card p {
+        color: var(--fg-2);
         font-size: 0.95rem;
         line-height: 1.75;
+        margin: 0;
+      }
+
+      .think-tag {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        padding: 8px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(34, 211, 238, 0.35);
+        background: rgba(34, 211, 238, 0.08);
+        color: var(--cyan);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 980px) {
+        .think-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .think-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .think-card {
+          min-height: auto;
+        }
       }
     </style>
 
-    <div class="domains-grid">
+    <div class="think-grid">
 
-      <div class="domain-card thinking-card">
-        <div class="thinking-icon">
+      <div class="think-card">
+        <div class="think-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M4 19V5"></path>
             <path d="M4 19h16"></path>
@@ -256,19 +303,16 @@
             <circle cx="17" cy="7" r="1"></circle>
           </svg>
         </div>
-
         <h3>We Study the Real Situation First</h3>
-
         <p>
           Before building anything, we study how a highway incident actually happens:
           who reports it, who responds, what gets delayed, and where information is lost.
         </p>
-
-        <span class="domain-tag active">Field Research</span>
+        <span class="think-tag">Field Research</span>
       </div>
 
-      <div class="domain-card thinking-card">
-        <div class="thinking-icon">
+      <div class="think-card">
+        <div class="think-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <circle cx="8" cy="7" r="3"></circle>
             <circle cx="17" cy="8" r="2.5"></circle>
@@ -276,19 +320,16 @@
             <path d="M14 20v-1a3.5 3.5 0 0 1 3.5-3.5H18a3.5 3.5 0 0 1 3.5 3.5v1"></path>
           </svg>
         </div>
-
         <h3>We Design Around People</h3>
-
         <p>
           The system must work for drivers, fleet managers, responders, insurers,
           and survey teams. If they cannot use it under pressure, the technology has failed.
         </p>
-
-        <span class="domain-tag active">Human-Centred System</span>
+        <span class="think-tag">Human System</span>
       </div>
 
-      <div class="domain-card thinking-card">
-        <div class="thinking-icon">
+      <div class="think-card">
+        <div class="think-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M4 6h16"></path>
             <path d="M4 12h10"></path>
@@ -297,37 +338,31 @@
             <path d="M14 17h6"></path>
           </svg>
         </div>
-
         <h3>We Keep the Process Simple</h3>
-
         <p>
           AASIOM focuses on reducing confusion: clearer reporting, faster routing,
           better coordination, and cleaner information for claim-related decisions.
         </p>
-
-        <span class="domain-tag active">Operational Clarity</span>
+        <span class="think-tag">Operational Clarity</span>
       </div>
 
-      <div class="domain-card thinking-card">
-        <div class="thinking-icon">
+      <div class="think-card">
+        <div class="think-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"></path>
             <path d="M9 12l2 2 4-5"></path>
           </svg>
         </div>
-
-        <h3>We Build With Data Responsibility</h3>
-
+        <h3>We Handle Data Carefully</h3>
         <p>
           Incident information can be sensitive. We avoid unnecessary collection,
           unclear usage, and surveillance-style framing while designing ANVIRA.
         </p>
-
-        <span class="domain-tag">Data Discipline</span>
+        <span class="think-tag">Data Discipline</span>
       </div>
 
-      <div class="domain-card thinking-card">
-        <div class="thinking-icon">
+      <div class="think-card">
+        <div class="think-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <circle cx="12" cy="12" r="8"></circle>
             <circle cx="12" cy="12" r="4"></circle>
@@ -338,19 +373,16 @@
             <path d="M19 12h3"></path>
           </svg>
         </div>
-
         <h3>We Focus on One Problem Deeply</h3>
-
         <p>
           Instead of claiming to solve everything, AASIOM is focused on highway incidents,
           fleet downtime, response delays, and claim-flow coordination.
         </p>
-
-        <span class="domain-tag">Focused Wedge</span>
+        <span class="think-tag">Focused Wedge</span>
       </div>
 
-      <div class="domain-card thinking-card">
-        <div class="thinking-icon">
+      <div class="think-card">
+        <div class="think-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M8 3h8l2 2v16H6V5l2-2z"></path>
             <path d="M9 9h6"></path>
@@ -358,22 +390,17 @@
             <path d="M9 17h4"></path>
           </svg>
         </div>
-
         <h3>We Let Evidence Guide Decisions</h3>
-
         <p>
           Every major decision should come from field observations, stakeholder conversations,
           workflow mapping, and real operational evidence.
         </p>
-
-        <span class="domain-tag">Evidence-Led</span>
+        <span class="think-tag">Evidence-Led</span>
       </div>
 
     </div>
-
   </div>
 </section>
-
   <!-- The Team -->
   <section class="section" id="team">
     <div class="container">
