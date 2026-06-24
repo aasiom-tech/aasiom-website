@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANVIRA — AI Incident Command System for Trucking Fleets | AASIOM</title>
+  <meta name="description" content="ANVIRA by AASIOM helps mid-sized interstate trucking fleets reduce incident chaos, downtime, response delays, missing documentation, and claim leakage through an AI-powered Incident Command System.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ANVIRA — AI Incident Command System for Trucking Fleets">
+  <meta property="og:description" content="ANVIRA helps mid-sized interstate trucking fleets coordinate accident response, capture incident evidence, reduce downtime, and manage post-incident recovery through AI-powered incident intelligence.">
+  <meta property="og:url" content="https://aasiom.com/anvira">
+  <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ANVIRA — AI Incident Command System">
+  <meta name="twitter:description" content="AI-powered incident management for mid-sized interstate trucking fleets in India.">
+  <!-- Network Resilience & Async Fonts -->
+  <script>
+    window.retryAsset = function(el, attempt) {
+      if(attempt > 3) { document.documentElement.classList.add('fonts-failed'); return; }
+      setTimeout(function() {
+        var clone = el.cloneNode();
+        clone.onload = function() { this.onload=null; this.rel='stylesheet'; };
+        clone.onerror = function() { window.retryAsset(this, attempt+1); };
+        el.parentNode.insertBefore(clone, el.nextSibling);
+      }, attempt * 1000);
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="window.retryAsset?window.retryAsset(this,1):null">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
+  <link rel="apple-touch-icon" href="images/aasiom-tab.png">
+</head>
+<body>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="innovation.html">Innovation</a></li>
+        <li><a href="anvira.html" class="active">ANVIRA</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header page-header--innovation">
+    <!-- Hex grid background -->
+    <div class="ph-hex-grid" aria-hidden="true">
+      <div class="ph-hex-line ph-hex-line--1"></div>
+      <div class="ph-hex-line ph-hex-line--2"></div>
+      <div class="ph-hex-line ph-hex-line--3"></div>
+    </div>
+    <!-- Floating nodes -->
+    <div class="ph-nodes" aria-hidden="true">
+      <span class="ph-node" style="top:12%;left:12%;animation-delay:0s;"></span>
+      <span class="ph-node" style="top:22%;left:82%;animation-delay:1.2s;"></span>
+      <span class="ph-node ph-node--gold" style="top:68%;left:6%;animation-delay:0.5s;"></span>
+      <span class="ph-node" style="top:78%;left:88%;animation-delay:1.7s;"></span>
+      <span class="ph-node ph-node--gold" style="top:8%;left:48%;animation-delay:0.2s;"></span>
+      <span class="ph-node" style="top:85%;left:50%;animation-delay:1s;"></span>
+      <span class="ph-node" style="top:40%;left:3%;animation-delay:2.2s;"></span>
+      <span class="ph-node ph-node--gold" style="top:55%;left:96%;animation-delay:0.8s;"></span>
+    </div>
+    <!-- Scanning pulse -->
+    <div class="ph-scanline" aria-hidden="true"></div>
+
+    <div class="container">
+      <span class="section-label">AASIOM PRODUCT</span>
+
+      <!-- Status badges -->
+      <div class="ph-status-row">
+        <span class="ph-live-badge">
+          <span class="ph-live-dot"></span>
+          MVP in Development
+        </span>
+        <span class="ph-live-badge ph-live-badge--gold">
+          <svg width="10" height="10" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#f0c060"/></svg>
+          For Indian Trucking Fleets
+        </span>
+      </div>
+
+      <h1>ANVIRA</h1>
+      <p>AI Incident Command System for Highway Truck Incidents</p>
+
+      <!-- Accent tagline -->
+      <p class="ph-tagline">ANVIRA helps mid-sized interstate trucking fleets coordinate accident response, capture incident evidence, reduce downtime, and manage post-incident recovery through AI-powered incident intelligence.</p>
+
+      <!-- Key stats chips -->
+      <div class="ph-chips">
+        <div class="ph-chip">
+          <span class="ph-chip-value">150–400</span>
+          <span class="ph-chip-label">Trucks Per Fleet</span>
+        </div>
+        <div class="ph-chip">
+          <span class="ph-chip-value">3</span>
+          <span class="ph-chip-label">Core Modules</span>
+        </div>
+        <div class="ph-chip">
+          <span class="ph-chip-value">Real-Time</span>
+          <span class="ph-chip-label">Incident Visibility</span>
+        </div>
+        <div class="ph-chip">
+          <span class="ph-chip-value">AI-Powered</span>
+          <span class="ph-chip-label">Triage & Recommendations</span>
+        </div>
+      </div>
+
+      <!-- ANVIRA features highlights -->
+      <div class="ph-domain-row">
+        <span class="ph-domain-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          Driver-Side Capture
+        </span>
+        <span class="ph-domain-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/></svg>
+          AI Triage Engine
+        </span>
+        <span class="ph-domain-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Fleet Command Center
+        </span>
+        <span class="ph-domain-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          Claims Support
+        </span>
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="ph-scroll-hint">
+        <span>Scroll to explore</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why ANVIRA -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">The Problem</span>
+        <h2 class="section-title">Why Trucking Fleets Need ANVIRA</h2>
+        <p class="section-desc">Highway truck incidents create immediate operational chaos — fragmented communication, missing documentation, delayed response, unnecessary downtime, and claim leakage.</p>
+      </div>
+
+      <div class="tech-feature-grid">
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M8 9l3 3L7 20M21 7v6a7 7 0 1 1-14 0V7m7-3l3-3 3 3"/>
+            </svg>
+          </div>
+          <h3>Operational Confusion</h3>
+          <p>Incident information scattered across calls, messages, emails, and reports. No single view of what happened or what needs to happen next.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Truck Downtime</h3>
+          <p>Critical information gaps delay response coordination, recovery planning, and operational restart — costing fleet operators thousands per hour.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+            </svg>
+          </div>
+          <h3>Missing Documentation</h3>
+          <p>Critical evidence — driver statements, incident photos, timeline details — is lost or inconsistently recorded, weakening insurance claims.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5">
+              <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+            </svg>
+          </div>
+          <h3>Claim Leakage</h3>
+          <p>Poor incident documentation and slow response coordination lead to claim rejections, reduced recoveries, and higher out-of-pocket costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How ANVIRA Works -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">CORE CAPABILITIES</span>
+        <h2 class="section-title">How ANVIRA Works</h2>
+        <p class="section-desc">Three core modules — driver-side capture, AI intelligence engine, and fleet command center — working together to eliminate incident chaos.</p>
+      </div>
+
+      <div class="tech-feature-grid">
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>
+            </svg>
+          </div>
+          <h3>Driver-Side Incident Capture</h3>
+          <p>Voice, photos, emergency trigger, and WhatsApp/manual reporting. Drivers capture critical evidence immediately at the scene.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M15 9l-6 6M9 9l6 6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>AI Incident Intelligence</h3>
+          <p>Automatic incident understanding, severity triage, and actionable recommendations. Structured case creation within minutes, not hours.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>Fleet Command Center</h3>
+          <p>Real-time incident visibility, escalation tracking, downtime monitoring, and recovery coordination from one operations dashboard.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+          </div>
+          <h3>Recovery & Claims Support</h3>
+          <p>Structured documentation, automatic case records, and recovery tracking to streamline insurance workflows and reduce claim delays.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Command Dashboard -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Dashboard & Visibility</span>
+        <h2 class="section-title">ANVIRA Fleet Command Center</h2>
+        <p class="section-desc mx-auto">One unified dashboard for complete incident visibility, escalation tracking, and recovery coordination.</p>
+      </div>
+
+      <div class="domains-grid">
+
+        <div class="domain-card">
+          <div class="domain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/><path d="M12 5v14M5 12h14"/>
+            </svg>
+          </div>
+          <h3>Live Incident Visibility</h3>
+          <p>Real-time incident status, location data, driver information, and current response stage. Fleet managers see exactly what happened and what's happening next.</p>
+          <span class="domain-tag active">MVP Feature</span>
+        </div>
+
+        <div class="domain-card">
+          <div class="domain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M4 19h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/><polyline points="16 5 16 9 8 9 8 5"/>
+            </svg>
+          </div>
+          <h3>Escalation Tracking</h3>
+          <p>Automated incident routing to the right teams based on severity. Clear escalation pathways from drivers to fleet managers to emergency response.</p>
+          <span class="domain-tag active">MVP Feature</span>
+        </div>
+
+        <div class="domain-card">
+          <div class="domain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Downtime Monitoring</h3>
+          <p>Track how long each truck is offline, from incident detection through recovery. Identify bottlenecks and optimize response coordination to minimize fleet downtime.</p>
+          <span class="domain-tag active">MVP Feature</span>
+        </div>
+
+        <div class="domain-card">
+          <div class="domain-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+            </svg>
+          </div>
+          <h3>Structured Case Records</h3>
+          <p>Automatically organized incident records with driver statements, photos, timeline data, and recovery notes. Complete audit trail for claims and operational review.</p>
+          <span class="domain-tag active">MVP Feature</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Incident Response Lifecycle -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Response Flow</span>
+        <h2 class="section-title">Incident Response Lifecycle</h2>
+        <p class="section-desc mx-auto">From incident capture to recovery coordination, ANVIRA guides fleet operators through a structured response process.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:16px; position:relative;">
+
+        <!-- Connector line -->
+        <div style="position:absolute; top:40px; left:10%; right:10%; height:2px; background:linear-gradient(90deg, var(--cyan), var(--gold)); opacity:0.2; z-index:0;"></div>
+
+        <div class="phase-card" style="position:relative; z-index:1;">
+          <div class="phase-num">STEP 01</div>
+          <h4>Incident Reported</h4>
+          <p>Driver reports incident via voice, photo, emergency trigger, or WhatsApp. ANVIRA receives the alert immediately.</p>
+        </div>
+
+        <div class="phase-card" style="position:relative; z-index:1;">
+          <div class="phase-num">STEP 02</div>
+          <h4>Evidence Captured</h4>
+          <p>Photos, location data, driver information, and incident context are automatically collected and organized.</p>
+        </div>
+
+        <div class="phase-card" style="position:relative; z-index:1;">
+          <div class="phase-num">STEP 03</div>
+          <h4>AI Triage Created</h4>
+          <p>AI engine analyzes incident, determines severity, and creates structured case with recommendations for response.</p>
+        </div>
+
+        <div class="phase-card" style="position:relative; z-index:1;">
+          <div class="phase-num">STEP 04</div>
+          <h4>Fleet Response Coordinated</h4>
+          <p>Fleet managers receive alerts, coordinate emergency response, track recovery progress, and monitor downtime from command center.</p>
+        </div>
+
+        <div class="phase-card" style="position:relative; z-index:1;">
+          <div class="phase-num">STEP 05</div>
+          <h4>Recovery & Claims</h4>
+          <p>Incident documented with full audit trail. Structured records support insurance claims and operational recovery analysis.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Benefits -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Key Benefits</span>
+        <h2 class="section-title">Why Fleet Operators Choose ANVIRA</h2>
+        <p class="section-desc">ANVIRA helps mid-sized interstate trucking fleets reduce incident chaos and improve operational control.</p>
+      </div>
+
+      <div class="tech-feature-grid">
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
+            </svg>
+          </div>
+          <h3>Faster Response Coordination</h3>
+          <p>Immediate incident visibility and escalation routing reduce response delays from hours to minutes.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Reduced Truck Downtime</h3>
+          <p>Better incident tracking and recovery coordination minimize operational downtime and revenue loss.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+            </svg>
+          </div>
+          <h3>Better Incident Documentation</h3>
+          <p>Structured capture of evidence, timelines, and case details improves insurance claim quality and success rates.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#d4a843" stroke-width="1.5">
+              <path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <h3>Lower Claim Leakage</h3>
+          <p>Complete incident documentation and recovery tracking prevent claim rejections and maximize insurance recoveries.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>Improved Fleet Visibility</h3>
+          <p>Unified dashboard shows live incident status, response progress, and operational performance across the fleet.</p>
+        </div>
+
+        <div class="tech-feature-card">
+          <div class="icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
+              <path d="M13 16H6V6h7m0 10h6M3 5h18M3 9h18"/>
+            </svg>
+          </div>
+          <h3>Stronger Operational Control</h3>
+          <p>Command-level incident management puts fleet operators in control of incident response and recovery coordination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future Roadmap -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-label">Future Roadmap</span>
+        <h2 class="section-title">Beyond Day-1: Future of Incident Intelligence</h2>
+        <p class="section-desc mx-auto">ANVIRA's long-term vision includes predictive capabilities, ecosystem integrations, and advanced safety insights — after core incident command is proven and adopted.</p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;">
+
+        <div class="domain-card">
+          <h3>Predictive Risk Signals</h3>
+          <p>Future: Use historical incident patterns and driver behavior to identify high-risk corridors and situations before they become accidents.</p>
+          <span class="domain-tag">Future Phase</span>
+        </div>
+
+        <div class="domain-card">
+          <h3>Insurer Ecosystem Integrations</h3>
+          <p>Future: Direct integrations with insurance partners to accelerate claim validation, approval, and settlement workflows.</p>
+          <span class="domain-tag">Future Phase</span>
+        </div>
+
+        <div class="domain-card">
+          <h3>Corridor-Level Intelligence</h3>
+          <p>Future: Aggregate incident data across the national highway network to identify systemic safety issues and support policy improvements.</p>
+          <span class="domain-tag">Future Phase</span>
+        </div>
+
+        <div class="domain-card">
+          <h3>Advanced Driver Safety Insights</h3>
+          <p>Future: Deep analytics on driver behavior, vehicle health, and route safety to support continuous improvement in fleet operations and safety culture.</p>
+          <span class="domain-tag">Future Phase</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <span class="section-label">GET STARTED</span>
+        <h2>Bring Command-Level Control to Highway Incidents</h2>
+        <p>See how ANVIRA helps mid-sized trucking fleets reduce incident chaos, improve response coordination, capture better evidence, and manage recovery from one operating layer.</p>
+        <p class="supporting-text">Request a demo to see how ANVIRA works for your fleet operations.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a href="contact.html" class="btn btn-primary">Request Demo</a>
+          <a href="insights.html" class="btn btn-outline">Explore Insights</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
+          </a>
+          <p>India's sovereign deep-technology company — building autonomous systems, edge AI, and indigenous semiconductors for the nation's critical infrastructure. Headquartered in Mumbai, India.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Technology</h4>
+          <ul>
+            <li><a href="innovation.html">Drone Systems</a></li>
+            <li><a href="innovation.html">Edge AI</a></li>
+            <li><a href="innovation.html">Semiconductors</a></li>
+            <li><a href="innovation.html">Mesh Comms</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="about.html">Make in India</a></li>
+            <li><a href="about.html">Atmanirbhar Bharat</a></li>
+            <li><a href="projects.html">Smart Highways</a></li>
+            <li><a href="about.html">Digital India</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 AASIOM Pvt Ltd. All rights reserved.</span>
+        <span class="footer-india">&#127470;&#127475; Proudly Made in India</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/topo.js" defer></script>
+</body>
+</html>
