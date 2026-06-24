@@ -70,11 +70,11 @@
   window.aasiomFetch = async (url, options = {}, retries = 3, timeoutMs = 5000) => {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
-    
+
     try {
       const response = await fetch(url, { ...options, signal: controller.signal });
       clearTimeout(timeoutId);
-      
+
       if (!response.ok && response.status >= 500 && retries > 0) {
         throw new Error(`Server error: ${response.status}`);
       }
@@ -106,7 +106,7 @@
   // ─── Mobile nav toggle ────────────────────────────────────────────────────
   const initMobileNav = () => {
     const navToggle = document.getElementById('navToggle');
-    const navLinks  = document.getElementById('navLinks');
+    const navLinks = document.getElementById('navLinks');
     if (!navToggle || !navLinks) return;
 
     // Debounce toggle to prevent rapid state spams causing animation glitches
@@ -116,7 +116,7 @@
     }, 150);
 
     navToggle.addEventListener('click', toggleNav);
-    
+
     // Event delegation for links to prevent multiple listener attachments
     navLinks.addEventListener('click', (e) => {
       if (e.target.tagName === 'A') {
@@ -165,7 +165,7 @@
         observer.observe(el);
       });
     });
-    
+
     // Cleanup reference after initialization
     sectionMap.clear();
   };
@@ -275,7 +275,7 @@
     let W, H, particles = [], raf;
 
     const resize = throttleRAF(() => {
-      W = canvas.width  = hero.offsetWidth;
+      W = canvas.width = hero.offsetWidth;
       H = canvas.height = hero.offsetHeight;
     });
     resize();
@@ -355,11 +355,11 @@
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       if (!btn) return;
-      
+
       const formContainer = form.parentElement;
       const originalCacheHTML = formContainer.innerHTML;
       const origText = btn.innerHTML;
-      
+
       btn.innerHTML = 'Sending...';
       btn.style.opacity = '0.7';
       btn.disabled = true;
@@ -409,7 +409,7 @@
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      } catch (err) {}
+      } catch (err) { }
     });
   };
 
@@ -457,18 +457,86 @@
     event.preventDefault();
   });
 
+  // ─── Approach Section Timeline Animations ────────────────────────────────
+  const initApproachTimeline = () => {
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    const items = document.querySelectorAll('.approach-timeline-item');
+    if (!items.length) return;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          setTimeout(() => {
+            entry.target.style.transition = '';
+          }, 1200);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    const activeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          items.forEach(el => el.classList.remove('active'));
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5, rootMargin: '-15% 0px -15% 0px' });
+
+    items.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 0.12}s, transform 0.6s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.12}s`;
+      revealObserver.observe(el);
+      activeObserver.observe(el);
+    });
+  };
+
+  // ─── Research Section Animations ─────────────────────────────────────────
+  const initResearchAnimations = () => {
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    const cards = document.querySelectorAll('.research-block-card');
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          setTimeout(() => {
+            entry.target.style.transition = '';
+          }, 1000);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    cards.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = `opacity 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 0.06}s, transform 0.6s cubic-bezier(0.34,1.56,0.64,1) ${i * 0.06}s`;
+      observer.observe(el);
+    });
+  };
+
   // ─── Initialise ──────────────────────────────────────────────────────────
   const init = () => {
-    safeInit('Navbar',           initNavbar);
-    safeInit('MobileNav',        initMobileNav);
+    safeInit('Navbar', initNavbar);
+    safeInit('MobileNav', initMobileNav);
     safeInit('ScrollAnimations', initScrollAnimations);
-    safeInit('Counters',         initCounters);
-    safeInit('HeroCanvas',       initHeroCanvas);
-    safeInit('HeroParallax',     initHeroParallax);
-    safeInit('ContactForm',      initContactForm);
-    safeInit('SmoothScroll',     initSmoothScroll);
-    safeInit('LabelReveal',      initLabelReveal);
-    safeInit('ServiceWorker',    initServiceWorker);
+    safeInit('Counters', initCounters);
+    safeInit('HeroCanvas', initHeroCanvas);
+    safeInit('HeroParallax', initHeroParallax);
+    safeInit('ContactForm', initContactForm);
+    safeInit('SmoothScroll', initSmoothScroll);
+    safeInit('LabelReveal', initLabelReveal);
+    safeInit('ServiceWorker', initServiceWorker);
+    safeInit('ApproachTimeline', initApproachTimeline);
+    safeInit('ResearchAnimations', initResearchAnimations);
   };
 
   if (document.readyState === 'loading') {
