@@ -251,21 +251,24 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
+      align-items: stretch;
     }
 
     .engage-card {
-      min-height: 300px;
+      min-height: 340px;
       padding: 32px 28px;
       border-radius: 28px;
       border: 1px solid rgba(255,255,255,0.09);
       background: rgba(255,255,255,0.035);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
     }
 
     .engage-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(34,211,238,0.32);
-      box-shadow: 0 22px 70px rgba(0,0,0,0.32);
+      transform: translateY(-8px);
+      border-color: rgba(34,211,238,0.35);
+      box-shadow: 0 22px 60px rgba(0,0,0,0.35);
     }
 
     .engage-icon {
@@ -280,6 +283,7 @@
       border: 1px solid rgba(34,211,238,0.24);
       color: var(--cyan);
       box-shadow: 0 0 24px rgba(34,211,238,0.14);
+      flex: none;
     }
 
     .engage-icon svg {
@@ -299,7 +303,25 @@
       color: var(--fg-2);
       line-height: 1.75;
       font-size: 0.95rem;
-      margin-bottom: 20px;
+      margin: 0;
+    }
+
+    .engage-tag {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(34,211,238,0.10);
+      border: 1px solid rgba(34,211,238,0.35);
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .contact-form-layout {
@@ -399,6 +421,10 @@
 
       .engage-grid {
         grid-template-columns: 1fr;
+      }
+
+      .engage-card {
+        min-height: auto;
       }
     }
   </style>
@@ -523,7 +549,7 @@
             For teams handling breakdowns, accidents, driver reporting, dispatch delays,
             vehicle downtime, and highway-response coordination.
           </p>
-          <span class="domain-tag active">Fleet Context</span>
+          <span class="engage-tag">Fleet Context</span>
         </div>
 
         <div class="engage-card">
@@ -540,7 +566,7 @@
             For organisations studying cleaner claim evidence, faster assessment,
             structured incident documentation, and claim leakage.
           </p>
-          <span class="domain-tag active">Claims Workflow</span>
+          <span class="engage-tag">Claims Workflow</span>
         </div>
 
         <div class="engage-card">
@@ -557,7 +583,7 @@
             For tow, rescue, repair, and assistance teams interested in earlier dispatch,
             better location context, and cleaner incident information.
           </p>
-          <span class="domain-tag">Response Network</span>
+          <span class="engage-tag">Response Network</span>
         </div>
 
         <div class="engage-card">
@@ -574,7 +600,7 @@
             For teams working around vehicle data, intermediated claims, fleet workflows,
             and incident information routing.
           </p>
-          <span class="domain-tag">System Partners</span>
+          <span class="engage-tag">System Partners</span>
         </div>
 
         <div class="engage-card">
@@ -590,7 +616,7 @@
             For researchers and institutions interested in field notes, workflow mapping,
             operational evidence, and responsible data handling.
           </p>
-          <span class="domain-tag">Research Fit</span>
+          <span class="engage-tag">Research Fit</span>
         </div>
 
         <div class="engage-card">
@@ -605,7 +631,7 @@
             For focused conversations about ANVIRA’s operating thesis, field validation,
             system direction, and possible design partnerships.
           </p>
-          <span class="domain-tag">Current Focus</span>
+          <span class="engage-tag">Current Focus</span>
         </div>
 
       </div>
