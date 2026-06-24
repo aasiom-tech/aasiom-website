@@ -3536,9 +3536,8 @@ header {
   }
 }
 
-/* ── Approach Section (Premium Vertical Timeline) ──────────────────── */
+/* ── Deliverable: Approach Section ──────────────────────────────── */
 .approach-section {
-  background-color: #08121F;
   padding: 120px 0;
 }
 
@@ -3556,67 +3555,97 @@ header {
   bottom: 12px;
   left: 20px;
   width: 1px;
-  background: rgba(157, 176, 194, 0.2);
+  background: var(--border);
+  transition: background var(--t-base);
 }
 
-.timeline-item {
+.approach-timeline:hover::before {
+  background: var(--border-cyan);
+}
+
+.approach-timeline-item {
   position: relative;
   margin-bottom: 72px;
+  padding: 16px 24px;
+  border-radius: var(--r-sm);
+  transition: background var(--t-base);
 }
 
-.timeline-item:last-child {
+.approach-timeline-item:last-child {
   margin-bottom: 0;
 }
 
-.timeline-dot {
+.approach-timeline-item:hover {
+  background: var(--glass-bg);
+}
+
+.approach-timeline-dot {
   position: absolute;
-  top: 8px;
+  top: 24px;
   left: -32px;
   width: 8px;
   height: 8px;
-  background-color: #08121F;
-  border: 1px solid rgba(157, 176, 194, 0.5);
+  background-color: var(--navy-950);
+  border: 1px solid var(--border);
   border-radius: 50%;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all var(--t-base);
   z-index: 2;
   box-sizing: border-box;
 }
 
-.timeline-item:hover .timeline-dot {
-  border-color: #5CC2B4;
-  background-color: #5CC2B4;
-  box-shadow: 0 0 8px rgba(92, 194, 180, 0.4);
+.approach-timeline-item:hover .approach-timeline-dot {
+  border-color: var(--cyan);
+  background-color: var(--cyan);
 }
 
-.timeline-title {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+.approach-timeline-title {
+  font-family: var(--font-head);
   font-size: 1.25rem;
   font-weight: 500;
-  color: #E9EEF4;
-  margin-bottom: 12px;
+  color: var(--fg);
+  margin-bottom: 8px;
   letter-spacing: -0.01em;
-  transition: color 0.3s ease;
+  transition: color var(--t-base);
 }
 
-.timeline-item:hover .timeline-title {
-  color: #5CC2B4;
+.approach-timeline-item:hover .approach-timeline-title {
+  color: var(--cyan);
 }
 
-.timeline-desc {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1rem;
+.approach-timeline-desc {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
   line-height: 1.7;
-  color: #9DB0C2;
+  color: var(--fg-2);
   max-width: 600px;
 }
 
-/* ── Research Section (Research Grid) ──────────────────────────────── */
+/* Modest styling for Technology stage */
+.approach-timeline-item.stage-technology .approach-timeline-title {
+  font-size: 1.15rem;
+  color: var(--fg-2);
+}
+
+.approach-timeline-item.stage-technology .approach-timeline-desc {
+  font-size: 0.9rem;
+  color: var(--fg-3);
+}
+
+.approach-timeline-item.stage-technology:hover .approach-timeline-title {
+  color: var(--fg);
+}
+
+.approach-timeline-item.stage-technology:hover .approach-timeline-dot {
+  background-color: var(--fg-3);
+  border-color: var(--fg-3);
+}
+
+/* ── Deliverable: Research Section ──────────────────────────────── */
 .research-section {
-  background-color: #08121F;
   padding: 120px 0;
 }
 
-.research-grid {
+.research-matrix-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
@@ -3624,64 +3653,62 @@ header {
   margin: 0 auto;
 }
 
-.research-card {
-  background-color: rgba(12, 26, 43, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(157, 176, 194, 0.1);
-  border-radius: 8px;
+.research-block-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
   padding: 40px 32px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color var(--t-base), background-color var(--t-base);
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.research-card:hover {
-  border-color: rgba(92, 194, 180, 0.3);
+.research-block-card:hover {
+  border-color: rgba(157, 176, 194, 0.25);
   background-color: rgba(12, 26, 43, 0.95);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.02);
-  transform: translateY(-2px);
 }
 
-.research-card-header {
+.research-block-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.research-card-title {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.15rem;
+.research-block-title {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
   font-weight: 500;
-  color: #E9EEF4;
+  color: var(--fg);
   letter-spacing: -0.01em;
   line-height: 1.4;
+  text-transform: none;
+  /* Sentence case */
 }
 
-.research-card-desc {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.95rem;
+.research-block-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
   line-height: 1.65;
-  color: #9DB0C2;
+  color: var(--fg-2);
   margin-top: auto;
 }
 
-.research-card-indicator {
+.research-block-indicator {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #5CC2B4;
-  opacity: 0;
-  transition: opacity 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--fg-3);
+  opacity: 0.5;
+  transition: background-color var(--t-base), opacity var(--t-base);
   margin-top: 6px;
   flex-shrink: 0;
 }
 
-.research-card:hover .research-card-indicator {
+.research-block-card:hover .research-block-indicator {
   opacity: 1;
-  box-shadow: 0 0 8px rgba(92, 194, 180, 0.5);
+  background-color: var(--cyan);
 }
 
 /* Mobile Responsiveness */
@@ -3694,15 +3721,122 @@ header {
     left: 12px;
   }
 
-  .timeline-dot {
+  .approach-timeline-dot {
     left: -24px;
   }
 
-  .timeline-item {
+  .approach-timeline-item {
     margin-bottom: 48px;
+    padding: 12px 16px;
   }
 
-  .research-card {
+  .research-block-card {
     padding: 32px 24px;
   }
+}
+
+/* ── Deliverable: Workflow & Ecosystem ──────────────────────── */
+.methodology-details {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--fg-2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.methodology-label {
+  font-weight: 500;
+  color: var(--fg);
+}
+
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .ecosystem-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stakeholder-flow {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--fg-2);
+  line-height: 1.6;
+}
+
+.stakeholder-node {
+  padding: 16px;
+  border-left: 2px solid var(--cyan);
+  background: rgba(8, 18, 31, 0.4);
+  border-radius: var(--r-sm);
+  margin-bottom: 8px;
+}
+
+.stakeholder-node strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  color: var(--fg);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.flow-arrow {
+  text-align: center;
+  color: var(--fg-3);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.workflow-chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--fg-2);
+}
+
+.workflow-node {
+  background: rgba(8, 18, 31, 0.4);
+  padding: 8px 16px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.workflow-node-arrow {
+  color: var(--cyan);
+  margin-left: 12px;
+}
+
+.workflow-desc {
+  margin-top: 24px;
+  font-family: var(--font-sans);
+  color: var(--fg-2);
+  line-height: 1.6;
+}
+
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.insight-text {
+  font-size: 1.1rem;
+  color: var(--fg);
+  font-weight: 500;
+  font-family: var(--font-head);
+  line-height: 1.5;
+  margin: 0;
 }
