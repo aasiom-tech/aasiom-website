@@ -2981,3 +2981,144 @@ section, nav, footer, .stats-bar, header { position: relative; z-index: 1; }
 @media (max-width: 600px) {
   .tech-stack-preview { grid-template-columns: 1fr; }
 }
+/* ================================================================
+   HEADER FIX — remove unwanted line + keep nav visible on all pages
+   Paste this at the VERY END of style.css
+   ================================================================ */
+
+/* Remove the horizontal line under navbar on every page */
+.nav,
+.nav.scrolled {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove page-header bottom glowing line */
+.page-header::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Prevent fixed header from covering sections after clicking links */
+html {
+  scroll-padding-top: 120px;
+}
+
+section,
+[id] {
+  scroll-margin-top: 120px;
+}
+
+/* Keep header always visible */
+.nav {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  background: rgba(4, 6, 15, 0.82);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+}
+
+/* Make all navbar items fit: Home, About, Approach, Research, Projects,
+   Anvira, Innovations, Insights, Contact Us */
+.nav-inner {
+  max-width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.nav-links li a {
+  padding: 8px 10px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.nav-links li a.nav-cta {
+  padding: 9px 18px;
+  margin-left: 6px;
+}
+
+/* Tablet: allow wrapping instead of hiding items */
+@media (max-width: 1100px) {
+  .container {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .nav-links {
+    gap: 2px;
+  }
+
+  .nav-links li a {
+    font-size: 0.78rem;
+    padding: 7px 8px;
+  }
+
+  .nav-links li a.nav-cta {
+    padding: 8px 14px;
+  }
+}
+
+/* Mobile menu: show all headers clearly when menu opens */
+@media (max-width: 900px) {
+  .nav {
+    padding: 10px 0 !important;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 78px;
+    left: 16px;
+    right: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 18px;
+    background: rgba(4, 6, 15, 0.96);
+    border: 1px solid rgba(92, 194, 180, 0.18);
+    border-radius: 14px;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
+
+  .nav-links.active,
+  .nav-links.open,
+  .nav-links.show {
+    display: flex !important;
+  }
+
+  .nav-links li a {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+
+  .nav-links li a.nav-cta {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  section,
+  [id] {
+    scroll-margin-top: 100px;
+  }
+}
