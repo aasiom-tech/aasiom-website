@@ -119,6 +119,48 @@
       .nav-links li a { width: 100%; padding: 12px 14px !important; font-size: 0.95rem !important; }
       .nav-links li a.nav-cta { margin-left: 0 !important; text-align: center; }
     }
+  
+
+    /* Simplified header: Home, About, ANVIRA, Contact Us */
+    .nav-links {
+      gap: 34px !important;
+    }
+
+    .nav-links li a:not(.nav-cta) {
+      position: relative !important;
+      padding: 8px 0 14px !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links li a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      box-shadow: 0 0 16px rgba(92, 194, 180, 0.55);
+      transform: translateX(-50%);
+      transition: width 0.28s ease;
+    }
+
+    .nav-links li a:not(.nav-cta):hover::after,
+    .nav-links li a:not(.nav-cta).active::after {
+      width: 82px;
+    }
+
+    .nav-links li a.nav-cta {
+      font-size: 1rem !important;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links { gap: 6px !important; }
+      .nav-links li a:not(.nav-cta)::after { display: none !important; }
+    }
   </style>
 </head>
 
@@ -135,12 +177,7 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
-        <li><a href="approach.html">Approach</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="projects.html">Projects</a></li>
         <li><a href="anvira.html">ANVIRA</a></li>
-        <li><a href="innovation.html">Innovation</a></li>
-        <li><a href="insights.html">Insights</a></li>
         <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
       </ul>
 
@@ -431,7 +468,7 @@
         </div>
         <h3>We Keep the Process Simple</h3>
         <p>
-          ANVIRA focuses on reducing confusion: clearer reporting, faster routing,
+          AASIOM focuses on reducing confusion: clearer reporting, faster routing,
           better coordination, and cleaner information for claim-related decisions.
         </p>
         <span class="think-tag">Operational Clarity</span>
@@ -466,7 +503,7 @@
         </div>
         <h3>We Focus on One Problem Deeply</h3>
         <p>
-          Instead of claiming to solve everything, ANVIRA is focused on highway incidents,
+          Instead of claiming to solve everything, AASIOM is focused on highway incidents,
           fleet downtime, response delays, and claim-flow coordination.
         </p>
         <span class="think-tag">Focused Wedge</span>
@@ -492,125 +529,6 @@
     </div>
   </div>
 </section>
-  <!-- The Team -->
-  <section class="section" id="team">
-    <div class="container">
-      <div class="section-header center" style="margin-bottom:48px;">
-        <span class="section-label">The Team</span>
-
-        <h2 class="section-title">The Team Behind AASIOM</h2>
-
-        <p class="section-desc mx-auto">
-          AASIOM is founder-led, field-grounded, and built around specific responsibilities.
-          The team is positioned by the work each person owns, not by inflated titles.
-        </p>
-      </div>
-
-      <div class="domains-grid">
-
-        <div class="founder-card">
-          <div class="founder-avatar founder-avatar--cyan">O</div>
-          <h3 class="founder-name">Om Vinayak Muchandikar</h3>
-          <div class="founder-role">Director — Field Research &amp; System Architecture</div>
-          <p class="founder-bio">
-            Runs corridor fieldwork and stakeholder interviews; defines the ANVIRA pipeline;
-            owns the operating thesis and external narrative.
-          </p>
-        </div>
-
-        <div class="founder-card">
-          <div class="founder-avatar founder-avatar--indigo">A</div>
-          <h3 class="founder-name">Aditya Prashant Sapkale</h3>
-          <div class="founder-role">Director — Partnerships, Operations &amp; Deal Execution</div>
-          <p class="founder-bio">
-            Owns design-partner relationships and corridor-access coordination; turns field findings
-            into pilots and runs day-to-day operations.
-          </p>
-        </div>
-
-        <div class="founder-card">
-          <div class="founder-avatar founder-avatar--gold">S</div>
-          <h3 class="founder-name">Siddhi Prashant Sapkale</h3>
-          <div class="founder-role">Director — Research Operations, Governance &amp; Data Discipline</div>
-          <p class="founder-bio">
-            Owns research operations, documentation rigour, data-governance discipline,
-            and the company’s corporate foundation.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Core Team -->
-      <div class="section-header center" style="margin:72px 0 40px;">
-        <span class="section-label">Core Team</span>
-        <h2 class="section-title">Systems &amp; Build</h2>
-        <p class="section-desc mx-auto">
-          The core team supports the ANVIRA system direction, reliability, research operations,
-          and field-to-build execution.
-        </p>
-      </div>
-
-      <div class="domains-grid">
-        <div class="founder-card">
-          <div class="founder-avatar founder-avatar--indigo">T</div>
-          <h3 class="founder-name">Tejas Pawar</h3>
-          <div class="founder-role">Core Team — Systems &amp; Build</div>
-          <p class="founder-bio">
-            Builds and operates the ANVIRA processing pipeline; owns reliability and the
-            “no silent failures” engineering discipline.
-          </p>
-        </div>
-      </div>
-
-<!-- Research Team -->
-<div class="section-header center" id="research" style="margin:72px 0 32px;">
-  <span class="section-label">Research Team</span>
-</div>
-
-<style>
-.research-card{position:relative;overflow:hidden}
-.role-pill{display:inline-block;margin:14px 0 12px;padding:7px 14px;border-radius:999px;
-background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(99,102,241,.18));
-border:1px solid rgba(34,211,238,.25);color:var(--cyan);font-size:.78rem;
-font-weight:700;letter-spacing:.04em;text-transform:uppercase}
-.research-card p{color:var(--fg-2);line-height:1.7;font-size:.94rem}
-</style>
-<div class="domains-grid">
-
-<div class="founder-card research-card">
-<h3 class="founder-name">Nooruzma Maizuddin Khan</h3>
-<div class="role-pill">Research &amp; Strategy</div>
-<p>Conducts market research, competitor analysis, and strategic insights to support product and business decisions.</p>
-</div>
-
-<div class="founder-card research-card">
-<h3 class="founder-name">Priya Avinash Patil</h3>
-<div class="role-pill">UI/UX Design</div>
-<p>Designs intuitive and user-centric interfaces to deliver a seamless and engaging user experience.</p>
-</div>
-
-<div class="founder-card research-card">
-<h3 class="founder-name">Pranali Tukaram Mundole</h3>
-<div class="role-pill">Frontend Development</div>
-<p>Builds responsive and interactive user interfaces, ensuring a smooth and reliable web experience.</p>
-</div>
-
-<div class="founder-card research-card">
-<h3 class="founder-name">Saurav Kamlesh Nirban</h3>
-<div class="role-pill">Product Research</div>
-<p>Researches user needs, validates product ideas, and helps translate insights into practical product features.</p>
-</div>
-
-<div class="founder-card research-card">
-<h3 class="founder-name">Qusai Murtaza Hariyanawala</h3>
-<div class="role-pill">Backend Development</div>
-<p>Develops secure and scalable backend systems that power the application's core functionality and data management.</p>
-</div>
-
-</div>
-</div>
-</section>
-
   <!-- Data Governance -->
   <section class="section mission-section">
     <div class="container">
@@ -673,6 +591,129 @@ font-weight:700;letter-spacing:.04em;text-transform:uppercase}
     </div>
   </section>
 
+<!-- The Team -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-header center" style="margin-bottom:48px;">
+        <span class="section-label">The Team</span>
+
+        <h2 class="section-title">The Team Behind AASIOM</h2>
+
+        <p class="section-desc mx-auto">
+          AASIOM is founder-led, field-grounded, and built around specific responsibilities.
+          The team is positioned by the work each person owns, not by inflated titles.
+        </p>
+      </div>
+
+      <div class="domains-grid">
+
+        <div class="founder-card">
+          <div class="founder-avatar founder-avatar--gold">S</div>
+          <h3 class="founder-name">Siddhi Prashant Sapkale</h3>
+          <div class="founder-role">Director — Research Operations, Governance &amp; Data Discipline</div>
+          <p class="founder-bio">
+            Strengthens AASIOM’s operating foundation by maintaining research discipline, documentation quality,
+            governance practices, and structured internal coordination as the company grows.
+          </p>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-avatar founder-avatar--indigo">A</div>
+          <h3 class="founder-name">Aditya Prashant Sapkale</h3>
+          <div class="founder-role">Director — Partnerships, Operations &amp; Deal Execution</div>
+          <p class="founder-bio">
+            Builds AASIOM’s external relationships, coordinates operating access, supports partner conversations,
+            and helps convert company research into practical business execution.
+          </p>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-avatar founder-avatar--cyan">O</div>
+          <h3 class="founder-name">Om Vinayak Muchandikar</h3>
+          <div class="founder-role">Founder — Company Direction &amp; System Thinking</div>
+          <p class="founder-bio">
+            Shapes AASIOM’s core thesis, connects field learning with company strategy, defines the long-term
+            operating direction, and keeps the work focused on real-world coordination problems.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Core Team -->
+      <div class="section-header center" style="margin:72px 0 40px;">
+        <span class="section-label">Core Team</span>
+        <h2 class="section-title">Systems &amp; Build</h2>
+        <p class="section-desc mx-auto">
+          The core team supports AASIOM’s system direction, reliability, research operations,
+          and field-to-build execution.
+        </p>
+      </div>
+
+      <div class="domains-grid">
+        <div class="founder-card">
+          <div class="founder-avatar founder-avatar--indigo">T</div>
+          <h3 class="founder-name">Tejas Pawar</h3>
+          <div class="founder-role">Core Team — Systems &amp; Build</div>
+          <p class="founder-bio">
+            Builds and supports AASIOM’s technical foundations, reliability practices, and
+            disciplined engineering execution across product and internal systems.
+          </p>
+        </div>
+      </div>
+
+<!-- Research Team -->
+<div class="section-header center" id="research" style="margin:72px 0 32px;">
+  <span class="section-label">Research Team</span>
+</div>
+
+<div class="domains-grid">
+
+  <div class="founder-card">
+    <h3 class="founder-name">Nooruzma Maizuddin Khan</h3>
+    <div class="founder-role">Research &amp; Strategy</div>
+    <p class="founder-bio">
+      Conducts market research, competitor analysis, and strategic insights to support product and business decisions.
+    </p>
+  </div>
+
+  <div class="founder-card">
+    <h3 class="founder-name">Priya Avinash Patil</h3>
+    <div class="founder-role">UI/UX Design</div>
+    <p class="founder-bio">
+      Designs intuitive and user-centric interfaces to deliver a seamless and engaging user experience.
+    </p>
+  </div>
+
+  <div class="founder-card">
+    <h3 class="founder-name">Pranali Tukaram Mundole</h3>
+    <div class="founder-role">Frontend Development</div>
+    <p class="founder-bio">
+      Builds responsive and interactive user interfaces, ensuring a smooth and reliable web experience.
+    </p>
+  </div>
+
+  <div class="founder-card">
+    <h3 class="founder-name">Saurav Kamlesh Nirban</h3>
+    <div class="founder-role">Product Research</div>
+    <p class="founder-bio">
+      Researches user needs, validates product ideas, and helps translate insights into practical product features.
+    </p>
+  </div>
+
+  <div class="founder-card">
+    <h3 class="founder-name">Qusai Murtaza Hariyanawala</h3>
+    <div class="founder-role">Backend Development</div>
+    <p class="founder-bio">
+      Develops secure and scalable backend systems that power the application’s core functionality and data management.
+    </p>
+  </div>
+
+</div>
+</div>
+</section>
+
+  
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -693,7 +734,7 @@ font-weight:700;letter-spacing:.04em;text-transform:uppercase}
           <ul>
             <li><a href="about.html">About Us</a></li>
             <li><a href="about.html#team">Team</a></li>
-            <li><a href="projects.html">Projects</a></li>
+            <li><a href="anvira.html">ANVIRA</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
