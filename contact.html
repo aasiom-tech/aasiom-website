@@ -126,7 +126,7 @@
     .contact-title {
       font-size: clamp(3.1rem, 6.8vw, 6.2rem);
       line-height: 0.96;
-      letter-spacing: -0.065em;
+      letter-spacing: -0.025em;
       font-weight: 900;
       margin: 0 0 30px;
     }
@@ -427,6 +427,71 @@
         min-height: auto;
       }
     }
+
+    /* Polished active navigation effect */
+    .compact-nav {
+      gap: 24px;
+    }
+
+    .compact-nav li a {
+      position: relative;
+      font-size: 0.96rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .compact-nav li a:not(.nav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -12px;
+      width: 0;
+      height: 2px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      box-shadow: 0 0 18px rgba(34, 211, 238, 0.7);
+      opacity: 0;
+      transition: width 0.25s ease, opacity 0.25s ease;
+    }
+
+    .compact-nav li a:not(.nav-cta):hover::after,
+    .compact-nav li a:not(.nav-cta).active::after {
+      width: 80px;
+      opacity: 1;
+    }
+
+    .compact-nav li a.nav-cta.active {
+      box-shadow:
+        0 0 0 1px rgba(34, 211, 238, 0.34),
+        0 12px 34px rgba(34, 211, 238, 0.22);
+    }
+
+    .compact-nav li a.nav-cta.active::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -15px;
+      width: 96px;
+      height: 2px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.75);
+    }
+
+    /* Fix tight hero headline kerning */
+    .contact-title {
+      letter-spacing: -0.025em !important;
+      word-spacing: 0.04em;
+    }
+
+    @media (max-width: 980px) {
+      .compact-nav { gap: 6px; }
+      .compact-nav li a.nav-cta.active::before { display: none; }
+      .compact-nav li a:not(.nav-cta)::after { display: none; }
+    }
+
   </style>
 </head>
 
@@ -439,13 +504,10 @@
         <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
       </a>
 
-      <ul class="nav-links" id="navLinks">
+      <ul class="nav-links compact-nav" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="innovation.html">Innovation</a></li>
         <li><a href="anvira.html">ANVIRA</a></li>
-        <li><a href="insights.html">Insights</a></li>
         <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
       </ul>
 
