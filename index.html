@@ -4,21 +4,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AASIOM Pvt Ltd — Operational research for highway incident response</title>
+  <title>AASIOM Technologies Pvt. Ltd. — Innovative Technology Solutions</title>
   <meta name="description"
-    content="AASIOM is an operational-research company building ANVIRA, an incident-to-resolution system for highway freight — currently in field validation on Mumbai's Western Express Highway.">
+    content="AASIOM Technologies Pvt. Ltd. builds innovative technology solutions for real-world operational problems, combining research, engineering, intelligent systems, and field validation for meaningful impact in Indian society.">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AASIOM Pvt Ltd — Operational research for highway incident response">
+  <meta property="og:title" content="AASIOM Technologies Pvt. Ltd. — Innovative Technology Solutions">
   <meta property="og:description"
-    content="Building ANVIRA, an incident-to-resolution system for highway freight. Field validation on Mumbai's Western Express Highway.">
+    content="Building research-backed technology solutions for operational challenges, including ANVIRA for highway incident response.">
   <meta property="og:url" content="https://aasiom.com">
   <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="AASIOM Pvt Ltd — Operational research for highway incidents">
+  <meta name="twitter:title" content="AASIOM Technologies Pvt. Ltd. — Innovative Technology Solutions">
   <meta name="twitter:description"
-    content="Building ANVIRA, an incident-to-resolution system for highway freight.">
+    content="Building innovative technology solutions for real-world operational problems.">
   <!-- Network Resilience & Async Fonts -->
   <script>
     window.retryAsset = function (el, attempt) {
@@ -44,10 +44,442 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
   <link rel="apple-touch-icon" href="images/aasiom-tab.png">
+
+
+  <!-- Homepage upgrade styles: splash, company intro, subtle motion, and premium visual elements -->
+  <style>
+    :root {
+      --aasiom-cyan: #20d6ef;
+      --aasiom-cyan-soft: rgba(32, 214, 239, 0.18);
+      --aasiom-navy: #070c16;
+      --aasiom-card: rgba(15, 22, 40, 0.78);
+      --aasiom-border: rgba(32, 214, 239, 0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    .nav {
+      width: 100%;
+      background: rgba(5, 9, 18, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(32, 214, 239, 0.10);
+      z-index: 1000;
+    }
+
+    .nav .container.nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      margin: auto;
+      background: linear-gradient(90deg, transparent, var(--aasiom-cyan), transparent);
+      transition: width 0.28s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+
+    .aasiom-splash {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(32, 214, 239, 0.20), transparent 34%),
+        radial-gradient(circle at 70% 70%, rgba(92, 194, 180, 0.10), transparent 34%),
+        #070c16;
+      z-index: 9999;
+      transition: opacity 0.8s ease, visibility 0.8s ease;
+    }
+
+    .aasiom-splash.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .splash-ring {
+      position: absolute;
+      width: min(70vw, 620px);
+      height: min(70vw, 620px);
+      border: 1px solid rgba(32, 214, 239, 0.22);
+      border-radius: 50%;
+      animation: splashPulse 4.6s ease-in-out infinite;
+    }
+
+    .splash-ring::before,
+    .splash-ring::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left-color: rgba(32, 214, 239, 0.48);
+      border-radius: 50%;
+      animation: ringRotate 10s linear infinite;
+    }
+
+    .splash-ring::after {
+      inset: 24%;
+      animation-duration: 14s;
+      animation-direction: reverse;
+    }
+
+    .splash-content {
+      position: relative;
+      text-align: center;
+      padding: 28px;
+      animation: splashIntro 0.95s ease both;
+    }
+
+    .splash-logo {
+      width: min(240px, 42vw);
+      height: auto;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 30px rgba(32, 214, 239, 0.28));
+      animation: logoFloat 3.2s ease-in-out infinite;
+    }
+
+    .splash-title {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: #fff;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .splash-subtitle {
+      margin-top: 18px;
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--aasiom-cyan);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-size: clamp(0.72rem, 1.3vw, 0.98rem);
+    }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      right: -280px;
+      top: 80px;
+      border: 1px solid rgba(32, 214, 239, 0.18);
+      border-radius: 50%;
+      opacity: 0.75;
+      z-index: -1;
+      animation: slowSpin 26s linear infinite;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 520px;
+      height: 520px;
+      left: -260px;
+      bottom: -220px;
+      border: 1px solid rgba(32, 214, 239, 0.12);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .hero-brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      margin: 18px 0 22px;
+      padding: 14px 18px;
+      border: 1px solid rgba(32, 214, 239, 0.20);
+      border-radius: 24px;
+      background: rgba(9, 16, 30, 0.54);
+      box-shadow: 0 22px 80px rgba(32, 214, 239, 0.09);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .hero-brand-mark {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(32, 214, 239, 0.24));
+    }
+
+    .hero-brand-name {
+      margin: 0;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: clamp(1.8rem, 4vw, 4.2rem);
+      line-height: 0.92;
+      text-transform: uppercase;
+    }
+
+    .hero-brand-line {
+      margin-top: 6px;
+      color: rgba(210, 224, 240, 0.75);
+      font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+      font-weight: 600;
+    }
+
+    .hero-title, .hero-sub, .hero-ctas, .hero-tags, .hero-pill,
+    .hero-brand-lockup, .hero-rail .rail-block {
+      animation: fadeUp 0.85s ease both;
+    }
+
+    .hero-brand-lockup { animation-delay: 0.05s; }
+    .hero-pill { animation-delay: 0.12s; }
+    .hero-title { animation-delay: 0.20s; }
+    .hero-sub { animation-delay: 0.32s; }
+    .hero-ctas { animation-delay: 0.44s; }
+    .hero-tags { animation-delay: 0.56s; }
+
+    .hero-rail .rail-block:nth-child(1) { animation-delay: 0.25s; }
+    .hero-rail .rail-block:nth-child(2) { animation-delay: 0.36s; }
+    .hero-rail .rail-block:nth-child(3) { animation-delay: 0.47s; }
+    .hero-rail .rail-block:nth-child(4) { animation-delay: 0.58s; }
+
+    .company-panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(32, 214, 239, 0.16);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(32, 214, 239, 0.12), transparent 32%),
+        linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(7, 12, 22, 0.90));
+      box-shadow: 0 30px 120px rgba(0, 0, 0, 0.28);
+      padding: clamp(28px, 5vw, 64px);
+    }
+
+    .company-panel::after {
+      content: "";
+      position: absolute;
+      right: -150px;
+      top: -120px;
+      width: 430px;
+      height: 430px;
+      border: 1px solid rgba(32, 214, 239, 0.20);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .company-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: clamp(28px, 5vw, 70px);
+      align-items: center;
+      z-index: 1;
+    }
+
+    .company-kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      color: var(--aasiom-cyan);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+    }
+
+    .company-title {
+      margin: 0 0 18px;
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      font-weight: 900;
+    }
+
+    .company-copy {
+      color: rgba(205, 219, 237, 0.78);
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      line-height: 1.85;
+      max-width: 760px;
+    }
+
+    .company-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .company-proof {
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(255,255,255,0.035);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .company-proof:hover {
+      transform: translateY(-5px);
+      border-color: rgba(32, 214, 239, 0.25);
+      background: rgba(32, 214, 239, 0.06);
+    }
+
+    .company-proof strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 7px;
+      font-size: 1rem;
+    }
+
+    .company-proof span {
+      color: rgba(171, 189, 212, 0.80);
+      font-size: 0.93rem;
+      line-height: 1.5;
+    }
+
+    .company-orbit-card {
+      position: relative;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      border: 1px solid rgba(32, 214, 239, 0.16);
+      background: rgba(8, 14, 27, 0.62);
+      overflow: hidden;
+    }
+
+    .company-orbit-card::before {
+      content: "";
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border: 1px solid rgba(32, 214, 239, 0.18);
+      border-radius: 50%;
+      animation: slowSpin 28s linear infinite;
+    }
+
+    .company-orbit-card::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      border-right-color: rgba(32, 214, 239, 0.45);
+      border-radius: 50%;
+      animation: ringRotate 18s linear infinite;
+    }
+
+    .company-orbit-card img {
+      position: relative;
+      z-index: 1;
+      width: min(230px, 68%);
+      filter: drop-shadow(0 0 34px rgba(32, 214, 239, 0.22));
+      animation: logoFloat 4s ease-in-out infinite;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feature-item, .research-card, .step, .founder-card, .project-hero, .btn, .hero-tag {
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+    }
+
+    .feature-item:hover, .research-card:hover, .step:hover, .founder-card:hover, .project-hero:hover {
+      transform: translateY(-6px);
+      border-color: rgba(32, 214, 239, 0.24);
+      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.22);
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+    .hero-tag:hover { transform: translateY(-3px); }
+
+    @keyframes splashIntro {
+      from { opacity: 0; transform: translateY(18px) scale(0.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes ringRotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes splashPulse {
+      0%, 100% { transform: scale(0.94); opacity: 0.55; }
+      50% { transform: scale(1); opacity: 1; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-brand-lockup { align-items: flex-start; flex-direction: column; }
+      .company-grid { grid-template-columns: 1fr; }
+      .company-proof-grid { grid-template-columns: 1fr; }
+      .company-orbit-card { min-height: 280px; }
+      .splash-title { font-size: clamp(2rem, 12vw, 4rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Opening Splash Screen -->
+  <div class="aasiom-splash" id="aasiomSplash" aria-hidden="true">
+    <div class="splash-ring"></div>
+    <div class="splash-content">
+      <img class="splash-logo" src="images/aasiom-logo.png" alt="AASIOM Technologies Pvt. Ltd.">
+      <h1 class="splash-title">AASIOM<br>Technologies<br>Pvt. Ltd.</h1>
+      <div class="splash-subtitle">Innovative technology solutions</div>
+    </div>
+  </div>
 
   <!-- Navigation -->
   <nav class="nav" id="navbar">
@@ -92,6 +524,13 @@
 
     <!-- Center content -->
     <div class="container hero-center">
+      <div class="hero-brand-lockup">
+        <img class="hero-brand-mark" src="images/aasiom-logo.png" alt="AASIOM logo">
+        <div>
+          <h1 class="hero-brand-name">AASIOM Technologies Pvt. Ltd.</h1>
+          <div class="hero-brand-line">Engineering intelligent solutions for operational problems that matter.</div>
+        </div>
+      </div>
       <div class="hero-pill">
         <span class="hero-pill-dot"></span>
         Operational research &middot; Field validation &middot; Western Express Highway
@@ -146,8 +585,50 @@
 
   </section>
 
+  <!-- Company Overview -->
+  <section class="section company-overview-section reveal">
+    <div class="container">
+      <div class="company-panel">
+        <div class="company-grid">
+          <div>
+            <div class="company-kicker">About the company</div>
+            <h2 class="company-title">Technology built for real Indian problems.</h2>
+            <p class="company-copy">
+              AASIOM Technologies Pvt. Ltd. is a technology company focused on building innovative solutions for practical, high-impact problems. We combine field research, system design, artificial intelligence, and software engineering to create tools that improve operational coordination and support meaningful outcomes for Indian society.
+            </p>
+            <p class="company-copy">
+              Our work begins with understanding the ground reality, then converting those insights into reliable technology systems. ANVIRA is one such initiative — a research-backed platform being developed to improve highway incident response, fleet coordination, and claim workflows.
+            </p>
+            <div class="company-proof-grid">
+              <div class="company-proof">
+                <strong>Research-led</strong>
+                <span>We study the problem deeply before designing the solution.</span>
+              </div>
+              <div class="company-proof">
+                <strong>Technology-driven</strong>
+                <span>We build intelligent systems using software, data, and AI.</span>
+              </div>
+              <div class="company-proof">
+                <strong>Field validated</strong>
+                <span>Solutions are tested against real operational conditions.</span>
+              </div>
+              <div class="company-proof">
+                <strong>Society focused</strong>
+                <span>Our goal is useful technology for Indian infrastructure and people.</span>
+              </div>
+            </div>
+          </div>
+          <div class="company-orbit-card" aria-hidden="true">
+            <img src="images/aasiom-logo.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- The Problem -->
-  <section class="section">
+  <section class="section reveal">
     <div class="container">
       <div class="section-header center">
         <span class="section-label">The problem</span>
@@ -202,7 +683,7 @@
   </section>
 
   <!-- ANVIRA -->
-  <section class="section">
+  <section class="section reveal">
     <div class="container">
       <div class="project-hero">
         <div class="project-hero-inner" style="grid-template-columns: 1fr;">
@@ -246,7 +727,7 @@
   </section>
 
   <!-- Approach -->
-  <section class="section pipeline-section">
+  <section class="section pipeline-section reveal">
     <div class="container">
       <div class="section-header center">
         <span class="section-label">How we work</span>
@@ -300,7 +781,7 @@
   </section>
 
   <!-- Field Insights -->
-  <section class="section">
+  <section class="section reveal">
     <div class="container">
       <div class="section-header center">
         <span class="section-label">From the field</span>
@@ -352,13 +833,13 @@
   </section>
 
   <!-- Founder note & close -->
-  <section class="section cta-section">
+  <section class="section cta-section reveal">
     <div class="container">
       <div class="mission-grid">
         <div class="founder-card" style="max-width:320px;">
           <div class="founder-avatar founder-avatar--cyan">OM</div>
           <div class="founder-name">Om Vinayak Muchandikar</div>
-          <div class="founder-role">Founder · Field Research &amp; System Architecture</div>
+          <div class="founder-role">Director · Field Research &amp; System Architecture</div>
           <div class="founder-bio">Spends most weeks on the Western Express Highway — in dispatch rooms, with
             surveyors, on calls with fleet operators — mapping how an incident actually becomes a claim.</div>
         </div>
@@ -385,9 +866,8 @@
           <a href="index.html" class="nav-logo">
             <img src="images/aasiom-logo.png" alt="AASIOM" style="height:90px; width:auto; transform: scale(1.2); margin-top: -10px;">
           </a>
-          <p>AASIOM Pvt Ltd is an operational-research company studying highway incident response,
-            fleet operations, and claim workflows. Currently conducting field validation on Mumbai's Western Express Highway.</p>
-          <p style="margin-top:16px;"><strong>Current focus</strong><br>Highway incident response · Fleet operations research · Claim leakage analysis · ANVIRA field validation</p>
+          <p>AASIOM Technologies Pvt. Ltd. is a technology company dedicated to developing innovative solutions for real-world problems. Through research, engineering, and intelligent systems, we build technologies that create meaningful impact for Indian society.</p>
+          <p style="margin-top:16px;"><strong>Current focus</strong><br>Innovative technology solutions · AI-enabled systems · Operational research · ANVIRA field validation</p>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
@@ -407,12 +887,48 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 AASIOM Pvt Ltd. All rights reserved.</span>
+        <span>&copy; 2026 AASIOM Technologies Pvt. Ltd. All rights reserved.</span>
         <span class="footer-india">&#127470;&#127475; Mumbai, India</span>
       </div>
     </div>
   </footer>
 
+
+  <script>
+    (function () {
+      var splash = document.getElementById('aasiomSplash');
+      if (!splash) return;
+
+      var alreadySeen = sessionStorage.getItem('aasiomSplashSeen');
+      if (alreadySeen) {
+        splash.classList.add('hide');
+      } else {
+        setTimeout(function () {
+          splash.classList.add('hide');
+          sessionStorage.setItem('aasiomSplashSeen', 'true');
+        }, 5000);
+      }
+    })();
+
+    (function () {
+      var revealItems = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealItems.forEach(function (item) { item.classList.add('visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      revealItems.forEach(function (item) { observer.observe(item); });
+    })();
+  </script>
   <script src="js/main.js" defer></script>
   <script src="js/topo.js" defer></script>
 </body>
