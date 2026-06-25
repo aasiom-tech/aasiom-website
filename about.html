@@ -710,7 +710,340 @@
       }
     }
 
-  </style>
+  
+
+    /* ================================================================
+       ABOUT PAGE POLISH PASS — premium visual refinement
+       ================================================================ */
+    body {
+      background:
+        radial-gradient(circle at 18% 12%, rgba(92,194,180,0.08), transparent 30%),
+        radial-gradient(circle at 82% 28%, rgba(224,164,88,0.055), transparent 28%),
+        var(--navy-950);
+    }
+
+    .nav {
+      padding: 22px 0 !important;
+      background: linear-gradient(180deg, rgba(4,6,15,0.86), rgba(4,6,15,0.58)) !important;
+      backdrop-filter: blur(28px) saturate(160%) !important;
+      -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+    }
+
+    .nav.scrolled {
+      border-bottom: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .nav-inner {
+      position: relative;
+      padding: 0 18px;
+    }
+
+    .nav-links {
+      gap: 18px !important;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.018);
+      border: 1px solid rgba(255,255,255,0.035);
+    }
+
+    .nav-links li a {
+      position: relative;
+      font-size: 0.94rem !important;
+      letter-spacing: 0.01em;
+      padding: 8px 4px !important;
+      background: transparent !important;
+    }
+
+    .nav-links li a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: -9px;
+      width: 0;
+      height: 2px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      box-shadow: 0 0 16px rgba(92,194,180,0.45);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links li a:not(.nav-cta):hover::after,
+    .nav-links li a.active:not(.nav-cta)::after {
+      width: 62px;
+    }
+
+    .nav-links li a.nav-cta {
+      padding: 12px 28px !important;
+      box-shadow: 0 10px 30px rgba(92,194,180,0.18), inset 0 1px 0 rgba(255,255,255,0.22);
+    }
+
+    .page-header--about {
+      min-height: 100vh;
+      padding-top: 132px;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(92,194,180,0.12), transparent 35%),
+        radial-gradient(circle at 10% 80%, rgba(224,164,88,0.05), transparent 28%),
+        linear-gradient(180deg, rgba(5,8,18,0.10), rgba(5,8,18,0.88));
+    }
+
+    .page-header--about::before {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.025), transparent 22%),
+        radial-gradient(ellipse 800px 500px at 50% 42%, rgba(92,194,180,0.09), transparent 72%) !important;
+    }
+
+    .page-header--about .container {
+      max-width: 980px;
+    }
+
+    .page-header h1 {
+      font-size: clamp(3rem, 5.6vw, 6.4rem) !important;
+      line-height: 0.98 !important;
+      letter-spacing: -0.055em !important;
+      text-wrap: balance;
+    }
+
+    .page-header h1::after {
+      content: '';
+      display: block;
+      width: 112px;
+      height: 3px;
+      margin: 28px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, var(--cyan), var(--gold), transparent);
+      box-shadow: 0 0 28px rgba(92,194,180,0.28);
+    }
+
+    .page-header p {
+      max-width: 760px !important;
+      font-size: clamp(1.02rem, 1.35vw, 1.22rem) !important;
+      color: rgba(213,226,239,0.78) !important;
+    }
+
+    .ph-tagline {
+      color: rgba(233,238,244,0.72) !important;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 24px;
+      padding: 18px 24px;
+      margin-top: 22px !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .ph-chip {
+      min-width: 128px !important;
+      padding: 18px 24px !important;
+      border-radius: 18px !important;
+      background: linear-gradient(180deg, rgba(92,194,180,0.08), rgba(255,255,255,0.025)) !important;
+      border-color: rgba(92,194,180,0.24) !important;
+      box-shadow: 0 16px 44px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+
+    .section,
+    .mission-section,
+    .about-innovation-section,
+    .trust-docs-section {
+      position: relative;
+      padding-top: clamp(82px, 8vw, 128px) !important;
+      padding-bottom: clamp(82px, 8vw, 128px) !important;
+    }
+
+    .section::before,
+    .mission-section::before,
+    .about-innovation-section::before,
+    .trust-docs-section::before {
+      content: '';
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(92,194,180,0.20), rgba(224,164,88,0.10), transparent);
+      pointer-events: none;
+    }
+
+    .mission-grid {
+      gap: clamp(42px, 5vw, 76px) !important;
+    }
+
+    .mission-content {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .mission-content .section-title,
+    .section-header .section-title,
+    .trust-docs-head .section-title,
+    .about-innovation-head .section-title {
+      text-wrap: balance;
+      letter-spacing: -0.045em;
+    }
+
+    .section-desc,
+    .founder-bio,
+    .trust-docs-copy,
+    .about-innovation-copy {
+      color: rgba(213,226,239,0.72) !important;
+    }
+
+    .mission-stat-box,
+    .founder-card,
+    .think-card,
+    .about-principle-card,
+    .trust-docs-group,
+    .trust-docs-sidebar,
+    .trust-docs-note,
+    .about-innovation-note,
+    .about-vision-strip {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018)) !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.28), inset 0 1px 0 rgba(255,255,255,0.055) !important;
+    }
+
+    .mission-stat-box,
+    .founder-card,
+    .think-card,
+    .about-principle-card,
+    .trust-docs-group {
+      overflow: hidden;
+    }
+
+    .mission-stat-box::after,
+    .founder-card::after,
+    .think-card::after,
+    .about-principle-card::after,
+    .trust-docs-group::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 0%, rgba(92,194,180,0.10), transparent 46%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .mission-stat-box:hover::after,
+    .founder-card:hover::after,
+    .think-card:hover::after,
+    .about-principle-card:hover::after,
+    .trust-docs-group:hover::after {
+      opacity: 1;
+    }
+
+    .founder-card {
+      min-height: 318px;
+      border-radius: 24px !important;
+      padding: 42px 34px !important;
+    }
+
+    .founder-avatar {
+      width: 86px !important;
+      height: 86px !important;
+      font-size: 2.35rem !important;
+      box-shadow: 0 0 0 8px rgba(255,255,255,0.03), 0 18px 45px rgba(0,0,0,0.28) !important;
+    }
+
+    .founder-name {
+      font-size: 1.18rem !important;
+      line-height: 1.25 !important;
+    }
+
+    .founder-role {
+      color: var(--cyan) !important;
+      letter-spacing: 0.13em !important;
+    }
+
+    .research-team-grid .founder-card {
+      align-items: flex-start !important;
+      text-align: left !important;
+      min-height: 230px;
+    }
+
+    .research-team-grid .founder-card::before {
+      content: '';
+      width: 42px;
+      height: 4px;
+      border-radius: 999px;
+      margin-bottom: 26px;
+      background: linear-gradient(90deg, var(--cyan), rgba(224,164,88,0.85));
+      box-shadow: 0 0 20px rgba(92,194,180,0.24);
+    }
+
+    .about-innovation-section {
+      background:
+        radial-gradient(circle at 18% 18%, rgba(92,194,180,0.055), transparent 28%),
+        radial-gradient(circle at 86% 62%, rgba(224,164,88,0.040), transparent 25%);
+    }
+
+    .about-principle-grid {
+      gap: 24px !important;
+    }
+
+    .about-principle-card {
+      border-radius: 24px !important;
+      min-height: 260px;
+    }
+
+    .about-principle-number {
+      color: var(--gold-2) !important;
+    }
+
+    .about-vision-strip {
+      border-radius: 28px !important;
+      background:
+        linear-gradient(135deg, rgba(92,194,180,0.12), rgba(255,255,255,0.025) 55%, rgba(224,164,88,0.08)) !important;
+    }
+
+    .trust-docs-section {
+      background:
+        radial-gradient(circle at 25% 22%, rgba(92,194,180,0.055), transparent 30%),
+        linear-gradient(180deg, rgba(4,6,15,0.35), rgba(4,6,15,0.7));
+    }
+
+    .trust-docs-shell {
+      gap: 28px !important;
+    }
+
+    .trust-docs-sidebar {
+      top: 128px !important;
+      border-radius: 24px !important;
+    }
+
+    .trust-docs-group {
+      border-radius: 26px !important;
+    }
+
+    .trust-doc-btn {
+      border-radius: 16px !important;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease !important;
+    }
+
+    .trust-doc-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(92,194,180,0.075) !important;
+      border-color: rgba(92,194,180,0.34) !important;
+    }
+
+    .trust-modal-card {
+      border-radius: 30px !important;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.55) !important;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        background: rgba(4,6,15,0.96) !important;
+        border-radius: 20px !important;
+        gap: 8px !important;
+      }
+
+      .nav-links li a:not(.nav-cta)::after { display: none; }
+      .page-header--about { padding-top: 118px; }
+      .founder-card { min-height: auto; }
+    }
+</style>
 </head>
 
 <body>
@@ -757,14 +1090,12 @@
       <h1>Founder-Led.<br>Field-Grounded.</h1>
 
       <p>
-        AASIOM exists to study how highway incidents actually unfold before building technology for them.
-        Our current focus is ANVIRA: an incident-to-resolution system direction for highway freight,
-        fleet operations, and claim-flow coordination.
+        AASIOM studies operational reality before shaping technology. We examine the people, handoffs, evidence flows, and decision points behind highway incidents so every system direction is grounded in how work actually happens.
       </p>
 
       <p class="ph-tagline">
-        We do not start with tools.<br>
-        We start with the road, the people, and the handoffs.
+        We begin with field clarity.<br>
+        Then we design systems that reduce confusion, delay, and operational loss.
       </p>
 
       <div class="ph-chips">
@@ -809,24 +1140,18 @@
         <div class="mission-content">
           <span class="section-label">Why AASIOM Exists</span>
 
-          <h2 class="section-title">The Delay Is a<br>Coordination Gap</h2>
+          <h2 class="section-title">Operational Gaps Become<br>Business Loss</h2>
 
           <p class="section-desc">
-            On the highway, the problem is rarely only about technology. A driver reports an incident,
-            the fleet tries to understand what happened, assistance is called, the insurer enters later,
-            and each handoff can lose time, location context, evidence, and accountability.
+            AASIOM was built to understand where real operations slow down: unclear reporting, fragmented handoffs, missing evidence, delayed decisions, and weak accountability across field teams, fleets, responders, and claim workflows.
           </p>
 
           <p style="color:var(--fg-2); font-size:0.95rem; line-height:1.8; margin-bottom:24px;">
-            AASIOM was created to study these operating gaps directly. Before proposing a product,
-            we examine how incidents are reported, who acts first, what information is lost, and where
-            delays become operational or financial loss.
+            Before proposing technology, we map how the work happens on the ground. We study who acts first, what information travels, what gets lost, and where delays create operational or financial impact.
           </p>
 
           <p style="color:var(--fg-2); font-size:0.95rem; line-height:1.8;">
-            ANVIRA is being shaped around a focused wedge: turning the first chaotic minutes after
-            a highway incident into structured, time-stamped, useful information for fleets, responders,
-            insurers, and claim workflows.
+            This gives AASIOM a disciplined foundation: research-led system design, sharper operational understanding, and technology directions that solve specific problems instead of adding more complexity.
           </p>
         </div>
 
@@ -1088,19 +1413,15 @@
           <h2 class="section-title">Data Governance<br>Is Part of Trust</h2>
 
           <p class="section-desc">
-            AASIOM’s work may involve operational conversations, field observations, incident workflows,
-            and stakeholder inputs. These details are handled carefully because data trust is part of the system.
+            AASIOM’s work may involve operational conversations, field observations, workflow mapping, and stakeholder inputs. These details are handled with care because trust is not a feature added later — it is part of the system architecture.
           </p>
 
           <p style="color:var(--fg-2); font-size:0.95rem; line-height:1.8; margin-bottom:24px;">
-            We aim to collect only what is necessary for research and system understanding. Sensitive
-            operational details are handled with restraint, and public insights should avoid exposing private,
-            personal, or commercially sensitive information.
+            We collect only what is necessary to understand the problem. Sensitive operational details are treated with restraint, and public outputs are designed to avoid exposing personal, private, or commercially sensitive information.
           </p>
 
           <p style="color:var(--fg-2); font-size:0.95rem; line-height:1.8;">
-            AASIOM’s data posture is built around consent, purpose limitation, controlled access,
-            and DPDP-aligned discipline as ANVIRA develops.
+            Our data posture is shaped around consent, purpose limitation, controlled access, documentation discipline, and DPDP-aligned thinking as AASIOM’s systems mature.
           </p>
         </div>
 
@@ -1211,8 +1532,7 @@
         <h2 class="section-title">The Team Behind AASIOM</h2>
 
         <p class="section-desc mx-auto">
-          AASIOM is founder-led, field-grounded, and built around specific responsibilities.
-          The team is positioned by the work each person owns, not by inflated titles.
+          AASIOM brings together research, operations, design, engineering, and governance responsibilities. The team is presented by the work each person owns and the discipline they contribute to the company’s foundation.
         </p>
       </div>
 
@@ -1241,7 +1561,7 @@
         <div class="founder-card">
           <div class="founder-avatar founder-avatar--cyan">O</div>
           <h3 class="founder-name">Om Vinayak Muchandikar</h3>
-          <div class="founder-role">Director — Company Direction &amp; System Thinking</div>
+          <div class="founder-role">Founder — Company Direction &amp; System Thinking</div>
           <p class="founder-bio">
             Shapes AASIOM’s core thesis, connects field learning with company strategy, defines long-term
             operating direction, and keeps the work focused on real-world coordination problems.
@@ -1332,12 +1652,12 @@
           <span class="section-label">Document Center</span>
           <h2 class="section-title">AASIOM Trust Center Documents</h2>
           <p class="trust-docs-copy">
-            A professional reference library for corporate, legal, compliance, security, media, and governance documents. Each document name is visible below. Click any document to open a clean preview panel without leaving the page.
+            A polished public-facing trust center for corporate, legal, compliance, security, media, and governance references. Each document name is clearly visible, and every item opens in a focused preview panel without taking the user away from the page.
           </p>
         </div>
         <div class="trust-docs-note">
-          <strong>Designed for stakeholder review</strong>
-          <span>Use this section as the public-facing trust center index. As documents are finalized, their full content can be attached behind the same preview cards.</span>
+          <strong>Built for clarity and confidence</strong>
+          <span>The structure is ready for public review today and can later connect each preview card to finalized PDF files, hosted documents, or secure download links.</span>
         </div>
       </div>
 
