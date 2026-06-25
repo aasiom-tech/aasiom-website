@@ -534,6 +534,74 @@
       word-break: normal !important;
     }
 
+
+    /* Premium contact form field updates */
+    .premium-contact-form .required-note {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 16px;
+      margin: 0 0 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(34, 211, 238, 0.18);
+      background: rgba(34, 211, 238, 0.055);
+      color: var(--fg-2);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .premium-contact-form .required-note span:first-child {
+      color: var(--fg);
+      font-weight: 700;
+    }
+
+    .premium-contact-form .required-star {
+      display: inline-block;
+      margin-right: 6px;
+      font-size: 0.82rem;
+      transform: translateY(-1px);
+    }
+
+    .premium-contact-form .optional-label {
+      display: inline-block;
+      margin-left: 8px;
+      color: var(--fg-3);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .optional-fields-box {
+      margin: 28px 0 30px;
+      padding: 24px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        radial-gradient(circle at 90% 10%, rgba(34, 211, 238, 0.08), transparent 30%),
+        rgba(255,255,255,0.025);
+    }
+
+    .optional-fields-title {
+      margin-bottom: 18px;
+      color: var(--cyan);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .optional-fields-box .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .premium-contact-form .form-select option {
+      color: #07111f;
+      background: #eaf6fb;
+    }
+
   </style>
 </head>
 
@@ -752,46 +820,71 @@
             Share the operational context first. A short, specific message is more useful than a generic partnership request.
           </p>
 
-          <form id="contactForm" action="#" method="POST">
+          <form id="contactForm" action="#" method="POST" class="premium-contact-form">
+            <div class="required-note">
+              <span>⭐ Required fields</span>
+              <span>Optional details help us respond faster.</span>
+            </div>
+
             <div class="form-group">
-              <label for="name" class="form-label">Full Name</label>
+              <label for="name" class="form-label"><span class="required-star">⭐</span> Full Name</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
             </div>
 
             <div class="form-group">
-              <label for="email" class="form-label">Email Address</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="you@organization.com" required>
+              <label for="email" class="form-label"><span class="required-star">⭐</span> Work Email Address</label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="name@company.com" required>
             </div>
 
             <div class="form-group">
-              <label for="org" class="form-label">Organization</label>
-              <input type="text" id="org" name="org" class="form-input" placeholder="Fleet company, insurer, research institution...">
+              <label for="org" class="form-label"><span class="required-star">⭐</span> Organization / Company</label>
+              <input type="text" id="org" name="org" class="form-input" placeholder="Your organization or company name" required>
             </div>
 
             <div class="form-group">
-              <label for="role" class="form-label">Role / Function</label>
-              <input type="text" id="role" name="role" class="form-input" placeholder="Operations, claims, research, strategy...">
+              <label for="role" class="form-label"><span class="required-star">⭐</span> Job Title / Role</label>
+              <input type="text" id="role" name="role" class="form-input" placeholder="Operations lead, founder, researcher, manager..." required>
             </div>
 
             <div class="form-group">
-              <label for="type" class="form-label">Reason for Contact</label>
-              <select id="type" name="type" class="form-select">
+              <label for="type" class="form-label"><span class="required-star">⭐</span> Reason for Contact</label>
+              <select id="type" name="type" class="form-select" required>
                 <option value="">Select reason</option>
-                <option value="fleet">Fleet / logistics operations</option>
-                <option value="insurance">Insurance or claims workflow</option>
-                <option value="survey">Survey / assessment workflow</option>
-                <option value="assistance">Highway assistance / tow operations</option>
-                <option value="telematics">Telematics or data integration</option>
-                <option value="research">Research collaboration</option>
-                <option value="anvira">ANVIRA discussion</option>
-                <option value="media">Media / press</option>
-                <option value="general">General inquiry</option>
+                <option value="emergency-response">🚑 Emergency Response Partnership</option>
+                <option value="highway-road-safety">🛣️ Highway &amp; Road Safety Partnership</option>
+                <option value="fleet-enterprise">🚚 Fleet &amp; Enterprise Solutions</option>
+                <option value="insurance-risk">🛡️ Insurance &amp; Risk Management</option>
+                <option value="technology-integration">🛰️ Technology &amp; Integration</option>
+                <option value="research-academic">🔬 Research &amp; Academic Collaboration</option>
+                <option value="strategic-partnership">🤝 Strategic Partnership</option>
+                <option value="careers-internships">💼 Careers &amp; Internships</option>
+                <option value="media-press">📰 Media &amp; Press</option>
+                <option value="general-inquiry">💬 General Inquiry</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what happens in your incident-response or claim workflow, where information gets delayed, or why you want to speak with AASIOM." required></textarea>
+              <label for="message" class="form-label"><span class="required-star">⭐</span> Message</label>
+              <textarea id="message" name="message" class="form-textarea" placeholder="Tell us what you want to discuss, the operating context, and the outcome you are looking for." required></textarea>
+            </div>
+
+            <div class="optional-fields-box">
+              <div class="optional-fields-title">Optional details</div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone Number <span class="optional-label">Optional, recommended for faster communication</span></label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210">
+              </div>
+
+              <div class="form-group">
+                <label for="linkedin" class="form-label">LinkedIn Profile <span class="optional-label">Optional</span></label>
+                <input type="url" id="linkedin" name="linkedin" class="form-input" placeholder="https://linkedin.com/in/your-profile">
+              </div>
+
+              <div class="form-group">
+                <label for="website" class="form-label">Company Website <span class="optional-label">Optional</span></label>
+                <input type="url" id="website" name="website" class="form-input" placeholder="https://company.com">
+              </div>
             </div>
 
             <button type="submit" class="btn btn-primary form-submit" style="width:100%; justify-content:center;">
