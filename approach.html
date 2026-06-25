@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Approach — Understanding Before Building | AASIOM</title>
   <meta name="description"
-    content="AASIOM's 5‑stage method: Research, Field Validation, Understanding, Design, Technology. We study operational reality before writing a line of code. Detailed timeline and insights showcase our approach.">
+    content="AASIOM's 5-stage method: Research, Field Validation, Understanding, Design, Technology. We study operational reality before writing a line of code.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Approach — Understanding Before Building | AASIOM">
   <meta property="og:description"
@@ -43,6 +43,547 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
   <link rel="apple-touch-icon" href="images/aasiom-tab.png">
+
+  <style>
+    /* ── 3D Perspective Scene ── */
+    .ap-perspective-scene {
+      perspective: 1200px;
+      perspective-origin: 50% 40%;
+    }
+
+    /* ── Approach Hero split layout ── */
+    .ap-hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 48px 0 0;
+    }
+
+    .ap-hero-left {
+      text-align: left;
+    }
+
+    .ap-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transform: rotateY(-8deg) rotateX(3deg);
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .ap-hero-right:hover {
+      transform: rotateY(-2deg) rotateX(1deg);
+    }
+
+    /* 3D stat cards in hero */
+    .ap-stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(92, 194, 180, 0.2);
+      border-radius: 14px;
+      padding: 20px 24px;
+      backdrop-filter: blur(10px);
+      box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      transform: translateZ(0px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .ap-stat-card:hover {
+      transform: translateZ(20px) scale(1.02);
+      box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .ap-stat-card .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #22d3ee, #5cc2b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .ap-stat-card .stat-label {
+      font-size: 0.78rem;
+      color: var(--fg-2, #8a9ab0);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    .ap-stat-card .stat-desc {
+      font-size: 0.88rem;
+      color: var(--fg-2, #8a9ab0);
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .ap-stat-row {
+      display: flex;
+      gap: 16px;
+    }
+
+    .ap-stat-row .ap-stat-card {
+      flex: 1;
+    }
+
+    /* ── Vertical Timeline for 5 stages ── */
+    .ap-timeline {
+      position: relative;
+      padding: 0;
+      margin: 0;
+    }
+
+    .ap-timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg,
+          transparent 0%,
+          rgba(92, 194, 180, 0.6) 10%,
+          rgba(92, 194, 180, 0.6) 90%,
+          transparent 100%);
+    }
+
+    .ap-stage {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 32px;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .ap-stage:last-child .ap-stage-body {
+      padding-bottom: 0;
+    }
+
+    .ap-stage-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ap-stage-dot {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--bg, #0d1117);
+      border: 2px solid rgba(92, 194, 180, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #5cc2b4;
+      flex-shrink: 0;
+      box-shadow: 0 0 20px rgba(92, 194, 180, 0.15);
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    }
+
+    .ap-stage-dot-line {
+      flex: 1;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(92, 194, 180, 0.3), transparent);
+      margin-top: 8px;
+    }
+
+    .ap-stage:last-child .ap-stage-dot-line {
+      display: none;
+    }
+
+    .ap-stage-body {
+      padding-bottom: 56px;
+    }
+
+    .ap-stage-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 28px 32px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      transform-style: preserve-3d;
+      transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .ap-stage-card:hover {
+      transform: perspective(800px) rotateX(-2deg) rotateY(3deg) translateZ(8px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(92, 194, 180, 0.2);
+      border-color: rgba(92, 194, 180, 0.2);
+    }
+
+    .ap-stage:hover .ap-stage-dot {
+      border-color: #5cc2b4;
+      box-shadow: 0 0 28px rgba(92, 194, 180, 0.4);
+      transform: scale(1.08);
+    }
+
+    .ap-stage-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      color: #5cc2b4;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .ap-stage-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--fg, #e8edf5);
+      margin: 0 0 16px;
+    }
+
+    .ap-stage-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .ap-stage-pill {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid rgba(92, 194, 180, 0.3);
+      color: #5cc2b4;
+      background: rgba(92, 194, 180, 0.06);
+      letter-spacing: 0.04em;
+    }
+
+    .ap-stage-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ap-stage-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .ap-stage-row-label {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg-2, #8a9ab0);
+      padding-top: 2px;
+    }
+
+    .ap-stage-row-text {
+      font-size: 0.92rem;
+      color: var(--fg, #e8edf5);
+      line-height: 1.65;
+      opacity: 0.85;
+    }
+
+    /* ── Split section (text left / visual right) ── */
+    .ap-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .ap-split.ap-split--reverse {
+      direction: rtl;
+    }
+
+    .ap-split.ap-split--reverse>* {
+      direction: ltr;
+    }
+
+    /* ── 3D Principle Cards ── */
+    .ap-principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      perspective: 1000px;
+    }
+
+    .ap-principle-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+      transform: translateZ(0) rotateX(0) rotateY(0);
+      transform-style: preserve-3d;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ap-principle-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(92, 194, 180, 0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .ap-principle-card:hover {
+      transform: perspective(600px) rotateX(-4deg) rotateY(4deg) translateZ(12px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(92, 194, 180, 0.15);
+      border-color: rgba(92, 194, 180, 0.2);
+    }
+
+    .ap-principle-card:hover::before {
+      opacity: 1;
+    }
+
+    .ap-principle-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(92, 194, 180, 0.08);
+      border: 1px solid rgba(92, 194, 180, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .ap-principle-title {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--fg, #e8edf5);
+      margin-bottom: 10px;
+    }
+
+    .ap-principle-text {
+      font-size: 0.87rem;
+      color: var(--fg-2, #8a9ab0);
+      line-height: 1.7;
+    }
+
+    /* ── Visual node diagram (decorative) ── */
+    .ap-node-diagram {
+      position: relative;
+      height: 320px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .ap-node-diagram::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 60% 40%, rgba(92, 194, 180, 0.06) 0%, transparent 70%);
+    }
+
+    .ap-nd-node {
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-align: center;
+      animation: ap-nd-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ap-nd-pulse {
+
+      0%,
+      100% {
+        opacity: 0.7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    .ap-nd-main {
+      width: 80px;
+      height: 80px;
+      background: rgba(92, 194, 180, 0.12);
+      border: 2px solid rgba(92, 194, 180, 0.5);
+      color: #5cc2b4;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.58rem;
+      line-height: 1.3;
+      box-shadow: 0 0 30px rgba(92, 194, 180, 0.15);
+    }
+
+    .ap-nd-sat {
+      width: 56px;
+      height: 56px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--fg-2, #8a9ab0);
+    }
+
+    .ap-nd-connector {
+      position: absolute;
+      background: rgba(92, 194, 180, 0.2);
+      height: 1px;
+      transform-origin: 0 50%;
+    }
+
+    /* ── Corridor CTA with glassmorphism ── */
+    .ap-corridor-cta {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(92, 194, 180, 0.15);
+      border-radius: 24px;
+      padding: 56px 64px;
+      backdrop-filter: blur(12px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ap-corridor-cta::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(92, 194, 180, 0.06) 0%, transparent 70%);
+    }
+
+    .ap-corridor-cta::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34, 211, 238, 0.04) 0%, transparent 70%);
+    }
+
+    .ap-corridor-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ap-corridor-stats {
+      display: flex;
+      gap: 40px;
+      flex-shrink: 0;
+    }
+
+    .ap-cstat {
+      text-align: center;
+    }
+
+    .ap-cstat-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #22d3ee, #5cc2b4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    .ap-cstat-label {
+      font-size: 0.72rem;
+      color: var(--fg-2, #8a9ab0);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .ap-hero-split {
+        grid-template-columns: 1fr;
+      }
+
+      .ap-hero-right {
+        transform: none;
+      }
+
+      .ap-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .ap-split.ap-split--reverse {
+        direction: ltr;
+      }
+
+      .ap-principles-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ap-corridor-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .ap-corridor-stats {
+        justify-content: center;
+      }
+
+      .ap-corridor-cta {
+        padding: 36px 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .ap-principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ap-stage {
+        grid-template-columns: 40px 1fr;
+        gap: 20px;
+      }
+
+      .ap-stage-dot {
+        width: 40px;
+        height: 40px;
+        font-size: 0.6rem;
+      }
+
+      .ap-timeline::before {
+        left: 19px;
+      }
+
+      .ap-stat-row {
+        flex-direction: column;
+      }
+
+      .ap-corridor-stats {
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -70,13 +611,11 @@
 
   <!-- Page Header -->
   <section class="page-header page-header--innovation">
-    <!-- Hex grid background -->
     <div class="ph-hex-grid" aria-hidden="true">
       <div class="ph-hex-line ph-hex-line--1"></div>
       <div class="ph-hex-line ph-hex-line--2"></div>
       <div class="ph-hex-line ph-hex-line--3"></div>
     </div>
-    <!-- Floating nodes -->
     <div class="ph-nodes" aria-hidden="true">
       <span class="ph-node" style="top:12%;left:12%;animation-delay:0s;"></span>
       <span class="ph-node" style="top:22%;left:82%;animation-delay:1.2s;"></span>
@@ -85,126 +624,104 @@
       <span class="ph-node ph-node--gold" style="top:8%;left:48%;animation-delay:0.2s;"></span>
       <span class="ph-node" style="top:85%;left:50%;animation-delay:1s;"></span>
     </div>
-    <!-- Scanning pulse -->
     <div class="ph-scanline" aria-hidden="true"></div>
 
     <div class="container">
-      <span class="section-label">OUR APPROACH</span>
+      <!-- Split hero layout: text left, stat cards right -->
+      <div class="ap-hero-split ap-perspective-scene">
 
-      <div class="ph-status-row">
-        <span class="ph-live-badge">
-          <span class="ph-live-dot"></span>
-          5-Stage Method
-        </span>
-        <span class="ph-live-badge ph-live-badge--gold">
-          <svg width="10" height="10" viewBox="0 0 8 8">
-            <circle cx="4" cy="4" r="4" fill="#f0c060" />
-          </svg>
-          Technology Last
-        </span>
-      </div>
+        <div class="ap-hero-left">
+          <span class="section-label">OUR APPROACH</span>
 
-      <h1>Understanding<br>Before Building</h1>
-      <p>Do they have a repeatable method, or just a slogan?</p>
-
-      <p class="ph-tagline">We study how highway incidents really unfold before we write a line of code. Our 5-stage
-        framework places operational reality before technology — credible to operators burned by vendors who build first
-        and ask questions never.</p>
-
-      <p class="intro-paragraph">Our 5‑stage framework starts with deep field research, validates findings on real
-        corridors, builds a thorough understanding, designs solutions grounded in reality, and finally deploys
-        technology that truly solves the problem.</p>
-      <div class="timeline">
-        <ul>
-          <li><strong>Research:</strong> Shadow dispatchers, map incident timelines.</li>
-          <li><strong>Field Validation:</strong> Test hypotheses with live fleets.</li>
-          <li><strong>Understanding:</strong> Identify coordination gaps.</li>
-          <li><strong>Design:</strong> Blueprint solutions from field insights.</li>
-          <li><strong>Technology:</strong> Build only what the understanding demands.</li>
-        </ul>
-      </div>
-
-      <div class="extended-info">
-        <section class="section">
-          <div class="container">
-            <h2 class="section-title">Why Our Method Works</h2>
-            <p class="section-desc">By putting technology last, we eliminate wasted development and focus on real‑world
-              impact. Below are the tangible benefits for operators and partners.</p>
-            <ul class="benefits-list">
-              <li>30% faster incident response on average.</li>
-              <li>Reduced claim leakage by up to 40%.</li>
-              <li>Higher stakeholder confidence through data‑driven decisions.</li>
-              <li>Scalable solutions that adapt to any corridor.</li>
-            </ul>
+          <div class="ph-status-row" style="justify-content:flex-start; margin-top:12px;">
+            <span class="ph-live-badge">
+              <span class="ph-live-dot"></span>
+              5-Stage Method
+            </span>
+            <span class="ph-live-badge ph-live-badge--gold">
+              <svg width="10" height="10" viewBox="0 0 8 8">
+                <circle cx="4" cy="4" r="4" fill="#f0c060" />
+              </svg>
+              Technology Last
+            </span>
           </div>
-        </section>
-      </div>
-      <div class="ph-chips">
-        <div class="ph-chip">
-          <span class="ph-chip-value">Research</span>
-          <span class="ph-chip-label">Stage 01</span>
-        </div>
-        <div class="ph-chip">
-          <span class="ph-chip-value">Validation</span>
-          <span class="ph-chip-label">Stage 02</span>
-        </div>
-        <div class="ph-chip">
-          <span class="ph-chip-value">Understanding</span>
-          <span class="ph-chip-label">Stage 03</span>
-        </div>
-        <div class="ph-chip">
-          <span class="ph-chip-value">Design</span>
-          <span class="ph-chip-label">Stage 04</span>
-        </div>
-        <div class="ph-chip">
-          <span class="ph-chip-value">Technology</span>
-          <span class="ph-chip-label">Stage 05</span>
-        </div>
-      </div>
 
-      <section class="section">
-        <div class="container">
-          <h2 class="section-title">Impact Metrics</h2>
-          <p class="section-desc">Key outcomes from our field deployments show tangible benefits.</p>
-          <ul class="metrics-list">
-            <li>30% faster incident response on average.</li>
-            <li>Reduced claim leakage by up to 40%.</li>
-            <li>Higher stakeholder confidence through data‑driven decisions.</li>
-            <li>Scalable solutions adaptable to any corridor.</li>
-          </ul>
-          <div class="metrics-images">
-            <img src="images/indian_truck_1.png" alt="Indian truck convoy" class="responsive-img">
-            <img src="images/indian_truck_2.png" alt="Indian truck driver" class="responsive-img">
+          <h1 style="text-align:left; margin-top:20px;">Understanding<br>Before Building</h1>
+
+          <p class="ph-tagline" style="text-align:left;">
+            We study how highway incidents really unfold before we write a single line of code.
+            Our 5-stage framework places operational reality before technology — credible to operators
+            burned by vendors who build first and ask questions never.
+          </p>
+
+          <div class="ph-domain-row" style="justify-content:flex-start; margin-top:24px;">
+            <span class="ph-domain-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="5" cy="6" r="2" />
+                <circle cx="19" cy="18" r="2" />
+                <path d="M5 8v6a4 4 0 0 0 4 4h8" />
+              </svg>
+              Repeatable Method
+            </span>
+            <span class="ph-domain-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 21s-6-5-6-10a6 6 0 1 1 12 0c0 5-6 10-6 10z" />
+                <circle cx="12" cy="11" r="2" />
+              </svg>
+              Field-Grounded
+            </span>
+            <span class="ph-domain-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              Reality First
+            </span>
+          </div>
+
+          <div class="hero-actions" style="margin-top:32px;">
+            <a href="#timeline" class="btn btn-primary">See the 5 stages &darr;</a>
+            <a href="research.html" class="btn btn-outline">View Research</a>
           </div>
         </div>
-      </section>
 
+        <!-- Right: 3D stat cards -->
+        <div class="ap-hero-right">
+          <div class="ap-stat-row">
+            <div class="ap-stat-card">
+              <div class="stat-num">5</div>
+              <div class="stat-label">Stages</div>
+              <div class="stat-desc">Research → Field Validation → Understanding → Design → Technology</div>
+            </div>
+            <div class="ap-stat-card">
+              <div class="stat-num">~23<span style="font-size:1rem;"> min</span></div>
+              <div class="stat-label">Current response time</div>
+              <div class="stat-desc">What we observed on the Western Express Highway corridor.</div>
+            </div>
+          </div>
+          <div class="ap-stat-card">
+            <div class="stat-num">&lt;60<span style="font-size:1rem;">s</span></div>
+            <div class="stat-label">Target — First notification</div>
+            <div class="stat-desc">From incident event to structured alert reaching the right stakeholder. Achievable
+              only after the coordination gap is mapped.</div>
+          </div>
+          <div class="ap-stat-row">
+            <div class="ap-stat-card">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Handoffs where time & data are lost</div>
+              <div class="stat-desc">Driver → Dispatcher → Tow Operator → Surveyor</div>
+            </div>
+            <div class="ap-stat-card">
+              <div class="stat-num">1</div>
+              <div class="stat-label">Active corridor</div>
+              <div class="stat-desc">Western Express Highway, Mumbai. One road, deeply understood.</div>
+            </div>
+          </div>
+        </div>
 
-      <div class="ph-domain-row">
-        <span class="ph-domain-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="5" cy="6" r="2" />
-            <circle cx="19" cy="18" r="2" />
-            <path d="M5 8v6a4 4 0 0 0 4 4h8" />
-          </svg>
-          Repeatable Method
-        </span>
-        <span class="ph-domain-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2v20M2 12h20" />
-          </svg>
-          Field-Grounded
-        </span>
-        <span class="ph-domain-badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg>
-          Reality First
-        </span>
-      </div>
+      </div><!-- end split -->
 
-      <div class="ph-scroll-hint">
+      <div class="ph-scroll-hint" style="text-align:left; margin-top:40px;">
         <span>Scroll to explore</span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M12 5v14M19 12l-7 7-7-7" />
@@ -213,303 +730,563 @@
     </div>
   </section>
 
-  <!-- The 5-Stage Framework Overview -->
+  <!-- ── WHY METHOD MATTERS ── (split: text left, diagram right) -->
   <section class="section">
     <div class="container">
-      <div class="section-header center">
-        <span class="section-label">The method</span>
-        <h2 class="section-title">The 5-stage framework</h2>
-        <p class="section-desc mx-auto">Discipline reassures the skeptic that software won't ignore reality. Technology
-          placed last — credible to operators burned by vendors.</p>
-      </div>
+      <div class="ap-split">
 
-      <div class="feature-grid">
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-              <path d="M6 3h8l4 4v14H6z" />
-              <path d="M14 3v4h4M9 13h6M9 17h6" />
-            </svg>
-          </div>
-          <div class="feature-label">Stage 01</div>
-          <div class="feature-value">Research</div>
+        <div>
+          <span class="section-label">Why it matters</span>
+          <h2 class="section-title" style="text-align:left; margin-top:12px;">
+            Most tech companies skip straight to Stage 5
+          </h2>
+          <p class="section-desc" style="text-align:left;">
+            They build the software first, then realise the problem is different from what they imagined.
+            Operators on the Western Express Highway have seen this before — vendors who arrive with dashboards
+            built for offices, not for the first 30 minutes after a truck goes down.
+          </p>
+          <p style="color:var(--fg-2,#8a9ab0); font-size:0.92rem; line-height:1.8; margin-top:16px;">
+            AASIOM inverts this. We ride with dispatchers. We shadow tow operators. We interview surveyors who
+            arrive to scenes that have already been cleared. Only when we understand the <em>coordination gap</em>
+            do we design — and only after design do we build.
+          </p>
+          <p style="color:var(--fg-2,#8a9ab0); font-size:0.92rem; line-height:1.8; margin-top:12px;">
+            The result: ANVIRA is architected around how the incident actually unfolds, not how a product manager
+            imagined it from a conference room.
+          </p>
         </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-              <path d="M12 21s-6-5-6-10a6 6 0 1 1 12 0c0 5-6 10-6 10z" />
-              <circle cx="12" cy="11" r="2" />
-            </svg>
+
+        <!-- Decorative node diagram -->
+        <div class="ap-node-diagram" aria-hidden="true" style="position:relative; overflow:hidden;">
+          <!-- SVG connector lines -->
+          <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 400 320"
+            preserveAspectRatio="xMidYMid meet">
+            <line x1="200" y1="160" x2="80" y2="60" stroke="rgba(92,194,180,0.15)" stroke-width="1"
+              stroke-dasharray="4 4" />
+            <line x1="200" y1="160" x2="320" y2="60" stroke="rgba(92,194,180,0.15)" stroke-width="1"
+              stroke-dasharray="4 4" />
+            <line x1="200" y1="160" x2="60" y2="240" stroke="rgba(92,194,180,0.15)" stroke-width="1"
+              stroke-dasharray="4 4" />
+            <line x1="200" y1="160" x2="340" y2="240" stroke="rgba(92,194,180,0.15)" stroke-width="1"
+              stroke-dasharray="4 4" />
+            <line x1="200" y1="160" x2="200" y2="40" stroke="rgba(92,194,180,0.12)" stroke-width="1"
+              stroke-dasharray="4 4" />
+          </svg>
+          <!-- Center node -->
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+            width:84px;height:84px;border-radius:50%;
+            background:rgba(92,194,180,0.1);border:2px solid rgba(92,194,180,0.5);
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'JetBrains Mono',monospace;font-size:0.55rem;font-weight:600;color:#5cc2b4;
+            box-shadow:0 0 30px rgba(92,194,180,0.2);animation:ap-nd-pulse 3s ease-in-out infinite;">
+            COORD.<br>GAP<br>FOUND
           </div>
-          <div class="feature-label">Stage 02</div>
-          <div class="feature-value">Field validation</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-              <circle cx="12" cy="12" r="2.2" />
-              <circle cx="4" cy="5" r="1.6" />
-              <circle cx="20" cy="6" r="1.6" />
-              <circle cx="6" cy="20" r="1.6" />
-              <path d="M10.3 10.6 5.2 6M13.8 11l4.8-3.5M11 13.7l-4 5" />
-            </svg>
+          <!-- Satellite nodes -->
+          <div style="position:absolute;top:60px;left:80px;width:60px;height:60px;border-radius:50%;
+            background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'JetBrains Mono',monospace;font-size:0.54rem;color:var(--fg-2,#8a9ab0);
+            animation:ap-nd-pulse 3s ease-in-out infinite;animation-delay:0.5s;">
+            Driver
           </div>
-          <div class="feature-label">Stage 03</div>
-          <div class="feature-value">Understanding</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-              <rect x="3" y="4" width="5" height="5" />
-              <rect x="16" y="15" width="5" height="5" />
-              <path d="M8 6.5h5a3 3 0 0 1 3 3v5" />
-            </svg>
+          <div style="position:absolute;top:40px;left:170px;width:52px;height:52px;border-radius:50%;
+            background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'JetBrains Mono',monospace;font-size:0.54rem;color:var(--fg-2,#8a9ab0);
+            animation:ap-nd-pulse 3s ease-in-out infinite;animation-delay:1s;">
+            Fleet
           </div>
-          <div class="feature-label">Stage 04</div>
-          <div class="feature-value">Design</div>
-        </div>
-        <div class="feature-item">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-              <path d="M3 18a14 14 0 0 1 14-14M3 18a8 8 0 0 1 8-8M3 18h.01" />
-            </svg>
+          <div style="position:absolute;top:60px;right:80px;width:60px;height:60px;border-radius:50%;
+            background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'JetBrains Mono',monospace;font-size:0.54rem;color:var(--fg-2,#8a9ab0);
+            animation:ap-nd-pulse 3s ease-in-out infinite;animation-delay:0.2s;">
+            Dispatch
           </div>
-          <div class="feature-label">Stage 05</div>
-          <div class="feature-value">Technology</div>
+          <div style="position:absolute;bottom:60px;left:60px;width:60px;height:60px;border-radius:50%;
+            background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'JetBrains Mono',monospace;font-size:0.54rem;color:var(--fg-2,#8a9ab0);
+            animation:ap-nd-pulse 3s ease-in-out infinite;animation-delay:1.5s;">
+            Tow Op.
+          </div>
+          <div style="position:absolute;bottom:60px;right:60px;width:60px;height:60px;border-radius:50%;
+            background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'JetBrains Mono',monospace;font-size:0.54rem;color:var(--fg-2,#8a9ab0);
+            animation:ap-nd-pulse 3s ease-in-out infinite;animation-delay:0.8s;">
+            Surveyor
+          </div>
+          <!-- Labels -->
+          <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;
+            font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:rgba(92,194,180,0.5);
+            letter-spacing:0.05em;">
+            4 handoffs — minutes & data lost at each
+          </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Stage Details -->
-  <section class="section">
+  <!-- ── 5-STAGE VERTICAL TIMELINE ── -->
+  <section class="section" id="timeline">
     <div class="container">
-      <div class="section-header center">
-        <span class="section-label">Stage detail</span>
-        <h2 class="section-title">Each stage: objective, activities, output</h2>
-        <p class="section-desc mx-auto">Concrete, not abstract. Each stage produces something specific before the next
-          begins.</p>
+
+      <div style="max-width:560px; margin-bottom:56px;">
+        <span class="section-label">The 5-stage framework</span>
+        <h2 class="section-title" style="text-align:left; margin-top:12px;">
+          Each stage: objective, activities, output
+        </h2>
+        <p class="section-desc" style="text-align:left;">
+          Concrete, not abstract. Each stage produces something specific before the next begins.
+          Technology is placed last — credible to operators burned by vendors.
+        </p>
       </div>
 
-      <div class="tech-feature-grid">
-        <div class="tech-feature-card">
-          <div class="icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-              <path d="M6 3h8l4 4v14H6z" />
-              <path d="M14 3v4h4M9 13h6M9 17h6" />
-            </svg>
+      <div class="ap-timeline ap-perspective-scene">
+
+        <!-- Stage 01 -->
+        <div class="ap-stage" id="stage-01">
+          <div class="ap-stage-dot-col">
+            <div class="ap-stage-dot">01</div>
+            <div class="ap-stage-dot-line"></div>
           </div>
-          <h3>01. Research</h3>
-          <p><strong>Objective:</strong> Understand the exact timeline of a highway incident — from the driver's first
-            call to the surveyor's arrival.</p>
-          <p><strong>Activities:</strong> Riding with dispatchers, shadowing fleet control rooms, interviewing tow
-            operators and surveyors on site.</p>
-          <p><strong>Output:</strong> Detailed field notes mapping the first 30 minutes after a truck goes down — who
-            gets called, in what order, where the time disappears.</p>
+          <div class="ap-stage-body">
+            <div class="ap-stage-card">
+              <div class="ap-stage-num">Stage 01 — Research</div>
+              <h3 class="ap-stage-title">Map the incident timeline before anyone builds anything</h3>
+              <div class="ap-stage-pills">
+                <span class="ap-stage-pill">Field shadowing</span>
+                <span class="ap-stage-pill">Dispatcher interviews</span>
+                <span class="ap-stage-pill">Control room observation</span>
+                <span class="ap-stage-pill">Timeline mapping</span>
+              </div>
+              <div class="ap-stage-rows">
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Objective</span>
+                  <span class="ap-stage-row-text">Understand the exact timeline of a highway incident — from the
+                    driver's first call to the surveyor's arrival on scene.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Activities</span>
+                  <span class="ap-stage-row-text">Riding with dispatchers on live shifts. Shadowing fleet control rooms
+                    during incident windows. Interviewing tow operators and surveyors on site — not in meeting
+                    rooms.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Output</span>
+                  <span class="ap-stage-row-text">Detailed field notes mapping the first 30 minutes after a truck goes
+                    down — who gets called, in what order, and exactly where the time disappears.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="tech-feature-card">
-          <div class="icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-              <path d="M12 21s-6-5-6-10a6 6 0 1 1 12 0c0 5-6 10-6 10z" />
-              <circle cx="12" cy="11" r="2" />
-            </svg>
+        <!-- Stage 02 -->
+        <div class="ap-stage" id="stage-02">
+          <div class="ap-stage-dot-col">
+            <div class="ap-stage-dot">02</div>
+            <div class="ap-stage-dot-line"></div>
           </div>
-          <h3>02. Field Validation</h3>
-          <p><strong>Objective:</strong> Verify findings on active corridors with real stakeholders who live this
-            problem daily.</p>
-          <p><strong>Activities:</strong> Partnering with mid-size interstate fleets on the Western Express Highway;
-            running design-partner pilots.</p>
-          <p><strong>Output:</strong> Validated or falsified hypotheses — specific, dated, from one corridor. Not desk
-            research.</p>
+          <div class="ap-stage-body">
+            <div class="ap-stage-card">
+              <div class="ap-stage-num">Stage 02 — Field Validation</div>
+              <h3 class="ap-stage-title">Test hypotheses on real corridors with real stakeholders</h3>
+              <div class="ap-stage-pills">
+                <span class="ap-stage-pill">Western Express Highway</span>
+                <span class="ap-stage-pill">Design-partner pilots</span>
+                <span class="ap-stage-pill">Hypothesis testing</span>
+                <span class="ap-stage-pill">Mid-size fleet partnerships</span>
+              </div>
+              <div class="ap-stage-rows">
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Objective</span>
+                  <span class="ap-stage-row-text">Verify findings on active corridors with real stakeholders who live
+                    this problem daily — not consultants who've read about it.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Activities</span>
+                  <span class="ap-stage-row-text">Partnering with mid-size interstate fleets on the Western Express
+                    Highway in Mumbai. Running structured design-partner pilots with dispatchers and ops
+                    managers.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Output</span>
+                  <span class="ap-stage-row-text">Validated or falsified hypotheses — specific, dated, from one
+                    corridor. Not desk research. Not survey data. Live observations from operational ground
+                    truth.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="tech-feature-card">
-          <div class="icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-              <circle cx="12" cy="12" r="2.2" />
-              <circle cx="4" cy="5" r="1.6" />
-              <circle cx="20" cy="6" r="1.6" />
-              <circle cx="6" cy="20" r="1.6" />
-              <path d="M10.3 10.6 5.2 6M13.8 11l4.8-3.5M11 13.7l-4 5" />
-            </svg>
+        <!-- Stage 03 -->
+        <div class="ap-stage" id="stage-03">
+          <div class="ap-stage-dot-col">
+            <div class="ap-stage-dot">03</div>
+            <div class="ap-stage-dot-line"></div>
           </div>
-          <h3>03. Understanding</h3>
-          <p><strong>Objective:</strong> Identify where the delay actually originates — and why previous attempts at
-            solving it failed.</p>
-          <p><strong>Activities:</strong> Mapping coordination gaps, information loss points, and incentive
-            misalignments across the incident-to-claim chain.</p>
-          <p><strong>Output:</strong> The insight that the delay is a coordination gap, not a technology gap. Four
-            handoffs lose minutes and information before a surveyor ever arrives.</p>
+          <div class="ap-stage-body">
+            <div class="ap-stage-card">
+              <div class="ap-stage-num">Stage 03 — Understanding</div>
+              <h3 class="ap-stage-title">Identify where the delay originates — and why past solutions failed</h3>
+              <div class="ap-stage-pills">
+                <span class="ap-stage-pill">Coordination gap mapping</span>
+                <span class="ap-stage-pill">Information loss points</span>
+                <span class="ap-stage-pill">Incentive misalignments</span>
+                <span class="ap-stage-pill">Chain analysis</span>
+              </div>
+              <div class="ap-stage-rows">
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Objective</span>
+                  <span class="ap-stage-row-text">Identify where the delay actually originates — and why every previous
+                    attempt at solving it has failed to stick with operators.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Activities</span>
+                  <span class="ap-stage-row-text">Mapping coordination gaps, information loss points, and incentive
+                    misalignments across the full incident-to-claim chain. Tracing who loses what data at each
+                    handoff.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Output</span>
+                  <span class="ap-stage-row-text">The core insight: the ~23-minute delay is a <strong>coordination
+                      gap</strong>, not a technology gap. Four handoffs — Driver → Dispatcher → Tow Operator → Surveyor
+                    — each lose minutes and information before resolution.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="tech-feature-card">
-          <div class="icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-              <rect x="3" y="4" width="5" height="5" />
-              <rect x="16" y="15" width="5" height="5" />
-              <path d="M8 6.5h5a3 3 0 0 1 3 3v5" />
-            </svg>
+        <!-- Stage 04 -->
+        <div class="ap-stage" id="stage-04">
+          <div class="ap-stage-dot-col">
+            <div class="ap-stage-dot">04</div>
+            <div class="ap-stage-dot-line"></div>
           </div>
-          <h3>04. Design</h3>
-          <p><strong>Objective:</strong> Blueprint a solution shaped entirely by what field observation revealed — not
-            by what's technically easiest.</p>
-          <p><strong>Activities:</strong> System architecture informed by real workflows; wireframes built around
-            operator needs, not feature lists.</p>
-          <p><strong>Output:</strong> ANVIRA's architecture — an incident-to-resolution system designed for the people
-            who actually handle the first 30 minutes.</p>
+          <div class="ap-stage-body">
+            <div class="ap-stage-card">
+              <div class="ap-stage-num">Stage 04 — Design</div>
+              <h3 class="ap-stage-title">Blueprint solutions entirely shaped by what field observation revealed</h3>
+              <div class="ap-stage-pills">
+                <span class="ap-stage-pill">System architecture</span>
+                <span class="ap-stage-pill">Operator-first wireframes</span>
+                <span class="ap-stage-pill">Workflow-driven design</span>
+                <span class="ap-stage-pill">Field-to-blueprint translation</span>
+              </div>
+              <div class="ap-stage-rows">
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Objective</span>
+                  <span class="ap-stage-row-text">Blueprint a solution shaped entirely by what field observation
+                    revealed — not by what is technically easiest or what a product demo looks impressive with.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Activities</span>
+                  <span class="ap-stage-row-text">System architecture informed by real workflows. Wireframes built
+                    around operator needs and dispatcher constraints — not feature lists assembled in isolation.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Output</span>
+                  <span class="ap-stage-row-text">ANVIRA's architecture — an incident-to-resolution system designed for
+                    the people who handle the first 30 minutes on an active highway, not for the analyst who reviews it
+                    three days later.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="tech-feature-card">
-          <div class="icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.5">
-              <path d="M3 18a14 14 0 0 1 14-14M3 18a8 8 0 0 1 8-8M3 18h.01" />
-            </svg>
+        <!-- Stage 05 -->
+        <div class="ap-stage" id="stage-05">
+          <div class="ap-stage-dot-col">
+            <div class="ap-stage-dot">05</div>
+            <div class="ap-stage-dot-line"></div>
           </div>
-          <h3>05. Technology</h3>
-          <p><strong>Objective:</strong> Build only what the understanding demands — not a feature set invented at a
-            desk.</p>
-          <p><strong>Activities:</strong> Building ANVIRA's incident capture, structured data pipeline, and stakeholder
-            coordination layer.</p>
-          <p><strong>Output:</strong> ANVIRA — an incident-to-resolution system for highway freight, currently in field
-            validation on one Mumbai corridor.</p>
+          <div class="ap-stage-body">
+            <div class="ap-stage-card">
+              <div class="ap-stage-num">Stage 05 — Technology</div>
+              <h3 class="ap-stage-title">Build only what the understanding demands — nothing invented at a desk</h3>
+              <div class="ap-stage-pills">
+                <span class="ap-stage-pill">ANVIRA build</span>
+                <span class="ap-stage-pill">Incident capture</span>
+                <span class="ap-stage-pill">Structured data pipeline</span>
+                <span class="ap-stage-pill">Stakeholder coordination layer</span>
+              </div>
+              <div class="ap-stage-rows">
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Objective</span>
+                  <span class="ap-stage-row-text">Build only what the understanding demands — not a feature set invented
+                    at a desk or assembled from a competitor's press release.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Activities</span>
+                  <span class="ap-stage-row-text">Building ANVIRA's incident capture layer, structured data pipeline,
+                    and stakeholder coordination system — each component traceable back to a field observation.</span>
+                </div>
+                <div class="ap-stage-row">
+                  <span class="ap-stage-row-label">Output</span>
+                  <span class="ap-stage-row-text">ANVIRA — an incident-to-resolution system for highway freight,
+                    currently in field validation on the Western Express Highway corridor in Mumbai. Pre-seed stage. No
+                    deployment claims beyond what exists.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+
+      </div><!-- end timeline -->
     </div>
   </section>
 
-  <!-- Principles -->
+  <!-- ── PRINCIPLES: 3D CARD GRID ── -->
   <section class="section">
     <div class="container">
-      <div class="section-header center">
+
+      <div style="max-width:560px; margin-bottom:48px;">
         <span class="section-label">What guides us</span>
-        <h2 class="section-title">Six principles — shown once, for the whole site</h2>
-        <p class="section-desc mx-auto">These are the rules we hold ourselves to. Each stated once, with a concrete
-          consequence — never a list of six repeated on three pages.</p>
+        <h2 class="section-title" style="text-align:left; margin-top:12px;">
+          Six operating principles
+        </h2>
+        <p class="section-desc" style="text-align:left;">
+          These are the rules we hold ourselves to — each stated once with a concrete consequence.
+          Not a list of values that sound good on slides.
+        </p>
       </div>
 
-      <div class="research-grid">
-        <div class="research-card">
-          <div class="r-header">
-            <div class="r-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-                <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
-              </svg>
-            </div>
-            <div class="r-title">Reality over assumptions</div>
+      <div class="ap-principles-grid">
+
+        <div class="ap-principle-card">
+          <div class="ap-principle-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
           </div>
-          <div class="r-body">We ride along, observe, and document — before we hypothesise. Every claim on this site
-            comes from a corridor, not a conference room.</div>
+          <div class="ap-principle-title">Reality over assumptions</div>
+          <div class="ap-principle-text">We ride along, observe, and document before we hypothesise. Every claim on this
+            site comes from a corridor, not a conference room.</div>
         </div>
-        <div class="research-card">
-          <div class="r-header">
-            <div class="r-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-                <path d="M6 3h8l4 4v14H6z" />
-                <path d="M14 3v4h4M9 13h6M9 17h6" />
-              </svg>
-            </div>
-            <div class="r-title">Specificity over philosophy</div>
+
+        <div class="ap-principle-card">
+          <div class="ap-principle-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
           </div>
-          <div class="r-body">Every sentence must contain a number, a place, a named role, or a concrete object. If it
-            could appear on a competitor's site unchanged, it isn't working.</div>
+          <div class="ap-principle-title">Specificity over philosophy</div>
+          <div class="ap-principle-text">Every sentence must contain a number, a place, a named role, or a concrete
+            object. If it could appear on a competitor's site unchanged, it isn't working.</div>
         </div>
-        <div class="research-card">
-          <div class="r-header">
-            <div class="r-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-                <circle cx="12" cy="12" r="2.2" />
-                <circle cx="4" cy="5" r="1.6" />
-                <circle cx="20" cy="6" r="1.6" />
-                <circle cx="6" cy="20" r="1.6" />
-                <path d="M10.3 10.6 5.2 6M13.8 11l4.8-3.5M11 13.7l-4 5" />
-              </svg>
-            </div>
-            <div class="r-title">Understanding before building</div>
+
+        <div class="ap-principle-card">
+          <div class="ap-principle-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
           </div>
-          <div class="r-body">Technology is the fifth stage, not the first. Software that ignores operational reality
-            creates new problems without solving old ones.</div>
+          <div class="ap-principle-title">Understanding before building</div>
+          <div class="ap-principle-text">Technology is the fifth stage, not the first. Software that ignores operational
+            reality creates new problems without solving old ones.</div>
         </div>
-        <div class="research-card">
-          <div class="r-header">
-            <div class="r-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-                <path d="M9 11l3 3L22 4" />
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-              </svg>
-            </div>
-            <div class="r-title">Honest staging</div>
+
+        <div class="ap-principle-card">
+          <div class="ap-principle-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
           </div>
-          <div class="r-body">We state where we are: field validation on one corridor, pre-seed stage, with design
-            partners. Zero deployment claims beyond what exists today.</div>
+          <div class="ap-principle-title">Honest staging</div>
+          <div class="ap-principle-text">We state where we are: field validation on one corridor, pre-seed stage, with
+            design partners. Zero deployment claims beyond what exists today.</div>
         </div>
-        <div class="research-card">
-          <div class="r-header">
-            <div class="r-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-                <path d="M12 21s-6-5-6-10a6 6 0 1 1 12 0c0 5-6 10-6 10z" />
-                <circle cx="12" cy="11" r="2" />
-              </svg>
-            </div>
-            <div class="r-title">Restraint over decoration</div>
+
+        <div class="ap-principle-card">
+          <div class="ap-principle-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
           </div>
-          <div class="r-body">If an element feels like startup hype, AI marketing, or futuristic speculation — it is
-            removed. Seriousness is signalled by refusing to shout.</div>
+          <div class="ap-principle-title">Restraint over decoration</div>
+          <div class="ap-principle-text">If an element feels like startup hype or futuristic speculation, it is removed.
+            Seriousness is signalled by refusing to shout.</div>
         </div>
-        <div class="research-card">
-          <div class="r-header">
-            <div class="r-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5">
-                <rect x="3" y="4" width="5" height="5" />
-                <rect x="16" y="15" width="5" height="5" />
-                <path d="M8 6.5h5a3 3 0 0 1 3 3v5" />
-              </svg>
-            </div>
-            <div class="r-title">Evidence over assertion</div>
+
+        <div class="ap-principle-card">
+          <div class="ap-principle-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#5cc2b4" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+              <line x1="3" y1="20" x2="21" y2="20"></line>
+            </svg>
           </div>
-          <div class="r-body">We publish what we learn as we learn it — dated, specific, from one corridor. For a
-            research-first company with no logos, field insights are the credibility.</div>
+          <div class="ap-principle-title">Evidence over assertion</div>
+          <div class="ap-principle-text">We publish what we learn as we learn it — dated, specific, from one corridor.
+            For a research-first company with no logos yet, field insights are the only credibility.</div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- From Method to Corridor -->
-  <section class="section cta-section">
+  <!-- ── WHAT GOOD LOOKS LIKE (split: visual left, text right) ── -->
+  <section class="section">
     <div class="container">
-      <div class="mission-grid">
-        <div class="mission-content">
-          <span class="section-label">From method to corridor</span>
-          <h2 class="section-title">Applying the method on one road, right now</h2>
-          <p class="section-desc">This framework isn't theoretical. We are actively applying it on the Western Express
-            Highway in Mumbai — with real fleets, real dispatchers, real claims managers. One corridor, deeply
-            understood, before we scale to the next.</p>
-          <div class="hero-actions" style="margin-top:24px;">
-            <a href="research.html" class="btn btn-primary">See our research &rarr;</a>
-            <a href="anvira.html" class="btn btn-outline">Explore ANVIRA</a>
+      <div class="ap-split ap-split--reverse">
+
+        <!-- Visual: before/after flow -->
+        <div>
+          <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07);
+            border-radius:18px;padding:32px;font-family:'JetBrains Mono',monospace;font-size:0.78rem;">
+            <div
+              style="color:var(--fg-2,#8a9ab0);margin-bottom:20px;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">
+              Current state — no method
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div
+                style="padding:12px 16px;background:rgba(255,80,80,0.06);border:1px solid rgba(255,80,80,0.15);border-radius:10px;color:rgba(255,120,120,0.8);">
+                💡 Idea → Build product → Discover the real problem
+              </div>
+              <div
+                style="padding:12px 16px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:10px;color:var(--fg-2,#8a9ab0);font-size:0.72rem;">
+                Result: operators don't adopt. Vendors blame the market.
+              </div>
+            </div>
+
+            <div
+              style="color:var(--fg-2,#8a9ab0);margin:28px 0 20px;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">
+              AASIOM method — 5 stages
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div
+                style="padding:10px 14px;background:rgba(92,194,180,0.06);border:1px solid rgba(92,194,180,0.18);border-radius:8px;color:#5cc2b4;display:flex;justify-content:space-between;">
+                <span>Research</span><span style="color:var(--fg-2,#8a9ab0);font-size:0.68rem;">Field notes from
+                  WEH</span>
+              </div>
+              <div
+                style="padding:10px 14px;background:rgba(92,194,180,0.04);border:1px solid rgba(92,194,180,0.12);border-radius:8px;color:#5cc2b4;display:flex;justify-content:space-between;">
+                <span>Field Validation</span><span style="color:var(--fg-2,#8a9ab0);font-size:0.68rem;">Design-partner
+                  pilots</span>
+              </div>
+              <div
+                style="padding:10px 14px;background:rgba(92,194,180,0.04);border:1px solid rgba(92,194,180,0.12);border-radius:8px;color:#5cc2b4;display:flex;justify-content:space-between;">
+                <span>Understanding</span><span style="color:var(--fg-2,#8a9ab0);font-size:0.68rem;">Coordination gap
+                  mapped</span>
+              </div>
+              <div
+                style="padding:10px 14px;background:rgba(92,194,180,0.04);border:1px solid rgba(92,194,180,0.12);border-radius:8px;color:#5cc2b4;display:flex;justify-content:space-between;">
+                <span>Design</span><span style="color:var(--fg-2,#8a9ab0);font-size:0.68rem;">ANVIRA architecture</span>
+              </div>
+              <div
+                style="padding:10px 14px;background:rgba(92,194,180,0.04);border:1px solid rgba(92,194,180,0.12);border-radius:8px;color:#5cc2b4;display:flex;justify-content:space-between;">
+                <span>Technology</span><span style="color:var(--fg-2,#8a9ab0);font-size:0.68rem;">ANVIRA — field
+                  validation now</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="mission-stats">
-          <div class="mission-stat-row">
-            <div class="mission-stat-box">
-              <div class="num">5</div>
-              <div class="label">Stages in the Framework</div>
-            </div>
-            <div class="mission-stat-box">
-              <div class="num">1</div>
-              <div class="label">Active Corridor</div>
+        <div>
+          <span class="section-label">What changes</span>
+          <h2 class="section-title" style="text-align:left; margin-top:12px;">
+            What does "getting the approach right" actually produce?
+          </h2>
+          <p class="section-desc" style="text-align:left;">
+            When technology is placed last, the software that emerges is fundamentally different from what a
+            product team invents from scratch.
+          </p>
+          <ul style="list-style:none;padding:0;margin:24px 0 0;display:flex;flex-direction:column;gap:16px;">
+            <li style="display:flex;gap:14px;align-items:flex-start;">
+              <span style="color:#5cc2b4;flex-shrink:0;margin-top:2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <span style="color:var(--fg-2,#8a9ab0);font-size:0.92rem;line-height:1.65;">
+                <strong style="color:var(--fg,#e8edf5);">Operators recognise it.</strong> When a tool is designed around
+                what dispatchers actually do at 2 AM on the WEH, they don't need training slides. They recognise the
+                workflow immediately.
+              </span>
+            </li>
+            <li style="display:flex;gap:14px;align-items:flex-start;">
+              <span style="color:#5cc2b4;flex-shrink:0;margin-top:2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <span style="color:var(--fg-2,#8a9ab0);font-size:0.92rem;line-height:1.65;">
+                <strong style="color:var(--fg,#e8edf5);">The coordination gap closes.</strong> Not through technology
+                alone — through technology that understands which handoff loses time and precisely intervenes there.
+              </span>
+            </li>
+            <li style="display:flex;gap:14px;align-items:flex-start;">
+              <span style="color:#5cc2b4;flex-shrink:0;margin-top:2px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </span>
+              <span style="color:var(--fg-2,#8a9ab0);font-size:0.92rem;line-height:1.65;">
+                <strong style="color:var(--fg,#e8edf5);">Claims data is captured at source.</strong> Because the system
+                is present at the incident, structured data reaches the insurer with the scene — not 3 days after it was
+                cleared.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CORRIDOR CTA ── -->
+  <section class="section">
+    <div class="container">
+      <div class="ap-corridor-cta">
+        <div class="ap-corridor-inner">
+          <div>
+            <span class="section-label">From method to corridor</span>
+            <h2 class="section-title" style="text-align:left; margin-top:12px;">
+              Applying all 5 stages on one road, right now
+            </h2>
+            <p class="section-desc" style="text-align:left;">
+              This framework isn't theoretical. We are actively applying it on the Western Express Highway in
+              Mumbai — with real fleets, real dispatchers, real claims managers. One corridor, deeply understood,
+              before we scale to the next.
+            </p>
+            <div class="hero-actions" style="margin-top:28px;">
+              <a href="research.html" class="btn btn-primary">See our research &rarr;</a>
+              <a href="anvira.html" class="btn btn-outline">Explore ANVIRA</a>
             </div>
           </div>
-          <div class="mission-stat-row">
-            <div class="mission-stat-box">
-              <div class="num">~23</div>
-              <div class="label">Minutes — Current Response Time</div>
+
+          <div class="ap-corridor-stats">
+            <div class="ap-cstat">
+              <div class="ap-cstat-num">~23<br><span style="font-size:1rem;">min</span></div>
+              <div class="ap-cstat-label">Current response</div>
             </div>
-            <div class="mission-stat-box">
-              <div class="num">&lt;60s</div>
-              <div class="label">Target Response Time</div>
+            <div class="ap-cstat">
+              <div class="ap-cstat-num">&lt;60<br><span style="font-size:1rem;">sec</span></div>
+              <div class="ap-cstat-label">Target notification</div>
+            </div>
+            <div class="ap-cstat">
+              <div class="ap-cstat-num">4</div>
+              <div class="ap-cstat-label">Handoffs mapped</div>
             </div>
           </div>
         </div>
@@ -563,6 +1340,27 @@
 
   <script src="js/main.js" defer></script>
   <script src="js/topo.js" defer></script>
-</body>
 
-</html>
+  <!-- 3D tilt effect on stage cards -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.ap-stage-card, .ap-principle-card, .ap-stat-card').forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          var rect = card.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2;
+          var cy = rect.top + rect.height / 2;
+          var dx = (e.clientX - cx) / (rect.width / 2);
+          var dy = (e.clientY - cy) / (rect.height / 2);
+          var maxTilt = card.classList.contains('ap-stat-card') ? 8 : 5;
+          card.style.transform =
+            'perspective(800px) rotateX(' + (-dy * maxTilt) + 'deg) rotateY(' + (dx * maxTilt) + 'deg) translateZ(10px)';
+        });
+        card.addEventListener('mouseleave', function () {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease, border-color 0.3s ease';
+          setTimeout(function () { card.style.transition = ''; }, 500);
+        });
+      });
+    });
+  </script>
+</body>
