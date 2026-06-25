@@ -62,18 +62,31 @@
       overflow-x: hidden;
     }
 
-    .nav {
+    /* Transparent full-width header: outside hero, but without the black container/bar */
+    .nav,
+    .nav.scrolled,
+    .nav.nav-scrolled,
+    #navbar {
+      position: absolute !important;
+      top: 0;
+      left: 0;
       width: 100%;
-      background: rgba(5, 9, 18, 0.94);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(32, 214, 239, 0.10);
+      background: transparent !important;
+      background-color: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: 0 !important;
+      border-bottom: 0 !important;
+      box-shadow: none !important;
       z-index: 1000;
     }
 
     .nav .container.nav-inner {
       max-width: 1440px;
       margin: 0 auto;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
     }
 
     .nav-links a {
@@ -449,6 +462,16 @@
       50% { transform: scale(1); opacity: 1; }
     }
 
+
+    /* Keep homepage hero behind the transparent header */
+    .hero {
+      padding-top: 110px;
+    }
+
+    .hero-brand-lockup {
+      display: none !important;
+    }
+
     @media (max-width: 900px) {
       .hero-brand-lockup { align-items: flex-start; flex-direction: column; }
       .company-grid { grid-template-columns: 1fr; }
@@ -524,13 +547,6 @@
 
     <!-- Center content -->
     <div class="container hero-center">
-      <div class="hero-brand-lockup">
-        <img class="hero-brand-mark" src="images/aasiom-logo.png" alt="AASIOM logo">
-        <div>
-          <h1 class="hero-brand-name">AASIOM Technologies Pvt. Ltd.</h1>
-          <div class="hero-brand-line">Engineering intelligent solutions for operational problems that matter.</div>
-        </div>
-      </div>
       <div class="hero-pill">
         <span class="hero-pill-dot"></span>
         Operational research &middot; Field validation &middot; Western Express Highway
@@ -899,15 +915,9 @@
       var splash = document.getElementById('aasiomSplash');
       if (!splash) return;
 
-      var alreadySeen = sessionStorage.getItem('aasiomSplashSeen');
-      if (alreadySeen) {
+      setTimeout(function () {
         splash.classList.add('hide');
-      } else {
-        setTimeout(function () {
-          splash.classList.add('hide');
-          sessionStorage.setItem('aasiomSplashSeen', 'true');
-        }, 5000);
-      }
+      }, 5000);
     })();
 
     (function () {
