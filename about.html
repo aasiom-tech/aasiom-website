@@ -167,6 +167,178 @@
         margin-left: 0 !important;
       }
     }
+
+
+    /* About page: premium innovation principles block */
+    .about-innovation-section {
+      padding: var(--section-pad);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(92, 194, 180, 0.08);
+      border-bottom: 1px solid rgba(92, 194, 180, 0.08);
+      background:
+        radial-gradient(ellipse 900px 520px at 20% 10%, rgba(92, 194, 180, 0.06), transparent 62%),
+        radial-gradient(ellipse 650px 420px at 88% 88%, rgba(224, 164, 88, 0.045), transparent 58%),
+        linear-gradient(180deg, rgba(8, 12, 28, 0.54), rgba(4, 6, 15, 0.32));
+    }
+
+    .about-innovation-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.55fr);
+      gap: 56px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .about-innovation-kicker {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(92, 194, 180, 0.07);
+      border: 1px solid rgba(92, 194, 180, 0.24);
+      margin-bottom: 22px;
+    }
+
+    .about-innovation-copy {
+      color: var(--fg-2);
+      font-size: 1.02rem;
+      line-height: 1.85;
+      max-width: 780px;
+    }
+
+    .about-innovation-note {
+      border: 1px solid rgba(92, 194, 180, 0.18);
+      border-radius: 18px;
+      padding: 24px 26px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .about-innovation-note strong {
+      display: block;
+      color: var(--fg);
+      font-size: 1rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .about-innovation-note span {
+      display: block;
+      color: var(--fg-2);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    .about-principle-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .about-principle-card {
+      position: relative;
+      min-height: 290px;
+      padding: 28px 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(8, 12, 28, 0.72);
+      overflow: hidden;
+      transition: transform var(--t-base), border-color var(--t-base), box-shadow var(--t-base);
+    }
+
+    .about-principle-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 18%;
+      right: 18%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(92, 194, 180, 0.75), transparent);
+      opacity: 0;
+      transition: opacity var(--t-base);
+    }
+
+    .about-principle-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(92, 194, 180, 0.34);
+      box-shadow: 0 16px 38px rgba(0,0,0,0.28), 0 0 0 1px rgba(92,194,180,0.08);
+    }
+
+    .about-principle-card:hover::before { opacity: 1; }
+
+    .about-principle-number {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .about-principle-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.08rem;
+      line-height: 1.28;
+      color: var(--fg);
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .about-principle-card p {
+      color: var(--fg-2);
+      font-size: 0.92rem;
+      line-height: 1.78;
+      margin: 0;
+    }
+
+    .about-vision-strip {
+      margin-top: 22px;
+      padding: 34px 38px;
+      border-radius: 22px;
+      border: 1px solid rgba(92, 194, 180, 0.18);
+      background:
+        linear-gradient(135deg, rgba(92, 194, 180, 0.075), rgba(255,255,255,0.025)),
+        rgba(8, 12, 28, 0.68);
+      display: grid;
+      grid-template-columns: minmax(0, 0.55fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .about-vision-strip h3 {
+      font-family: var(--font-head);
+      font-size: clamp(1.5rem, 2.5vw, 2.15rem);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: var(--fg);
+      margin: 0;
+    }
+
+    .about-vision-strip p {
+      color: var(--fg-2);
+      font-size: 1rem;
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    @media (max-width: 1100px) {
+      .about-principle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .about-innovation-head, .about-vision-strip { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .about-principle-grid { grid-template-columns: 1fr; }
+      .about-principle-card { min-height: auto; }
+      .about-vision-strip { padding: 26px 22px; }
+    }
+
   </style>
 </head>
 
@@ -598,6 +770,67 @@
   </section>
 
 
+  <!-- Innovation Principles -->
+  <section class="about-innovation-section">
+    <div class="container">
+      <div class="about-innovation-head">
+        <div>
+          <span class="about-innovation-kicker">Innovation Principles</span>
+          <h2 class="section-title">How We Build Technology That Matters</h2>
+          <p class="about-innovation-copy">
+            AASIOM treats innovation as a disciplined operating practice, not a feature race. Every idea is shaped through field understanding, research clarity, responsible design, and engineering decisions that can survive real operational pressure.
+          </p>
+        </div>
+        <div class="about-innovation-note">
+          <strong>Research first. Build with purpose.</strong>
+          <span>We move from observation to architecture only when the problem, the people, and the workflow are clearly understood.</span>
+        </div>
+      </div>
+
+      <div class="about-principle-grid">
+        <article class="about-principle-card">
+          <div class="about-principle-number">Principle 01</div>
+          <h3>Research Before Engineering</h3>
+          <p>
+            We begin with conversations, observation, and workflow mapping so that every system is grounded in what actually happens on the ground, not in assumptions made from a distance.
+          </p>
+        </article>
+
+        <article class="about-principle-card">
+          <div class="about-principle-number">Principle 02</div>
+          <h3>Designed Around People</h3>
+          <p>
+            Technology must reduce confusion for the people using it. Our work focuses on clarity, simple decisions, and interfaces that remain useful when time, pressure, and coordination matter.
+          </p>
+        </article>
+
+        <article class="about-principle-card">
+          <div class="about-principle-number">Principle 03</div>
+          <h3>Secure, Scalable Foundations</h3>
+          <p>
+            From early architecture to deployment planning, we keep reliability, data discipline, and long-term scalability at the centre of how AASIOM systems are shaped.
+          </p>
+        </article>
+
+        <article class="about-principle-card">
+          <div class="about-principle-number">Principle 04</div>
+          <h3>Built for Lasting Impact</h3>
+          <p>
+            We focus on durable value: better coordination, cleaner information flow, and practical infrastructure support that can keep improving beyond the first version of a product.
+          </p>
+        </article>
+      </div>
+
+      <div class="about-vision-strip">
+        <h3>Building with discipline, not noise.</h3>
+        <p>
+          AASIOM combines field research, strategic thinking, careful design, and engineering execution to create technology that supports real industries, strengthens operational trust, and turns complex workflows into usable systems.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
   <!-- The Team -->
   <section class="section" id="team">
     <div class="container">
@@ -637,7 +870,7 @@
         <div class="founder-card">
           <div class="founder-avatar founder-avatar--cyan">O</div>
           <h3 class="founder-name">Om Vinayak Muchandikar</h3>
-          <div class="founder-role">Director — Company Direction &amp; System Thinking</div>
+          <div class="founder-role">Founder — Company Direction &amp; System Thinking</div>
           <p class="founder-bio">
             Shapes AASIOM’s core thesis, connects field learning with company strategy, defines long-term
             operating direction, and keeps the work focused on real-world coordination problems.
