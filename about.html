@@ -36,7 +36,7 @@
 
 
   <style>
-    /* Page-level nav fix for about.html */
+    /* About page final fixes: clean header, only required nav items, active underline effect */
     .nav,
     .nav.scrolled {
       background: transparent !important;
@@ -47,7 +47,8 @@
       padding: 22px 0 !important;
     }
 
-    .page-header::after {
+    .page-header::after,
+    .mission-section::before {
       display: none !important;
       content: none !important;
       background: none !important;
@@ -63,66 +64,6 @@
       align-items: center;
       justify-content: flex-end;
       flex-wrap: nowrap;
-      gap: 18px;
-    }
-
-    .nav-links li a {
-      font-size: 0.95rem !important;
-      font-weight: 600 !important;
-      padding: 8px 2px !important;
-      white-space: nowrap;
-      background: transparent !important;
-      border-radius: 0 !important;
-    }
-
-    .nav-links li a:hover,
-    .nav-links li a.active {
-      color: var(--cyan) !important;
-      background: transparent !important;
-    }
-
-    .nav-links li a.nav-cta {
-      padding: 12px 26px !important;
-      border-radius: 999px !important;
-      background: linear-gradient(135deg, var(--cyan), var(--cyan-2)) !important;
-      color: var(--navy-950) !important;
-      margin-left: 6px !important;
-      font-weight: 800 !important;
-    }
-
-    @media (max-width: 1180px) {
-      .container { padding-left: 28px; padding-right: 28px; }
-      .nav-links { gap: 12px; }
-      .nav-links li a { font-size: 0.88rem !important; }
-      .nav-links li a.nav-cta { padding: 10px 20px !important; }
-    }
-
-    @media (max-width: 980px) {
-      .nav-toggle { display: block !important; }
-      .nav-links {
-        display: none !important;
-        position: fixed;
-        top: 86px;
-        left: 18px;
-        right: 18px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 6px;
-        padding: 18px;
-        background: rgba(4, 6, 15, 0.98) !important;
-        border: 1px solid rgba(92, 194, 180, 0.18);
-        border-radius: 14px;
-        max-height: calc(100vh - 110px);
-        overflow-y: auto;
-      }
-      .nav-links.active, .nav-links.open, .nav-links.show { display: flex !important; }
-      .nav-links li a { width: 100%; padding: 12px 14px !important; font-size: 0.95rem !important; }
-      .nav-links li a.nav-cta { margin-left: 0 !important; text-align: center; }
-    }
-  
-
-    /* Simplified header: Home, About, ANVIRA, Contact Us */
-    .nav-links {
       gap: 34px !important;
     }
 
@@ -132,6 +73,10 @@
       font-size: 1rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.01em;
+      white-space: nowrap;
+      background: transparent !important;
+      border-radius: 0 !important;
+      color: var(--fg-2);
     }
 
     .nav-links li a:not(.nav-cta)::after {
@@ -148,18 +93,79 @@
       transition: width 0.28s ease;
     }
 
+    .nav-links li a:not(.nav-cta):hover,
+    .nav-links li a:not(.nav-cta).active {
+      color: var(--cyan) !important;
+      background: transparent !important;
+    }
+
     .nav-links li a:not(.nav-cta):hover::after,
     .nav-links li a:not(.nav-cta).active::after {
       width: 82px;
     }
 
     .nav-links li a.nav-cta {
+      padding: 12px 26px !important;
+      border-radius: 999px !important;
+      background: linear-gradient(135deg, var(--cyan), var(--cyan-2)) !important;
+      color: var(--navy-950) !important;
+      margin-left: 6px !important;
       font-size: 1rem !important;
+      font-weight: 800 !important;
+      white-space: nowrap;
+    }
+
+    .research-team-grid .founder-card {
+      align-items: flex-start;
+      text-align: left;
+      min-height: 230px;
+    }
+
+    .research-team-grid .founder-role {
+      margin-bottom: 12px;
     }
 
     @media (max-width: 980px) {
-      .nav-links { gap: 6px !important; }
-      .nav-links li a:not(.nav-cta)::after { display: none !important; }
+      .nav-toggle { display: block !important; }
+
+      .nav-links {
+        display: none !important;
+        position: fixed;
+        top: 86px;
+        left: 18px;
+        right: 18px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px !important;
+        padding: 18px;
+        background: rgba(4, 6, 15, 0.98) !important;
+        border: 1px solid rgba(92, 194, 180, 0.18);
+        border-radius: 14px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+      }
+
+      .nav-links.active,
+      .nav-links.open,
+      .nav-links.show {
+        display: flex !important;
+      }
+
+      .nav-links li a:not(.nav-cta),
+      .nav-links li a.nav-cta {
+        width: 100%;
+        padding: 12px 14px !important;
+        font-size: 0.95rem !important;
+        text-align: center;
+      }
+
+      .nav-links li a:not(.nav-cta)::after {
+        display: none !important;
+      }
+
+      .nav-links li a.nav-cta {
+        margin-left: 0 !important;
+      }
     }
   </style>
 </head>
@@ -318,7 +324,7 @@
   </section>
 
 <!-- How We Think -->
-<section class="about-block mission-section" id="approach">
+<section class="about-block mission-section">
   <div class="container">
     <div class="section-header center">
       <span class="section-label">How We Think</span>
@@ -591,7 +597,8 @@
     </div>
   </section>
 
-<!-- The Team -->
+
+  <!-- The Team -->
   <section class="section" id="team">
     <div class="container">
       <div class="section-header center" style="margin-bottom:48px;">
@@ -612,7 +619,7 @@
           <h3 class="founder-name">Siddhi Prashant Sapkale</h3>
           <div class="founder-role">Director — Research Operations, Governance &amp; Data Discipline</div>
           <p class="founder-bio">
-            Strengthens AASIOM’s operating foundation by maintaining research discipline, documentation quality,
+            Strengthens AASIOM’s operating foundation through research discipline, documentation quality,
             governance practices, and structured internal coordination as the company grows.
           </p>
         </div>
@@ -623,7 +630,7 @@
           <div class="founder-role">Director — Partnerships, Operations &amp; Deal Execution</div>
           <p class="founder-bio">
             Builds AASIOM’s external relationships, coordinates operating access, supports partner conversations,
-            and helps convert company research into practical business execution.
+            and helps convert research direction into practical business execution.
           </p>
         </div>
 
@@ -632,7 +639,7 @@
           <h3 class="founder-name">Om Vinayak Muchandikar</h3>
           <div class="founder-role">Founder — Company Direction &amp; System Thinking</div>
           <p class="founder-bio">
-            Shapes AASIOM’s core thesis, connects field learning with company strategy, defines the long-term
+            Shapes AASIOM’s core thesis, connects field learning with company strategy, defines long-term
             operating direction, and keeps the work focused on real-world coordination problems.
           </p>
         </div>
@@ -644,7 +651,7 @@
         <span class="section-label">Core Team</span>
         <h2 class="section-title">Systems &amp; Build</h2>
         <p class="section-desc mx-auto">
-          The core team supports AASIOM’s system direction, reliability, research operations,
+          The core team supports AASIOM’s technical direction, reliability, research operations,
           and field-to-build execution.
         </p>
       </div>
@@ -655,64 +662,62 @@
           <h3 class="founder-name">Tejas Pawar</h3>
           <div class="founder-role">Core Team — Systems &amp; Build</div>
           <p class="founder-bio">
-            Builds and supports AASIOM’s technical foundations, reliability practices, and
-            disciplined engineering execution across product and internal systems.
+            Builds and supports AASIOM’s technical foundations, reliability practices, and disciplined
+            engineering execution across product and internal systems.
           </p>
         </div>
       </div>
 
-<!-- Research Team -->
-<div class="section-header center" id="research" style="margin:72px 0 32px;">
-  <span class="section-label">Research Team</span>
-</div>
+      <!-- Research Team -->
+      <div class="section-header center" style="margin:72px 0 32px;">
+        <span class="section-label">Research Team</span>
+      </div>
 
-<div class="domains-grid">
+      <div class="domains-grid research-team-grid">
 
-  <div class="founder-card">
-    <h3 class="founder-name">Nooruzma Maizuddin Khan</h3>
-    <div class="founder-role">Research &amp; Strategy</div>
-    <p class="founder-bio">
-      Conducts market research, competitor analysis, and strategic insights to support product and business decisions.
-    </p>
-  </div>
+        <div class="founder-card">
+          <h3 class="founder-name">Nooruzma Maizuddin Khan</h3>
+          <div class="founder-role">Research &amp; Strategy</div>
+          <p class="founder-bio">
+            Conducts market research, competitor analysis, and strategic insights to support product and business decisions.
+          </p>
+        </div>
 
-  <div class="founder-card">
-    <h3 class="founder-name">Priya Avinash Patil</h3>
-    <div class="founder-role">UI/UX Design</div>
-    <p class="founder-bio">
-      Designs intuitive and user-centric interfaces to deliver a seamless and engaging user experience.
-    </p>
-  </div>
+        <div class="founder-card">
+          <h3 class="founder-name">Priya Avinash Patil</h3>
+          <div class="founder-role">UI/UX Design</div>
+          <p class="founder-bio">
+            Designs intuitive and user-centric interfaces to deliver a seamless and engaging user experience.
+          </p>
+        </div>
 
-  <div class="founder-card">
-    <h3 class="founder-name">Pranali Tukaram Mundole</h3>
-    <div class="founder-role">Frontend Development</div>
-    <p class="founder-bio">
-      Builds responsive and interactive user interfaces, ensuring a smooth and reliable web experience.
-    </p>
-  </div>
+        <div class="founder-card">
+          <h3 class="founder-name">Pranali Tukaram Mundole</h3>
+          <div class="founder-role">Frontend Development</div>
+          <p class="founder-bio">
+            Builds responsive and interactive user interfaces, ensuring a smooth and reliable web experience.
+          </p>
+        </div>
 
-  <div class="founder-card">
-    <h3 class="founder-name">Saurav Kamlesh Nirban</h3>
-    <div class="founder-role">Product Research</div>
-    <p class="founder-bio">
-      Researches user needs, validates product ideas, and helps translate insights into practical product features.
-    </p>
-  </div>
+        <div class="founder-card">
+          <h3 class="founder-name">Saurav Kamlesh Nirban</h3>
+          <div class="founder-role">Product Research</div>
+          <p class="founder-bio">
+            Researches user needs, validates product ideas, and helps translate insights into practical product features.
+          </p>
+        </div>
 
-  <div class="founder-card">
-    <h3 class="founder-name">Qusai Murtaza Hariyanawala</h3>
-    <div class="founder-role">Backend Development</div>
-    <p class="founder-bio">
-      Develops secure and scalable backend systems that power the application’s core functionality and data management.
-    </p>
-  </div>
+        <div class="founder-card">
+          <h3 class="founder-name">Qusai Murtaza Hariyanawala</h3>
+          <div class="founder-role">Backend Development</div>
+          <p class="founder-bio">
+            Develops secure and scalable backend systems that power the application’s core functionality and data management.
+          </p>
+        </div>
 
-</div>
-</div>
-</section>
-
-  
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="footer">
@@ -734,7 +739,7 @@
           <ul>
             <li><a href="about.html">About Us</a></li>
             <li><a href="about.html#team">Team</a></li>
-            <li><a href="anvira.html">ANVIRA</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
