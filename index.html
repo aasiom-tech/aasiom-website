@@ -268,9 +268,8 @@
     .hero-title {
       margin:0;
       max-width:920px;
-      font-size:clamp(2.6rem,5.2vw,5rem);
-      line-height:1.02;
-      max-width:760px;
+      font-size:clamp(3.25rem,8vw,7.2rem);
+      line-height:.88;
       letter-spacing:-.075em;
       font-weight:900;
     }
@@ -2422,28 +2421,8 @@
   .nav .brand:focus-visible {
     transform: translateY(-2px) scale(1.02) !important;
   }
-
-
-    /* Final fix: keep the “Why AASIOM Exists” heading compact but with safe spacing */
-    #about-preview .mission-statement h2,
-    .mission-statement h2 {
-      font-size:clamp(2.4rem, 5.6vw, 4.8rem) !important;
-      line-height:1.14 !important;
-      letter-spacing:-.055em !important;
-      max-width:980px !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-    }
-
-    @media (max-width:760px) {
-      #about-preview .mission-statement h2,
-      .mission-statement h2 {
-        font-size:clamp(2.05rem, 10vw, 3.45rem) !important;
-        line-height:1.16 !important;
-        letter-spacing:-.045em !important;
-      }
-    }
 </style>
+  <link rel="stylesheet" href="shared-header.css">
 </head>
 <body id="top">
   <div class="page-motif" aria-hidden="true"></div>
