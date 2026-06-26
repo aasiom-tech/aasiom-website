@@ -2,319 +2,328 @@
    Contact page visual style is the reference. Load this file last on every page. */
 
 .nav,
-.nav.scrolled {
+.nav.scrolled,
+.contact-page .nav,
+.contact-page .nav.scrolled {
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
   z-index: 5000 !important;
-  background: transparent !important;
-  border-bottom: 0 !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+  background: rgba(251, 253, 255, 0.78) !important;
+  border-bottom: 1px solid rgba(8, 48, 73, 0.10) !important;
+  box-shadow: 0 10px 34px rgba(8, 42, 62, 0.08) !important;
+  backdrop-filter: blur(22px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
   padding: 0 !important;
 }
 
 .nav .container.nav-inner,
-.nav-inner {
-  height: 88px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 30px !important;
+.nav-inner,
+.contact-page .nav .container.nav-inner,
+.contact-page .nav-inner {
+  height: 92px !important;
+  min-height: 92px !important;
   max-width: 1240px !important;
   width: 100% !important;
   margin: 0 auto !important;
   padding: 0 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 30px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
   transition: height .24s ease, margin .24s ease, padding .24s ease, background .24s ease, box-shadow .24s ease, border-color .24s ease, border-radius .24s ease !important;
 }
 
-.nav.scrolled .container.nav-inner,
-.nav.scrolled .nav-inner {
-  height: 88px !important;
-  margin-top: 0 !important;
-  padding: 0 24px !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-}
-
 .brand,
-.nav-logo {
+.nav-logo,
+.contact-page .brand,
+.contact-page .nav-logo {
   display: inline-flex !important;
   align-items: center !important;
   flex: 0 0 auto !important;
+  background: transparent !important;
 }
 
-.brand img,
-.nav-logo img,
 .brand .site-logo--header,
-.nav-logo .site-logo--header {
-  width: 68px !important;
+.nav .brand img,
+.nav-logo .site-logo--header,
+.nav-logo img,
+.contact-page .brand .site-logo--header,
+.contact-page .nav .brand img,
+.contact-page .nav-logo .site-logo--header {
+  width: clamp(172px, 13.5vw, 228px) !important;
+  max-width: 228px !important;
+  max-height: 76px !important;
   height: auto !important;
-  max-height: 64px !important;
   display: block !important;
   object-fit: contain !important;
+  filter: none !important;
+  opacity: 1 !important;
   transform: none !important;
   margin: 0 !important;
-  filter: drop-shadow(0 0 14px rgba(255,255,255,.18)) !important;
-  transition: transform .22s ease, filter .22s ease, opacity .22s ease !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .brand:hover img,
 .nav-logo:hover img,
 .brand:hover .site-logo--header,
 .nav-logo:hover .site-logo--header {
-  transform: translateY(-2px) scale(1.03) !important;
-  filter: drop-shadow(0 0 18px rgba(32,214,239,.22)) !important;
+  transform: none !important;
+  filter: none !important;
 }
 
-.nav-links {
+.nav-links,
+.contact-page .nav-links {
   display: flex !important;
   align-items: center !important;
   justify-content: flex-end !important;
   flex-direction: row !important;
   flex-wrap: nowrap !important;
-  gap: 38px !important;
+  gap: 32px !important;
   list-style: none !important;
-  padding: 0 !important;
   margin: 0 !important;
+  padding: 0 !important;
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
+  box-shadow: none !important;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  color: #AAB6C7 !important;
 }
 
-.nav-links li {
+.nav-links li,
+.contact-page .nav-links li {
   display: block !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-.nav-links a,
 .nav-links li a,
-.nav-links li a:not(.nav-cta) {
+.nav-links a,
+.nav-links li a:not(.nav-cta),
+.contact-page .nav-links li a,
+.contact-page .nav-links li a:not(.nav-cta) {
   position: relative !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-width: 0 !important;
-  min-height: 0 !important;
-  padding: 32px 0 !important;
+  color: #334e5f !important;
+  padding: 30px 0 !important;
   margin: 0 !important;
-  color: #AAB6C7 !important;
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  line-height: 1 !important;
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  font-size: 1rem !important;
-  font-weight: 700 !important;
-  letter-spacing: 0 !important;
+  font-size: 0.96rem !important;
+  font-weight: 750 !important;
+  letter-spacing: 0.005em !important;
+  line-height: 1 !important;
   text-decoration: none !important;
   text-transform: none !important;
   text-align: center !important;
-  text-shadow: 0 10px 30px rgba(0,0,0,.35) !important;
-  transition: color .2s ease !important;
+  text-shadow: none !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
   white-space: nowrap !important;
+  transition: color .24s ease, transform .24s ease !important;
 }
 
+.nav-links li a:hover,
+.nav-links li a.active,
 .nav-links a:hover,
 .nav-links a.active:not(.nav-cta),
-.nav-links li a:hover,
-.nav-links li a.active:not(.nav-cta) {
-  color: #fff !important;
+.nav-links li a:not(.nav-cta):hover,
+.nav-links li a:not(.nav-cta).active,
+.contact-page .nav-links li a:hover,
+.contact-page .nav-links li a.active,
+.contact-page .nav-links li a:not(.nav-cta):hover,
+.contact-page .nav-links li a:not(.nav-cta).active {
+  color: #061826 !important;
 }
 
-.nav-links a:not(.nav-cta)::after,
-.nav-links li a:not(.nav-cta)::after {
-  content: "" !important;
-  position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  bottom: 16px !important;
-  width: 0 !important;
-  height: 2px !important;
-  background: linear-gradient(90deg, transparent, var(--cyan, #20D6EF), transparent) !important;
-  box-shadow: 0 0 20px rgba(32,214,239,.9) !important;
-  opacity: 0 !important;
-  transition: width .25s ease, opacity .25s ease !important;
-}
-
-.nav-links a:not(.nav-cta):hover::after,
-.nav-links a.active:not(.nav-cta)::after,
-.nav-links li a:not(.nav-cta):hover::after,
-.nav-links li a.active:not(.nav-cta)::after {
-  width: 72px !important;
-  opacity: 1 !important;
-}
-
+.nav-links li a::before,
 .nav-links a::before,
-.nav-links li a::before {
-  content: "" !important;
-  position: absolute !important;
-  left: 50% !important;
-  top: 50% !important;
-  width: 0 !important;
-  height: 0 !important;
-  border-radius: 999px !important;
-  background: rgba(255,255,255,.055) !important;
-  transform: translate(-50%,-50%) !important;
-  transition: width .22s ease, height .22s ease !important;
-  z-index: -1 !important;
-}
-
-.nav-links a:hover::before,
-.nav-links li a:hover::before {
-  width: 74px !important;
-  height: 36px !important;
-}
-
-.nav-cta,
-.nav-links a.nav-cta,
-.nav-links li a.nav-cta,
-.nav-links a.nav-cta.active,
-.nav-links li a.nav-cta.active {
-  position: relative !important;
-  overflow: hidden !important;
-  padding: 12px 20px !important;
-  border: 1px solid rgba(242,107,29,.35) !important;
-  background: rgba(242,107,29,.12) !important;
-  border-radius: 999px !important;
-  color: #fff !important;
-  font-weight: 800 !important;
-  line-height: 1 !important;
-  letter-spacing: 0 !important;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease !important;
-  box-shadow: none !important;
-}
-
-.nav-cta:hover,
-.nav-links a.nav-cta:hover,
-.nav-links li a.nav-cta:hover {
-  transform: translateY(-2px) !important;
-  background: rgba(242,107,29,.22) !important;
-}
-
-.nav-links a.nav-cta::after,
-.nav-links li a.nav-cta::after,
-.nav-links a.nav-cta.active::after,
-.nav-links li a.nav-cta.active::after,
-.nav-links a.nav-cta.active::before,
-.nav-links li a.nav-cta.active::before {
+.contact-page .nav-links li a::before {
   display: none !important;
 }
 
-.nav-cta::after,
-.nav-links a.nav-cta::after,
-.nav-links li a.nav-cta::after {
+.nav-links li a::after,
+.nav-links a::after,
+.nav-links li a:not(.nav-cta)::after,
+.nav-links a:not(.nav-cta)::after,
+.contact-page .nav-links li a::after,
+.contact-page .nav-links li a:not(.nav-cta)::after {
   content: "" !important;
   position: absolute !important;
-  inset: -40% -70% !important;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent) !important;
-  transform: translateX(-120%) rotate(18deg) !important;
-  transition: transform .55s ease !important;
-  pointer-events: none !important;
+  left: 50% !important;
+  bottom: 19px !important;
+  width: 0 !important;
+  height: 2px !important;
+  transform: translateX(-50%) !important;
+  border-radius: 999px !important;
+  background: linear-gradient(90deg, transparent, #087fa6, transparent) !important;
+  box-shadow: 0 0 14px rgba(8, 127, 166, 0.32) !important;
+  opacity: 1 !important;
+  transition: width .26s ease !important;
   display: block !important;
 }
 
-.nav-cta:hover::after,
-.nav-links a.nav-cta:hover::after,
-.nav-links li a.nav-cta:hover::after {
-  transform: translateX(120%) rotate(18deg) !important;
+.nav-links li a:hover::after,
+.nav-links li a.active::after,
+.nav-links a:hover::after,
+.nav-links a.active:not(.nav-cta)::after,
+.nav-links li a:not(.nav-cta):hover::after,
+.nav-links li a:not(.nav-cta).active::after,
+.contact-page .nav-links li a:hover::after,
+.contact-page .nav-links li a.active::after,
+.contact-page .nav-links li a:not(.nav-cta):hover::after,
+.contact-page .nav-links li a:not(.nav-cta).active::after {
+  width: 72px !important;
 }
 
-.nav-toggle {
+.nav-links li a.nav-cta,
+.nav-links li a.nav-cta.active,
+.nav-links a.nav-cta,
+.nav-links a.nav-cta.active,
+.contact-page .nav-links li a.nav-cta,
+.contact-page .nav-links li a.nav-cta.active {
+  position: relative !important;
+  overflow: hidden !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #072033, #087fa6) !important;
+  border: 1px solid rgba(8, 127, 166, 0.22) !important;
+  box-shadow: 0 14px 34px rgba(8, 127, 166, 0.20) !important;
+  padding: 12px 22px !important;
+  border-radius: 999px !important;
+  font-weight: 750 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.005em !important;
+  transition: transform .24s ease, background .24s ease, box-shadow .24s ease !important;
+}
+
+.nav-links li a.nav-cta::after,
+.nav-links li a.nav-cta.active::after,
+.nav-links a.nav-cta::after,
+.nav-links a.nav-cta.active::after,
+.contact-page .nav-links li a.nav-cta::after,
+.contact-page .nav-links li a.nav-cta.active::after {
   display: none !important;
 }
 
-@media (max-width: 760px) {
+.nav-links li a.nav-cta:hover,
+.nav-links a.nav-cta:hover,
+.contact-page .nav-links li a.nav-cta:hover {
+  transform: translateY(-2px) !important;
+  background: linear-gradient(135deg, #061826, #0a8eb8) !important;
+}
+
+.nav-toggle,
+.contact-page .nav-toggle {
+  display: none !important;
+}
+
+@media (max-width: 980px) {
   .nav .container.nav-inner,
-  .nav-inner {
-    height: 78px !important;
+  .nav-inner,
+  .contact-page .nav .container.nav-inner,
+  .contact-page .nav-inner {
+    min-height: 82px !important;
+    height: 82px !important;
   }
 
-  .nav.scrolled .container.nav-inner,
-  .nav.scrolled .nav-inner {
-    height: 78px !important;
-    margin: 0 auto !important;
-    padding: 0 24px !important;
-    border: 0 !important;
-    border-radius: 0 !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  .brand img,
-  .nav-logo img,
   .brand .site-logo--header,
-  .nav-logo .site-logo--header {
-    width: 58px !important;
-    max-height: 56px !important;
+  .nav .brand img,
+  .nav-logo .site-logo--header,
+  .nav-logo img,
+  .contact-page .brand .site-logo--header,
+  .contact-page .nav .brand img,
+  .contact-page .nav-logo .site-logo--header {
+    width: clamp(154px, 34vw, 190px) !important;
+    max-height: 64px !important;
   }
 
-  .nav-toggle {
+  .nav-toggle,
+  .contact-page .nav-toggle {
     display: block !important;
-    background: none !important;
-    border: 0 !important;
-    color: #fff !important;
-    font-size: 28px !important;
+    color: #061826 !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    border: 1px solid rgba(8, 48, 73, 0.12) !important;
+    border-radius: 12px !important;
+    padding: 8px 12px !important;
+    font-size: 24px !important;
     line-height: 1 !important;
-    padding: 0 !important;
-    margin: 0 !important;
   }
 
-  .nav-links {
+  .nav-links,
+  .contact-page .nav-links {
+    display: none !important;
     position: absolute !important;
-    top: 78px !important;
+    top: 82px !important;
     left: 16px !important;
     right: 16px !important;
-    display: none !important;
     flex-direction: column !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
+    gap: 6px !important;
     padding: 18px !important;
-    gap: 4px !important;
-    background: rgba(11,15,23,.94) !important;
-    border: 1px solid rgba(255,255,255,.08) !important;
+    background: rgba(251, 253, 255, 0.96) !important;
+    border: 1px solid rgba(8, 48, 73, 0.12) !important;
+    box-shadow: 0 18px 38px rgba(8, 127, 166, 0.18) !important;
     border-radius: 18px !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
+    backdrop-filter: blur(18px) saturate(150%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
   }
 
   .nav.open .nav-links,
   .nav-links.active,
   .nav-links.open,
-  .nav-links.show {
+  .nav-links.show,
+  .contact-page .nav.open .nav-links,
+  .contact-page .nav-links.active,
+  .contact-page .nav-links.open,
+  .contact-page .nav-links.show {
     display: flex !important;
   }
 
-  .nav-links a,
+  .nav-links li,
   .nav-links li a,
-  .nav-links li a:not(.nav-cta) {
-    padding: 12px 0 !important;
-  }
-
-  .nav-links a:hover::before,
-  .nav-links li a:hover::before,
-  .nav-links a:not(.nav-cta)::after,
-  .nav-links li a:not(.nav-cta)::after {
-    display: none !important;
-  }
-
-  .nav-cta,
-  .nav-links a.nav-cta,
-  .nav-links li a.nav-cta {
+  .nav-links a,
+  .nav-links li a:not(.nav-cta),
+  .nav-links li a.nav-cta,
+  .contact-page .nav-links li,
+  .contact-page .nav-links li a,
+  .contact-page .nav-links li a:not(.nav-cta),
+  .contact-page .nav-links li a.nav-cta {
     width: 100% !important;
+  }
+
+  .nav-links li a,
+  .nav-links a,
+  .nav-links li a:not(.nav-cta),
+  .nav-links li a.nav-cta,
+  .contact-page .nav-links li a,
+  .contact-page .nav-links li a:not(.nav-cta),
+  .contact-page .nav-links li a.nav-cta {
+    color: #061826 !important;
+    padding: 12px 14px !important;
     text-align: center !important;
-    justify-content: center !important;
+  }
+
+  .nav-links li a.nav-cta,
+  .nav-links a.nav-cta,
+  .contact-page .nav-links li a.nav-cta {
+    color: #fff !important;
+  }
+
+  .nav-links li a::after,
+  .nav-links a::after,
+  .nav-links li a:not(.nav-cta)::after,
+  .nav-links a:not(.nav-cta)::after,
+  .contact-page .nav-links li a::after,
+  .contact-page .nav-links li a:not(.nav-cta)::after {
+    display: none !important;
   }
 }
