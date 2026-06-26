@@ -3468,6 +3468,90 @@ body::after {
 }
 </style>
 
+
+
+<style>
+/* ================================================================
+   VISIBLE DIRECT CONTACT DESIGN ELEMENT — added final override
+   ================================================================ */
+.contact-page .contact-hero-grid {
+  overflow: visible !important;
+}
+
+.contact-page .contact-direct-card {
+  position: relative !important;
+  overflow: visible !important;
+  isolation: isolate !important;
+  z-index: 5 !important;
+}
+
+/* Strong visible dark semi-arc beside the Direct Contact card */
+.contact-page .contact-direct-card::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: -86px !important;
+  width: 124px !important;
+  height: 295px !important;
+  transform: translateY(-50%) !important;
+  border-radius: 0 160px 160px 0 !important;
+  border-top: 18px solid rgba(6, 24, 38, 0.72) !important;
+  border-right: 18px solid rgba(6, 24, 38, 0.72) !important;
+  border-bottom: 18px solid rgba(6, 24, 38, 0.72) !important;
+  border-left: 0 !important;
+  background: linear-gradient(90deg, rgba(8, 127, 166, 0.16), rgba(6, 24, 38, 0.08)) !important;
+  box-shadow:
+    0 0 0 1px rgba(8, 127, 166, 0.24),
+    0 0 34px rgba(8, 127, 166, 0.28),
+    0 22px 46px rgba(6, 24, 38, 0.18) !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/* Small dark-blue floating dots to make the side decoration obvious */
+.contact-page .contact-direct-card::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 58px !important;
+  right: -44px !important;
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  background: #061826 !important;
+  box-shadow:
+    0 0 0 8px rgba(8, 127, 166, 0.10),
+    0 84px 0 6px rgba(8, 127, 166, 0.62),
+    0 168px 0 2px rgba(6, 24, 38, 0.72),
+    0 0 24px rgba(8, 127, 166, 0.30) !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 980px) {
+  .contact-page .contact-direct-card::after {
+    right: -48px !important;
+    width: 78px !important;
+    height: 230px !important;
+    border-top-width: 13px !important;
+    border-right-width: 13px !important;
+    border-bottom-width: 13px !important;
+  }
+
+  .contact-page .contact-direct-card::before {
+    right: -18px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page .contact-direct-card::after,
+  .contact-page .contact-direct-card::before {
+    display: none !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="contact-page">
