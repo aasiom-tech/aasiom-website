@@ -1070,6 +1070,213 @@
       .system-visual { min-height:300px; }
     }
 
+
+    /* =========================================================
+       Light premium technology UI refresh
+       Focus: clean enterprise experience with bright background,
+       high contrast details, polished cards, and subtle tech cues.
+       ========================================================= */
+    :root {
+      --ink:#F6F8FC;
+      --ink-2:#FFFFFF;
+      --panel:#FFFFFF;
+      --panel-2:#F1F5FA;
+      --text:#0B1220;
+      --muted:#5D6878;
+      --muted-2:#334155;
+      --line:rgba(15,23,42,.10);
+      --line-bright:rgba(15,23,42,.16);
+      --saffron:#E9671A;
+      --steel:#2563EB;
+      --teal:#0F9F8F;
+      --cyan:#0891B2;
+      --max:1200px;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 0%, rgba(37,99,235,.11), transparent 28%),
+        radial-gradient(circle at 90% 12%, rgba(15,159,143,.11), transparent 30%),
+        linear-gradient(180deg, #FFFFFF 0%, #F7FAFD 46%, #EEF4FA 100%);
+      color:var(--text);
+    }
+    body::before {
+      opacity:.85;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(37,99,235,.08), transparent 32%),
+        radial-gradient(circle at 78% 28%, rgba(233,103,26,.07), transparent 34%),
+        radial-gradient(circle at 50% 72%, rgba(15,159,143,.07), transparent 38%);
+    }
+    .page-motif {
+      opacity:.28;
+      background-image:
+        linear-gradient(rgba(37,99,235,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,.08) 1px, transparent 1px);
+      background-size:92px 92px;
+      mask-image:linear-gradient(180deg, black 0%, transparent 82%);
+    }
+    .noise { opacity:.012; mix-blend-mode:multiply; }
+
+    .splash {
+      background:
+        radial-gradient(circle at 50% 42%, rgba(37,99,235,.14), transparent 28%),
+        linear-gradient(180deg, #FFFFFF 0%, #EEF4FA 100%);
+    }
+    .splash::before, .splash::after {
+      border-color:rgba(15,23,42,.10);
+      opacity:.55;
+    }
+    .splash-title { color:#0B1220; }
+    .splash-line { color:#475569; }
+    .splash-loader { background:rgba(15,23,42,.12); }
+    .splash-loader span { background:linear-gradient(90deg, var(--steel), var(--teal), var(--saffron)); }
+
+    .nav { color:#0B1220; }
+    .nav.scrolled .nav-inner {
+      background:rgba(255,255,255,.78);
+      border-color:rgba(15,23,42,.10);
+      box-shadow:0 18px 50px rgba(15,23,42,.10);
+    }
+    .brand img { filter:drop-shadow(0 8px 18px rgba(15,23,42,.08)); }
+    .nav-links { color:#475569; }
+    .nav-links a:hover, .nav-links a.active { color:#0B1220; }
+    .nav-links a.active::after { background:linear-gradient(90deg, var(--steel), var(--teal)); height:2px; }
+    .nav-cta {
+      background:#0B1220;
+      color:#FFFFFF;
+      border-color:#0B1220;
+      box-shadow:0 14px 34px rgba(15,23,42,.16);
+    }
+    .nav-cta:hover { background:#111827; border-color:#111827; }
+
+    .hero::before {
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.93) 0%, rgba(255,255,255,.76) 50%, rgba(255,255,255,.93) 100%),
+        radial-gradient(circle at 78% 42%, rgba(37,99,235,.13), transparent 35%);
+    }
+    .hero::after {
+      border-color:rgba(37,99,235,.15);
+      background:radial-gradient(circle, rgba(37,99,235,.08), transparent 64%);
+    }
+    .hud-pill, .tag {
+      background:rgba(255,255,255,.72);
+      border-color:rgba(15,23,42,.10);
+      color:#475569;
+      box-shadow:0 10px 28px rgba(15,23,42,.06);
+    }
+    .hud-pill strong { color:var(--steel); }
+    .hero-title { color:#07111F; }
+    .hero-title .saffron {
+      color:#0F172A;
+      background:linear-gradient(90deg, #0F172A, #2563EB 58%, #0F9F8F);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .hero-title .saffron::after {
+      background:linear-gradient(90deg, rgba(37,99,235,.45), rgba(15,159,143,.30));
+      opacity:1;
+    }
+    .hero-sub, .section-desc, .mission-statement p { color:#475569; }
+
+    .btn-primary {
+      background:#0B1220;
+      color:#FFFFFF;
+      box-shadow:0 18px 44px rgba(15,23,42,.18);
+    }
+    .btn-ghost {
+      background:#FFFFFF;
+      border-color:rgba(15,23,42,.14);
+      color:#0B1220;
+      box-shadow:0 12px 28px rgba(15,23,42,.07);
+    }
+    .btn:hover { box-shadow:0 18px 44px rgba(37,99,235,.14); }
+
+    .metric-panel, .card, .trust-item, .anvira-panel, .system-visual, .mission-lines div {
+      background:rgba(255,255,255,.86);
+      border-color:rgba(15,23,42,.10);
+      box-shadow:0 20px 55px rgba(15,23,42,.10), inset 0 1px 0 rgba(255,255,255,.78);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+    .metric-panel h3, .card h3, .trust-item strong, .person h3, .mission-statement h2, .section-title { color:#0B1220; }
+    .metric { border-top-color:rgba(15,23,42,.09); }
+    .metric span, .stat span { color:#64748B; }
+    .metric strong, .metric strong.teal, .stat strong { color:#0F172A; }
+
+    .credibility {
+      background:rgba(255,255,255,.58);
+      border-top-color:rgba(15,23,42,.10);
+      border-bottom-color:rgba(15,23,42,.10);
+    }
+    .stat { border-left-color:rgba(15,23,42,.10); }
+
+    .card { position:relative; }
+    .card::after {
+      content:"";
+      position:absolute;
+      left:24px; right:24px; top:0;
+      height:3px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--steel), var(--teal));
+      opacity:.85;
+    }
+    .card:hover {
+      transform:translateY(-5px);
+      border-color:rgba(37,99,235,.24);
+      background:#FFFFFF;
+      box-shadow:0 28px 72px rgba(15,23,42,.14);
+    }
+    .icon, .avatar {
+      background:linear-gradient(135deg, rgba(37,99,235,.10), rgba(15,159,143,.10));
+      color:#0F172A;
+      border-color:rgba(37,99,235,.16);
+    }
+    .card p, .trust-item p, .person p, .cap { color:#536173; }
+    .eyebrow, .card .label, .domain-card .horizon, .person .role { color:#2563EB; }
+
+    .anvira-panel {
+      background:
+        radial-gradient(circle at 88% 20%, rgba(37,99,235,.12), transparent 30%),
+        linear-gradient(135deg, rgba(255,255,255,.96), rgba(245,249,253,.88));
+      border-color:rgba(37,99,235,.14);
+    }
+    .cap::before { background:linear-gradient(180deg, var(--steel), var(--teal)); }
+    .system-visual { background:linear-gradient(180deg, #FFFFFF, #F2F7FC); }
+    .system-visual::after {
+      opacity:.42;
+      background:linear-gradient(90deg, transparent, rgba(37,99,235,.45), rgba(15,159,143,.35), transparent);
+    }
+    .concept-label {
+      background:#FFFFFF;
+      border-color:rgba(37,99,235,.16);
+      color:#2563EB;
+      box-shadow:0 10px 26px rgba(15,23,42,.08);
+    }
+
+    .closing {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(37,99,235,.12), transparent 34%),
+        linear-gradient(180deg, #FFFFFF, #EEF4FA);
+      border-color:rgba(15,23,42,.10);
+    }
+    .footer {
+      background:#FFFFFF;
+      border-top:1px solid rgba(15,23,42,.10);
+    }
+    .footer p, .footer ul, .footer-bottom { color:#64748B; }
+    .footer h4 { color:#0B1220; }
+    .footer-bottom { border-top-color:rgba(15,23,42,.10); }
+
+    @media (max-width:760px) {
+      .nav-links {
+        background:rgba(255,255,255,.96);
+        border-color:rgba(15,23,42,.10);
+        box-shadow:0 20px 55px rgba(15,23,42,.12);
+      }
+      .nav-toggle { color:#0B1220; }
+    }
+
   </style>
 </head>
 <body>
