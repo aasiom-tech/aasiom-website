@@ -2422,6 +2422,27 @@
   .nav .brand:focus-visible {
     transform: translateY(-2px) scale(1.02) !important;
   }
+
+
+    /* Final fix: keep the “Why AASIOM Exists” heading compact but with safe spacing */
+    #about-preview .mission-statement h2,
+    .mission-statement h2 {
+      font-size:clamp(2.4rem, 5.6vw, 4.8rem) !important;
+      line-height:1.14 !important;
+      letter-spacing:-.055em !important;
+      max-width:980px !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
+    @media (max-width:760px) {
+      #about-preview .mission-statement h2,
+      .mission-statement h2 {
+        font-size:clamp(2.05rem, 10vw, 3.45rem) !important;
+        line-height:1.16 !important;
+        letter-spacing:-.045em !important;
+      }
+    }
 </style>
 </head>
 <body id="top">
