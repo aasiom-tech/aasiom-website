@@ -182,6 +182,26 @@
       box-shadow: 0 26px 90px rgba(0,0,0,0.38);
       animation: cardFloat 4s ease-in-out infinite alternate;
     }
+    .contact-direct-card {
+      position: relative;
+      isolation: isolate;
+    }
+    .contact-direct-card::before{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:440px;
+      border-radius:220px 0 0 220px;
+      right:-95px;
+      top:50%;
+      transform:translateY(-50%);
+      background:radial-gradient(circle at 30% 50%, rgba(8,127,166,0.20), rgba(27,184,214,0.10) 55%, rgba(27,184,214,0.02) 100%);
+      border:1px solid rgba(8,127,166,0.12);
+      filter:blur(0.3px);
+      z-index:-1;
+      pointer-events:none;
+    }
+
 
     .contact-direct-card h2 {
       font-size: 2rem;
