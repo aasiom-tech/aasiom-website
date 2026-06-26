@@ -1982,6 +1982,190 @@
       .splash-logo { width:min(330px,82vw) !important; }
     }
 
+  
+
+    /* =========================================================
+       Final requested hero + motion polish
+       - Dark blue text emphasis
+       - Floating At a Glance card
+       - New hero font
+       - Removed underline below Safer
+       - Stronger transitions for cards/text
+       ========================================================= */
+    :root {
+      --deep-blue:#061A3A;
+      --deep-blue-2:#0A2E66;
+      --aasiom-blue:#0B57C2;
+      --aasiom-cyan:#24D4EE;
+    }
+
+    .hero-title {
+      font-family:'Space Grotesk', Inter, system-ui, sans-serif !important;
+      color:var(--deep-blue) !important;
+      letter-spacing:-.055em !important;
+      text-shadow:0 12px 40px rgba(6,26,58,.08) !important;
+      animation:heroTextLift .95s cubic-bezier(.16,1,.3,1) both !important;
+    }
+
+    .hero-title .saffron {
+      color:#0B57C2 !important;
+      background:none !important;
+      -webkit-background-clip:initial !important;
+      background-clip:initial !important;
+      text-shadow:0 18px 46px rgba(11,87,194,.18) !important;
+      transition:color .35s ease, text-shadow .35s ease, transform .35s ease !important;
+    }
+
+    .hero-title .saffron:hover {
+      color:#0891B2 !important;
+      transform:translateY(-2px) !important;
+      text-shadow:0 20px 54px rgba(8,145,178,.24) !important;
+    }
+
+    .hero-title .saffron::after {
+      display:none !important;
+      content:none !important;
+    }
+
+    .hero-sub,
+    .section-desc,
+    .mission-statement p,
+    .mission-lines div,
+    .card p,
+    .trust-item p,
+    .person p,
+    .cap,
+    .footer p,
+    .footer ul,
+    .tag,
+    .hud-pill {
+      color:#12335A !important;
+    }
+
+    .section-title,
+    .mission-statement h2,
+    .card h3,
+    .trust-item strong,
+    .person h3,
+    .metric strong,
+    .stat strong {
+      color:var(--deep-blue) !important;
+    }
+
+    .eyebrow,
+    .card .label,
+    .domain-card .horizon,
+    .person .role,
+    .metric span {
+      color:#0A3D78 !important;
+    }
+
+    .metric-panel {
+      border-color:rgba(11,87,194,.24) !important;
+      background:linear-gradient(145deg, rgba(255,255,255,.92), rgba(232,249,255,.78)) !important;
+      box-shadow:0 34px 95px rgba(6,26,58,.15), 0 0 0 1px rgba(36,212,238,.08), inset 0 1px 0 rgba(255,255,255,.95) !important;
+      animation:glanceFloat 5.2s ease-in-out infinite !important;
+      transform-origin:center !important;
+      will-change:transform !important;
+    }
+
+    .metric-panel h3 {
+      color:var(--deep-blue) !important;
+      letter-spacing:.20em !important;
+    }
+
+    .metric-panel:hover {
+      transform:translateY(-12px) rotateX(2deg) rotateY(-2deg) !important;
+      border-color:rgba(36,212,238,.46) !important;
+      box-shadow:0 42px 115px rgba(11,87,194,.22), inset 0 1px 0 rgba(255,255,255,.98) !important;
+    }
+
+    .metric {
+      transition:transform .28s ease, background .28s ease, padding .28s ease, border-color .28s ease !important;
+    }
+
+    .metric:hover {
+      transform:translateX(8px) !important;
+      background:rgba(11,87,194,.045) !important;
+      padding-left:14px !important;
+      border-top-color:rgba(11,87,194,.20) !important;
+    }
+
+    .card,
+    .trust-item,
+    .anvira-panel,
+    .system-visual,
+    .mission-lines div {
+      transition:transform .34s cubic-bezier(.16,1,.3,1), box-shadow .34s ease, border-color .34s ease, background .34s ease, filter .34s ease !important;
+    }
+
+    .card:hover,
+    .trust-item:hover,
+    .mission-lines div:hover {
+      transform:translateY(-9px) scale(1.012) !important;
+      border-color:rgba(11,87,194,.34) !important;
+      box-shadow:0 36px 105px rgba(6,26,58,.16), 0 0 0 1px rgba(36,212,238,.12), inset 0 1px 0 rgba(255,255,255,.96) !important;
+    }
+
+    .card h3,
+    .card p,
+    .trust-item strong,
+    .trust-item p,
+    .metric strong,
+    .metric span,
+    .mission-lines div {
+      transition:color .28s ease, transform .28s ease !important;
+    }
+
+    .card:hover h3,
+    .trust-item:hover strong {
+      color:#0B57C2 !important;
+      transform:translateY(-2px) !important;
+    }
+
+    .card:hover p,
+    .trust-item:hover p {
+      color:#0A2E66 !important;
+    }
+
+    .icon,
+    .avatar {
+      transition:transform .32s cubic-bezier(.16,1,.3,1), box-shadow .32s ease, border-color .32s ease, background .32s ease !important;
+    }
+
+    .card:hover .icon,
+    .person:hover .avatar {
+      transform:translateY(-4px) rotate(-2deg) scale(1.06) !important;
+      border-color:rgba(11,87,194,.32) !important;
+      box-shadow:0 18px 44px rgba(11,87,194,.14) !important;
+      background:linear-gradient(135deg, rgba(11,87,194,.14), rgba(36,212,238,.20)) !important;
+    }
+
+    .reveal.visible {
+      animation:contentFadeUp .72s cubic-bezier(.16,1,.3,1) both !important;
+    }
+
+    @keyframes glanceFloat {
+      0%,100% { transform:translateY(0) rotateX(0deg) rotateY(0deg); }
+      50% { transform:translateY(-18px) rotateX(1.5deg) rotateY(-1.5deg); }
+    }
+
+    @keyframes heroTextLift {
+      from { opacity:0; transform:translateY(24px) scale(.985); filter:blur(5px); }
+      to { opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
+    }
+
+    @keyframes contentFadeUp {
+      from { opacity:0; transform:translateY(24px); filter:blur(3px); }
+      to { opacity:1; transform:translateY(0); filter:blur(0); }
+    }
+
+    @media (max-width:760px) {
+      .metric-panel { animation:none !important; }
+      .metric-panel:hover { transform:none !important; }
+      .hero-title { letter-spacing:-.045em !important; }
+    }
+
   </style>
 </head>
 <body id="top">
