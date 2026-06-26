@@ -2871,6 +2871,119 @@ body::after {
 }
 </style>
 
+
+
+<style>
+/* ================================================================
+   FINAL CLIENT PATCH — index-style circle + cleaner glow + plain footer statement
+   ================================================================ */
+.contact-page .contact-direct-card {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+/* Big faint circle like the home-page reference: thin outline, pushed to the right edge */
+.contact-page .contact-direct-card::after {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(620px, 58vw, 860px) !important;
+  height: clamp(620px, 58vw, 860px) !important;
+  right: -46% !important;
+  top: -42% !important;
+  left: auto !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  border: 1px solid rgba(8, 127, 166, 0.13) !important;
+  box-shadow: none !important;
+  opacity: 0.72 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Very soft blue haze inside the outlined circle — no heavy glow */
+.contact-page .contact-direct-card::before {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(470px, 44vw, 680px) !important;
+  height: clamp(470px, 44vw, 680px) !important;
+  right: -34% !important;
+  top: -28% !important;
+  left: auto !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(27, 184, 214, 0.055), rgba(27, 184, 214, 0.025) 44%, transparent 72%) !important;
+  filter: none !important;
+  opacity: 0.62 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.contact-page .contact-direct-card > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Professional title treatment: subtle navy text with restrained blue depth, no loud gradient */
+.contact-page .contact-title--glow,
+.contact-page .contact-title--glow .start-word,
+.contact-page .contact-title--glow .conversation-word,
+.contact-page .contact-title--glow > span:last-child {
+  color: #061826 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #061826 !important;
+  filter: none !important;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.92),
+    0 0 18px rgba(8,127,166,0.12),
+    0 18px 46px rgba(8,42,62,0.10) !important;
+}
+
+.contact-page .contact-title--glow .conversation-word,
+.contact-page .contact-title--glow > span:last-child {
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.92),
+    0 0 24px rgba(8,127,166,0.16),
+    0 18px 48px rgba(8,42,62,0.12) !important;
+}
+
+/* Bottom statement: remove colored word treatment; keep it premium through layout only */
+.contact-page .contact-philosophy--impact h2,
+.contact-page .contact-philosophy--impact h2 span,
+.contact-page .contact-philosophy--impact h2 em {
+  color: #061826 !important;
+  background: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: #061826 !important;
+  filter: none !important;
+  text-shadow: 0 14px 42px rgba(8,42,62,0.08) !important;
+}
+
+.contact-page .contact-philosophy--impact p strong {
+  color: #061826 !important;
+}
+
+@media (max-width: 760px) {
+  .contact-page .contact-direct-card::after {
+    width: 560px !important;
+    height: 560px !important;
+    right: -360px !important;
+    top: -220px !important;
+    opacity: 0.58 !important;
+  }
+
+  .contact-page .contact-direct-card::before {
+    width: 410px !important;
+    height: 410px !important;
+    right: -270px !important;
+    top: -135px !important;
+    opacity: 0.46 !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="contact-page">
