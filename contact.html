@@ -3210,6 +3210,95 @@ body::after {
 }
 </style>
 
+
+<style id="direct-contact-outside-semicircle-final">
+/* Final correction: the semicircle is OUTSIDE the floating Direct Contact box, like index.html. */
+.contact-page .contact-hero,
+.contact-page .contact-hero-grid {
+  overflow: visible !important;
+}
+
+.contact-page .contact-direct-card-shell {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+/* Remove any previous circle drawn inside the card itself. */
+.contact-page .contact-direct-card::before,
+.contact-page .contact-direct-card::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Keep the card clean and above the outside decorative shape. */
+.contact-page .contact-direct-card {
+  position: relative !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 86% 22%, rgba(27, 184, 214, 0.075), transparent 36%),
+    linear-gradient(180deg, rgba(255,255,255,0.88), rgba(248,252,255,0.76)) !important;
+  border: 1px solid rgba(8, 127, 166, 0.16) !important;
+  box-shadow: 0 26px 74px rgba(8, 42, 62, 0.13) !important;
+}
+
+/* Large faint blue outline sitting behind and beside the floating card. */
+.contact-page .contact-direct-card-shell::before {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(760px, 66vw, 1060px) !important;
+  height: clamp(760px, 66vw, 1060px) !important;
+  right: clamp(-680px, -38vw, -440px) !important;
+  top: clamp(-260px, -16vw, -150px) !important;
+  border-radius: 50% !important;
+  border: 1.35px solid rgba(8, 127, 166, 0.15) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  opacity: 0.9 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Very faint wash outside the card, kept behind it. */
+.contact-page .contact-direct-card-shell::after {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(620px, 54vw, 860px) !important;
+  height: clamp(620px, 54vw, 860px) !important;
+  right: clamp(-560px, -31vw, -360px) !important;
+  top: clamp(-190px, -11vw, -100px) !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(27,184,214,0.04), rgba(27,184,214,0.012) 52%, transparent 74%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+@media (max-width: 980px) {
+  .contact-page .contact-direct-card-shell::before {
+    width: 660px !important;
+    height: 660px !important;
+    right: -470px !important;
+    top: -165px !important;
+  }
+
+  .contact-page .contact-direct-card-shell::after {
+    width: 520px !important;
+    height: 520px !important;
+    right: -380px !important;
+    top: -96px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page .contact-direct-card-shell::before,
+  .contact-page .contact-direct-card-shell::after {
+    display: none !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="contact-page">
