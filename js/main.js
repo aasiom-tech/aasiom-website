@@ -129,12 +129,13 @@
   // ─── Scroll-triggered fade-up animations ────────────────────────────────
   const initScrollAnimations = () => {
     if (typeof IntersectionObserver === 'undefined') return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const selectors = [
       '.domain-card', '.tech-feature-card', '.stat-item', '.tech-pill',
       '.tl-entry', '.contact-info-card', '.phase-card', '.mission-stat-box',
       '.founder-card', '.project-hero', '.section-header', '.ph-chip',
-      '.ph-domain-badge'
+      '.ph-domain-badge', '.anvira-flip-card'
     ].join(', ');
 
     const elements = document.querySelectorAll(selectors);

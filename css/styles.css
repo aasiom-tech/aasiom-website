@@ -1400,6 +1400,42 @@ header {
     radial-gradient(ellipse 500px 400px at 10% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
 }
 
+/* ── ANVIRA Page Header — Visual Enhancements ───────────────────── */
+.page-header--anvira {
+  min-height: 86vh;
+  padding: 76px 0 36px;
+  background:
+    radial-gradient(ellipse 900px 620px at 50% 34%, rgba(34, 211, 238, 0.085) 0%, transparent 56%),
+    radial-gradient(ellipse 560px 420px at 15% 78%, rgba(212, 168, 67, 0.05) 0%, transparent 52%),
+    radial-gradient(ellipse 520px 420px at 84% 72%, rgba(34, 211, 238, 0.04) 0%, transparent 52%),
+    linear-gradient(180deg, rgba(6, 9, 18, 0.94) 0%, rgba(4, 6, 15, 1) 100%);
+}
+
+.page-header--anvira .container {
+  max-width: 1240px;
+}
+
+.page-header--anvira .ph-chips {
+  margin-top: 24px;
+}
+
+.page-header--anvira .ph-domain-row {
+  margin-top: 24px;
+}
+
+@media (max-width: 980px) {
+  .page-header--anvira {
+    min-height: auto;
+    padding: 104px 0 54px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-header--anvira {
+    padding: 96px 0 46px;
+  }
+}
+
 /* Hex grid animated lines */
 .ph-hex-grid {
   position: absolute;
@@ -1734,6 +1770,68 @@ header {
 
   .ph-status-row {
     flex-wrap: wrap;
+  }
+
+  .anvira-flip-card {
+    perspective: none;
+  }
+
+  .anvira-flip-inner {
+    min-height: auto;
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .anvira-flip-front,
+  .anvira-flip-back {
+    position: static;
+    inset: auto;
+    transform: none;
+    backface-visibility: visible;
+  }
+
+  .anvira-flip-back {
+    border-top: 1px solid rgba(34, 211, 238, 0.14);
+    margin-top: 14px;
+  }
+
+  .anvira-flip-front .flip-hint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anvira-flip-inner,
+  .anvira-flip-card:hover .anvira-flip-inner,
+  .anvira-flip-card:focus-within .anvira-flip-inner,
+  .anvira-flip-card:focus-visible .anvira-flip-inner {
+    transform: none;
+    transition: none;
+  }
+
+  .anvira-flip-front,
+  .anvira-flip-back {
+    position: static;
+    inset: auto;
+    transform: none;
+    backface-visibility: visible;
+  }
+
+  .anvira-flip-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .anvira-flip-back {
+    border-top: 1px solid rgba(34, 211, 238, 0.14);
+    margin-top: 14px;
+  }
+
+  .anvira-flip-front .flip-hint {
+    display: none;
   }
 }
 
@@ -2461,6 +2559,122 @@ header {
   font-size: 0.82rem;
   color: var(--fg-2);
   line-height: 1.65;
+}
+
+/* ── ANVIRA Flip Cards ───────────────────────────────────────────── */
+.anvira-flip-card {
+  perspective: 1400px;
+  min-height: 100%;
+  outline: none;
+}
+
+.anvira-flip-inner {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.75, 0.2, 1);
+}
+
+.anvira-flip-card:hover .anvira-flip-inner,
+.anvira-flip-card:focus-within .anvira-flip-inner,
+.anvira-flip-card:focus-visible .anvira-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.anvira-flip-front,
+.anvira-flip-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: rgba(7, 10, 20, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-lg);
+  padding: 36px 32px;
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.anvira-flip-front::before,
+.anvira-flip-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.45), transparent);
+  opacity: 0.85;
+}
+
+.anvira-flip-front .icon {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 22px;
+  background: rgba(34, 211, 238, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.anvira-flip-front h3,
+.anvira-flip-back h3 {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: 14px;
+  letter-spacing: -0.012em;
+}
+
+.anvira-flip-front p,
+.anvira-flip-back p {
+  font-size: 0.9rem;
+  color: var(--fg-2);
+  line-height: 1.76;
+  margin: 0;
+}
+
+.anvira-flip-front .flip-hint {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan-3);
+  background: rgba(34, 211, 238, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.anvira-flip-back {
+  transform: rotateY(180deg);
+}
+
+.anvira-flip-card:hover .anvira-flip-front,
+.anvira-flip-card:focus-within .anvira-flip-front,
+.anvira-flip-card:focus-visible .anvira-flip-front,
+.anvira-flip-card:hover .anvira-flip-back,
+.anvira-flip-card:focus-within .anvira-flip-back,
+.anvira-flip-card:focus-visible .anvira-flip-back {
+  border-color: rgba(34, 211, 238, 0.18);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+}
+
+.anvira-flip-card:focus-visible .anvira-flip-front,
+.anvira-flip-card:focus-visible .anvira-flip-back {
+  border-color: rgba(34, 211, 238, 0.45);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.12), var(--shadow-hover);
 }
 
 /* ── Research Cards ───────────────────────────────────────────────── */
@@ -3496,7 +3710,7 @@ header {
   box-shadow: 0 0 24px rgba(34, 211, 238, 0.2);
 }
 
-/* Specific styling for the Gold Semiconductor icon */
+/* Specific styling for the Gold accent icon */
 .tech-pill:nth-child(4) .icon {
   color: var(--gold);
   background: rgba(212, 168, 67, 0.05);
