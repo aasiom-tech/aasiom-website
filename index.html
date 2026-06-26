@@ -2175,8 +2175,8 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
 
-<style id="about-header-font-sync">
-/* Header copied from about.html: same font, logo scale, spacing, and interaction. */
+<style id="about-header-exact-sync">
+/* Header copied from about.html, with the white inner container removed. */
 :root {
   --font-head: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
   --font-body: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
@@ -2192,12 +2192,14 @@
   left: 0 !important;
   right: 0 !important;
   z-index: 5000 !important;
-  background: rgba(251, 253, 255, 0.78) !important;
+  background: rgba(251, 253, 255, 0.70) !important;
   border-bottom: 1px solid rgba(8, 48, 73, 0.10) !important;
   box-shadow: 0 10px 34px rgba(8, 42, 62, 0.08) !important;
   backdrop-filter: blur(22px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
   padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
   font-family: var(--font-body) !important;
 }
 
@@ -2206,8 +2208,9 @@
   height: 92px !important;
   min-height: 92px !important;
   max-width: 1240px !important;
+  width: min(100% - 48px, 1240px) !important;
   margin: 0 auto !important;
-  padding: 0 24px !important;
+  padding: 0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: space-between !important;
@@ -2215,6 +2218,7 @@
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 .brand,
@@ -2265,7 +2269,16 @@
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
+  box-shadow: none !important;
   font-family: var(--font-body) !important;
+}
+
+.nav-links li,
+.nav-links li a,
+.nav-links li a:not(.nav-cta) {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
 }
 
 .nav-links li a,
@@ -2280,10 +2293,7 @@
   line-height: 1.2 !important;
   text-decoration: none !important;
   white-space: nowrap !important;
-  background: transparent !important;
-  border: 0 !important;
   border-radius: 0 !important;
-  box-shadow: none !important;
   transition: color .22s ease, transform .22s ease !important;
 }
 
@@ -2337,11 +2347,17 @@
 
 .nav-toggle {
   font-family: var(--font-body) !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 @media (max-width: 980px) {
   .nav .container.nav-inner,
-  .nav-inner { min-height: 82px !important; height: 82px !important; }
+  .nav-inner {
+    min-height: 82px !important;
+    height: 82px !important;
+    width: min(100% - 32px, 1240px) !important;
+  }
   .brand .site-logo--header,
   .nav .brand img,
   .nav-logo .site-logo--header {
@@ -2385,6 +2401,27 @@
 }
 </style>
 
+<style id="header-logo-color-preserve-fix">
+  /* Keep the header logo in its original brand colors on hover/focus. */
+  .nav .brand img,
+  .nav .brand:hover img,
+  .nav .brand:focus img,
+  .nav .brand:focus-visible img,
+  .nav-logo .site-logo--header,
+  .nav-logo:hover .site-logo--header,
+  header .brand img,
+  header .brand:hover img {
+    filter: none !important;
+    -webkit-filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+  }
+
+  .nav .brand:hover,
+  .nav .brand:focus-visible {
+    transform: translateY(-2px) scale(1.02) !important;
+  }
+</style>
 </head>
 <body id="top">
   <div class="page-motif" aria-hidden="true"></div>
