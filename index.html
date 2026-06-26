@@ -940,7 +940,17 @@
   <script>
     (function() {
       var splash = document.getElementById('splash');
-      setTimeout(function() { splash.classList.add('hide'); }, 3000);
+
+      if (sessionStorage.getItem('aasiomSplashShown')) {
+        splash.classList.add('hide');
+        return;
+      }
+
+      sessionStorage.setItem('aasiomSplashShown', 'true');
+
+      setTimeout(function() {
+        splash.classList.add('hide');
+      }, 3000);
     })();
     (function() {
       var nav = document.getElementById('nav');
@@ -950,13 +960,7 @@
     (function() {
       var nav = document.getElementById('nav');
       var btn = document.getElementById('navToggle');
-      var links = document.getElementById('navLinks');
       btn.addEventListener('click', function() { nav.classList.toggle('open'); });
-      if (links) {
-        links.addEventListener('click', function(e) {
-          if (e.target && e.target.tagName === 'A') nav.classList.remove('open');
-        });
-      }
     })();
     (function() {
       var els = document.querySelectorAll('.reveal');
