@@ -3555,6 +3555,29 @@ body::after {
 }
 </style>
 
+
+<style>
+.contact-direct-card{position:relative!important;overflow:visible!important;z-index:2}
+.contact-direct-card::after{
+content:"";
+position:absolute;
+right:-120px;
+top:50%;
+transform:translateY(-50%);
+width:240px;
+height:240px;
+border:4px solid rgba(8,127,166,.9);
+border-left:none;
+border-radius:0 240px 240px 0;
+box-shadow:0 0 25px rgba(8,127,166,.45);
+pointer-events:none;
+z-index:-1;
+}
+@media(max-width:980px){
+.contact-direct-card::after{display:none;}
+}
+</style>
+
 </head>
 
 <body class="contact-page">
