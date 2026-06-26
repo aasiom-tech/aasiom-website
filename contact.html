@@ -3077,6 +3077,139 @@ body::after {
 }
 </style>
 
+
+<style id="direct-contact-semicircle-final">
+/* Final requested Direct Contact semicircle: large, faint, and behind the floating box content. */
+.contact-page .contact-hero,
+.contact-page .contact-hero-grid {
+  overflow: visible !important;
+}
+
+.contact-page .contact-direct-card-shell {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+/* Background semicircle outside the card, matching the shared reference position. */
+.contact-page .contact-direct-card-shell::before {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(760px, 66vw, 1040px) !important;
+  height: clamp(760px, 66vw, 1040px) !important;
+  right: clamp(-660px, -36vw, -430px) !important;
+  top: clamp(-270px, -17vw, -160px) !important;
+  border-radius: 50% !important;
+  border: 1.5px solid rgba(8, 127, 166, 0.16) !important;
+  background: transparent !important;
+  box-shadow: 0 0 70px rgba(27, 184, 214, 0.045) !important;
+  opacity: 0.9 !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.contact-page .contact-direct-card-shell::after {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(620px, 54vw, 860px) !important;
+  height: clamp(620px, 54vw, 860px) !important;
+  right: clamp(-560px, -31vw, -355px) !important;
+  top: clamp(-190px, -12vw, -105px) !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(27, 184, 214, 0.055), rgba(27, 184, 214, 0.018) 50%, transparent 72%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.contact-page .contact-direct-card {
+  position: relative !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background:
+    radial-gradient(circle at 86% 22%, rgba(27, 184, 214, 0.085), transparent 36%),
+    linear-gradient(180deg, rgba(255,255,255,0.82), rgba(248,252,255,0.72)) !important;
+  border: 1px solid rgba(8, 127, 166, 0.18) !important;
+  box-shadow: 0 26px 74px rgba(8, 42, 62, 0.13) !important;
+}
+
+/* Faint part of the same circle visible through the glass card, behind the text. */
+.contact-page .contact-direct-card::before {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(660px, 60vw, 920px) !important;
+  height: clamp(660px, 60vw, 920px) !important;
+  right: clamp(-500px, -30vw, -330px) !important;
+  top: clamp(-250px, -16vw, -145px) !important;
+  border-radius: 50% !important;
+  border: 1.35px solid rgba(8, 127, 166, 0.17) !important;
+  background: transparent !important;
+  box-shadow: inset 0 0 72px rgba(27, 184, 214, 0.035) !important;
+  opacity: 0.72 !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  display: block !important;
+}
+
+.contact-page .contact-direct-card::after {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(470px, 42vw, 640px) !important;
+  height: clamp(470px, 42vw, 640px) !important;
+  right: clamp(-360px, -22vw, -250px) !important;
+  top: clamp(-130px, -8vw, -70px) !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(27,184,214,0.05), rgba(27,184,214,0.015) 50%, transparent 72%) !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+  display: block !important;
+}
+
+.contact-page .contact-direct-card > * {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 980px) {
+  .contact-page .contact-direct-card-shell::before {
+    width: 680px !important;
+    height: 680px !important;
+    right: -470px !important;
+    top: -170px !important;
+  }
+  .contact-page .contact-direct-card-shell::after {
+    width: 540px !important;
+    height: 540px !important;
+    right: -390px !important;
+    top: -100px !important;
+  }
+  .contact-page .contact-direct-card::before {
+    width: 620px !important;
+    height: 620px !important;
+    right: -430px !important;
+    top: -145px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page .contact-direct-card-shell::before,
+  .contact-page .contact-direct-card-shell::after {
+    display: none !important;
+  }
+  .contact-page .contact-direct-card::before {
+    width: 520px !important;
+    height: 520px !important;
+    right: -360px !important;
+    top: -110px !important;
+    opacity: 0.48 !important;
+  }
+  .contact-page .contact-direct-card::after {
+    display: none !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="contact-page">
