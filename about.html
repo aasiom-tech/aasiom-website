@@ -1271,466 +1271,6 @@
       .page-header--about { padding-top: 112px !important; }
     }
 
-    /* ================================================================
-       ICE BLUE UI REFRESH - final visual layer
-       Keeps all page content intact while changing the complete look.
-       ================================================================ */
-    :root {
-      --ice-50: #f6fdff;
-      --ice-100: #eafaff;
-      --ice-200: #d5f4ff;
-      --ice-300: #aeeaff;
-      --ice-400: #6dd8f4;
-      --ice-500: #1eb6dc;
-      --ink: #06131d;
-      --ink-soft: #273a48;
-      --muted: #607482;
-      --line: rgba(8, 42, 62, 0.13);
-      --cyan: #0daed1;
-      --cyan-2: #67dff6;
-      --gold: #2d7f96;
-      --gold-2: #1e6f8d;
-      --navy-950: #f6fdff;
-      --fg: #06131d;
-      --fg-2: #405767;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      color: var(--ink) !important;
-      background:
-        radial-gradient(circle at 8% 7%, rgba(109, 216, 244, 0.35), transparent 24%),
-        radial-gradient(circle at 93% 16%, rgba(174, 234, 255, 0.48), transparent 25%),
-        radial-gradient(circle at 82% 86%, rgba(30, 182, 220, 0.18), transparent 30%),
-        linear-gradient(135deg, #f8feff 0%, #e8f9ff 48%, #d7f2fb 100%) !important;
-      overflow-x: hidden;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.72;
-    }
-
-    body::before {
-      width: min(34vw, 360px);
-      aspect-ratio: 1;
-      top: -130px;
-      left: -120px;
-      border-radius: 0 0 999px 0;
-      background:
-        linear-gradient(135deg, rgba(6, 19, 29, 0.08), transparent 42%),
-        linear-gradient(135deg, rgba(109, 216, 244, 0.42), rgba(246, 253, 255, 0.3));
-      animation: iceFloat 8s ease-in-out infinite;
-    }
-
-    body::after {
-      width: min(36vw, 420px);
-      aspect-ratio: 1;
-      right: -180px;
-      bottom: -160px;
-      border-radius: 999px 0 0 0;
-      background:
-        repeating-linear-gradient(135deg, rgba(6, 19, 29, 0.08) 0 1px, transparent 1px 18px),
-        linear-gradient(135deg, rgba(174, 234, 255, 0.56), rgba(30, 182, 220, 0.16));
-      animation: iceFloat 10s ease-in-out infinite reverse;
-    }
-
-    .noise-overlay {
-      opacity: 0.18 !important;
-      background-image:
-        linear-gradient(rgba(6, 19, 29, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(6, 19, 29, 0.03) 1px, transparent 1px) !important;
-      background-size: 36px 36px !important;
-    }
-
-    .nav,
-    .nav.scrolled {
-      background: rgba(246, 253, 255, 0.82) !important;
-      border-bottom: 1px solid rgba(8, 42, 62, 0.1) !important;
-      box-shadow: 0 18px 55px rgba(47, 139, 174, 0.12) !important;
-      backdrop-filter: blur(22px) saturate(150%) !important;
-      -webkit-backdrop-filter: blur(22px) saturate(150%) !important;
-    }
-
-    .brand img,
-    .nav-logo img,
-    .footer-brand .nav-logo img {
-      filter: brightness(0) contrast(1.18) !important;
-      opacity: 1 !important;
-      mix-blend-mode: multiply;
-    }
-
-    .nav-links li a,
-    .nav-links li a:not(.nav-cta) {
-      color: #203442 !important;
-    }
-
-    .nav-links li a:hover,
-    .nav-links li a.active,
-    .nav-links li a:not(.nav-cta):hover,
-    .nav-links li a:not(.nav-cta).active {
-      color: #03090e !important;
-    }
-
-    .nav-links li a::after,
-    .nav-links li a:not(.nav-cta)::after {
-      background: linear-gradient(90deg, transparent, #06131d, var(--ice-500), transparent) !important;
-      box-shadow: 0 0 18px rgba(30, 182, 220, 0.48) !important;
-    }
-
-    .nav-links li a.nav-cta {
-      color: #06131d !important;
-      background: linear-gradient(135deg, #ffffff, #bdefff) !important;
-      border: 1px solid rgba(6, 19, 29, 0.16) !important;
-      box-shadow: 0 12px 30px rgba(30, 182, 220, 0.22) !important;
-    }
-
-    .nav-toggle {
-      color: #06131d !important;
-    }
-
-    .page-header--about {
-      min-height: 96vh;
-      background:
-        radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.82), transparent 28%),
-        radial-gradient(circle at 15% 72%, rgba(103, 223, 246, 0.34), transparent 30%),
-        linear-gradient(180deg, rgba(246, 253, 255, 0.92), rgba(213, 244, 255, 0.66)) !important;
-      isolation: isolate;
-    }
-
-    .page-header--about::before {
-      display: block !important;
-      content: "" !important;
-      position: absolute;
-      inset: 98px 28px 28px;
-      z-index: -1;
-      border: 1px solid rgba(8, 42, 62, 0.08);
-      border-radius: 36px;
-      background:
-        radial-gradient(circle at 0 0, rgba(6, 19, 29, 0.08) 0 70px, transparent 72px),
-        radial-gradient(circle at 100% 100%, rgba(30, 182, 220, 0.18) 0 110px, transparent 112px),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.12)) !important;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 28px 90px rgba(47, 139, 174, 0.15);
-    }
-
-    .page-header--about::after {
-      display: block !important;
-      content: "" !important;
-      position: absolute;
-      right: clamp(18px, 7vw, 110px);
-      top: clamp(110px, 18vh, 190px);
-      width: clamp(110px, 14vw, 190px);
-      aspect-ratio: 2 / 1;
-      border-radius: 999px 999px 0 0;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(109, 216, 244, 0.3)),
-        repeating-linear-gradient(90deg, transparent 0 14px, rgba(6, 19, 29, 0.08) 14px 15px);
-      border: 1px solid rgba(8, 42, 62, 0.1);
-      box-shadow: 0 22px 55px rgba(30, 182, 220, 0.18);
-      animation: semiDrift 6.5s ease-in-out infinite;
-    }
-
-    .page-header h1,
-    .section-title,
-    .founder-name,
-    .trust-modal-title,
-    .trust-docs-group-head h3,
-    .think-card h3,
-    .about-principle-card h3 {
-      color: #06131d !important;
-      -webkit-text-fill-color: initial !important;
-      background: none !important;
-      letter-spacing: 0 !important;
-    }
-
-    .page-header h1 {
-      text-shadow: 0 16px 45px rgba(30, 182, 220, 0.2);
-    }
-
-    .section-label,
-    .about-innovation-kicker,
-    .think-tag,
-    .founder-role,
-    .trust-modal-kicker,
-    .trust-docs-count,
-    .ph-chip-label {
-      color: #0b6f90 !important;
-    }
-
-    .page-header p,
-    .ph-tagline,
-    .section-desc,
-    .founder-bio,
-    .trust-docs-copy,
-    .about-innovation-copy,
-    .about-innovation-note p,
-    .about-principle-card p,
-    .trust-doc-meta,
-    .trust-preview-value,
-    .footer p,
-    .footer a,
-    .footer-bottom {
-      color: #405767 !important;
-    }
-
-    .ph-tagline,
-    .ph-chip,
-    .mission-stat-box,
-    .founder-card,
-    .think-card,
-    .about-principle-card,
-    .trust-docs-group,
-    .trust-docs-sidebar,
-    .trust-docs-note,
-    .about-innovation-note,
-    .about-vision-strip,
-    .trust-preview-sheet,
-    .trust-modal-panel {
-      background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(214, 245, 255, 0.56)) !important;
-      border: 1px solid rgba(8, 42, 62, 0.12) !important;
-      box-shadow:
-        0 24px 70px rgba(47, 139, 174, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-    }
-
-    .section,
-    .mission-section,
-    .about-block,
-    .about-innovation-section,
-    .trust-docs-section {
-      background:
-        radial-gradient(circle at 8% 6%, rgba(103, 223, 246, 0.14), transparent 22%),
-        linear-gradient(180deg, rgba(246, 253, 255, 0.78), rgba(225, 248, 255, 0.56)) !important;
-      overflow: hidden;
-    }
-
-    .section::before,
-    .mission-section::before,
-    .about-innovation-section::before,
-    .trust-docs-section::before {
-      display: block !important;
-      content: "" !important;
-      left: auto !important;
-      right: -70px !important;
-      top: 28px !important;
-      width: 180px !important;
-      height: 90px !important;
-      border-radius: 999px 999px 0 0 !important;
-      background:
-        linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(103, 223, 246, 0.18)) !important;
-      border: 1px solid rgba(8, 42, 62, 0.08) !important;
-      transform: rotate(-18deg);
-    }
-
-    .section::after,
-    .mission-section::after,
-    .about-innovation-section::after,
-    .trust-docs-section::after {
-      content: "";
-      position: absolute;
-      left: -76px;
-      bottom: 34px;
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      background:
-        linear-gradient(90deg, transparent 49%, rgba(6, 19, 29, 0.08) 50%, transparent 51%),
-        linear-gradient(180deg, rgba(174, 234, 255, 0.64), rgba(255, 255, 255, 0.2));
-      clip-path: inset(0 0 0 50%);
-      border: 1px solid rgba(8, 42, 62, 0.08);
-      pointer-events: none;
-    }
-
-    .ph-orbital-ring,
-    .ph-node,
-    .ph-node--gold {
-      border-color: rgba(6, 19, 29, 0.18) !important;
-      background: rgba(255, 255, 255, 0.86) !important;
-      box-shadow: 0 0 30px rgba(30, 182, 220, 0.34) !important;
-    }
-
-    .ph-chip-value,
-    .mission-stat-box .num,
-    .mission-stat-box .num.gold {
-      color: #06131d !important;
-      -webkit-text-fill-color: #06131d !important;
-      background: none !important;
-    }
-
-    .mission-stat-box .label {
-      color: #597080 !important;
-    }
-
-    .think-icon,
-    .founder-avatar,
-    .trust-doc-icon {
-      color: #06131d !important;
-      background: linear-gradient(135deg, #ffffff, #c8f3ff) !important;
-      border-color: rgba(8, 42, 62, 0.14) !important;
-      box-shadow: 0 14px 36px rgba(30, 182, 220, 0.18) !important;
-    }
-
-    .trust-doc-btn,
-    .trust-docs-category,
-    .trust-modal-close {
-      color: #06131d !important;
-      background: rgba(255, 255, 255, 0.64) !important;
-      border: 1px solid rgba(8, 42, 62, 0.11) !important;
-      box-shadow: 0 12px 28px rgba(47, 139, 174, 0.08) !important;
-    }
-
-    .trust-doc-btn:hover,
-    .trust-docs-category:hover,
-    .trust-docs-category.is-active,
-    .trust-modal-close:hover {
-      transform: translateY(-3px) !important;
-      background: #ffffff !important;
-      border-color: rgba(30, 182, 220, 0.42) !important;
-      box-shadow: 0 18px 42px rgba(30, 182, 220, 0.16) !important;
-    }
-
-    .founder-card:hover,
-    .think-card:hover,
-    .about-principle-card:hover,
-    .mission-stat-box:hover,
-    .ph-chip:hover {
-      transform: translateY(-8px) scale(1.01) !important;
-      border-color: rgba(30, 182, 220, 0.44) !important;
-      box-shadow:
-        0 30px 82px rgba(47, 139, 174, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
-    }
-
-    .footer {
-      background:
-        radial-gradient(circle at 12% 18%, rgba(103, 223, 246, 0.14), transparent 28%),
-        linear-gradient(180deg, #e4f8ff, #cdeefa) !important;
-      border-top: 1px solid rgba(8, 42, 62, 0.1) !important;
-      color: #06131d !important;
-    }
-
-    .footer h4,
-    .footer-bottom span {
-      color: #06131d !important;
-    }
-
-    .trust-modal {
-      background: rgba(6, 19, 29, 0.34) !important;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .trust-preview-label,
-    .trust-preview-watermark {
-      color: #0b6f90 !important;
-    }
-
-    .page-header .container,
-    .mission-grid,
-    .section-header,
-    .think-card,
-    .founder-card,
-    .about-principle-card,
-    .trust-docs-group {
-      animation: fadeRise 0.82s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    }
-
-    .reveal-ready {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal-ready.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeRise {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes iceFloat {
-      0%, 100% {
-        transform: translate3d(0, 0, 0) rotate(0deg);
-      }
-      50% {
-        transform: translate3d(12px, 18px, 0) rotate(3deg);
-      }
-    }
-
-    @keyframes semiDrift {
-      0%, 100% {
-        transform: translateY(0) rotate(0deg);
-      }
-      50% {
-        transform: translateY(16px) rotate(-4deg);
-      }
-    }
-
-    @media (max-width: 980px) {
-      .nav-links {
-        background: rgba(246, 253, 255, 0.96) !important;
-        border-color: rgba(8, 42, 62, 0.12) !important;
-      }
-
-      .page-header--about::before {
-        inset: 88px 14px 18px;
-        border-radius: 26px;
-      }
-
-      .page-header--about::after {
-        opacity: 0.55;
-      }
-    }
-
-    @media (max-width: 640px) {
-      body::before {
-        width: 240px;
-      }
-
-      body::after {
-        width: 260px;
-      }
-
-      .section::before,
-      .mission-section::before,
-      .about-innovation-section::before,
-      .trust-docs-section::before,
-      .section::after,
-      .mission-section::after,
-      .about-innovation-section::after,
-      .trust-docs-section::after {
-        opacity: 0.48;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 0.001ms !important;
-      }
-    }
-
 </style>
 </head>
 
@@ -1975,7 +1515,526 @@
           min-height: auto;
         }
       }
-    </style>
+    
+
+    /* ================================================================
+       FINAL ICE BLUE UI REDESIGN OVERRIDE
+       Content preserved. Visual system changed to light, technical, ice-blue.
+       ================================================================ */
+    :root {
+      --ice-0: #f7fcff !important;
+      --ice-1: #edf9ff !important;
+      --ice-2: #dff4ff !important;
+      --ice-3: #c7ebfb !important;
+      --ice-4: #8ed8f2 !important;
+      --blue-ink: #071827 !important;
+      --blue-soft: #3f6277 !important;
+      --cyan: #0aa9d6 !important;
+      --cyan-2: #46d9ef !important;
+      --teal: #0eb8aa !important;
+      --gold: #f59e0b !important;
+      --gold-2: #f7b733 !important;
+      --navy-950: #f7fcff !important;
+      --fg: #071827 !important;
+      --fg-2: #35586d !important;
+      --fg-3: #6f8796 !important;
+      --line: rgba(8, 48, 73, 0.12) !important;
+      --shadow-ice: 0 24px 70px rgba(13, 117, 157, 0.14) !important;
+      --shadow-card: 0 18px 44px rgba(8, 48, 73, 0.11) !important;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      color: var(--blue-ink) !important;
+      background:
+        radial-gradient(circle at 5% 9%, rgba(70, 217, 239, 0.28) 0 11%, transparent 12%),
+        radial-gradient(circle at 97% 18%, rgba(10, 169, 214, 0.14) 0 14%, transparent 15%),
+        radial-gradient(circle at 14% 82%, rgba(14, 184, 170, 0.12) 0 12%, transparent 13%),
+        linear-gradient(135deg, #f9fdff 0%, #edf9ff 44%, #dff4ff 100%) !important;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    body::before {
+      width: 420px;
+      height: 420px;
+      right: -210px;
+      top: 22%;
+      border-radius: 50% 0 0 50%;
+      background:
+        linear-gradient(135deg, rgba(70, 217, 239, 0.18), rgba(255,255,255,0.02));
+      border: 1px solid rgba(10, 169, 214, 0.22);
+      box-shadow: inset 0 0 70px rgba(255,255,255,0.58);
+      animation: iceFloat 11s ease-in-out infinite;
+    }
+
+    body::after {
+      width: 260px;
+      height: 520px;
+      left: -130px;
+      bottom: 5%;
+      border-radius: 0 260px 260px 0;
+      background: linear-gradient(180deg, rgba(10,169,214,0.12), rgba(70,217,239,0.04));
+      border: 1px solid rgba(10, 169, 214, 0.16);
+      animation: iceFloatReverse 13s ease-in-out infinite;
+    }
+
+    .noise-overlay {
+      opacity: 0.18 !important;
+      mix-blend-mode: multiply !important;
+    }
+
+    .nav,
+    .nav.scrolled {
+      background: rgba(247, 252, 255, 0.76) !important;
+      border-bottom: 1px solid rgba(8, 48, 73, 0.10) !important;
+      box-shadow: 0 12px 38px rgba(8, 48, 73, 0.08) !important;
+      backdrop-filter: blur(22px) saturate(170%) !important;
+      -webkit-backdrop-filter: blur(22px) saturate(170%) !important;
+    }
+
+    .nav .container.nav-inner,
+    .nav-inner {
+      height: 86px !important;
+      background: transparent !important;
+    }
+
+    .brand img,
+    .nav-logo img {
+      width: 70px !important;
+      max-height: 66px !important;
+      filter: brightness(0) saturate(100%) !important;
+      opacity: 0.95 !important;
+      transition: transform .28s ease, opacity .28s ease !important;
+    }
+
+    .brand:hover img,
+    .nav-logo:hover img {
+      transform: translateY(-2px) scale(1.035) !important;
+      opacity: 1 !important;
+    }
+
+    .nav-links li a,
+    .nav-links li a:not(.nav-cta) {
+      color: #315569 !important;
+      font-weight: 800 !important;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active,
+    .nav-links li a:not(.nav-cta):hover,
+    .nav-links li a:not(.nav-cta).active {
+      color: #061826 !important;
+    }
+
+    .nav-links li a::after,
+    .nav-links li a:not(.nav-cta)::after {
+      bottom: 17px !important;
+      background: linear-gradient(90deg, transparent, #0aa9d6, #46d9ef, transparent) !important;
+      box-shadow: 0 0 20px rgba(10,169,214,.52) !important;
+    }
+
+    .nav-links li a.nav-cta {
+      color: #061826 !important;
+      border: 1px solid rgba(10, 169, 214, 0.28) !important;
+      background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(199,235,251,0.74)) !important;
+      box-shadow: 0 12px 26px rgba(10,169,214,0.14), inset 0 1px 0 rgba(255,255,255,0.9) !important;
+    }
+
+    .nav-links li a.nav-cta:hover {
+      background: linear-gradient(135deg, #eaf9ff, #bfeeff) !important;
+      border-color: rgba(10,169,214,0.42) !important;
+      box-shadow: 0 18px 36px rgba(10,169,214,0.18) !important;
+    }
+
+    .page-header--about {
+      min-height: 96vh !important;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(70,217,239,0.22), transparent 34%),
+        radial-gradient(circle at 12% 78%, rgba(14,184,170,0.12), transparent 25%),
+        linear-gradient(180deg, rgba(247,252,255,0.86), rgba(223,244,255,0.92)) !important;
+    }
+
+    .page-header--about::before {
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      display: block !important;
+      background:
+        linear-gradient(90deg, rgba(8,48,73,0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(8,48,73,0.035) 1px, transparent 1px) !important;
+      background-size: 58px 58px !important;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.70), transparent 86%) !important;
+      -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.70), transparent 86%) !important;
+      z-index: -2 !important;
+    }
+
+    .page-header--about::after {
+      content: '' !important;
+      display: block !important;
+      position: absolute !important;
+      width: 560px !important;
+      height: 280px !important;
+      right: -170px !important;
+      top: 28% !important;
+      border-radius: 280px 280px 0 0 !important;
+      background: linear-gradient(135deg, rgba(70,217,239,0.20), rgba(255,255,255,0.08)) !important;
+      border: 1px solid rgba(10,169,214,0.20) !important;
+      transform: rotate(-90deg) !important;
+      z-index: -1 !important;
+      animation: semiPulse 8s ease-in-out infinite !important;
+    }
+
+    .page-header h1,
+    .section-title,
+    .about-vision-strip h3,
+    .trust-modal-title {
+      color: #061826 !important;
+      text-shadow: 0 1px 0 rgba(255,255,255,.72) !important;
+    }
+
+    .page-header h1 {
+      background: linear-gradient(110deg, #061826 0%, #0d5f82 54%, #0aa9d6 100%) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      color: transparent !important;
+      animation: titleRise .8s ease both;
+    }
+
+    .page-header h1::after {
+      background: linear-gradient(90deg, transparent, #0aa9d6, #46d9ef, transparent) !important;
+      box-shadow: 0 0 28px rgba(10,169,214,0.30) !important;
+    }
+
+    .page-header p,
+    .ph-tagline,
+    .section-desc,
+    .founder-bio,
+    .trust-docs-copy,
+    .about-innovation-copy,
+    .about-principle-card p,
+    .about-vision-strip p,
+    .think-card p,
+    .trust-docs-group p,
+    .trust-docs-note span,
+    .about-innovation-note span {
+      color: #456a7f !important;
+    }
+
+    .ph-tagline,
+    .ph-chip,
+    .mission-stat-box,
+    .founder-card,
+    .think-card,
+    .about-principle-card,
+    .trust-docs-group,
+    .trust-docs-sidebar,
+    .trust-docs-note,
+    .about-innovation-note,
+    .about-vision-strip,
+    .trust-doc-btn,
+    .trust-preview-sheet {
+      background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(237,249,255,0.66)) !important;
+      border: 1px solid rgba(8, 48, 73, 0.11) !important;
+      box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,0.86) !important;
+      backdrop-filter: blur(16px) saturate(140%) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+    }
+
+    .ph-chip,
+    .mission-stat-box,
+    .founder-card,
+    .think-card,
+    .about-principle-card,
+    .trust-docs-group,
+    .trust-doc-btn {
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .ph-chip::before,
+    .mission-stat-box::before,
+    .founder-card::before,
+    .think-card::before,
+    .about-principle-card::before,
+    .trust-docs-group::before,
+    .trust-doc-btn::before {
+      content: '' !important;
+      position: absolute !important;
+      width: 140px !important;
+      height: 70px !important;
+      right: -38px !important;
+      top: -2px !important;
+      border-radius: 0 0 140px 140px !important;
+      background: linear-gradient(135deg, rgba(70,217,239,0.18), rgba(255,255,255,0.04)) !important;
+      border: 1px solid rgba(10,169,214,0.12) !important;
+      pointer-events: none !important;
+      transition: transform .35s ease, opacity .35s ease !important;
+      opacity: .75 !important;
+    }
+
+    .ph-chip:hover::before,
+    .mission-stat-box:hover::before,
+    .founder-card:hover::before,
+    .think-card:hover::before,
+    .about-principle-card:hover::before,
+    .trust-docs-group:hover::before,
+    .trust-doc-btn:hover::before {
+      transform: translate(-8px, 6px) scale(1.08) !important;
+      opacity: 1 !important;
+    }
+
+    .section,
+    .mission-section,
+    .about-innovation-section,
+    .trust-docs-section,
+    .about-block {
+      background: transparent !important;
+      position: relative !important;
+    }
+
+    .section::before,
+    .mission-section::before,
+    .about-innovation-section::before,
+    .trust-docs-section::before {
+      display: block !important;
+      content: '' !important;
+      height: 1px !important;
+      background: linear-gradient(90deg, transparent, rgba(10,169,214,0.26), rgba(70,217,239,0.20), transparent) !important;
+    }
+
+    .section::after,
+    .mission-section::after,
+    .about-innovation-section::after,
+    .trust-docs-section::after {
+      content: '';
+      position: absolute;
+      width: 190px;
+      height: 95px;
+      left: min(7vw, 90px);
+      bottom: 34px;
+      border-radius: 190px 190px 0 0;
+      border: 1px solid rgba(10,169,214,0.14);
+      background: linear-gradient(135deg, rgba(70,217,239,0.10), rgba(255,255,255,0));
+      pointer-events: none;
+      opacity: .72;
+    }
+
+    .section:nth-of-type(even)::after,
+    .mission-section:nth-of-type(even)::after,
+    .about-innovation-section::after {
+      left: auto;
+      right: min(7vw, 90px);
+      transform: rotate(180deg);
+    }
+
+    .mission-grid,
+    .about-innovation-head,
+    .trust-docs-head,
+    .about-principle-grid,
+    .domains-grid,
+    .think-grid,
+    .trust-docs-shell,
+    .footer-grid {
+      animation: sectionLift .7s ease both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 28%;
+    }
+
+    @supports not (animation-timeline: view()) {
+      .mission-grid,
+      .about-innovation-head,
+      .trust-docs-head,
+      .about-principle-grid,
+      .domains-grid,
+      .think-grid,
+      .trust-docs-shell,
+      .footer-grid { animation: softAppear .7s ease both; }
+    }
+
+    .mission-stat-box:hover,
+    .founder-card:hover,
+    .think-card:hover,
+    .about-principle-card:hover,
+    .trust-docs-group:hover,
+    .trust-doc-btn:hover,
+    .ph-chip:hover {
+      transform: translateY(-8px) !important;
+      border-color: rgba(10,169,214,0.28) !important;
+      box-shadow: 0 28px 70px rgba(8,48,73,.16), inset 0 1px 0 rgba(255,255,255,.90) !important;
+    }
+
+    .founder-avatar,
+    .think-icon,
+    .trust-doc-icon {
+      color: #061826 !important;
+      background: linear-gradient(135deg, #ffffff, #c7ebfb) !important;
+      border: 1px solid rgba(10,169,214,0.20) !important;
+      box-shadow: 0 16px 36px rgba(10,169,214,0.14), inset 0 1px 0 rgba(255,255,255,.85) !important;
+    }
+
+    .founder-role,
+    .about-principle-number,
+    .about-innovation-kicker,
+    .trust-docs-count,
+    .trust-modal-kicker,
+    .trust-preview-watermark {
+      color: #087fa4 !important;
+      background: rgba(70,217,239,0.14) !important;
+      border-color: rgba(10,169,214,0.20) !important;
+    }
+
+    .founder-name,
+    .think-card h3,
+    .about-principle-card h3,
+    .trust-docs-group h3,
+    .trust-doc-name,
+    .trust-docs-note strong,
+    .about-innovation-note strong,
+    .mission-stat-number,
+    .trust-preview-value strong {
+      color: #061826 !important;
+    }
+
+    .trust-docs-category-list a {
+      color: #456a7f !important;
+    }
+
+    .trust-docs-category-list a:hover {
+      color: #061826 !important;
+      background: rgba(70,217,239,0.14) !important;
+      border-color: rgba(10,169,214,0.20) !important;
+    }
+
+    .trust-modal {
+      background: rgba(7, 24, 39, 0.42) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+    }
+
+    .trust-modal-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(237,249,255,0.98)) !important;
+      border-color: rgba(10,169,214,0.22) !important;
+      box-shadow: 0 38px 100px rgba(8,48,73,0.22) !important;
+    }
+
+    .trust-modal-top,
+    .trust-preview-row {
+      border-color: rgba(8,48,73,0.10) !important;
+    }
+
+    .trust-modal-close {
+      color: #061826 !important;
+      background: rgba(223,244,255,0.88) !important;
+      border-color: rgba(10,169,214,0.18) !important;
+    }
+
+    .trust-preview-label,
+    .trust-preview-value,
+    .trust-doc-meta,
+    .trust-docs-category-list span {
+      color: #6f8796 !important;
+    }
+
+    footer,
+    .footer {
+      color: #456a7f !important;
+      background: linear-gradient(180deg, rgba(223,244,255,0.20), rgba(247,252,255,0.86)) !important;
+      border-top: 1px solid rgba(8,48,73,0.10) !important;
+    }
+
+    footer a,
+    .footer a { color: #315569 !important; }
+    footer a:hover,
+    .footer a:hover { color: #061826 !important; }
+
+    button,
+    a,
+    .trust-doc-btn {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @keyframes titleRise {
+      from { opacity: 0; transform: translateY(22px); filter: blur(8px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @keyframes softAppear {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes sectionLift {
+      from { opacity: 0; transform: translateY(34px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes iceFloat {
+      0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+      50% { transform: translate3d(-16px,18px,0) rotate(4deg); }
+    }
+
+    @keyframes iceFloatReverse {
+      0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+      50% { transform: translate3d(18px,-12px,0) rotate(-3deg); }
+    }
+
+    @keyframes semiPulse {
+      0%, 100% { opacity: .72; transform: rotate(-90deg) translateY(0) scale(1); }
+      50% { opacity: .95; transform: rotate(-90deg) translateY(-12px) scale(1.035); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        background: rgba(247,252,255,.96) !important;
+        border: 1px solid rgba(8,48,73,0.12) !important;
+        box-shadow: 0 24px 60px rgba(8,48,73,0.14) !important;
+      }
+
+      .nav-toggle {
+        color: #061826 !important;
+      }
+
+      .page-header--about::after {
+        width: 340px !important;
+        height: 170px !important;
+        right: -150px !important;
+      }
+
+      body::before { width: 300px; height: 300px; right: -180px; }
+      body::after { width: 180px; height: 360px; left: -110px; }
+    }
+
+    @media (max-width: 640px) {
+      .page-header--about { min-height: 88vh !important; }
+      .section::after,
+      .mission-section::after,
+      .about-innovation-section::after,
+      .trust-docs-section::after { opacity: .35; transform: scale(.78); }
+      .brand img,
+      .nav-logo img { width: 58px !important; max-height: 56px !important; }
+    }
+
+</style>
 
     <div class="think-grid">
 
@@ -2937,38 +2996,6 @@
       });
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
-      });
-    })();
-  </script>
-
-  <script>
-    (function() {
-      var animatedItems = document.querySelectorAll(
-        '.mission-grid, .section-header, .think-card, .founder-card, .about-principle-card, .trust-docs-group, .trust-docs-sidebar, .about-vision-strip'
-      );
-
-      if (!('IntersectionObserver' in window)) {
-        animatedItems.forEach(function(item) {
-          item.classList.add('is-visible');
-        });
-        return;
-      }
-
-      animatedItems.forEach(function(item) {
-        item.classList.add('reveal-ready');
-      });
-
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
-
-      animatedItems.forEach(function(item) {
-        observer.observe(item);
       });
     })();
   </script>
