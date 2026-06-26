@@ -2393,6 +2393,223 @@ body::after {
 }
 </style>
 
+
+<style>
+/* ================================================================
+   FINAL CONTACT VISUAL PATCH — requested form + hero improvements
+   ================================================================ */
+.contact-page .contact-title--glow {
+  color: #061826 !important;
+  letter-spacing: -0.055em !important;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.86),
+    0 0 22px rgba(27,184,214,0.16),
+    0 20px 52px rgba(8,42,62,0.12) !important;
+}
+
+.contact-page .contact-title--glow .start-word {
+  display: inline-block !important;
+  color: #062033 !important;
+  letter-spacing: -0.018em !important;
+  text-shadow:
+    0 0 18px rgba(27,184,214,0.20),
+    0 0 34px rgba(8,127,166,0.14) !important;
+}
+
+.contact-page .contact-title--glow .start-word .rt-gap {
+  display: inline-block !important;
+  margin-right: 0.055em !important;
+}
+
+.contact-page .contact-title--glow .conversation-word,
+.contact-page .contact-title--glow > span:last-child {
+  display: inline-block !important;
+  color: #087fa6 !important;
+  background: linear-gradient(100deg, #075f7e 0%, #087fa6 38%, #1bb8d6 76%, #075f7e 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 18px rgba(27,184,214,0.33)) !important;
+  text-shadow:
+    0 0 18px rgba(27,184,214,0.24),
+    0 0 42px rgba(8,127,166,0.22),
+    0 16px 44px rgba(8,42,62,0.10) !important;
+}
+
+.contact-page .contact-direct-card,
+.contact-page .contact-form-panel,
+.contact-page .contact-side-card,
+.contact-page .contact-philosophy {
+  isolation: isolate !important;
+}
+
+.contact-page .contact-direct-card::after,
+.contact-page .contact-form-panel::after,
+.contact-page .optional-fields-box::after,
+.contact-page .contact-philosophy--impact::after {
+  content: "" !important;
+  position: absolute !important;
+  right: -118px !important;
+  top: -72px !important;
+  width: 270px !important;
+  height: 135px !important;
+  border-radius: 270px 270px 0 0 !important;
+  transform: rotate(-36deg) !important;
+  background:
+    linear-gradient(180deg, rgba(27,184,214,0.16), rgba(255,255,255,0.10)) !important;
+  border: 1px solid rgba(8,127,166,0.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.50), 0 24px 70px rgba(27,184,214,0.10) !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+.contact-page .contact-direct-card {
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.contact-page .contact-form-panel {
+  padding: clamp(28px, 3vw, 42px) !important;
+  border-radius: 34px !important;
+  background:
+    radial-gradient(560px 260px at 96% 0%, rgba(27,184,214,0.12), transparent 58%),
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,252,255,0.78)) !important;
+  border: 1px solid rgba(8,127,166,0.16) !important;
+  box-shadow: 0 28px 80px rgba(8,42,62,0.12), inset 0 1px 0 rgba(255,255,255,0.82) !important;
+}
+
+.contact-page .premium-contact-form .form-guidance,
+.contact-page .form-guidance {
+  margin: 0 0 30px !important;
+  padding: 14px 18px !important;
+  border-radius: 18px !important;
+  background: rgba(8,127,166,0.065) !important;
+  border: 1px solid rgba(8,127,166,0.13) !important;
+  color: #355467 !important;
+}
+
+.contact-page .optional-fields-box {
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 34px 0 32px !important;
+  padding: clamp(26px, 3vw, 34px) !important;
+  border-radius: 30px !important;
+  background:
+    radial-gradient(460px 220px at 104% -8%, rgba(27,184,214,0.16), transparent 62%),
+    radial-gradient(360px 180px at 0% 105%, rgba(8,127,166,0.06), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,252,255,0.74)) !important;
+  border: 1px solid rgba(8,127,166,0.18) !important;
+  box-shadow: 0 22px 58px rgba(8,42,62,0.09), inset 0 1px 0 rgba(255,255,255,0.74) !important;
+}
+
+.contact-page .optional-fields-title {
+  margin-bottom: 24px !important;
+  color: #075f7e !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.34em !important;
+  font-weight: 800 !important;
+}
+
+.contact-page .optional-fields-box .form-group {
+  margin-bottom: 24px !important;
+}
+
+.contact-page .optional-fields-box .form-label {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 12px !important;
+  color: #1d3d51 !important;
+  letter-spacing: 0.085em !important;
+}
+
+.contact-page .premium-contact-form .optional-label {
+  margin-left: 0 !important;
+  color: #607789 !important;
+  font-size: 0.93rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+}
+
+.contact-page .optional-fields-box .form-input {
+  min-height: 68px !important;
+  border-radius: 24px !important;
+  background: rgba(255,255,255,0.82) !important;
+  border: 1px solid rgba(8,48,73,0.16) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.86) !important;
+  color: #061826 !important;
+  font-size: 1.02rem !important;
+}
+
+.contact-page .optional-fields-box .form-input:focus {
+  border-color: rgba(8,127,166,0.42) !important;
+  background: #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(27,184,214,0.11), 0 14px 34px rgba(8,42,62,0.08) !important;
+}
+
+.contact-page .contact-philosophy--impact {
+  margin-top: 54px !important;
+  padding: clamp(44px, 5vw, 72px) 36px !important;
+  border-radius: 34px !important;
+  background:
+    radial-gradient(520px 220px at 98% 0%, rgba(27,184,214,0.14), transparent 62%),
+    radial-gradient(560px 260px at 4% 100%, rgba(8,127,166,0.08), transparent 66%),
+    linear-gradient(180deg, rgba(255,255,255,0.95), rgba(246,252,255,0.80)) !important;
+  border: 1px solid rgba(8,127,166,0.16) !important;
+  box-shadow: 0 30px 86px rgba(8,42,62,0.12), inset 0 1px 0 rgba(255,255,255,0.84) !important;
+}
+
+.contact-page .contact-philosophy--impact h2 {
+  max-width: 980px !important;
+  margin: 0 auto 22px !important;
+  color: #061826 !important;
+  letter-spacing: -0.058em !important;
+  line-height: 1.02 !important;
+}
+
+.contact-page .contact-philosophy--impact h2 span {
+  color: #061826 !important;
+}
+
+.contact-page .contact-philosophy--impact h2 em {
+  font-style: normal !important;
+  color: #087fa6 !important;
+  background: linear-gradient(100deg, #075f7e, #1bb8d6, #087fa6) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 0 18px rgba(27,184,214,0.22)) !important;
+}
+
+.contact-page .contact-philosophy--impact p {
+  max-width: 830px !important;
+  font-size: clamp(1.02rem, 1.55vw, 1.22rem) !important;
+  line-height: 1.85 !important;
+  color: #355467 !important;
+}
+
+.contact-page .contact-philosophy--impact p strong {
+  color: #075f7e !important;
+  font-weight: 800 !important;
+}
+
+@media (max-width: 760px) {
+  .contact-page .contact-title--glow { letter-spacing: -0.04em !important; }
+  .contact-page .contact-title--glow .start-word .rt-gap { margin-right: 0.035em !important; }
+  .contact-page .optional-fields-box .form-label { gap: 8px !important; }
+  .contact-page .contact-direct-card::after,
+  .contact-page .contact-form-panel::after,
+  .contact-page .optional-fields-box::after,
+  .contact-page .contact-philosophy--impact::after {
+    width: 210px !important;
+    height: 105px !important;
+    right: -104px !important;
+    top: -56px !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="contact-page">
@@ -2420,9 +2637,9 @@ body::after {
         <div>
           <div class="contact-label">Contact AASIOM</div>
 
-          <h1 class="contact-title">
-            Start a serious<br>
-            <span>conversation.</span>
+          <h1 class="contact-title contact-title--glow">
+            <span class="start-word">Sta<span class="rt-gap">r</span>t</span> a serious<br>
+            <span class="conversation-word">conversation.</span>
           </h1>
 
           <p class="contact-hero-text">
@@ -2725,11 +2942,11 @@ body::after {
 
       </div>
 
-      <div class="contact-philosophy">
-        <h2>Operational reality first. Technology second.</h2>
+      <div class="contact-philosophy contact-philosophy--impact">
+        <h2><span>Operational reality first.</span> <em>Technology second.</em></h2>
         <p>
-          AASIOM is interested in conversations that begin with real workflows, real constraints,
-          and real problems worth solving.
+          AASIOM is interested in conversations that begin with <strong>real workflows</strong>,
+          <strong>real constraints</strong>, and <strong>real problems worth solving</strong>.
         </p>
       </div>
     </div>
