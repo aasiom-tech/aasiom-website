@@ -2984,6 +2984,99 @@ body::after {
 }
 </style>
 
+
+
+<style>
+/* ================================================================
+   FINAL DIRECT CONTACT BACKDROP — homepage-style faint semicircle
+   ================================================================ */
+.contact-page .contact-hero,
+.contact-page .contact-hero-grid {
+  overflow: visible !important;
+}
+
+.contact-page .contact-direct-card-shell {
+  position: relative !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+  z-index: 1 !important;
+}
+
+/* Clean out all older arcs/glows that were being drawn on the card itself. */
+.contact-page .contact-hero-grid > div:last-child::before,
+.contact-page .contact-hero-grid > div:last-child::after,
+.contact-page .contact-direct-card::before,
+.contact-page .contact-direct-card::after,
+.contact-page .contact-direct-card-wrap::before,
+.contact-page .contact-direct-card-wrap::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Big faint circle placed BEHIND the floating card, pushed to the far right like the homepage reference. */
+.contact-page .contact-direct-card-shell::before {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(650px, 58vw, 920px) !important;
+  height: clamp(650px, 58vw, 920px) !important;
+  right: clamp(-610px, -36vw, -410px) !important;
+  top: clamp(-230px, -15vw, -135px) !important;
+  border-radius: 50% !important;
+  border: 1.25px solid rgba(8, 127, 166, 0.13) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* Very soft inner wash so the corner feels intentional, not like a harsh line. */
+.contact-page .contact-direct-card-shell::after {
+  content: "" !important;
+  position: absolute !important;
+  width: clamp(560px, 50vw, 780px) !important;
+  height: clamp(560px, 50vw, 780px) !important;
+  right: clamp(-525px, -31vw, -355px) !important;
+  top: clamp(-160px, -10vw, -90px) !important;
+  border-radius: 50% !important;
+  background: radial-gradient(circle, rgba(27, 184, 214, 0.045), rgba(27, 184, 214, 0.018) 48%, transparent 72%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+.contact-page .contact-direct-card {
+  position: relative !important;
+  z-index: 2 !important;
+  overflow: hidden !important;
+  background:
+    radial-gradient(circle at 86% 22%, rgba(27, 184, 214, 0.075), transparent 36%),
+    linear-gradient(180deg, rgba(255,255,255,0.88), rgba(248,252,255,0.76)) !important;
+  border: 1px solid rgba(8, 127, 166, 0.16) !important;
+  box-shadow: 0 26px 74px rgba(8, 42, 62, 0.13) !important;
+}
+
+@media (max-width: 980px) {
+  .contact-page .contact-direct-card-shell::before {
+    width: 620px !important;
+    height: 620px !important;
+    right: -420px !important;
+    top: -140px !important;
+  }
+  .contact-page .contact-direct-card-shell::after {
+    width: 520px !important;
+    height: 520px !important;
+    right: -360px !important;
+    top: -90px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-page .contact-direct-card-shell::before,
+  .contact-page .contact-direct-card-shell::after {
+    display: none !important;
+  }
+}
+</style>
+
 </head>
 
 <body class="contact-page">
@@ -3035,8 +3128,9 @@ body::after {
           </div>
         </div>
 
-        <div class="contact-direct-card">
-          <h2>Direct Contact</h2>
+        <div class="contact-direct-card-shell">
+          <div class="contact-direct-card">
+            <h2>Direct Contact</h2>
 
           <p>
             For serious conversations about AASIOM, ANVIRA, field research,
@@ -3066,6 +3160,7 @@ body::after {
               </svg>
               <span>Dadar East, Mumbai</span>
             </div>
+          </div>
           </div>
         </div>
 
@@ -3430,93 +3525,3 @@ body::after {
 </body>
 </html>
 
-<style>
-/* ================================================================
-   FINAL SEMICIRCLE CORRECTION — homepage-style background circle
-   Places the large faint circle BEHIND the Direct Contact card, not inside it.
-   ================================================================ */
-.contact-page .contact-hero-grid > div:last-child {
-  position: relative !important;
-  isolation: isolate !important;
-  overflow: visible !important;
-}
-
-/* Remove the wrong left-side arc and glow from previous patches */
-.contact-page .contact-hero-grid > div:last-child::before,
-.contact-page .contact-hero-grid > div:last-child::after {
-  display: none !important;
-  content: none !important;
-}
-
-.contact-page .contact-direct-card {
-  position: relative !important;
-  overflow: visible !important;
-  isolation: isolate !important;
-  z-index: 2 !important;
-}
-
-/* Disable circle drawn inside the card so it does not cut through the text */
-.contact-page .contact-direct-card::before,
-.contact-page .contact-direct-card::after {
-  display: none !important;
-  content: none !important;
-}
-
-/* New homepage-style circle: outside the card, pushed to the right edge */
-.contact-page .contact-direct-card-wrap {
-  position: relative !important;
-  isolation: isolate !important;
-}
-
-.contact-page .contact-direct-card-wrap::before {
-  content: "" !important;
-  position: absolute !important;
-  width: clamp(520px, 46vw, 720px) !important;
-  height: clamp(520px, 46vw, 720px) !important;
-  right: clamp(-390px, -26vw, -250px) !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  border-radius: 50% !important;
-  border: 1px solid rgba(8, 127, 166, 0.105) !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  opacity: 0.82 !important;
-  pointer-events: none !important;
-  z-index: -2 !important;
-}
-
-.contact-page .contact-direct-card-wrap::after {
-  content: "" !important;
-  position: absolute !important;
-  width: clamp(430px, 38vw, 610px) !important;
-  height: clamp(430px, 38vw, 610px) !important;
-  right: clamp(-330px, -22vw, -210px) !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  border-radius: 50% !important;
-  background: radial-gradient(circle, rgba(27, 184, 214, 0.045), rgba(27, 184, 214, 0.018) 48%, transparent 72%) !important;
-  opacity: 0.72 !important;
-  pointer-events: none !important;
-  z-index: -3 !important;
-}
-
-@media (max-width: 760px) {
-  .contact-page .contact-direct-card-wrap::before,
-  .contact-page .contact-direct-card-wrap::after {
-    display: none !important;
-  }
-}
-</style>
-
-<script>
-/* Wrap Direct Contact card once so the decorative circle can sit behind the box. */
-document.addEventListener('DOMContentLoaded', function () {
-  var card = document.querySelector('.contact-page .contact-direct-card');
-  if (card && !card.parentElement.classList.contains('contact-direct-card-wrap')) {
-    var wrap = document.createElement('div');
-    wrap.className = 'contact-direct-card-wrap';
-    card.parentNode.insertBefore(wrap, card);
-    wrap.appendChild(card);
-  }
-});
-</script>
