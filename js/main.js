@@ -352,20 +352,60 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     }
   };
 
- // ─── Contact form & API Integration ──────────────────────────────────────
+ // ─── UTM & Marketing Attribution Extraction Helper ───────────────────────
+  const getUTMAndTrafficData = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+      source_page: window.location.pathname + window.location.hash,
+      referrer: document.referrer || 'Direct',
+      utm_source: urlParams.get('utm_source') || null,
+      utm_medium: urlParams.get('utm_medium') || null,
+      utm_campaign: urlParams.get('utm_campaign') || null
+    };
+  };
+
+  // ─── Anonymous Analytical Event Logger ──────────────────────────────────
+  const logAnalyticsEvent = async (eventName) => {
+    try {
+      const traffic = getUTMAndTrafficData();
+      await supabaseClient.from('analytics_events').insert([{
+        event_name: eventName,
+        page_path: traffic.source_page,
+        referrer: traffic.referrer,
+        utm_source: traffic.utm_source,
+        utm_medium: traffic.utm_medium,
+        utm_campaign: traffic.utm_campaign
+      }]);
+    } catch (err) {
+      console.warn(`[Analytics] Quietly caught log failure for ${eventName}:`, err);
+    }
+  };
+
+  // ─── Contact Form & Advanced Lead-Capture Pipeline ───────────────────────
   const initContactForm = () => {
-    const form = document.getElementById('contactForm'); // Verified matching your HTML ID
+    const form = document.getElementById('contactForm');
     if (!form) return;
 
-    // Create the debounced sender function for the database request
+    // 1. Log anonymous page view instantly when visitor loads page
+    logAnalyticsEvent('page_view');
+
+    // 2. Track when a user actively interacts with the form elements
+    form.addEventListener('focusin', () => {
+      if (!form.dataset.started) {
+        form.dataset.started = 'true';
+        logAnalyticsEvent('form_started');
+      }
+    }, { once: true });
+
     const sendToSupabase = debounce(async (formData, btn, formContainer, originalCacheHTML, origText) => {
       try {
-        // Direct execution from the client's web browser into the Supabase cluster table!
-        const { data, error } = await supabaseClient
+        const { error } = await supabaseClient
           .from('contact_submissions')
           .insert([formData]);
 
         if (error) throw error;
+
+        logAnalyticsEvent('form_submitted');
 
         // Success State UI Transitions
         btn.innerHTML = 'Message Sent &#10003;';
@@ -377,22 +417,21 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
           btn.style.opacity = '1';
           btn.disabled = false;
           form.reset();
+          delete form.dataset.started;
         }, 3200);
 
       } catch (err) {
-        console.error("[AASIOM] Direct submission pipeline failure:", err);
+        logAnalyticsEvent('form_failed');
+        console.error("[AASIOM] Lead generation pipeline failure:", err);
         
-        // Trigger your built-in beautiful Error Boundary UI instead of silent failure
         window.renderErrorBoundary(formContainer, (container) => {
           container.innerHTML = originalCacheHTML;
-          initContactForm(); // Re-initialize event listener safely on form restoral
-        }, `Submission Error: ${err.message || "Could not sync data securely with database cluster."}`);
+          initContactForm(); // Re-initialize safely on form restoral
+        }, `Submission Error: ${err.message || "Could not route lead parameters securely to core workspace table."}`);
       }
     }, 400);
 
-    // Attach the synchronous listener to catch the submit event instantly
     form.addEventListener('submit', (e) => {
-      // 1. STOPS the page from reloading immediately
       e.preventDefault();
 
       const btn = form.querySelector('button[type="submit"]');
@@ -406,44 +445,38 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
       btn.style.opacity = '0.7';
       btn.disabled = true;
 
-      // 2. Extract values right when clicked
-     // Extract values right when clicked
+      // Capture explicit input data points combined with traffic source variables
+      const traffic = getUTMAndTrafficData();
       const formData = {
         full_name: document.getElementById('name')?.value || "",
         work_email: document.getElementById('email')?.value || "",
-        company_name: document.getElementById('org')?.value || "Not Provided", // Handles your NOT NULL constraint
-        job_title: document.getElementById('role')?.value || "Not Provided",    // Handles your NOT NULL constraint
-        contact_reason: document.getElementById('type')?.value || "General Inquiry", // Fixed case name mapping
-        message_content: document.getElementById('message')?.value || "",
-        
-        // Include all optional fields safely (they can be null in the database)
+        organization: document.getElementById('org')?.value || "Not Provided", // Matches NOT NULL
+        job_title: document.getElementById('role')?.value || "Not Provided",    // Matches NOT NULL
+        reason_for_contact: document.getElementById('type')?.value || "General Inquiry",
+        message: document.getElementById('message')?.value || "",
         phone_number: document.getElementById('phone')?.value || null,
         linkedin_profile: document.getElementById('linkedin')?.value || null,
-        company_website: document.getElementById('website')?.value || null
+        company_website: document.getElementById('website')?.value || null,
+        ...traffic
       };
 
-      // 3. Fire the database insertion pipeline safely
       sendToSupabase(formData, btn, formContainer, originalCacheHTML, origText);
     });
-  };
 
-  // ─── Smooth anchor scroll ─────────────────────────────────────────────────
-  const initSmoothScroll = () => {
-    document.body.addEventListener('click', (e) => {
-      const a = e.target.closest('a[href^="#"]');
-      if (!a) return;
-      try {
-        const href = a.getAttribute('href');
-        if (!href || href === '#') return;
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      } catch (err) { }
+    // ─── Setup Click Tracking Listeners for Anonymous Events ─────────────────
+    document.querySelectorAll('a[href*="wa.me"]').forEach(el => {
+      el.addEventListener('click', () => logAnalyticsEvent('whatsapp_clicked'));
+    });
+    document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+      el.addEventListener('click', () => logAnalyticsEvent('email_clicked'));
+    });
+    document.querySelectorAll('a[download], .download-btn').forEach(el => {
+      el.addEventListener('click', () => logAnalyticsEvent('document_download_clicked'));
+    });
+    document.querySelectorAll('.book-demo-btn, a[href="#contactForm"]').forEach(el => {
+      el.addEventListener('click', () => logAnalyticsEvent('book_demo_clicked'));
     });
   };
-
   // ─── Section labels: subtle reveal ───────────────────────────────────────
   const initLabelReveal = () => {
     if (typeof IntersectionObserver === 'undefined') return;
