@@ -3847,25 +3847,25 @@ body::after {
 
 
 
-  <!-- AASIOM Botpress Chatbot Upgrade: ice-blue native theme -->
+  <!-- AASIOM Botpress Chatbot Upgrade: TRUE ice-blue glass native theme -->
   <style>
     /* ================================================================
-       AASIOM AI Chatbot — ice-blue glass theme
-       Floating launcher + visible container styling. Botpress runs most
-       window content in an iframe, so the script below also pushes the
-       same theme through Botpress configuration before init.
+       AASIOM AI Chatbot — native ice-blue glassmorphism
+       This removes the strong Botpress blue look and replaces it with
+       soft glass, pale cyan surfaces, thin borders, and subtle glow.
        ================================================================ */
     :root {
-      --aasiom-chat-ice: #eaf9ff;
-      --aasiom-chat-ice-2: #d7f4fb;
+      --aasiom-chat-ice: #f6fdff;
+      --aasiom-chat-ice-2: #eaf9ff;
+      --aasiom-chat-ice-3: #d9f5fb;
       --aasiom-chat-cyan: #1bb8d6;
-      --aasiom-chat-blue: #087fa6;
-      --aasiom-chat-deep: #061826;
+      --aasiom-chat-cyan-dark: #087fa6;
+      --aasiom-chat-ink: #061826;
       --aasiom-chat-muted: #587184;
-      --aasiom-chat-line: rgba(8,127,166,.18);
+      --aasiom-chat-line: rgba(8,127,166,.16);
     }
 
-    /* Botpress launcher: replace heavy generic blue with ice-blue gradient */
+    /* Floating launcher — no heavy dark/royal blue */
     #bp-web-widget-container button,
     #bp-web-widget button,
     button[class*="bp"],
@@ -3876,16 +3876,21 @@ body::after {
     [class*="launcher"],
     [aria-label*="chat" i],
     [aria-label*="bot" i] {
+      width: 64px !important;
+      height: 64px !important;
       background:
-        radial-gradient(circle at 28% 20%, rgba(255,255,255,.88), transparent 33%),
-        linear-gradient(135deg, #ecfbff 0%, #bff2fb 38%, #1bb8d6 100%) !important;
-      border: 1px solid rgba(255,255,255,.74) !important;
+        radial-gradient(circle at 30% 22%, rgba(255,255,255,.96), transparent 30%),
+        radial-gradient(circle at 70% 86%, rgba(27,184,214,.32), transparent 42%),
+        linear-gradient(135deg, #ffffff 0%, #eaf9ff 42%, #bfeff8 100%) !important;
+      border: 1px solid rgba(255,255,255,.88) !important;
       color: #075f7e !important;
       border-radius: 999px !important;
       box-shadow:
-        0 18px 44px rgba(8,127,166,.22),
-        0 0 0 8px rgba(27,184,214,.08),
-        inset 0 1px 0 rgba(255,255,255,.75) !important;
+        0 18px 42px rgba(8, 42, 62, .14),
+        0 0 0 8px rgba(27,184,214,.07),
+        inset 0 1px 0 rgba(255,255,255,.95) !important;
+      backdrop-filter: blur(18px) saturate(150%) !important;
+      -webkit-backdrop-filter: blur(18px) saturate(150%) !important;
       overflow: visible !important;
     }
 
@@ -3897,7 +3902,7 @@ body::after {
       color: #075f7e !important;
       fill: #075f7e !important;
       stroke: #075f7e !important;
-      filter: drop-shadow(0 0 10px rgba(27,184,214,.28)) !important;
+      filter: drop-shadow(0 0 10px rgba(27,184,214,.30)) !important;
     }
 
     #bp-web-widget-container button::before,
@@ -3906,10 +3911,10 @@ body::after {
     [class*="launcher"]::before {
       content: "" !important;
       position: absolute !important;
-      inset: -7px !important;
+      inset: -8px !important;
       border-radius: inherit !important;
-      border: 1px solid rgba(27,184,214,.24) !important;
-      animation: aasiomChatPulse 3.6s ease-in-out infinite !important;
+      border: 1px solid rgba(27,184,214,.25) !important;
+      animation: aasiomChatPulse 3.8s ease-in-out infinite !important;
       pointer-events: none !important;
     }
 
@@ -3926,8 +3931,8 @@ body::after {
       border-radius: 999px !important;
       background: rgba(255,255,255,.92) !important;
       border: 1px solid var(--aasiom-chat-line) !important;
-      color: var(--aasiom-chat-deep) !important;
-      box-shadow: 0 12px 32px rgba(8,42,62,.12) !important;
+      color: var(--aasiom-chat-ink) !important;
+      box-shadow: 0 12px 32px rgba(8,42,62,.11) !important;
       font-size: 12px !important;
       font-weight: 800 !important;
       white-space: nowrap !important;
@@ -3944,55 +3949,57 @@ body::after {
       transform: translateY(-50%) translateX(0) !important;
     }
 
-    /* Outer iframe/card styling */
+    /* Chat frame itself */
     #bp-web-widget-container iframe,
     #bp-web-widget iframe,
     iframe[src*="botpress"],
     iframe[title*="chat" i],
     iframe[title*="bot" i] {
-      border-radius: 28px !important;
-      border: 1px solid rgba(8,127,166,.18) !important;
-      box-shadow: 0 24px 70px rgba(8,42,62,.20) !important;
-      background: rgba(255,255,255,.90) !important;
+      border-radius: 30px !important;
+      border: 1px solid rgba(8,127,166,.16) !important;
+      box-shadow:
+        0 28px 80px rgba(8,42,62,.18),
+        0 0 0 1px rgba(255,255,255,.65) !important;
+      background: rgba(255,255,255,.88) !important;
       overflow: hidden !important;
     }
 
-    /* For non-iframe Botpress builds */
+    /* Fallback for non-iframe Botpress builds */
     .bpHeader, .bpw-header, [class*="Header"], [class*="header"] {
       background:
-        radial-gradient(circle at 18% 0%, rgba(255,255,255,.90), transparent 42%),
-        linear-gradient(135deg, #f8fdff 0%, #e6f8fd 48%, #d3f1f8 100%) !important;
-      color: var(--aasiom-chat-deep) !important;
-      border-bottom: 1px solid rgba(8,127,166,.16) !important;
-      box-shadow: 0 12px 30px rgba(8,42,62,.08) !important;
+        radial-gradient(circle at 18% 0%, rgba(255,255,255,.94), transparent 42%),
+        linear-gradient(135deg, #ffffff 0%, #f1fbff 45%, #dff6fb 100%) !important;
+      color: var(--aasiom-chat-ink) !important;
+      border-bottom: 1px solid rgba(8,127,166,.14) !important;
+      box-shadow: 0 10px 28px rgba(8,42,62,.07) !important;
     }
 
     .bpMessageList, .bpw-msg-list, [class*="MessageList"], [class*="Conversation"] {
       background:
-        radial-gradient(circle at 12% 0%, rgba(27,184,214,.13), transparent 34%),
-        linear-gradient(rgba(8,48,73,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(8,48,73,.035) 1px, transparent 1px),
+        radial-gradient(circle at 12% 0%, rgba(27,184,214,.12), transparent 34%),
+        linear-gradient(rgba(8,48,73,.030) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8,48,73,.030) 1px, transparent 1px),
         #f7fcff !important;
       background-size: auto, 34px 34px, 34px 34px, auto !important;
     }
 
     .bpMessageBubbleFromUser, .bpw-from-user .bpw-chat-bubble, [class*="UserMessage"], [class*="userMessage"] {
-      background: linear-gradient(135deg, #1bb8d6, #087fa6) !important;
-      color: #fff !important;
-      border: 0 !important;
-      box-shadow: 0 10px 24px rgba(8,127,166,.20) !important;
+      background: linear-gradient(135deg, #d9f5fb, #bfeff8) !important;
+      color: #061826 !important;
+      border: 1px solid rgba(8,127,166,.16) !important;
+      box-shadow: 0 10px 22px rgba(8,127,166,.12) !important;
     }
 
     .bpMessageBubbleFromBot, .bpw-from-bot .bpw-chat-bubble, [class*="BotMessage"], [class*="botMessage"] {
       background: rgba(255,255,255,.96) !important;
-      color: var(--aasiom-chat-deep) !important;
+      color: var(--aasiom-chat-ink) !important;
       border: 1px solid rgba(8,48,73,.09) !important;
-      box-shadow: 0 10px 24px rgba(8,42,62,.08) !important;
+      box-shadow: 0 10px 24px rgba(8,42,62,.07) !important;
     }
 
     .bpComposer, .bpw-composer, [class*="Composer"], [class*="composer"] {
       background: rgba(255,255,255,.94) !important;
-      border-top: 1px solid rgba(8,127,166,.14) !important;
+      border-top: 1px solid rgba(8,127,166,.13) !important;
     }
 
     .bpAvatar img, .bpw-bot-avatar img, [class*="Avatar"] img, [class*="avatar"] img {
@@ -4003,8 +4010,8 @@ body::after {
     }
 
     @keyframes aasiomChatPulse {
-      0%, 100% { opacity: .30; transform: scale(1); }
-      50% { opacity: .76; transform: scale(1.12); }
+      0%, 100% { opacity: .28; transform: scale(1); }
+      50% { opacity: .70; transform: scale(1.13); }
     }
 
     @media (max-width: 640px) {
@@ -4019,46 +4026,76 @@ body::after {
   </style>
 
   <script>
-    /*
-      Botpress v3 webchat is mainly controlled by its cloud configuration.
-      This patch merges AASIOM ice-blue settings before the hosted bot script
-      initializes, and retries after load for Botpress builds that expose updateConfig.
-    */
     (function () {
+      const internalIceCSS = `
+        :root{
+          --bp-primary-color:#eaf9ff!important;
+          --bp-primary-hover:#d9f5fb!important;
+          --bp-primary-pressed:#bfeff8!important;
+          --bp-text-color:#061826!important;
+          --bp-background-color:#f7fcff!important;
+        }
+        *{font-family:Inter,DM Sans,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif!important;}
+        body{background:#f7fcff!important;color:#061826!important;}
+        header,[class*="header"],[class*="Header"]{
+          background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(234,249,255,.94),rgba(217,245,251,.90))!important;
+          color:#061826!important;
+          border-bottom:1px solid rgba(8,127,166,.14)!important;
+          box-shadow:0 12px 30px rgba(8,42,62,.07)!important;
+          backdrop-filter:blur(18px) saturate(145%)!important;
+        }
+        header *,[class*="header"] *,[class*="Header"] *{color:#061826!important;}
+        [class*="conversation"],[class*="Conversation"],[class*="message-list"],[class*="MessageList"]{
+          background:radial-gradient(circle at 12% 0%,rgba(27,184,214,.12),transparent 34%),linear-gradient(rgba(8,48,73,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(8,48,73,.03) 1px,transparent 1px),#f7fcff!important;
+          background-size:auto,34px 34px,34px 34px,auto!important;
+        }
+        [class*="user" i][class*="bubble" i],[class*="user" i][class*="message" i]{
+          background:linear-gradient(135deg,#dff7fc,#bfeff8)!important;color:#061826!important;border:1px solid rgba(8,127,166,.14)!important;box-shadow:0 10px 22px rgba(8,127,166,.10)!important;
+        }
+        [class*="bot" i][class*="bubble" i],[class*="bot" i][class*="message" i]{
+          background:rgba(255,255,255,.96)!important;color:#061826!important;border:1px solid rgba(8,48,73,.09)!important;box-shadow:0 10px 24px rgba(8,42,62,.07)!important;
+        }
+        textarea,input,[class*="composer" i]{background:rgba(255,255,255,.94)!important;color:#061826!important;border-color:rgba(8,127,166,.14)!important;}
+        img{object-fit:contain!important;}
+      `;
+      const cssDataUrl = 'data:text/css;charset=utf-8,' + encodeURIComponent(internalIceCSS);
+
       const AASIOM_BP_THEME = {
         botName: 'AASIOM AI',
         botDescription: 'Ask about AASIOM, ANVIRA, pilots, or partnerships',
-        composerPlaceholder: 'Ask me anything about AASIOM or ANVIRA...',
+        composerPlaceholder: 'Ask about AASIOM, ANVIRA, pilots, or partnerships...',
         showPoweredBy: false,
         enableTranscriptDownload: false,
         theme: 'light',
         themeMode: 'light',
-        color: '#d7f4fb',
-        radius: 2,
+        color: '#eaf9ff',
+        accentColor: '#d9f5fb',
+        radius: 3,
         variant: 'soft',
         fontFamily: 'Inter',
-        stylesheet: '',
+        additionalStylesheetUrl: cssDataUrl,
+        stylesheet: cssDataUrl,
         configuration: {
           botName: 'AASIOM AI',
           botDescription: 'Ask about AASIOM, ANVIRA, pilots, or partnerships',
           botConversationDescription: 'Ask about AASIOM, ANVIRA, pilots, or partnerships',
-          composerPlaceholder: 'Ask me anything about AASIOM or ANVIRA...',
-          color: '#d7f4fb',
+          composerPlaceholder: 'Ask about AASIOM, ANVIRA, pilots, or partnerships...',
+          color: '#eaf9ff',
+          accentColor: '#d9f5fb',
           variant: 'soft',
           themeMode: 'light',
           fontFamily: 'Inter',
-          radius: 2,
+          radius: 3,
           showPoweredBy: false,
           enableTranscriptDownload: false,
-          email: {},
-          phone: {},
-          website: {},
-          termsOfService: {},
-          privacyPolicy: {}
+          additionalStylesheetUrl: cssDataUrl,
+          stylesheet: cssDataUrl,
+          email: {}, phone: {}, website: {}, termsOfService: {}, privacyPolicy: {}
         },
         userData: {
-          websiteTheme: 'ice-blue',
-          company: 'AASIOM Technologies Pvt. Ltd.'
+          websiteTheme: 'ice-blue-glassmorphism',
+          company: 'AASIOM Technologies Pvt. Ltd.',
+          assistantGuidance: 'AASIOM builds applied AI systems for Indian highway operations. ANVIRA is the flagship platform in pilot planning / early deployment, focused on incident response, verification, documentation, coordination, and operational intelligence. It is not GPS tracking, towing marketplace, claims BPO, legal-fault automation, nationwide deployment, or government-approved unless confirmed. Use human review and responsible AI language.'
         }
       };
 
@@ -4084,6 +4121,7 @@ body::after {
         const originalInit = window.botpress.init.bind(window.botpress);
         window.botpress.init = function (config) {
           config = deepMerge(config || {}, AASIOM_BP_THEME);
+          config.configuration = deepMerge(config.configuration || {}, AASIOM_BP_THEME.configuration);
           return originalInit(config);
         };
         window.botpress.__aasiomThemePatched = true;
@@ -4092,32 +4130,24 @@ body::after {
 
       function pushRuntimeTheme() {
         try {
-          if (window.botpress && typeof window.botpress.updateConfig === 'function') {
-            window.botpress.updateConfig(AASIOM_BP_THEME);
-          }
-          if (window.botpress && typeof window.botpress.configure === 'function') {
-            window.botpress.configure(AASIOM_BP_THEME);
-          }
+          if (window.botpress && typeof window.botpress.updateConfig === 'function') window.botpress.updateConfig(AASIOM_BP_THEME);
+          if (window.botpress && typeof window.botpress.configure === 'function') window.botpress.configure(AASIOM_BP_THEME);
+          if (window.botpress && typeof window.botpress.setConfig === 'function') window.botpress.setConfig(AASIOM_BP_THEME);
         } catch (e) {}
-
         document.querySelectorAll('[aria-label*="chat" i], [aria-label*="bot" i], #bp-web-widget-container button, #bp-web-widget button').forEach(function (button) {
           button.setAttribute('aria-label', 'Ask AASIOM AI');
           button.setAttribute('title', 'Ask AASIOM AI');
         });
       }
 
-      const patchTimer = setInterval(function () {
-        patchBotpressInit();
-        pushRuntimeTheme();
-      }, 120);
-      setTimeout(function () { clearInterval(patchTimer); pushRuntimeTheme(); }, 7000);
+      const observer = new MutationObserver(function () { pushRuntimeTheme(); });
+      observer.observe(document.documentElement, { childList: true, subtree: true });
 
+      const patchTimer = setInterval(function () { patchBotpressInit(); pushRuntimeTheme(); }, 120);
+      setTimeout(function () { clearInterval(patchTimer); pushRuntimeTheme(); }, 18000);
       window.addEventListener('load', function () {
         patchBotpressInit();
-        pushRuntimeTheme();
-        setTimeout(pushRuntimeTheme, 900);
-        setTimeout(pushRuntimeTheme, 2200);
-        setTimeout(pushRuntimeTheme, 4200);
+        [0, 500, 1200, 2500, 5000, 9000, 14000].forEach(function (ms) { setTimeout(pushRuntimeTheme, ms); });
       });
     })();
   </script>
