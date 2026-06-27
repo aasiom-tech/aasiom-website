@@ -3845,5 +3845,373 @@ body::after {
     })();
   </script>
 
+
+
+<!-- AASIOM AI Chatbot — Contact page matched to About page style -->
+<style>
+  /* ================================================================
+     FINAL AASIOM CHATBOT POLISH — native ice-blue glass assistant
+     ================================================================ */
+  .aasiom-chatbot-toggle {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 72px;
+    height: 72px;
+    border: 1px solid rgba(8, 127, 166, 0.24);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999999;
+    display: grid;
+    place-items: center;
+    overflow: visible;
+    isolation: isolate;
+    background:
+      radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.96), rgba(221, 247, 252, 0.74) 34%, rgba(167, 229, 239, 0.42) 56%, rgba(8, 127, 166, 0.18) 100%),
+      linear-gradient(135deg, rgba(255,255,255,0.96), rgba(221,248,253,0.78));
+    color: #075c78;
+    box-shadow:
+      0 22px 54px rgba(8, 48, 73, 0.20),
+      0 0 0 8px rgba(14, 165, 198, 0.055),
+      inset 0 1px 0 rgba(255,255,255,0.95),
+      inset 0 -12px 24px rgba(8,127,166,0.08);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    animation: aasiomOrbBreathe 7.2s ease-in-out infinite;
+  }
+
+  .aasiom-chatbot-toggle::before {
+    content: "";
+    position: absolute;
+    inset: -9px;
+    border-radius: inherit;
+    border: 1px solid rgba(27, 184, 214, 0.24);
+    background: radial-gradient(circle, rgba(27,184,214,0.18), transparent 66%);
+    opacity: 0.65;
+    z-index: -2;
+    animation: aasiomChatPulse 6.5s ease-in-out infinite;
+  }
+
+  .aasiom-chatbot-toggle::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border-radius: inherit;
+    background:
+      conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,0.70) 38deg, transparent 84deg, transparent 360deg);
+    opacity: 0.34;
+    mix-blend-mode: screen;
+    animation: aasiomOrbSheen 10s linear infinite;
+    pointer-events: none;
+  }
+
+  .aasiom-chatbot-toggle:hover {
+    transform: translateY(-5px) scale(1.035);
+    border-color: rgba(8, 127, 166, 0.38);
+    box-shadow:
+      0 28px 70px rgba(8, 48, 73, 0.25),
+      0 0 0 10px rgba(27, 184, 214, 0.075),
+      0 0 42px rgba(27, 184, 214, 0.34),
+      inset 0 1px 0 rgba(255,255,255,1),
+      inset 0 -12px 24px rgba(8,127,166,0.09);
+  }
+
+  .aasiom-chatbot-toggle .aasiom-toggle-core {
+    position: relative;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background:
+      radial-gradient(circle at 50% 40%, rgba(255,255,255,0.96), rgba(214,246,252,0.72) 58%, rgba(8,127,166,0.18));
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.95),
+      0 10px 26px rgba(8,127,166,0.16);
+  }
+
+  .aasiom-chatbot-toggle .aasiom-toggle-logo {
+    width: 31px;
+    height: 31px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 3px 8px rgba(8, 127, 166, 0.22));
+  }
+
+  .aasiom-chatbot-toggle .aasiom-toggle-tooltip {
+    position: absolute;
+    right: 84px;
+    top: 50%;
+    transform: translateY(-50%) translateX(8px);
+    white-space: nowrap;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(8,127,166,0.14);
+    color: #075c78;
+    font: 800 12px/1 Inter, DM Sans, system-ui, sans-serif;
+    letter-spacing: 0.01em;
+    box-shadow: 0 14px 34px rgba(8, 48, 73, 0.13);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .24s ease, transform .24s ease, visibility .24s ease;
+  }
+
+  .aasiom-chatbot-toggle:hover .aasiom-toggle-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .aasiom-chatbot-panel {
+    position: fixed;
+    right: 24px;
+    bottom: 108px;
+    width: 500px;
+    height: 770px;
+    border-radius: 22px;
+    box-shadow:
+      0 30px 90px rgba(8, 48, 73, 0.18),
+      0 0 0 1px rgba(8, 127, 166, 0.08);
+    z-index: 999998;
+    display: none;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(27,184,214,0.08), transparent 34%),
+      rgba(255,255,255,0.98);
+    border: 1px solid rgba(8, 127, 166, 0.12);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+  }
+
+  .aasiom-chatbot-panel.open {
+    display: block;
+    animation: aasiomPanelIn 0.28s ease both;
+  }
+
+  .aasiom-chatbot-actions {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 5;
+    width: 150px;
+    height: 62px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 14px;
+    background: transparent;
+    pointer-events: none;
+  }
+
+  .aasiom-chatbot-actions button {
+    pointer-events: auto;
+    border: 1px solid rgba(8,127,166,0.08);
+    border-radius: 999px;
+    padding: 10px 18px;
+    font: 800 12px Inter, system-ui, sans-serif;
+    background: rgba(255, 255, 255, 0.96);
+    color: #075C78;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(8, 48, 73, 0.12);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+
+  .aasiom-chatbot-actions button:hover {
+    transform: translateY(-1px);
+    background: #ffffff;
+    box-shadow: 0 14px 34px rgba(8, 48, 73, 0.16);
+  }
+
+  .aasiom-chatbot-frame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    background: #ffffff;
+  }
+
+  /* Covers the default narrow welcome copy with AASIOM homepage-upgrade copy */
+  .aasiom-welcome-visual {
+    position: absolute;
+    left: 42px;
+    right: 42px;
+    top: 150px;
+    z-index: 3;
+    text-align: center;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(27,184,214,0.05), transparent 34%),
+      #ffffff;
+    padding: 18px 8px 22px;
+    transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+  }
+
+  .aasiom-chatbot-panel.hide-welcome-overlay .aasiom-welcome-visual {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+  }
+
+  .aasiom-welcome-logo {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 23px;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 12px rgba(8, 127, 166, 0.20));
+  }
+
+  .aasiom-welcome-visual h2 {
+    margin: 0 0 18px;
+    color: #000;
+    font: 900 31px/1.05 Inter, DM Sans, system-ui, sans-serif;
+    letter-spacing: -0.035em;
+  }
+
+  .aasiom-welcome-visual p {
+    max-width: 420px;
+    margin: 0 auto;
+    color: #061826;
+    font: 500 17px/1.58 DM Sans, Inter, system-ui, sans-serif;
+  }
+
+  /* Hide the visible Botpress credit in the embedded shareable widget */
+  .aasiom-chatbot-panel::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 92px;
+    width: 190px;
+    height: 32px;
+    transform: translateX(-50%);
+    z-index: 4;
+    background: #ffffff;
+    border-radius: 999px;
+    pointer-events: none;
+  }
+
+  @keyframes aasiomOrbBreathe {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-1px) scale(1.025); }
+  }
+
+  @keyframes aasiomOrbSheen {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes aasiomChatPulse {
+    0%, 100% { opacity: .32; transform: scale(1); }
+    50% { opacity: .76; transform: scale(1.13); }
+  }
+
+  @keyframes aasiomPanelIn {
+    from { opacity: 0; transform: translateY(14px) scale(.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (max-width: 600px) {
+    .aasiom-chatbot-panel {
+      right: 12px;
+      bottom: 96px;
+      width: calc(100vw - 24px);
+      height: 78vh;
+      border-radius: 20px;
+    }
+
+    .aasiom-chatbot-toggle {
+      right: 16px;
+      bottom: 16px;
+      width: 66px;
+      height: 66px;
+    }
+
+    .aasiom-chatbot-toggle .aasiom-toggle-core {
+      width: 42px;
+      height: 42px;
+    }
+
+    .aasiom-chatbot-toggle .aasiom-toggle-logo {
+      width: 28px;
+      height: 28px;
+    }
+
+    .aasiom-chatbot-toggle .aasiom-toggle-tooltip {
+      display: none;
+    }
+
+    .aasiom-welcome-visual {
+      left: 30px;
+      right: 30px;
+      top: 148px;
+    }
+
+    .aasiom-welcome-logo { width: 46px; height: 46px; }
+    .aasiom-welcome-visual h2 { font-size: 29px; }
+    .aasiom-welcome-visual p { font-size: 16px; max-width: 330px; line-height: 1.55; }
+  }
+</style>
+
+<div id="aasiomChatbotPanel" class="aasiom-chatbot-panel" aria-label="AASIOM AI Chatbot">
+  <div class="aasiom-chatbot-actions">
+    <button type="button" onclick="aasiomToggleChatbot()">Close</button>
+  </div>
+
+  <div class="aasiom-welcome-visual" aria-hidden="true">
+    <img class="aasiom-welcome-logo" src="images/aasiom-tab.png" alt="">
+    <h2>AASIOM AI</h2>
+    <p>Ask about AASIOM, ANVIRA, pilots, or partnerships. Learn how AASIOM builds highway incident intelligence systems for Indian fleet operations.</p>
+  </div>
+
+  <iframe
+    id="aasiomChatbotFrame"
+    class="aasiom-chatbot-frame"
+    title="AASIOM AI Chatbot">
+  </iframe>
+</div>
+
+<button class="aasiom-chatbot-toggle" type="button" onclick="aasiomToggleChatbot()" aria-label="Open AASIOM AI Chatbot" title="Ask AASIOM AI">
+  <span class="aasiom-toggle-tooltip">Ask AASIOM AI</span>
+  <span class="aasiom-toggle-core">
+    <img class="aasiom-toggle-logo" src="images/aasiom-tab.png" alt="" aria-hidden="true">
+  </span>
+</button>
+
+<script>
+  const AASIOM_CHATBOT_BASE_URL = "https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/06/26/21/20260626210753-927VVFE2.json";
+
+  function aasiomBuildChatUrl() {
+    return AASIOM_CHATBOT_BASE_URL + "&fresh=" + Date.now();
+  }
+
+  function aasiomStartNewChat() {
+    const frame = document.getElementById("aasiomChatbotFrame");
+    frame.src = aasiomBuildChatUrl();
+  }
+
+  function aasiomToggleChatbot() {
+    const panel = document.getElementById("aasiomChatbotPanel");
+    const frame = document.getElementById("aasiomChatbotFrame");
+    panel.classList.toggle("open");
+    if (panel.classList.contains("open") && !frame.src) {
+      aasiomStartNewChat();
+    }
+    if (panel.classList.contains("open")) {
+      panel.classList.remove("hide-welcome-overlay");
+      clearTimeout(window.__aasiomWelcomeTimer);
+      window.__aasiomWelcomeTimer = setTimeout(function(){
+        panel.classList.add("hide-welcome-overlay");
+      }, 9000);
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", function () {
+    aasiomStartNewChat();
+  });
+</script>
+
 </body>
 </html>
