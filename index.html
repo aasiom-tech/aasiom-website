@@ -3143,19 +3143,24 @@ html body .nav-toggle {
 
   .aasiom-chatbot-actions {
     position: absolute;
-    right: 14px;
-    top: 12px;
+    right: 0;
+    top: 0;
     z-index: 2;
+    width: 150px;
+    height: 54px;
     display: flex;
-    gap: 8px;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 14px;
+    background: #ffffff;
   }
 
   .aasiom-chatbot-actions button {
     border: 0;
     border-radius: 999px;
-    padding: 7px 10px;
+    padding: 7px 13px;
     font: 700 12px Inter, system-ui, sans-serif;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.96);
     color: #075C78;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(8, 48, 73, 0.12);
@@ -3188,7 +3193,6 @@ html body .nav-toggle {
 
 <div id="aasiomChatbotPanel" class="aasiom-chatbot-panel" aria-label="AASIOM AI Chatbot">
   <div class="aasiom-chatbot-actions">
-    <button type="button" onclick="aasiomStartNewChat()">New Chat</button>
     <button type="button" onclick="aasiomToggleChatbot()">Close</button>
   </div>
   <iframe
