@@ -1,329 +1,278 @@
-/**
- * AASIOM — Active Telemetry HUD Canvas
- *
- * Sovereign defence-contractor aesthetic: structural grid, AI bounding-box
- * acquisitions with typewriter telemetry, and a slow radar scan line.
- *
- * Performance budget:
- *   - Static grid cached to offscreen canvas (redrawn only on resize).
- *   - Object pool capped at 3 targets; no per-frame allocations in hot path.
- *   - Visibility API pauses loop when tab is hidden.
- *   - requestAnimationFrame at native refresh; work per frame is < 1 ms.
- */
 (function () {
-  'use strict';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body;
+  body.classList.add('aasiom-future-ready');
 
-  /* ================================================================
-     CONFIGURATION
-     ================================================================ */
-  var CYAN       = '34,211,238';
-  var GRID_MAJOR = 160;           // px between major gridlines
-  var GRID_MINOR = 40;            // px between minor gridlines
-  var MAX_TGT    = 3;             // max simultaneous bounding boxes
-  var SPAWN_LO   = 2800;          // ms min between spawns
-  var SPAWN_HI   = 5500;          // ms max
-  var LIFE_LO    = 3200;          // ms min target lifetime
-  var LIFE_HI    = 5800;          // ms max
-  var FADE_IN    = 380;           // ms scale-in
-  var FADE_OUT   = 550;           // ms fade-out
-  var SCAN_PERIOD= 14000;         // ms per full scan-line sweep
-  var BRACKET_OP = 0.14;          // peak bracket opacity
-  var TEXT_OP    = 0.55;          // text opacity relative to bracket
-  var XHAIR_OP  = 0.35;          // center crosshair relative to bracket
-
-  /* ================================================================
-     SETUP
-     ================================================================ */
-  var overlay = document.querySelector('.noise-overlay');
-  if (!overlay) return;
-
-  var c   = document.createElement('canvas');
-  c.setAttribute('aria-hidden', 'true');
-  c.style.cssText =
-    'position:fixed;top:0;left:0;width:100%;height:100%;' +
-    'pointer-events:none;z-index:1;will-change:transform;';
-  overlay.parentNode.insertBefore(c, overlay.nextSibling);
-
-  var ctx  = c.getContext('2d');
-  var gC   = document.createElement('canvas');   // offscreen grid
-  var gCtx = gC.getContext('2d');
-
-  var w, h, dpr;
-  var targets   = [];
-  var scanPhase = 0;
-  var lastSpawn = 0;
-  var nextSpawn = SPAWN_LO;
-
-  /* ================================================================
-     HELPERS
-     ================================================================ */
-  function rand(a, b)    { return Math.random() * (b - a) + a; }
-  function randInt(a, b) { return (Math.random() * (b - a) + a) | 0; }
-
-  var TGT_CLASS  = ['VEHICLE','INCIDENT','DEBRIS','THERMAL-SIG','OBSTRUCTION','ANOMALY'];
-  var TGT_STATUS = ['TRACKING','ACQUIRED','CLASSIFYING','LOCK'];
-
-  function genTelemetry() {
-    var id  = 'TGT-0x' + randInt(0x1000, 0xFFFF).toString(16).toUpperCase();
-    var st  = TGT_STATUS[randInt(0, TGT_STATUS.length)];
-    var lat = (18.50 + Math.random() * 1.50).toFixed(4);
-    var lon = (72.50 + Math.random() * 1.20).toFixed(4);
-    var alt = randInt(80, 450);
-    var spd = randInt(12, 85);
-    var cls = TGT_CLASS[randInt(0, TGT_CLASS.length)];
-    var cnf = (0.72 + Math.random() * 0.27).toFixed(2);
-
-    return [
-      id + ' \u00b7 ' + st,
-      'LAT ' + lat + '\u00b0N  LON ' + lon + '\u00b0E',
-      'ALT ' + alt + 'm  SPD ' + spd + 'm/s',
-      cls + '  CONF ' + cnf
-    ];
+  function ensureStage() {
+    if (!document.querySelector('.aasiom-stage')) {
+      var stage = document.createElement('div');
+      stage.className = 'aasiom-stage';
+      stage.setAttribute('aria-hidden', 'true');
+      stage.innerHTML = '<span></span><span></span><span></span>';
+      document.body.prepend(stage);
+    }
   }
 
-  /* ================================================================
-     STATIC GRID  (offscreen — redrawn only on resize)
-     ================================================================ */
-  function renderGrid() {
-    gCtx.clearRect(0, 0, gC.width, gC.height);
-    gCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  function setupHeader() {
+    var nav = document.querySelector('.nav, #nav, #navbar');
+    var navToggle = document.getElementById('navToggle');
+    var navLinks = document.getElementById('navLinks');
 
-    /* --- minor grid ------------------------------------------------ */
-    gCtx.strokeStyle = 'rgba(' + CYAN + ',0.018)';
-    gCtx.lineWidth   = 0.5;
-    gCtx.beginPath();
-    var x, y;
-    for (x = 0; x <= w; x += GRID_MINOR) { gCtx.moveTo(x, 0); gCtx.lineTo(x, h); }
-    for (y = 0; y <= h; y += GRID_MINOR) { gCtx.moveTo(0, y); gCtx.lineTo(w, y); }
-    gCtx.stroke();
-
-    /* --- major grid ------------------------------------------------ */
-    gCtx.strokeStyle = 'rgba(' + CYAN + ',0.04)';
-    gCtx.beginPath();
-    for (x = 0; x <= w; x += GRID_MAJOR) { gCtx.moveTo(x, 0); gCtx.lineTo(x, h); }
-    for (y = 0; y <= h; y += GRID_MAJOR) { gCtx.moveTo(0, y); gCtx.lineTo(w, y); }
-    gCtx.stroke();
-
-    /* --- crosshairs at major intersections ------------------------- */
-    gCtx.strokeStyle = 'rgba(' + CYAN + ',0.065)';
-    gCtx.lineWidth   = 0.5;
-    var cs = 5;
-    gCtx.beginPath();
-    for (x = GRID_MAJOR; x < w; x += GRID_MAJOR) {
-      for (y = GRID_MAJOR; y < h; y += GRID_MAJOR) {
-        gCtx.moveTo(x - cs, y); gCtx.lineTo(x + cs, y);
-        gCtx.moveTo(x, y - cs); gCtx.lineTo(x, y + cs);
-      }
-    }
-    gCtx.stroke();
-
-    /* --- edge ruler ticks ------------------------------------------ */
-    gCtx.strokeStyle = 'rgba(' + CYAN + ',0.05)';
-    gCtx.beginPath();
-    for (x = 0; x <= w; x += GRID_MAJOR) {
-      gCtx.moveTo(x, 0); gCtx.lineTo(x, 6);
-      gCtx.moveTo(x, h); gCtx.lineTo(x, h - 6);
-    }
-    for (y = 0; y <= h; y += GRID_MAJOR) {
-      gCtx.moveTo(0, y); gCtx.lineTo(6, y);
-      gCtx.moveTo(w, y); gCtx.lineTo(w - 6, y);
-    }
-    gCtx.stroke();
-
-    /* --- sector labels at every-other major intersection ----------- */
-    gCtx.font      = '7px "JetBrains Mono",monospace';
-    gCtx.fillStyle = 'rgba(' + CYAN + ',0.045)';
-    gCtx.textAlign = 'left';
-    var col = 0;
-    for (x = GRID_MAJOR; x < w; x += GRID_MAJOR * 2) {
-      var row = 0;
-      for (y = GRID_MAJOR; y < h; y += GRID_MAJOR * 2) {
-        gCtx.fillText(
-          String.fromCharCode(65 + (col % 26)) + row,
-          x + 5, y - 4
-        );
-        row++;
-      }
-      col++;
+    function onScroll() {
+      var scrolled = window.scrollY > 10;
+      body.classList.toggle('aasiom-scrolled', scrolled);
+      if (nav) nav.classList.toggle('scrolled', scrolled);
     }
 
-    gCtx.setTransform(1, 0, 0, 1, 0, 0);
-  }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ================================================================
-     RESIZE
-     ================================================================ */
-  function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    w   = window.innerWidth;
-    h   = window.innerHeight;
-    c.width  = w * dpr;  c.height  = h * dpr;
-    gC.width = w * dpr;  gC.height = h * dpr;
-    renderGrid();
-  }
-
-  /* ================================================================
-     DRAWING PRIMITIVES
-     ================================================================ */
-
-  /* Corner-bracket bounding box */
-  function drawBrackets(bx, by, bw, bh, cl, op) {
-    ctx.strokeStyle = 'rgba(' + CYAN + ',' + op.toFixed(3) + ')';
-    ctx.lineWidth   = 1;
-    ctx.beginPath();
-    // TL
-    ctx.moveTo(bx + cl, by);  ctx.lineTo(bx, by);      ctx.lineTo(bx, by + cl);
-    // TR
-    ctx.moveTo(bx + bw - cl, by); ctx.lineTo(bx + bw, by); ctx.lineTo(bx + bw, by + cl);
-    // BR
-    ctx.moveTo(bx + bw, by + bh - cl); ctx.lineTo(bx + bw, by + bh); ctx.lineTo(bx + bw - cl, by + bh);
-    // BL
-    ctx.moveTo(bx + cl, by + bh); ctx.lineTo(bx, by + bh); ctx.lineTo(bx, by + bh - cl);
-    ctx.stroke();
-  }
-
-  /* Typewriter telemetry text beside a target */
-  function drawTelemetry(bx, by, bw, bh, lines, chars, op) {
-    ctx.font = '9px "JetBrains Mono",monospace';
-    ctx.fillStyle = 'rgba(' + CYAN + ',' + (op * TEXT_OP).toFixed(3) + ')';
-
-    var tx;
-    if (bx + bw + 215 < w) {
-      tx = bx + bw + 10;
-      ctx.textAlign = 'left';
-    } else {
-      tx = bx - 10;
-      ctx.textAlign = 'right';
-    }
-
-    var counted = 0;
-    for (var i = 0; i < lines.length; i++) {
-      var vis = Math.min(lines[i].length, Math.max(0, chars - counted));
-      if (vis > 0) ctx.fillText(lines[i].substring(0, vis), tx, by + 14 + i * 14);
-      counted += lines[i].length;
-    }
-    ctx.textAlign = 'left';
-  }
-
-  /* Tiny center crosshair inside a box */
-  function drawCrosshair(cx, cy, op) {
-    ctx.strokeStyle = 'rgba(' + CYAN + ',' + (op * XHAIR_OP).toFixed(3) + ')';
-    ctx.lineWidth   = 0.5;
-    ctx.beginPath();
-    ctx.moveTo(cx - 8, cy); ctx.lineTo(cx - 3, cy);
-    ctx.moveTo(cx + 3, cy); ctx.lineTo(cx + 8, cy);
-    ctx.moveTo(cx, cy - 8); ctx.lineTo(cx, cy - 3);
-    ctx.moveTo(cx, cy + 3); ctx.lineTo(cx, cy + 8);
-    ctx.stroke();
-  }
-
-  /* ================================================================
-     MAIN LOOP
-     ================================================================ */
-  var raf, prevTs = 0;
-
-  function frame(ts) {
-    raf = requestAnimationFrame(frame);
-
-    var dt = ts - prevTs;
-    if (dt < 16) return;          // cap at ~60 fps
-    prevTs = ts;
-
-    /* -- clear ---------------------------------------------------- */
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, c.width, c.height);
-
-    /* -- blit cached grid ----------------------------------------- */
-    ctx.drawImage(gC, 0, 0);
-
-    /* -- switch to CSS-pixel coordinates -------------------------- */
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-    /* -- scan line ------------------------------------------------ */
-    scanPhase += dt / SCAN_PERIOD;
-    if (scanPhase > 1) scanPhase -= 1;
-    var sy = scanPhase * h;
-
-    ctx.fillStyle = 'rgba(' + CYAN + ',0.02)';
-    ctx.fillRect(0, sy - 0.5, w, 1);
-
-    var grad = ctx.createLinearGradient(0, sy - 60, 0, sy);
-    grad.addColorStop(0, 'rgba(' + CYAN + ',0)');
-    grad.addColorStop(1, 'rgba(' + CYAN + ',0.01)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, sy - 60, w, 60);
-
-    /* -- spawn targets -------------------------------------------- */
-    if (ts - lastSpawn > nextSpawn && targets.length < MAX_TGT) {
-      var tw = rand(100, 240);
-      var th = rand(70, 160);
-      targets.push({
-        x: rand(w * 0.04, w * 0.93 - tw),
-        y: rand(h * 0.06, h * 0.90 - th),
-        w: tw, h: th,
-        born: ts,
-        life: rand(LIFE_LO, LIFE_HI),
-        telem: genTelemetry(),
-        chars: 0,
-        op: 0,
-        cl: Math.min(tw, th) * 0.22
+    if (nav && navToggle && navLinks) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        navLinks.classList.toggle('active', open);
+        navToggle.setAttribute('aria-expanded', String(open));
       });
-      lastSpawn = ts;
-      nextSpawn = rand(SPAWN_LO, SPAWN_HI);
-    }
-
-    /* -- update & draw targets ------------------------------------ */
-    for (var i = targets.length - 1; i >= 0; i--) {
-      var t = targets[i];
-      var age = ts - t.born;
-
-      /* cull dead targets */
-      if (age > t.life) { targets.splice(i, 1); continue; }
-
-      /* opacity lifecycle */
-      var foStart = t.life - FADE_OUT;
-      if      (age < FADE_IN)  t.op = (age / FADE_IN) * BRACKET_OP;
-      else if (age < foStart)  t.op = BRACKET_OP;
-      else                     t.op = BRACKET_OP * (1 - (age - foStart) / FADE_OUT);
-
-      /* scale-in (0.85 → 1.0 during FADE_IN) */
-      var s  = age < FADE_IN ? 0.85 + 0.15 * (age / FADE_IN) : 1;
-      var cx = t.x + t.w * 0.5;
-      var cy = t.y + t.h * 0.5;
-      var dx = cx - t.w * s * 0.5;
-      var dy = cy - t.h * s * 0.5;
-      var dw = t.w * s;
-      var dh = t.h * s;
-
-      /* corner brackets */
-      drawBrackets(dx, dy, dw, dh, t.cl * s, t.op);
-
-      /* center crosshair */
-      drawCrosshair(cx, cy, t.op);
-
-      /* typewriter telemetry */
-      if (age > FADE_IN * 0.35) {
-        t.chars = ((age - FADE_IN * 0.35) * 0.065) | 0;
-        drawTelemetry(dx, dy, dw, dh, t.telem, t.chars, t.op);
-      }
-
-      /* thin confidence bar below box */
-      var barOp = t.op * 0.5;
-      var barW  = dw * Math.min(1, age / (FADE_IN * 2));
-      ctx.fillStyle = 'rgba(' + CYAN + ',' + barOp.toFixed(3) + ')';
-      ctx.fillRect(dx, dy + dh + 4, barW, 1);
+      navLinks.addEventListener('click', function (event) {
+        if (event.target && event.target.tagName === 'A') {
+          nav.classList.remove('open');
+          navLinks.classList.remove('active');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
     }
   }
 
-  /* ================================================================
-     LIFECYCLE
-     ================================================================ */
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) cancelAnimationFrame(raf);
-    else { prevTs = performance.now(); raf = requestAnimationFrame(frame); }
-  });
+  function setupReveal() {
+    var selectors = [
+      '.reveal',
+      'section',
+      '.hero-grid > *',
+      '.contact-hero-grid > *',
+      '.page-header .container > *',
+      '.card',
+      '.stat',
+      '.trust-item',
+      '.tech-feature-card',
+      '.engage-card',
+      '.think-card',
+      '.mission-stat-box',
+      '.anvira-flip-card',
+      '.domain-card',
+      '.contact-direct-card',
+      '.contact-form-panel',
+      '.ph-chip',
+      '.metric-panel',
+      '.anvira-panel',
+      '.closing-box'
+    ];
+    var targets = Array.prototype.slice.call(document.querySelectorAll(selectors.join(',')));
+    targets.forEach(function (el, index) {
+      el.classList.remove('premium-reveal', 'a3d-reveal');
+      el.classList.add('future-reveal');
+      el.style.setProperty('--future-delay', Math.min(index % 10, 7) * 42 + 'ms');
+    });
 
-  resize();
-  window.addEventListener('resize', resize);
-  requestAnimationFrame(frame);
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -9% 0px' });
+      targets.forEach(function (el) { observer.observe(el); });
+    } else {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+    }
+  }
+
+  function setupTilt() {
+    if (reduceMotion) return;
+    var targets = Array.prototype.slice.call(document.querySelectorAll('.card, .tech-feature-card, .engage-card, .think-card, .trust-item, .contact-direct-card, .contact-form-panel, .metric-panel, .ph-chip, .stat'));
+    targets.forEach(function (el) {
+      el.addEventListener('pointermove', function (event) {
+        var rect = el.getBoundingClientRect();
+        var x = ((event.clientX - rect.left) / rect.width) - 0.5;
+        var y = ((event.clientY - rect.top) / rect.height) - 0.5;
+        el.style.setProperty('--ry', (x * -7).toFixed(2) + 'deg');
+        el.style.setProperty('--rx', (y * 5).toFixed(2) + 'deg');
+      });
+      el.addEventListener('pointerleave', function () {
+        el.style.removeProperty('--ry');
+        el.style.removeProperty('--rx');
+      });
+    });
+  }
+
+  function setupPointerLight() {
+    if (reduceMotion) return;
+    var root = document.documentElement;
+    window.addEventListener('pointermove', function (event) {
+      root.style.setProperty('--mx', (event.clientX / window.innerWidth * 100).toFixed(2) + '%');
+      root.style.setProperty('--my', (event.clientY / window.innerHeight * 100).toFixed(2) + '%');
+    }, { passive: true });
+  }
+
+  function setupCanvas() {
+    if (reduceMotion) return;
+    var canvas = document.createElement('canvas');
+    canvas.className = 'aasiom-ambient-canvas';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.prepend(canvas);
+    var ctx = canvas.getContext('2d', { alpha: true });
+    var dpr = Math.min(window.devicePixelRatio || 1, 1.6);
+    var width = 0;
+    var height = 0;
+    var particles = [];
+    var lines = [];
+    var mouse = { x: 0.5, y: 0.25 };
+
+    function particleCount() {
+      if (window.innerWidth < 640) return 34;
+      if (window.innerWidth < 980) return 52;
+      return 78;
+    }
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var count = particleCount();
+      particles = Array.from({ length: count }, function (_, i) {
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          z: Math.random() * 0.7 + 0.3,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          r: Math.random() * 1.7 + 0.7,
+          hue: i % 5 === 0 ? '244,184,74' : (i % 3 === 0 ? '25,214,189' : '36,215,255')
+        };
+      });
+      lines = Array.from({ length: Math.max(9, Math.floor(count / 5)) }, function () {
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          length: Math.random() * 180 + 120,
+          speed: Math.random() * 0.7 + 0.35,
+          angle: -0.35 + Math.random() * 0.16
+        };
+      });
+    }
+
+    function drawGrid(time) {
+      var gap = width < 640 ? 46 : 58;
+      ctx.save();
+      ctx.globalAlpha = 0.12;
+      ctx.strokeStyle = 'rgba(125,220,255,0.34)';
+      ctx.lineWidth = 1;
+      var offset = (time * 0.018) % gap;
+      for (var x = -gap + offset; x < width + gap; x += gap) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x + width * 0.10, height);
+        ctx.stroke();
+      }
+      for (var y = -gap + offset; y < height + gap; y += gap) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(width, y - height * 0.06);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function render(time) {
+      ctx.clearRect(0, 0, width, height);
+      drawGrid(time);
+
+      var mx = mouse.x * width;
+      var my = mouse.y * height;
+      var gradient = ctx.createRadialGradient(mx, my, 0, mx, my, Math.max(width, height) * 0.55);
+      gradient.addColorStop(0, 'rgba(36,215,255,0.12)');
+      gradient.addColorStop(0.42, 'rgba(25,214,189,0.045)');
+      gradient.addColorStop(1, 'rgba(36,215,255,0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      lines.forEach(function (line) {
+        line.x += Math.cos(line.angle) * line.speed;
+        line.y += Math.sin(line.angle) * line.speed;
+        if (line.x > width + line.length) line.x = -line.length;
+        if (line.y < -80) line.y = height + 80;
+        ctx.save();
+        ctx.translate(line.x, line.y);
+        ctx.rotate(line.angle);
+        var lg = ctx.createLinearGradient(0, 0, line.length, 0);
+        lg.addColorStop(0, 'rgba(36,215,255,0)');
+        lg.addColorStop(0.45, 'rgba(36,215,255,0.32)');
+        lg.addColorStop(1, 'rgba(244,184,74,0)');
+        ctx.strokeStyle = lg;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(line.length, 0);
+        ctx.stroke();
+        ctx.restore();
+      });
+
+      for (var i = 0; i < particles.length; i++) {
+        var p = particles[i];
+        p.x += p.vx * p.z;
+        p.y += p.vy * p.z;
+        if (p.x < -20) p.x = width + 20;
+        if (p.x > width + 20) p.x = -20;
+        if (p.y < -20) p.y = height + 20;
+        if (p.y > height + 20) p.y = -20;
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(' + p.hue + ',' + (0.35 + p.z * 0.45) + ')';
+        ctx.shadowColor = 'rgba(' + p.hue + ',0.55)';
+        ctx.shadowBlur = 12;
+        ctx.arc(p.x, p.y, p.r * p.z, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        for (var j = i + 1; j < particles.length; j++) {
+          var q = particles[j];
+          var dx = p.x - q.x;
+          var dy = p.y - q.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          var max = width < 640 ? 88 : 118;
+          if (dist < max) {
+            ctx.strokeStyle = 'rgba(125,220,255,' + ((1 - dist / max) * 0.18) + ')';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('pointermove', function (event) {
+      mouse.x = event.clientX / window.innerWidth;
+      mouse.y = event.clientY / window.innerHeight;
+    }, { passive: true });
+    resize();
+    requestAnimationFrame(render);
+  }
+
+  ensureStage();
+  setupHeader();
+  setupReveal();
+  setupTilt();
+  setupPointerLight();
+  setupCanvas();
 })();
