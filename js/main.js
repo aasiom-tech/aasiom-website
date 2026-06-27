@@ -3,6 +3,12 @@
 // Hardened with Error Boundaries, SW & Memory Optimization
 // ============================================
 
+// ─── Supabase Configuration ──────────────────────────────────────────────
+const SUPABASE_URL = "https://gmnhvfhrnjkptdhdhjey.supabase.co"; 
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtbmh2ZmhybmprcHRkaGRoamV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MDQ0MzMsImV4cCI6MjA5Nzk4MDQzM30.Fn8nXUHdRNjmGzM8K3Nh-RCip8XRDeP1YI_iu-dA_-Y"; 
+
+// The script tag we added in contact.html automatically creates the global 'supabase' object
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 (function () {
   'use strict';
 
@@ -346,14 +352,49 @@
     }
   };
 
-  // ─── Contact form & API Integration ──────────────────────────────────────
+ // ─── Contact form & API Integration ──────────────────────────────────────
   const initContactForm = () => {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('contactForm'); // Verified matching your HTML ID
     if (!form) return;
 
-    // Use debounced submit to prevent rapid double-clicks causing multiple API calls
-    const handleSubmit = debounce(async (e) => {
+    // Create the debounced sender function for the database request
+    const sendToSupabase = debounce(async (formData, btn, formContainer, originalCacheHTML, origText) => {
+      try {
+        // Direct execution from the client's web browser into the Supabase cluster table!
+        const { data, error } = await supabaseClient
+          .from('contact_submissions')
+          .insert([formData]);
+
+        if (error) throw error;
+
+        // Success State UI Transitions
+        btn.innerHTML = 'Message Sent &#10003;';
+        btn.style.background = 'linear-gradient(135deg,#059669,#047857)';
+        
+        setTimeout(() => {
+          btn.innerHTML = origText;
+          btn.style.background = '';
+          btn.style.opacity = '1';
+          btn.disabled = false;
+          form.reset();
+        }, 3200);
+
+      } catch (err) {
+        console.error("[AASIOM] Direct submission pipeline failure:", err);
+        
+        // Trigger your built-in beautiful Error Boundary UI instead of silent failure
+        window.renderErrorBoundary(formContainer, (container) => {
+          container.innerHTML = originalCacheHTML;
+          initContactForm(); // Re-initialize event listener safely on form restoral
+        }, `Submission Error: ${err.message || "Could not sync data securely with database cluster."}`);
+      }
+    }, 400);
+
+    // Attach the synchronous listener to catch the submit event instantly
+    form.addEventListener('submit', (e) => {
+      // 1. STOPS the page from reloading immediately
       e.preventDefault();
+
       const btn = form.querySelector('button[type="submit"]');
       if (!btn) return;
 
@@ -365,36 +406,25 @@
       btn.style.opacity = '0.7';
       btn.disabled = true;
 
-      try {
-        // Simulate an API call using our resilient fetch wrapper.
-        // We use a dummy URL that will 404, but fetchWithRetry will handle the generic catch
-        // If we want a success simulation, we bypass fetch if it's static. Let's do a success sim:
-        await new Promise(resolve => setTimeout(resolve, 800)); // Network delay sim
+      // 2. Extract values right when clicked
+     // Extract values right when clicked
+      const formData = {
+        full_name: document.getElementById('name')?.value || "",
+        work_email: document.getElementById('email')?.value || "",
+        company_name: document.getElementById('org')?.value || "Not Provided", // Handles your NOT NULL constraint
+        job_title: document.getElementById('role')?.value || "Not Provided",    // Handles your NOT NULL constraint
+        contact_reason: document.getElementById('type')?.value || "General Inquiry", // Fixed case name mapping
+        message_content: document.getElementById('message')?.value || "",
+        
+        // Include all optional fields safely (they can be null in the database)
+        phone_number: document.getElementById('phone')?.value || null,
+        linkedin_profile: document.getElementById('linkedin')?.value || null,
+        company_website: document.getElementById('website')?.value || null
+      };
 
-        // 10% chance of random failure to demonstrate the Error Boundary UI
-        if (Math.random() < 0.1) throw new Error("Simulated network drop");
-
-        btn.innerHTML = 'Message Sent &#10003;';
-        btn.style.background = 'linear-gradient(135deg,#059669,#047857)';
-        setTimeout(() => {
-          btn.innerHTML = origText;
-          btn.style.background = '';
-          btn.style.opacity = '1';
-          btn.disabled = false;
-          form.reset();
-        }, 3200);
-
-      } catch (err) {
-        // Trigger Vanilla Error Boundary instead of breaking the form or failing silently
-        window.renderErrorBoundary(formContainer, (container) => {
-          // On retry, restore original form state and trigger click manually or let user do it
-          container.innerHTML = originalCacheHTML;
-          initContactForm(); // re-init event listener
-        }, "Secure connection timed out while transmitting data. Check network.");
-      }
-    }, 400);
-
-    form.addEventListener('submit', handleSubmit);
+      // 3. Fire the database insertion pipeline safely
+      sendToSupabase(formData, btn, formContainer, originalCacheHTML, origText);
+    });
   };
 
   // ─── Smooth anchor scroll ─────────────────────────────────────────────────
