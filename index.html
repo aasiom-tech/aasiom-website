@@ -2578,57 +2578,8 @@ body.contact-page::before{opacity:.9 !important;background:radial-gradient(circl
   @media(prefers-reduced-motion:reduce){.motion-thread-bg span,.motion-thread-bg::before,.homepage-main::before,.command-card::before,.corridor-line,.pipeline::before{animation:none !important}}
 </style>
 
-
-
-<style id="final-refinement-v2">
-  /* Refinement: cleaner command panel, no frame cut, thin active background threads, professional icons. Header untouched. */
-  .motion-thread-bg{opacity:.52 !important;}
-  .motion-thread-bg::before{opacity:.72 !important;animation:bgDriftV2 13s ease-in-out infinite alternate !important;}
-  .motion-thread-bg span{border-width:1px !important;border-color:rgba(8,127,166,.085) !important;filter:drop-shadow(0 0 12px rgba(8,127,166,.055)) !important;animation:threadFloatV2 11s ease-in-out infinite !important;}
-  .motion-thread-bg span:nth-child(2){animation-duration:14s !important;border-color:rgba(37,99,235,.075) !important;}
-  .motion-thread-bg span:nth-child(3){animation-duration:12.5s !important;border-color:rgba(15,159,143,.075) !important;}
-  .motion-thread-bg span:nth-child(4){animation-duration:9.5s !important;border-color:rgba(8,127,166,.06) !important;}
-  .homepage-main::before{background-size:300px 300px,340px 340px !important;opacity:.45 !important;animation:gridSlideV2 18s linear infinite !important;}
-  .hero-title-new,.frame-title{letter-spacing:-.012em !important;word-spacing:.075em !important;line-height:1.12 !important;}
-  .hero-title-new{font-size:clamp(2.65rem,4.75vw,5.1rem) !important;}
-  .hero-sub-new,.frame-copy{font-size:clamp(1rem,1.1vw,1.14rem) !important;}
-
-  .command-card{min-height:0 !important;height:auto !important;padding:22px !important;border-radius:30px !important;align-self:center !important;background:
-    radial-gradient(circle at 86% 14%,rgba(8,145,178,.15),transparent 25%),
-    linear-gradient(145deg,rgba(255,255,255,.97),rgba(239,249,255,.90)) !important;box-shadow:0 26px 70px rgba(15,23,42,.11),inset 0 1px 0 rgba(255,255,255,.9) !important;}
-  .command-card::before{background:
-    linear-gradient(90deg,rgba(8,127,166,.035) 1px,transparent 1px),
-    linear-gradient(rgba(8,127,166,.035) 1px,transparent 1px) !important;background-size:32px 32px !important;animation:panelGridMoveV2 10s linear infinite !important;}
-  .command-card::after{display:none !important;}
-  .command-top{margin-bottom:14px !important;padding:13px 14px !important;border-radius:17px !important;background:rgba(255,255,255,.86) !important;}
-  .command-top strong{font-size:.96rem !important;letter-spacing:.01em !important;}
-  .live-dot{font-size:.64rem !important;}
-  .incident-flow{display:grid !important;grid-template-columns:1fr 1fr !important;gap:12px !important;margin-top:12px !important;}
-  .flow-step{position:relative !important;grid-template-columns:44px 1fr !important;min-height:112px !important;padding:15px !important;border-radius:20px !important;background:rgba(255,255,255,.88) !important;border:1px solid rgba(15,23,42,.085) !important;box-shadow:0 14px 32px rgba(15,23,42,.065) !important;overflow:hidden !important;}
-  .flow-step::after{content:"";position:absolute;left:15px;right:15px;bottom:0;height:2px;background:linear-gradient(90deg,transparent,#0891b2,transparent);opacity:.35;transition:opacity .25s ease,transform .25s ease;transform:scaleX(.65);}
-  .flow-step:hover{transform:translateY(-5px) !important;box-shadow:0 20px 42px rgba(8,127,166,.12) !important;}
-  .flow-step:hover::after{opacity:.95;transform:scaleX(1);}
-  .flow-step:nth-child(5){grid-column:1 / -1;min-height:98px !important;display:grid !important;grid-template-columns:44px 1fr !important;}
-  .flow-icon{width:44px !important;height:44px !important;border-radius:15px !important;background:linear-gradient(135deg,#e6f8ff,#ffffff) !important;color:#087f9f !important;box-shadow:0 10px 22px rgba(8,127,166,.10) !important;}
-  .flow-icon svg{width:21px !important;height:21px !important;}
-  .flow-step b{display:block !important;font-size:.94rem !important;line-height:1.25 !important;color:#061631 !important;}
-  .flow-step small{display:block !important;margin-top:5px !important;font-size:.78rem !important;line-height:1.48 !important;color:#53647b !important;}
-  .status{position:absolute !important;right:12px !important;top:12px !important;padding:5px 8px !important;font-size:.58rem !important;background:rgba(8,127,166,.06) !important;}
-  .corridor-line{width:150px !important;height:150px !important;right:-48px !important;bottom:-48px !important;opacity:.28 !important;}
-
-  .flip-number.flip-ico{font-size:0 !important;color:#087f9f !important;background:linear-gradient(135deg,#e6f8ff,#ffffff) !important;}
-  .flip-number.flip-ico svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
-  .flip-card:hover .flip-number.flip-ico{transform:translateY(-2px) scale(1.03);box-shadow:0 16px 32px rgba(8,127,166,.12);}
-  .flip-front,.flip-back{border-color:rgba(15,23,42,.09) !important;}
-
-  @keyframes threadFloatV2{0%,100%{transform:translate3d(0,0,0) rotate(0deg) scale(1)}35%{transform:translate3d(46px,-22px,0) rotate(13deg) scale(1.025)}70%{transform:translate3d(-24px,32px,0) rotate(-9deg) scale(.985)}}
-  @keyframes bgDriftV2{from{transform:translate3d(-1.2%,.5%,0) scale(1)}to{transform:translate3d(2.4%,-2%,0) scale(1.04)}}
-  @keyframes gridSlideV2{to{background-position:300px 300px,-340px 340px}}
-  @keyframes panelGridMoveV2{to{background-position:32px 32px,32px 32px}}
-  @media(max-width:1050px){.incident-flow{grid-template-columns:1fr !important}.flow-step:nth-child(5){grid-column:auto}.command-card{max-width:680px !important}}
-  @media(max-width:760px){.hero-title-new{font-size:clamp(2.25rem,10vw,3.7rem) !important;letter-spacing:-.01em !important}.incident-flow{grid-template-columns:1fr !important}.status{display:none !important}.flow-step{min-height:auto !important}.motion-thread-bg span{opacity:.5 !important}}
-</style>
-
+  <link rel="stylesheet" href="shared-header.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body id="top" class="contact-page">
   <div class="page-motif" aria-hidden="true"></div>
@@ -2698,7 +2649,7 @@ body.contact-page::before{opacity:.9 !important;background:radial-gradient(circl
           <h2 class="frame-title">The first 30 minutes after a highway incident are usually messy.</h2>
           <p class="frame-copy">Drivers, fleet owners, local responders, repair teams, surveyors, and operations staff often work with incomplete information. Delays in verification, documentation, and coordination can increase downtime, claim leakage, and operational losses.</p>
           <div class="flip-grid">
-            <article class="flip-card"><div class="flip-inner"><div class="flip-front"><span class="flip-number flip-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12s3.2-5 8-5 8 5 8 5-3.2 5-8 5-8-5-8-5Z"/><circle cx="12" cy="12" r="2.5"/></svg></span><h3>Late Visibility</h3><p>Incidents are often reported after confusion has already started.</p></div><div class="flip-back"><h3>Operational impact</h3><p>Teams lose the first response window and react with incomplete context.</p></div></div></article>
+            <article class="flip-card"><div class="flip-inner"><div class="flip-front"><span class="flip-number flip-ico">👁️</span><h3>Late Visibility</h3><p>Incidents are often reported after confusion has already started.</p></div><div class="flip-back"><h3>Operational impact</h3><p>Teams lose the first response window and react with incomplete context.</p></div></div></article>
             <article class="flip-card"><div class="flip-inner"><div class="flip-front"><span class="flip-number flip-ico">📄</span><h3>Weak Documentation</h3><p>Photos, location, timelines, and responsibility details remain scattered.</p></div><div class="flip-back"><h3>Evidence gap</h3><p>Missing proof creates friction during internal review and claim support.</p></div></div></article>
             <article class="flip-card"><div class="flip-inner"><div class="flip-front"><span class="flip-number flip-ico">🔗</span><h3>Slow Coordination</h3><p>Fleets lose time deciding who must act and what proof is available.</p></div><div class="flip-back"><h3>Downtime risk</h3><p>Every unclear handoff increases vehicle downtime and operational losses.</p></div></div></article>
           </div>
@@ -3288,6 +3239,6 @@ html body .nav-toggle {
     aasiomStartNewChat();
   });
 </script>
-
+  <script src="topo.js" defer></script>
 </body>
 </html>

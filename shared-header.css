@@ -16,6 +16,19 @@
   backdrop-filter: blur(22px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
   padding: 0 !important;
+  transform: translateZ(0) !important;
+  isolation: isolate !important;
+}
+
+.nav::before,
+.contact-page .nav::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  background: linear-gradient(90deg, transparent, rgba(8, 127, 166, 0.16), transparent), radial-gradient(circle at 12% 0%, rgba(8, 127, 166, 0.10), transparent 34%), radial-gradient(circle at 86% 0%, rgba(217, 149, 34, 0.09), transparent 30%) !important;
+  opacity: .88 !important;
 }
 
 .nav .container.nav-inner,
@@ -143,6 +156,7 @@
 .contact-page .nav-links li a:not(.nav-cta):hover,
 .contact-page .nav-links li a:not(.nav-cta).active {
   color: #061826 !important;
+  transform: translateY(-1px) !important;
 }
 
 .nav-links li a::before,
@@ -219,6 +233,7 @@
 .contact-page .nav-links li a.nav-cta:hover {
   transform: translateY(-2px) !important;
   background: linear-gradient(135deg, #061826, #0a8eb8) !important;
+  box-shadow: 0 18px 42px rgba(8, 127, 166, 0.28) !important;
 }
 
 .nav-toggle,
