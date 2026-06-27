@@ -3634,6 +3634,106 @@ body::after {
 
       </div>
 
+      <div class="contact-intro" id="book-slot" style="margin-top:72px;">
+        <span class="section-label">Book a Slot</span>
+        <h2>Reserve a focused conversation with AASIOM.</h2>
+        <p>
+          Share your preferred time and discussion context. AASIOM will confirm the final slot by email or phone.
+        </p>
+      </div>
+
+      <div class="contact-form-layout">
+        <div class="contact-form-panel">
+          <h3>Preferred Slot Details</h3>
+          <p>
+            Use this when you want to discuss ANVIRA, fleet operations, claims workflow, field research, or partnership possibilities.
+          </p>
+
+          <form id="slotForm" action="#" method="POST" class="premium-contact-form">
+            <div class="form-group">
+              <label for="slotName" class="form-label">Full Name</label>
+              <input type="text" id="slotName" name="slotName" class="form-input" placeholder="Your full name" required>
+            </div>
+
+            <div class="form-group">
+              <label for="slotEmail" class="form-label">Work Email Address</label>
+              <input type="email" id="slotEmail" name="slotEmail" class="form-input" placeholder="name@company.com" required>
+            </div>
+
+            <div class="optional-fields-box">
+              <div class="optional-fields-title">Slot preference</div>
+
+              <div class="form-group">
+                <label for="slotDate" class="form-label">Preferred Date</label>
+                <input type="date" id="slotDate" name="slotDate" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label for="slotTime" class="form-label">Preferred Time</label>
+                <input type="time" id="slotTime" name="slotTime" class="form-input" required>
+              </div>
+
+              <div class="form-group">
+                <label for="slotTopic" class="form-label">Discussion Topic</label>
+                <select id="slotTopic" name="slotTopic" class="form-select" required>
+                  <option value="">Select topic</option>
+                  <option value="anvira">ANVIRA discussion</option>
+                  <option value="fleet-operations">Fleet operations</option>
+                  <option value="claims-workflow">Insurance / claims workflow</option>
+                  <option value="highway-response">Highway response partnership</option>
+                  <option value="research">Research collaboration</option>
+                  <option value="general">General conversation</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="slotMode" class="form-label">Meeting Mode</label>
+                <select id="slotMode" name="slotMode" class="form-select" required>
+                  <option value="">Select mode</option>
+                  <option value="video-call">Video call</option>
+                  <option value="phone-call">Phone call</option>
+                  <option value="in-person">In-person, if feasible</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="slotNotes" class="form-label">Discussion Context</label>
+              <textarea id="slotNotes" name="slotNotes" class="form-textarea" placeholder="Tell us what you want to discuss and what outcome you are looking for." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit" style="width:100%; justify-content:center;">
+              Request Slot &rarr;
+            </button>
+          </form>
+        </div>
+
+        <div class="contact-side-panel">
+          <div class="contact-side-card">
+            <h3>What to Include</h3>
+            <p>
+              Mention the operating problem, stakeholder context, preferred meeting mode, and why the conversation matters.
+            </p>
+          </div>
+
+          <div class="contact-side-card">
+            <h3>Best Fit</h3>
+            <p>
+              Book a slot for ANVIRA discussions, fleet and claims workflows, highway response partnerships, research conversations, or serious collaboration requests.
+            </p>
+          </div>
+
+          <div class="contact-side-card">
+            <h3>Confirmation</h3>
+            <p>
+              Your requested time is treated as a preference. AASIOM will confirm the final slot after reviewing the context.
+              <br><br>
+              <a href="mailto:pvsao@aasiom.com">pvsao@aasiom.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="contact-philosophy contact-philosophy--impact">
         <h2><span>Operational reality first.</span> <em>Technology second.</em></h2>
         <p>
