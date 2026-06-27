@@ -219,14 +219,20 @@
       align-items:center;
       padding:128px 0 80px;
       overflow:hidden;
+      background-color:#05070d;
+      background-image:url("images/night-highway-hero.png");
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
     }
     .hero::before {
       content:"";
       position:absolute;
       inset:0;
       background:
-        linear-gradient(90deg, rgba(11,15,23,.96) 0%, rgba(11,15,23,.78) 45%, rgba(11,15,23,.94) 100%),
-        radial-gradient(circle at 70% 40%, rgba(31,111,235,.17), transparent 34%);
+        linear-gradient(90deg, rgba(251,253,255,.80) 0%, rgba(251,253,255,.58) 18%, rgba(8,12,20,.28) 45%, rgba(5,8,14,.76) 100%),
+        radial-gradient(circle at 20% 38%, rgba(255,255,255,.38), transparent 36%),
+        radial-gradient(circle at 70% 40%, rgba(31,111,235,.18), transparent 34%);
       z-index:-2;
     }
     .hero::after {
