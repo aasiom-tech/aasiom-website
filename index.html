@@ -3126,234 +3126,66 @@ html body .nav-toggle {
 }
 </style>
 <!-- AASIOM AI Chatbot -->
-<style id="aasiom-ai-chatbot-advanced-v4">
-  :root {
-    --aasiom-ai-blue:#0b6f96;
-    --aasiom-ai-cyan:#38d5f4;
-    --aasiom-ai-ice:#e9fbff;
-    --aasiom-ai-navy:#082f49;
-  }
-
+<style>
   .aasiom-chatbot-toggle {
     position: fixed;
-    right: 26px;
-    bottom: 26px;
-    width: 156px;
-    height: 58px;
-    border: 1px solid rgba(255,255,255,.72);
-    border-radius: 999px;
+    right: 24px;
+    bottom: 24px;
+    width: 64px;
+    height: 64px;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #075C78, #0EA5C6);
+    color: #ffffff;
+    font-size: 28px;
     cursor: pointer;
     z-index: 999999;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 11px;
-    padding: 8px 16px 8px 9px;
-    color: #082f49;
-    background:
-      linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(229,250,255,.92) 42%, rgba(151,231,255,.86) 100%);
-    box-shadow:
-      0 22px 55px rgba(8, 47, 73, .18),
-      0 0 44px rgba(56, 213, 244, .24),
-      inset 0 1px 0 rgba(255,255,255,.95),
-      inset 0 -12px 28px rgba(14,165,233,.12);
-    backdrop-filter: blur(22px) saturate(1.35);
-    -webkit-backdrop-filter: blur(22px) saturate(1.35);
-    overflow: hidden;
-    transform: translateZ(0);
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    isolation: isolate;
-  }
-
-  .aasiom-chatbot-toggle::before {
-    content: "";
-    position: absolute;
-    inset: -45% -30%;
-    background:
-      radial-gradient(circle at 28% 25%, rgba(255,255,255,.95), transparent 24%),
-      linear-gradient(110deg, transparent 18%, rgba(255,255,255,.42) 42%, transparent 62%);
-    opacity: .72;
-    transform: translateX(-28%);
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  .aasiom-chatbot-toggle::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: inherit;
-    border: 1px solid rgba(56,213,244,.42);
-    box-shadow: 0 0 0 0 rgba(56,213,244,.25);
-    animation: aasiomAiBreath 4.8s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .aasiom-chatbot-toggle:hover {
-    transform: translateY(-4px);
-    border-color: rgba(255,255,255,.92);
-    box-shadow:
-      0 30px 72px rgba(8, 47, 73, .22),
-      0 0 62px rgba(56, 213, 244, .34),
-      inset 0 1px 0 rgba(255,255,255,1),
-      inset 0 -12px 28px rgba(14,165,233,.16);
-  }
-
-  .aasiom-ai-orb {
-    position: relative;
-    width: 42px;
-    height: 42px;
-    flex: 0 0 42px;
-    border-radius: 50%;
+    box-shadow: 0 18px 45px rgba(8, 48, 73, 0.28);
     display: grid;
     place-items: center;
-    background:
-      radial-gradient(circle at 32% 28%, #ffffff 0%, #c8f6ff 28%, #54d9f7 58%, #0b6f96 100%);
-    box-shadow:
-      0 10px 28px rgba(14,165,233,.30),
-      inset 0 1px 0 rgba(255,255,255,.82),
-      inset 0 -12px 20px rgba(8,47,73,.18);
-  }
-
-  .aasiom-ai-orb::before {
-    content: "";
-    position: absolute;
-    inset: -5px;
-    border-radius: inherit;
-    border: 1px solid rgba(56,213,244,.38);
-    border-top-color: rgba(255,255,255,.95);
-    border-right-color: rgba(14,165,233,.24);
-    animation: aasiomAiOrbit 7s linear infinite;
-  }
-
-  .aasiom-ai-orb svg {
-    width: 24px;
-    height: 24px;
-    color: #05344f;
-    filter: drop-shadow(0 1px 2px rgba(255,255,255,.65));
-  }
-
-  .aasiom-ai-copy {
-    display: grid;
-    line-height: 1.02;
-    text-align: left;
-  }
-
-  .aasiom-ai-copy strong {
-    font: 900 13px/1 Inter, system-ui, sans-serif;
-    letter-spacing: .02em;
-    color: #083044;
-  }
-
-  .aasiom-ai-copy span {
-    margin-top: 5px;
-    font: 700 9px/1 'IBM Plex Mono', monospace;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    color: rgba(8,47,73,.68);
   }
 
   .aasiom-chatbot-panel {
     position: fixed;
-    right: 26px;
-    bottom: 98px;
-    width: min(410px, calc(100vw - 28px));
-    height: min(650px, calc(100vh - 124px));
-    border-radius: 28px;
+    right: 24px;
+    bottom: 100px;
+    width: 400px;
+    height: 620px;
+    border-radius: 18px;
+    box-shadow: 0 24px 80px rgba(8, 48, 73, 0.24);
     z-index: 999998;
     display: none;
     overflow: hidden;
-    background: rgba(248,253,255,.86);
-    border: 1px solid rgba(255,255,255,.74);
-    box-shadow:
-      0 30px 90px rgba(8,47,73,.26),
-      0 0 0 1px rgba(56,213,244,.12),
-      inset 0 1px 0 rgba(255,255,255,.92);
-    backdrop-filter: blur(24px) saturate(1.22);
-    -webkit-backdrop-filter: blur(24px) saturate(1.22);
-    transform-origin: right bottom;
+    background: #ffffff;
   }
 
   .aasiom-chatbot-panel.open {
     display: block;
-    animation: aasiomAiPanelIn .28s cubic-bezier(.16, 1, .3, 1) both;
   }
 
-  .aasiom-chatbot-shellbar {
+  .aasiom-chatbot-actions {
     position: absolute;
-    inset: 0 0 auto 0;
-    height: 66px;
-    z-index: 4;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    width: 150px;
+    height: 54px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 12px 14px 12px 16px;
-    background:
-      linear-gradient(135deg, rgba(255,255,255,.96), rgba(226,249,255,.92) 52%, rgba(203,244,255,.92));
-    border-bottom: 1px solid rgba(14,165,233,.15);
-    box-shadow: 0 14px 34px rgba(8,47,73,.10);
-  }
-
-  .aasiom-chatbot-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 0;
-  }
-
-  .aasiom-chatbot-mini {
-    width: 34px;
-    height: 34px;
-    border-radius: 14px;
-    display: grid;
-    place-items: center;
-    background: linear-gradient(135deg, #eaffff, #7be8ff 55%, #0b6f96);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 10px 24px rgba(14,165,233,.22);
-  }
-
-  .aasiom-chatbot-mini svg {
-    width: 20px;
-    height: 20px;
-    color: #07324a;
-  }
-
-  .aasiom-chatbot-title strong {
-    display: block;
-    font: 900 14px/1 Inter, system-ui, sans-serif;
-    color: #083044;
-    letter-spacing: -.01em;
-  }
-
-  .aasiom-chatbot-title span {
-    display: block;
-    margin-top: 4px;
-    font: 600 11px/1.25 Inter, system-ui, sans-serif;
-    color: rgba(8,47,73,.62);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 270px;
-  }
-
-  .aasiom-chatbot-close {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid rgba(8,47,73,.10);
-    background: rgba(255,255,255,.86);
-    color: #083044;
-    cursor: pointer;
-    display: grid;
-    place-items: center;
-    font: 900 18px/1 Inter, system-ui, sans-serif;
-    box-shadow: 0 8px 18px rgba(8,47,73,.10);
-    transition: transform .2s ease, background .2s ease;
-  }
-
-  .aasiom-chatbot-close:hover {
-    transform: rotate(90deg) scale(1.04);
+    padding-right: 14px;
     background: #ffffff;
+  }
+
+  .aasiom-chatbot-actions button {
+    border: 0;
+    border-radius: 999px;
+    padding: 7px 13px;
+    font: 700 12px Inter, system-ui, sans-serif;
+    background: rgba(255, 255, 255, 0.96);
+    color: #075C78;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(8, 48, 73, 0.12);
   }
 
   .aasiom-chatbot-frame {
@@ -3361,19 +3193,7 @@ html body .nav-toggle {
     height: 100%;
     border: 0;
     display: block;
-    background: #f8fdff;
-  }
-
-  @keyframes aasiomAiBreath {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(56,213,244,.20); opacity: .78; }
-    50% { box-shadow: 0 0 0 10px rgba(56,213,244,0); opacity: 1; }
-  }
-
-  @keyframes aasiomAiOrbit { to { transform: rotate(360deg); } }
-
-  @keyframes aasiomAiPanelIn {
-    from { opacity: 0; transform: translateY(18px) scale(.965); filter: blur(4px); }
-    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    background: #ffffff;
   }
 
   @media (max-width: 600px) {
@@ -3381,54 +3201,26 @@ html body .nav-toggle {
       right: 12px;
       bottom: 88px;
       width: calc(100vw - 24px);
-      height: 74vh;
-      border-radius: 24px;
+      height: 72vh;
     }
+
     .aasiom-chatbot-toggle {
-      right: 14px;
-      bottom: 14px;
-      width: 62px;
-      height: 62px;
-      border-radius: 22px;
-      padding: 0;
-      justify-content: center;
+      right: 16px;
+      bottom: 16px;
+      width: 58px;
+      height: 58px;
     }
-    .aasiom-ai-copy { display: none; }
-    .aasiom-ai-orb { width: 44px; height: 44px; }
-    .aasiom-chatbot-title span { max-width: 205px; }
   }
 </style>
 <div aria-label="AASIOM AI Chatbot" class="aasiom-chatbot-panel" id="aasiomChatbotPanel">
-  <div class="aasiom-chatbot-shellbar">
-    <div class="aasiom-chatbot-title">
-      <div class="aasiom-chatbot-mini" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 8.5L12 5L17 8.5V15.5L12 19L7 15.5V8.5Z" stroke="currentColor" stroke-width="1.8"/>
-          <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
-          <path d="M12 5V2.8M17 8.5L19.1 7.2M17 15.5L19.1 16.8M12 19V21.2M7 15.5L4.9 16.8M7 8.5L4.9 7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <strong>AASIOM AI</strong>
-        <span>Ask about ANVIRA, pilots & partnerships</span>
-      </div>
-    </div>
-    <button aria-label="Close AASIOM AI" class="aasiom-chatbot-close" onclick="aasiomToggleChatbot()" type="button">×</button>
-  </div>
-  <iframe class="aasiom-chatbot-frame" id="aasiomChatbotFrame" title="AASIOM AI Chatbot"></iframe>
+<div class="aasiom-chatbot-actions">
+<button onclick="aasiomToggleChatbot()" type="button">Close</button>
+</div>
+<iframe class="aasiom-chatbot-frame" id="aasiomChatbotFrame" title="AASIOM AI Chatbot">
+</iframe>
 </div>
 <button aria-label="Open AASIOM AI Chatbot" class="aasiom-chatbot-toggle" onclick="aasiomToggleChatbot()" type="button">
-  <span class="aasiom-ai-orb" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7 8.5L12 5L17 8.5V15.5L12 19L7 15.5V8.5Z" stroke="currentColor" stroke-width="1.75"/>
-      <circle cx="12" cy="12" r="2.25" fill="currentColor"/>
-      <path d="M12 5V3M17 8.5L19 7.25M17 15.5L19 16.75M12 19V21M7 15.5L5 16.75M7 8.5L5 7.25" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"/>
-    </svg>
-  </span>
-  <span class="aasiom-ai-copy">
-    <strong>AASIOM AI</strong>
-    <span>Assistant</span>
-  </span>
+  💬
 </button>
 <script>
   const AASIOM_CHATBOT_BASE_URL = "https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/06/26/21/20260626210753-927VVFE2.json";
@@ -3439,20 +3231,22 @@ html body .nav-toggle {
 
   function aasiomStartNewChat() {
     const frame = document.getElementById("aasiomChatbotFrame");
-    if (frame) frame.src = aasiomBuildChatUrl();
+    frame.src = aasiomBuildChatUrl();
   }
 
   function aasiomToggleChatbot() {
     const panel = document.getElementById("aasiomChatbotPanel");
     const frame = document.getElementById("aasiomChatbotFrame");
-    if (!panel || !frame) return;
     panel.classList.toggle("open");
-    if (panel.classList.contains("open") && !frame.src) aasiomStartNewChat();
+    if (panel.classList.contains("open") && !frame.src) {
+      aasiomStartNewChat();
+    }
   }
 
-  window.addEventListener("DOMContentLoaded", aasiomStartNewChat);
+  window.addEventListener("DOMContentLoaded", function () {
+    aasiomStartNewChat();
+  });
 </script>
-
 <script defer="" src="aasiom-future.js"></script>
 
 <script id="aasiom-enterprise-motion-v2">
