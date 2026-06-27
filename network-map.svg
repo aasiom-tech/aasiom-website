@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="node" cx=".5" cy=".5" r=".5">
+      <stop stop-color="#f4fbff"/>
+      <stop offset=".42" stop-color="#5addff"/>
+      <stop offset="1" stop-color="#5addff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#04070e"/>
+  <g opacity=".12" stroke="#7eddff">
+    <path d="M0 160 H1600M0 300 H1600M0 440 H1600M0 580 H1600M0 720 H1600"/>
+    <path d="M180 0 V900M360 0 V900M540 0 V900M720 0 V900M900 0 V900M1080 0 V900M1260 0 V900M1440 0 V900"/>
+  </g>
+  <g stroke="#5addff" stroke-width="3" opacity=".42">
+    <path d="M210 590 L405 430 L610 500 L820 340 L1040 440 L1320 275"/>
+    <path d="M405 430 L480 690 L760 655 L1040 440"/>
+    <path d="M610 500 L760 655 L960 720 L1320 275"/>
+  </g>
+  <g>
+    <circle cx="210" cy="590" r="36" fill="url(#node)"/>
+    <circle cx="405" cy="430" r="42" fill="url(#node)"/>
+    <circle cx="610" cy="500" r="32" fill="url(#node)"/>
+    <circle cx="820" cy="340" r="46" fill="url(#node)"/>
+    <circle cx="1040" cy="440" r="38" fill="url(#node)"/>
+    <circle cx="1320" cy="275" r="50" fill="url(#node)"/>
+    <circle cx="480" cy="690" r="30" fill="url(#node)"/>
+    <circle cx="760" cy="655" r="36" fill="url(#node)"/>
+    <circle cx="960" cy="720" r="28" fill="url(#node)"/>
+  </g>
+  <g fill="#eaf8ff" font-family="Arial, sans-serif" font-weight="700" opacity=".72">
+    <text x="240" y="575" font-size="22">Fleet</text>
+    <text x="850" y="320" font-size="22">Incident</text>
+    <text x="1075" y="425" font-size="22">Recovery</text>
+    <text x="1350" y="260" font-size="22">Claim Flow</text>
+  </g>
+</svg>
