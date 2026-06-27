@@ -2278,6 +2278,22 @@ body::after {
   box-shadow: 0 18px 38px rgba(8, 127, 166, 0.24) !important;
 }
 
+.contact-page .form-status {
+  display: none;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid rgba(8, 127, 166, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(238, 249, 253, 0.96), rgba(255, 255, 255, 0.92));
+  color: #075c78;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.contact-page .form-status.is-visible {
+  display: block;
+}
+
 .contact-page a,
 .contact-page .contact-direct-item a,
 .contact-page .contact-side-card a,
@@ -3518,7 +3534,7 @@ body::after {
             Share the operational context first. A short, specific message is more useful than a generic partnership request.
           </p>
 
-          <form id="contactForm" action="#" method="POST" class="premium-contact-form">
+          <form id="contactForm" action="#" method="get" class="premium-contact-form">
             <div class="form-guidance" aria-label="Form guidance">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M12 3.5l1.85 5.3 5.65.12-4.5 3.35 1.62 5.42L12 14.52l-4.62 3.17L9 12.27 4.5 8.92l5.65-.12L12 3.5z"></path>
@@ -3590,6 +3606,7 @@ body::after {
             <button type="submit" class="btn btn-primary form-submit" style="width:100%; justify-content:center;">
               Send Message &rarr;
             </button>
+            <div class="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
 
@@ -3649,7 +3666,7 @@ body::after {
             Use this when you want to discuss ANVIRA, fleet operations, claims workflow, field research, or partnership possibilities.
           </p>
 
-          <form id="slotForm" action="#" method="POST" class="premium-contact-form">
+          <form id="slotForm" action="#" method="get" class="premium-contact-form">
             <div class="form-group">
               <label for="slotName" class="form-label">Full Name</label>
               <input type="text" id="slotName" name="slotName" class="form-input" placeholder="Your full name" required>
@@ -3705,6 +3722,7 @@ body::after {
             <button type="submit" class="btn btn-primary form-submit" style="width:100%; justify-content:center;">
               Request Slot &rarr;
             </button>
+            <div class="form-status" role="status" aria-live="polite"></div>
           </form>
         </div>
 
@@ -3818,6 +3836,55 @@ body::after {
     })();
   </script>
 
+  <script>
+    (function () {
+      function setupStaticForm(formId, successText) {
+        var form = document.getElementById(formId);
+        if (!form) return;
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+
+          var button = form.querySelector('button[type="submit"]');
+          var status = form.querySelector('.form-status');
+
+          if (button) {
+            button.disabled = true;
+            button.dataset.originalText = button.textContent;
+            button.textContent = 'Saved on this page';
+          }
+
+          if (status) {
+            status.textContent = successText;
+            status.classList.add('is-visible');
+            status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+
+          setTimeout(function () {
+            if (!button) return;
+            button.disabled = false;
+            button.textContent = button.dataset.originalText || 'Send Message';
+          }, 2200);
+        });
+      }
+
+      setupStaticForm(
+        'contactForm',
+        'Thanks. Your message is ready on the page. Since this static site does not have a backend mail service connected yet, please also email pvsao@aasiom.com if this is urgent.'
+      );
+
+      setupStaticForm(
+        'slotForm',
+        'Thanks. Your slot preference is ready on the page. Since this static site does not have scheduling backend connected yet, please also email pvsao@aasiom.com to confirm the final time.'
+      );
+    })();
+  </script>
+
   <script src="js/main.js" defer></script>
   <script src="js/topo.js" defer></script>
 
@@ -3845,5 +3912,175 @@ body::after {
     })();
   </script>
 
+
+<!-- AASIOM AI Chatbot -->
+<style id="aasiom-chatbot-upgrade">
+  .aasiom-chatbot-toggle {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 66px;
+    height: 66px;
+    border: 1px solid rgba(255,255,255,.68);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 35% 28%, rgba(255,255,255,.95), rgba(255,255,255,.15) 28%, transparent 34%),
+      linear-gradient(135deg, #dff8ff 0%, #38c9ee 42%, #087fa6 100%);
+    color: #06344d;
+    cursor: pointer;
+    z-index: 999999;
+    box-shadow: 0 20px 52px rgba(8, 127, 166, .28), 0 0 0 8px rgba(56, 201, 238, .10);
+    display: grid;
+    place-items: center;
+    transition: transform .24s ease, box-shadow .24s ease;
+  }
+  .aasiom-chatbot-toggle:hover { transform: translateY(-3px) scale(1.03); }
+  .aasiom-chatbot-toggle::before {
+    content: "Ask AASIOM AI";
+    position: absolute;
+    right: 76px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: rgba(251,253,255,.94);
+    color: #075c78;
+    font: 800 12px/1 Inter, system-ui, sans-serif;
+    white-space: nowrap;
+    box-shadow: 0 12px 28px rgba(8,48,73,.14);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .aasiom-chatbot-toggle:hover::before { opacity: 1; transform: translate(-4px, -50%); }
+  .aasiom-chatbot-toggle::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: inherit;
+    border: 1px solid rgba(56,201,238,.38);
+    animation: aasiomChatPulse 2.8s ease-out infinite;
+  }
+  .aasiom-ai-node {
+    width: 34px;
+    height: 28px;
+    display: block;
+  }
+  .aasiom-chatbot-panel {
+    position: fixed;
+    right: 24px;
+    bottom: 102px;
+    width: min(410px, calc(100vw - 28px));
+    height: min(650px, calc(100svh - 126px));
+    border-radius: 22px;
+    box-shadow: 0 28px 90px rgba(8, 48, 73, .26);
+    z-index: 999998;
+    display: none;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f6fcff, #ffffff);
+    border: 1px solid rgba(8, 127, 166, .16);
+  }
+  .aasiom-chatbot-panel.open { display: block; }
+  .aasiom-chatbot-header {
+    position: relative;
+    z-index: 3;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, rgba(241,251,255,.98), rgba(220,246,255,.94));
+    border-bottom: 1px solid rgba(8,127,166,.12);
+    box-shadow: 0 10px 26px rgba(8,127,166,.10);
+  }
+  .aasiom-chatbot-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #ffffff, #dff8ff);
+    border: 1px solid rgba(8,127,166,.18);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
+  }
+  .aasiom-chatbot-title { margin: 0; color: #06344d; font: 850 15px/1.1 Inter, system-ui, sans-serif; }
+  .aasiom-chatbot-subtitle { margin: 4px 0 0; color: #537083; font: 650 11px/1.25 Inter, system-ui, sans-serif; }
+  .aasiom-chatbot-actions { margin-left: auto; }
+  .aasiom-chatbot-actions button {
+    border: 1px solid rgba(8,127,166,.14);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font: 800 12px Inter, system-ui, sans-serif;
+    background: rgba(255,255,255,.84);
+    color: #075c78;
+    cursor: pointer;
+  }
+  .aasiom-chatbot-frame {
+    width: 100%;
+    height: calc(100% - 72px);
+    border: 0;
+    display: block;
+    background: #f7fcff;
+  }
+  @keyframes aasiomChatPulse {
+    0% { opacity: .58; transform: scale(.92); }
+    70%, 100% { opacity: 0; transform: scale(1.18); }
+  }
+  @media (max-width: 600px) {
+    .aasiom-chatbot-panel {
+      right: 12px;
+      bottom: 88px;
+      width: calc(100vw - 24px);
+      height: 72svh;
+      border-radius: 18px;
+    }
+    .aasiom-chatbot-toggle { right: 16px; bottom: 16px; width: 58px; height: 58px; }
+    .aasiom-chatbot-toggle::before { display: none; }
+  }
+</style>
+
+<div id="aasiomChatbotPanel" class="aasiom-chatbot-panel" aria-label="AASIOM AI Chatbot">
+  <div class="aasiom-chatbot-header">
+    <div class="aasiom-chatbot-avatar" aria-hidden="true">
+      <svg class="aasiom-ai-node" viewBox="0 0 42 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 24C15 12 25 12 34 8" stroke="#087FA6" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="8" cy="24" r="4" fill="#38C9EE"/><circle cx="21" cy="15" r="4" fill="#075C78"/><circle cx="34" cy="8" r="4" fill="#F26B1D"/>
+      </svg>
+    </div>
+    <div>
+      <p class="aasiom-chatbot-title">AASIOM AI</p>
+      <p class="aasiom-chatbot-subtitle">Ask about AASIOM, ANVIRA, pilots, or partnerships</p>
+    </div>
+    <div class="aasiom-chatbot-actions">
+      <button type="button" onclick="aasiomToggleChatbot()">Close</button>
+    </div>
+  </div>
+  <iframe id="aasiomChatbotFrame" class="aasiom-chatbot-frame" title="AASIOM AI Chatbot"></iframe>
+</div>
+
+<button class="aasiom-chatbot-toggle" type="button" onclick="aasiomToggleChatbot()" aria-label="Ask AASIOM AI">
+  <svg class="aasiom-ai-node" viewBox="0 0 42 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M8 24C15 12 25 12 34 8" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+    <circle cx="8" cy="24" r="4.4" fill="currentColor"/><circle cx="21" cy="15" r="4.4" fill="currentColor"/><circle cx="34" cy="8" r="4.4" fill="#F26B1D"/>
+  </svg>
+</button>
+
+<script>
+  const AASIOM_CHATBOT_BASE_URL = "https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/06/26/21/20260626210753-927VVFE2.json";
+  function aasiomBuildChatUrl() {
+    return AASIOM_CHATBOT_BASE_URL + "&fresh=" + Date.now();
+  }
+  function aasiomStartNewChat() {
+    const frame = document.getElementById("aasiomChatbotFrame");
+    if (frame) frame.src = aasiomBuildChatUrl();
+  }
+  function aasiomToggleChatbot() {
+    const panel = document.getElementById("aasiomChatbotPanel");
+    const frame = document.getElementById("aasiomChatbotFrame");
+    if (!panel || !frame) return;
+    panel.classList.toggle("open");
+    if (panel.classList.contains("open") && !frame.src) aasiomStartNewChat();
+  }
+</script>
 </body>
 </html>
