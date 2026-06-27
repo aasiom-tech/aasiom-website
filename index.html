@@ -2616,89 +2616,6 @@ h1,.hero-title,.contact-title,.page-header h1{font-family:var(--font-head)!impor
 @media(max-width:640px){h1,.hero-title,.contact-title,.page-header h1{font-size:clamp(2.65rem,16vw,4.4rem)!important;letter-spacing:-.065em!important}.section-title,.contact-intro h2,.contact-philosophy h2{font-size:clamp(2.05rem,12vw,3.4rem)!important}.container{padding-left:18px!important;padding-right:18px!important}.card,.metric-panel,.contact-direct-card,.contact-form-panel,.contact-side-card,.contact-philosophy{padding:24px!important;border-radius:22px!important}.nav-links{top:78px!important}.nav-cta{width:100%!important}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}#aasiom-ai-canvas{display:none!important}.aasiom-reveal{opacity:1!important;transform:none!important}}
 </style>
-
-
-<style id="aasiom-cinematic-3d-v3">
-/* AASIOM cinematic 3D motion upgrade — no heavy video/3D libraries */
-:root{
-  --a3d-bg:#020613;
-  --a3d-surface:rgba(7,14,30,.58);
-  --a3d-surface-2:rgba(255,255,255,.055);
-  --a3d-cyan:#5ef2ff;
-  --a3d-blue:#3a7bff;
-  --a3d-violet:#9c6cff;
-  --a3d-amber:#f5a642;
-  --a3d-text:#f7fbff;
-  --a3d-muted:#a6b4c9;
-  --a3d-line:rgba(255,255,255,.12);
-}
-html{background:var(--a3d-bg)!important;}
-body{
-  background:
-    radial-gradient(circle at 48% -10%, rgba(94,242,255,.22), transparent 34%),
-    radial-gradient(circle at 92% 12%, rgba(156,108,255,.16), transparent 30%),
-    radial-gradient(circle at 4% 38%, rgba(58,123,255,.12), transparent 32%),
-    linear-gradient(180deg,#020613 0%,#050918 42%,#030712 100%)!important;
-  color:var(--a3d-text)!important;
-}
-body::before{opacity:.78!important;background:
-  radial-gradient(circle at 20% 10%, rgba(94,242,255,.16), transparent 28%),
-  radial-gradient(circle at 84% 18%, rgba(156,108,255,.12), transparent 32%),
-  radial-gradient(circle at 50% 88%, rgba(245,166,66,.07), transparent 38%)!important;}
-body::after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:-5;opacity:.32;
-  background-image:
-    linear-gradient(rgba(94,242,255,.055) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(94,242,255,.055) 1px,transparent 1px),
-    linear-gradient(135deg,rgba(156,108,255,.028) 1px,transparent 1px);
-  background-size:74px 74px,74px 74px,118px 118px;
-  transform:perspective(700px) rotateX(58deg) translateY(-18vh) scale(1.55);
-  transform-origin:50% 0;animation:a3d-grid-flow 18s linear infinite;
-  mask-image:linear-gradient(to bottom,transparent 0%,black 14%,black 76%,transparent 100%);
-}
-#aasiom-ai-canvas{opacity:.55!important;filter:saturate(1.18) contrast(1.06);}
-#aasiom-depth-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-4;pointer-events:none;opacity:.78;mix-blend-mode:screen;}
-.a3d-cinema{position:fixed;inset:0;z-index:-3;pointer-events:none;overflow:hidden;contain:layout paint style;}
-.a3d-orb{position:absolute;border-radius:50%;filter:blur(.2px);opacity:.62;will-change:transform;}
-.a3d-orb.one{width:42vw;height:42vw;right:-16vw;top:4vh;border:1px solid rgba(94,242,255,.22);box-shadow:inset 0 0 120px rgba(94,242,255,.045),0 0 80px rgba(94,242,255,.08);animation:a3d-orbit 32s linear infinite;}
-.a3d-orb.two{width:28vw;height:28vw;left:-12vw;bottom:8vh;border:1px solid rgba(156,108,255,.2);box-shadow:inset 0 0 90px rgba(156,108,255,.04),0 0 80px rgba(156,108,255,.07);animation:a3d-orbit 26s linear infinite reverse;}
-.a3d-scan{position:absolute;left:-20%;right:-20%;height:180px;top:20%;background:linear-gradient(180deg,transparent,rgba(94,242,255,.12),transparent);transform:rotate(-9deg);filter:blur(10px);animation:a3d-scan 8s ease-in-out infinite;}
-.a3d-lane{position:absolute;left:50%;bottom:-20vh;width:80vw;height:72vh;transform:translateX(-50%) perspective(700px) rotateX(68deg);transform-origin:50% 100%;background:repeating-linear-gradient(90deg,transparent 0 9%,rgba(94,242,255,.13) 9.15% 9.35%,transparent 9.5% 18%),repeating-linear-gradient(0deg,transparent 0 42px,rgba(94,242,255,.13) 43px 44px,transparent 45px 88px);mask-image:linear-gradient(to top,black,transparent 78%);opacity:.35;animation:a3d-runway 1.8s linear infinite;}
-.a3d-holo{position:absolute;right:5vw;top:18vh;width:min(420px,34vw);aspect-ratio:1;border-radius:38px;border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.025));box-shadow:0 30px 120px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.16);backdrop-filter:blur(18px);transform:perspective(900px) rotateY(-18deg) rotateX(8deg);animation:a3d-float-card 7s ease-in-out infinite;}
-.a3d-holo:before{content:"";position:absolute;inset:13%;border-radius:50%;border:1px solid rgba(94,242,255,.28);box-shadow:0 0 40px rgba(94,242,255,.18),inset 0 0 34px rgba(94,242,255,.06);animation:a3d-orbit 14s linear infinite;}
-.a3d-holo:after{content:"LIVE INCIDENT INTELLIGENCE";position:absolute;left:24px;right:24px;bottom:24px;font:700 11px/1.5 'IBM Plex Mono','JetBrains Mono',monospace;letter-spacing:.16em;color:rgba(220,250,255,.82);text-align:center;}
-@media(max-width:900px){.a3d-holo{display:none}.a3d-orb.one{width:72vw;height:72vw;right:-34vw}.a3d-orb.two{width:58vw;height:58vw}.a3d-lane{width:130vw}}
-.nav .nav-inner,.nav-inner{
-  border:1px solid rgba(255,255,255,.12)!important;
-  background:linear-gradient(135deg,rgba(9,18,38,.66),rgba(5,10,24,.34))!important;
-  box-shadow:0 22px 70px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.12), 0 0 0 1px rgba(94,242,255,.035)!important;
-  backdrop-filter:blur(22px) saturate(1.24)!important;-webkit-backdrop-filter:blur(22px) saturate(1.24)!important;
-}
-.nav-links a{letter-spacing:-.01em!important}.nav-links a:hover{color:#fff!important;text-shadow:0 0 24px rgba(94,242,255,.34)!important}.nav-links a.active::after{background:linear-gradient(90deg,transparent,var(--a3d-cyan),var(--a3d-violet),transparent)!important;box-shadow:0 0 24px rgba(94,242,255,.9)!important}.nav-cta{background:linear-gradient(135deg,rgba(94,242,255,.18),rgba(156,108,255,.16))!important;border-color:rgba(94,242,255,.32)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 18px 44px rgba(94,242,255,.08)!important}
-.hero,.page-header,.page-header--anvira,.contact-hero{min-height:92vh!important;isolation:isolate;overflow:hidden!important;background:transparent!important;}
-.hero:before,.page-header:before,.page-header--anvira:before,.contact-hero:before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 54% 35%,rgba(94,242,255,.16),transparent 34%),radial-gradient(circle at 80% 25%,rgba(156,108,255,.12),transparent 31%),linear-gradient(180deg,rgba(2,6,19,.18),rgba(2,6,19,.84))!important;}
-.hero:after,.page-header:after,.page-header--anvira:after,.contact-hero:after{content:"";position:absolute;right:-10vw;top:14%;width:min(720px,62vw);height:min(720px,62vw);border-radius:50%;z-index:-1;border:1px solid rgba(94,242,255,.22);background:radial-gradient(circle,rgba(94,242,255,.035),transparent 68%);box-shadow:0 0 100px rgba(94,242,255,.08),inset 0 0 90px rgba(94,242,255,.035);animation:a3d-orbit 36s linear infinite!important;}
-.hero-title,.section-title,.contact-title,.page-header h1,.cta-content h2{letter-spacing:-.075em!important;text-wrap:balance;text-shadow:0 22px 80px rgba(0,0,0,.48),0 0 46px rgba(94,242,255,.12)!important;}
-.hero-title,.contact-title,.page-header h1{font-size:clamp(3.2rem,8vw,7.25rem)!important;line-height:.88!important;}
-.hero-sub,.section-desc,.contact-hero-text,.page-header p{color:rgba(220,230,245,.82)!important;font-size:clamp(1rem,1.42vw,1.22rem)!important;}
-.card,.metric-panel,.tech-feature-card,.domain-card,.engage-card,.contact-form-panel,.contact-side-card,.contact-direct-card,.about-principle-card,.founder-card,.team-card,.trust-docs-group,.cta-content,.anvira-flip-card{
-  position:relative;overflow:hidden!important;border:1px solid rgba(255,255,255,.12)!important;background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025))!important;box-shadow:0 24px 80px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.13)!important;backdrop-filter:blur(18px) saturate(1.18)!important;-webkit-backdrop-filter:blur(18px) saturate(1.18)!important;transform-style:preserve-3d;transition:transform .28s cubic-bezier(.2,.8,.2,1),border-color .28s ease,box-shadow .28s ease!important;
-}
-.card:before,.metric-panel:before,.tech-feature-card:before,.domain-card:before,.engage-card:before,.contact-form-panel:before,.contact-side-card:before,.contact-direct-card:before,.about-principle-card:before,.founder-card:before,.team-card:before,.trust-docs-group:before,.cta-content:before,.anvira-flip-card:before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,40%),rgba(94,242,255,.17),transparent 42%);opacity:0;transition:opacity .25s ease;pointer-events:none;}
-.card:after,.tech-feature-card:after,.domain-card:after,.engage-card:after,.about-principle-card:after,.contact-form-panel:after,.trust-docs-group:after{content:"";position:absolute;left:10%;right:10%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(94,242,255,.75),rgba(156,108,255,.55),transparent);opacity:.7;}
-.card:hover,.tech-feature-card:hover,.domain-card:hover,.engage-card:hover,.contact-form-panel:hover,.contact-side-card:hover,.contact-direct-card:hover,.about-principle-card:hover,.founder-card:hover,.team-card:hover,.trust-docs-group:hover,.cta-content:hover,.anvira-flip-card:hover{transform:perspective(900px) translateY(-10px) rotateX(1.2deg) rotateY(-1.2deg) scale(1.012)!important;border-color:rgba(94,242,255,.36)!important;box-shadow:0 34px 110px rgba(0,0,0,.44),0 0 0 1px rgba(94,242,255,.08),inset 0 1px 0 rgba(255,255,255,.18)!important;}
-.card:hover:before,.metric-panel:hover:before,.tech-feature-card:hover:before,.domain-card:hover:before,.engage-card:hover:before,.contact-form-panel:hover:before,.contact-side-card:hover:before,.contact-direct-card:hover:before,.about-principle-card:hover:before,.founder-card:hover:before,.team-card:hover:before,.trust-docs-group:hover:before,.cta-content:hover:before,.anvira-flip-card:hover:before{opacity:1;}
-.btn,.btn-primary,.btn-ghost,.btn-outline,.hero-actions a{position:relative;overflow:hidden!important;box-shadow:0 16px 45px rgba(94,242,255,.12)!important;}
-.btn:after,.btn-primary:after,.btn-ghost:after,.btn-outline:after,.hero-actions a:after{content:"";position:absolute;inset:-2px;background:linear-gradient(100deg,transparent 15%,rgba(255,255,255,.38) 45%,transparent 72%);transform:translateX(-110%);transition:transform .55s ease;}.btn:hover:after,.btn-primary:hover:after,.btn-ghost:hover:after,.btn-outline:hover:after,.hero-actions a:hover:after{transform:translateX(110%)}
-.aasiom-reveal{transform:translateY(38px) scale(.985)!important;opacity:0!important;filter:blur(10px);transition:transform .85s cubic-bezier(.2,.8,.2,1),opacity .85s ease,filter .85s ease!important}.aasiom-reveal.in-view{transform:none!important;opacity:1!important;filter:blur(0)!important}
-@keyframes a3d-grid-flow{from{background-position:0 0,0 0,0 0}to{background-position:0 148px,148px 0,118px 118px}}
-@keyframes a3d-orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes a3d-scan{0%,100%{transform:translateY(-30vh) rotate(-9deg);opacity:0}45%,60%{opacity:.85}100%{transform:translateY(92vh) rotate(-9deg);opacity:0}}
-@keyframes a3d-runway{from{background-position:0 0,0 0}to{background-position:0 0,0 88px}}
-@keyframes a3d-float-card{0%,100%{transform:perspective(900px) rotateY(-18deg) rotateX(8deg) translate3d(0,0,0)}50%{transform:perspective(900px) rotateY(-12deg) rotateX(11deg) translate3d(0,-18px,0)}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}.a3d-cinema,#aasiom-depth-canvas{display:none!important}.aasiom-reveal{opacity:1!important;transform:none!important;filter:none!important}}
-</style>
-
 </head>
 <body class="contact-page aasiom-redesign page-home" id="top">
 <div aria-hidden="true" class="page-motif"></div>
@@ -3209,66 +3126,234 @@ html body .nav-toggle {
 }
 </style>
 <!-- AASIOM AI Chatbot -->
-<style>
+<style id="aasiom-ai-chatbot-advanced-v4">
+  :root {
+    --aasiom-ai-blue:#0b6f96;
+    --aasiom-ai-cyan:#38d5f4;
+    --aasiom-ai-ice:#e9fbff;
+    --aasiom-ai-navy:#082f49;
+  }
+
   .aasiom-chatbot-toggle {
     position: fixed;
-    right: 24px;
-    bottom: 24px;
-    width: 64px;
-    height: 64px;
-    border: 0;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #075C78, #0EA5C6);
-    color: #ffffff;
-    font-size: 28px;
+    right: 26px;
+    bottom: 26px;
+    width: 156px;
+    height: 58px;
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 999px;
     cursor: pointer;
     z-index: 999999;
-    box-shadow: 0 18px 45px rgba(8, 48, 73, 0.28);
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 11px;
+    padding: 8px 16px 8px 9px;
+    color: #082f49;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(229,250,255,.92) 42%, rgba(151,231,255,.86) 100%);
+    box-shadow:
+      0 22px 55px rgba(8, 47, 73, .18),
+      0 0 44px rgba(56, 213, 244, .24),
+      inset 0 1px 0 rgba(255,255,255,.95),
+      inset 0 -12px 28px rgba(14,165,233,.12);
+    backdrop-filter: blur(22px) saturate(1.35);
+    -webkit-backdrop-filter: blur(22px) saturate(1.35);
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    isolation: isolate;
+  }
+
+  .aasiom-chatbot-toggle::before {
+    content: "";
+    position: absolute;
+    inset: -45% -30%;
+    background:
+      radial-gradient(circle at 28% 25%, rgba(255,255,255,.95), transparent 24%),
+      linear-gradient(110deg, transparent 18%, rgba(255,255,255,.42) 42%, transparent 62%);
+    opacity: .72;
+    transform: translateX(-28%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .aasiom-chatbot-toggle::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    border: 1px solid rgba(56,213,244,.42);
+    box-shadow: 0 0 0 0 rgba(56,213,244,.25);
+    animation: aasiomAiBreath 4.8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .aasiom-chatbot-toggle:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,.92);
+    box-shadow:
+      0 30px 72px rgba(8, 47, 73, .22),
+      0 0 62px rgba(56, 213, 244, .34),
+      inset 0 1px 0 rgba(255,255,255,1),
+      inset 0 -12px 28px rgba(14,165,233,.16);
+  }
+
+  .aasiom-ai-orb {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    border-radius: 50%;
     display: grid;
     place-items: center;
+    background:
+      radial-gradient(circle at 32% 28%, #ffffff 0%, #c8f6ff 28%, #54d9f7 58%, #0b6f96 100%);
+    box-shadow:
+      0 10px 28px rgba(14,165,233,.30),
+      inset 0 1px 0 rgba(255,255,255,.82),
+      inset 0 -12px 20px rgba(8,47,73,.18);
+  }
+
+  .aasiom-ai-orb::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: inherit;
+    border: 1px solid rgba(56,213,244,.38);
+    border-top-color: rgba(255,255,255,.95);
+    border-right-color: rgba(14,165,233,.24);
+    animation: aasiomAiOrbit 7s linear infinite;
+  }
+
+  .aasiom-ai-orb svg {
+    width: 24px;
+    height: 24px;
+    color: #05344f;
+    filter: drop-shadow(0 1px 2px rgba(255,255,255,.65));
+  }
+
+  .aasiom-ai-copy {
+    display: grid;
+    line-height: 1.02;
+    text-align: left;
+  }
+
+  .aasiom-ai-copy strong {
+    font: 900 13px/1 Inter, system-ui, sans-serif;
+    letter-spacing: .02em;
+    color: #083044;
+  }
+
+  .aasiom-ai-copy span {
+    margin-top: 5px;
+    font: 700 9px/1 'IBM Plex Mono', monospace;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: rgba(8,47,73,.68);
   }
 
   .aasiom-chatbot-panel {
     position: fixed;
-    right: 24px;
-    bottom: 100px;
-    width: 400px;
-    height: 620px;
-    border-radius: 18px;
-    box-shadow: 0 24px 80px rgba(8, 48, 73, 0.24);
+    right: 26px;
+    bottom: 98px;
+    width: min(410px, calc(100vw - 28px));
+    height: min(650px, calc(100vh - 124px));
+    border-radius: 28px;
     z-index: 999998;
     display: none;
     overflow: hidden;
-    background: #ffffff;
+    background: rgba(248,253,255,.86);
+    border: 1px solid rgba(255,255,255,.74);
+    box-shadow:
+      0 30px 90px rgba(8,47,73,.26),
+      0 0 0 1px rgba(56,213,244,.12),
+      inset 0 1px 0 rgba(255,255,255,.92);
+    backdrop-filter: blur(24px) saturate(1.22);
+    -webkit-backdrop-filter: blur(24px) saturate(1.22);
+    transform-origin: right bottom;
   }
 
   .aasiom-chatbot-panel.open {
     display: block;
+    animation: aasiomAiPanelIn .28s cubic-bezier(.16, 1, .3, 1) both;
   }
 
-  .aasiom-chatbot-actions {
+  .aasiom-chatbot-shellbar {
     position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 2;
-    width: 150px;
-    height: 54px;
+    inset: 0 0 auto 0;
+    height: 66px;
+    z-index: 4;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    padding-right: 14px;
-    background: #ffffff;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px 12px 16px;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,.96), rgba(226,249,255,.92) 52%, rgba(203,244,255,.92));
+    border-bottom: 1px solid rgba(14,165,233,.15);
+    box-shadow: 0 14px 34px rgba(8,47,73,.10);
   }
 
-  .aasiom-chatbot-actions button {
-    border: 0;
-    border-radius: 999px;
-    padding: 7px 13px;
-    font: 700 12px Inter, system-ui, sans-serif;
-    background: rgba(255, 255, 255, 0.96);
-    color: #075C78;
+  .aasiom-chatbot-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .aasiom-chatbot-mini {
+    width: 34px;
+    height: 34px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #eaffff, #7be8ff 55%, #0b6f96);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 10px 24px rgba(14,165,233,.22);
+  }
+
+  .aasiom-chatbot-mini svg {
+    width: 20px;
+    height: 20px;
+    color: #07324a;
+  }
+
+  .aasiom-chatbot-title strong {
+    display: block;
+    font: 900 14px/1 Inter, system-ui, sans-serif;
+    color: #083044;
+    letter-spacing: -.01em;
+  }
+
+  .aasiom-chatbot-title span {
+    display: block;
+    margin-top: 4px;
+    font: 600 11px/1.25 Inter, system-ui, sans-serif;
+    color: rgba(8,47,73,.62);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 270px;
+  }
+
+  .aasiom-chatbot-close {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(8,47,73,.10);
+    background: rgba(255,255,255,.86);
+    color: #083044;
     cursor: pointer;
-    box-shadow: 0 8px 20px rgba(8, 48, 73, 0.12);
+    display: grid;
+    place-items: center;
+    font: 900 18px/1 Inter, system-ui, sans-serif;
+    box-shadow: 0 8px 18px rgba(8,47,73,.10);
+    transition: transform .2s ease, background .2s ease;
+  }
+
+  .aasiom-chatbot-close:hover {
+    transform: rotate(90deg) scale(1.04);
+    background: #ffffff;
   }
 
   .aasiom-chatbot-frame {
@@ -3276,7 +3361,19 @@ html body .nav-toggle {
     height: 100%;
     border: 0;
     display: block;
-    background: #ffffff;
+    background: #f8fdff;
+  }
+
+  @keyframes aasiomAiBreath {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(56,213,244,.20); opacity: .78; }
+    50% { box-shadow: 0 0 0 10px rgba(56,213,244,0); opacity: 1; }
+  }
+
+  @keyframes aasiomAiOrbit { to { transform: rotate(360deg); } }
+
+  @keyframes aasiomAiPanelIn {
+    from { opacity: 0; transform: translateY(18px) scale(.965); filter: blur(4px); }
+    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
   }
 
   @media (max-width: 600px) {
@@ -3284,26 +3381,54 @@ html body .nav-toggle {
       right: 12px;
       bottom: 88px;
       width: calc(100vw - 24px);
-      height: 72vh;
+      height: 74vh;
+      border-radius: 24px;
     }
-
     .aasiom-chatbot-toggle {
-      right: 16px;
-      bottom: 16px;
-      width: 58px;
-      height: 58px;
+      right: 14px;
+      bottom: 14px;
+      width: 62px;
+      height: 62px;
+      border-radius: 22px;
+      padding: 0;
+      justify-content: center;
     }
+    .aasiom-ai-copy { display: none; }
+    .aasiom-ai-orb { width: 44px; height: 44px; }
+    .aasiom-chatbot-title span { max-width: 205px; }
   }
 </style>
 <div aria-label="AASIOM AI Chatbot" class="aasiom-chatbot-panel" id="aasiomChatbotPanel">
-<div class="aasiom-chatbot-actions">
-<button onclick="aasiomToggleChatbot()" type="button">Close</button>
-</div>
-<iframe class="aasiom-chatbot-frame" id="aasiomChatbotFrame" title="AASIOM AI Chatbot">
-</iframe>
+  <div class="aasiom-chatbot-shellbar">
+    <div class="aasiom-chatbot-title">
+      <div class="aasiom-chatbot-mini" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 8.5L12 5L17 8.5V15.5L12 19L7 15.5V8.5Z" stroke="currentColor" stroke-width="1.8"/>
+          <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
+          <path d="M12 5V2.8M17 8.5L19.1 7.2M17 15.5L19.1 16.8M12 19V21.2M7 15.5L4.9 16.8M7 8.5L4.9 7.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <strong>AASIOM AI</strong>
+        <span>Ask about ANVIRA, pilots & partnerships</span>
+      </div>
+    </div>
+    <button aria-label="Close AASIOM AI" class="aasiom-chatbot-close" onclick="aasiomToggleChatbot()" type="button">×</button>
+  </div>
+  <iframe class="aasiom-chatbot-frame" id="aasiomChatbotFrame" title="AASIOM AI Chatbot"></iframe>
 </div>
 <button aria-label="Open AASIOM AI Chatbot" class="aasiom-chatbot-toggle" onclick="aasiomToggleChatbot()" type="button">
-  💬
+  <span class="aasiom-ai-orb" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 8.5L12 5L17 8.5V15.5L12 19L7 15.5V8.5Z" stroke="currentColor" stroke-width="1.75"/>
+      <circle cx="12" cy="12" r="2.25" fill="currentColor"/>
+      <path d="M12 5V3M17 8.5L19 7.25M17 15.5L19 16.75M12 19V21M7 15.5L5 16.75M7 8.5L5 7.25" stroke="currentColor" stroke-width="1.45" stroke-linecap="round"/>
+    </svg>
+  </span>
+  <span class="aasiom-ai-copy">
+    <strong>AASIOM AI</strong>
+    <span>Assistant</span>
+  </span>
 </button>
 <script>
   const AASIOM_CHATBOT_BASE_URL = "https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/06/26/21/20260626210753-927VVFE2.json";
@@ -3314,22 +3439,20 @@ html body .nav-toggle {
 
   function aasiomStartNewChat() {
     const frame = document.getElementById("aasiomChatbotFrame");
-    frame.src = aasiomBuildChatUrl();
+    if (frame) frame.src = aasiomBuildChatUrl();
   }
 
   function aasiomToggleChatbot() {
     const panel = document.getElementById("aasiomChatbotPanel");
     const frame = document.getElementById("aasiomChatbotFrame");
+    if (!panel || !frame) return;
     panel.classList.toggle("open");
-    if (panel.classList.contains("open") && !frame.src) {
-      aasiomStartNewChat();
-    }
+    if (panel.classList.contains("open") && !frame.src) aasiomStartNewChat();
   }
 
-  window.addEventListener("DOMContentLoaded", function () {
-    aasiomStartNewChat();
-  });
+  window.addEventListener("DOMContentLoaded", aasiomStartNewChat);
 </script>
+
 <script defer="" src="aasiom-future.js"></script>
 
 <script id="aasiom-enterprise-motion-v2">
@@ -3363,24 +3486,5 @@ html body .nav-toggle {
   });
 })();
 </script>
-
-
-<script id="aasiom-cinematic-3d-motion-v3">
-(function(){
-  if(document.documentElement.dataset.a3dV3) return; document.documentElement.dataset.a3dV3='1';
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const cinema=document.createElement('div'); cinema.className='a3d-cinema'; cinema.innerHTML='<div class="a3d-orb one"></div><div class="a3d-orb two"></div><div class="a3d-scan"></div><div class="a3d-lane"></div><div class="a3d-holo"></div>'; document.body.prepend(cinema);
-  const canvas=document.createElement('canvas'); canvas.id='aasiom-depth-canvas'; document.body.prepend(canvas);
-  const ctx=canvas.getContext('2d',{alpha:true}); let w=0,h=0,dpr=1,stars=[],running=true,t=0;
-  function resize(){dpr=Math.min(devicePixelRatio||1,1.55);w=canvas.width=Math.floor(innerWidth*dpr);h=canvas.height=Math.floor(innerHeight*dpr);canvas.style.width=innerWidth+'px';canvas.style.height=innerHeight+'px';const count=Math.min(96,Math.max(42,Math.floor(innerWidth/16)));stars=Array.from({length:count},()=>({x:(Math.random()-.5)*w*1.7,y:(Math.random()-.5)*h*1.1,z:Math.random()*w+40*dpr,s:Math.random()*1.8+0.4,v:Math.random()*0.75+0.28}));}
-  function draw(){ if(!running||reduced) return; t+=.01; ctx.clearRect(0,0,w,h); const cx=w*.5,cy=h*.47; ctx.save(); ctx.globalCompositeOperation='lighter'; for(const p of stars){p.z-=p.v*dpr*2.4;if(p.z<16*dpr){p.z=w;p.x=(Math.random()-.5)*w*1.7;p.y=(Math.random()-.5)*h*1.1;} const k=420*dpr/p.z; const x=cx+p.x*k+Math.sin(t+p.z*.002)*8*dpr; const y=cy+p.y*k; if(x<-60||x>w+60||y<-60||y>h+60) continue; const a=Math.max(0,1-p.z/w); const r=(p.s*k*.75); ctx.fillStyle='rgba(94,242,255,'+(0.10+a*.55)+')'; ctx.beginPath(); ctx.arc(x,y,Math.max(.45*dpr,r),0,Math.PI*2); ctx.fill(); if(a>.22){ctx.strokeStyle='rgba(156,108,255,'+(a*.18)+')';ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x,y);ctx.stroke();}}
-    for(let i=0;i<9;i++){const rr=(i*54+((t*80)%54))*dpr;ctx.strokeStyle='rgba(94,242,255,'+(0.09-i*.006)+')';ctx.beginPath();ctx.ellipse(cx,cy,rr*2.1,rr*.55,0,0,Math.PI*2);ctx.stroke();}
-    ctx.restore(); requestAnimationFrame(draw); }
-  resize(); addEventListener('resize',resize,{passive:true}); document.addEventListener('visibilitychange',()=>{running=!document.hidden;if(running&&!reduced) requestAnimationFrame(draw)}); if(!reduced) requestAnimationFrame(draw);
-  document.querySelectorAll('.hero,.page-header,.page-header--anvira,.contact-hero').forEach((hero,idx)=>{if(hero.querySelector('.a3d-hero-stack'))return;const stack=document.createElement('div');stack.className='a3d-hero-stack';stack.setAttribute('aria-hidden','true');stack.innerHTML='<span></span><span></span><span></span>';hero.appendChild(stack);});
-  const style=document.createElement('style');style.textContent='.a3d-hero-stack{position:absolute;right:8%;bottom:12%;width:min(360px,34vw);height:220px;z-index:-1;transform:perspective(900px) rotateY(-24deg) rotateX(12deg);pointer-events:none}.a3d-hero-stack span{position:absolute;inset:auto 0 0 0;height:56px;border:1px solid rgba(94,242,255,.2);border-radius:18px;background:linear-gradient(135deg,rgba(255,255,255,.1),rgba(255,255,255,.025));box-shadow:0 22px 70px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.14);backdrop-filter:blur(12px);animation:a3d-stack 5s ease-in-out infinite}.a3d-hero-stack span:nth-child(1){bottom:132px;left:62px;animation-delay:.2s}.a3d-hero-stack span:nth-child(2){bottom:66px;left:26px;animation-delay:.5s}.a3d-hero-stack span:nth-child(3){bottom:0;left:0;animation-delay:.8s}@keyframes a3d-stack{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-16px,22px)}}@media(max-width:900px){.a3d-hero-stack{display:none}}';document.head.appendChild(style);
-})();
-</script>
-
 </body>
 </html>
