@@ -3847,73 +3847,75 @@ body::after {
 
 
 
-  <!-- AASIOM Botpress Chatbot Upgrade -->
+  <!-- AASIOM Botpress Chatbot Upgrade: ice-blue native theme -->
   <style>
     /* ================================================================
-       AASIOM AI Chatbot Upgrade — ice-blue glass theme
-       Matches HOMEPAGE UPGRADE chatbot instructions.
+       AASIOM AI Chatbot — ice-blue glass theme
+       Floating launcher + visible container styling. Botpress runs most
+       window content in an iframe, so the script below also pushes the
+       same theme through Botpress configuration before init.
        ================================================================ */
     :root {
+      --aasiom-chat-ice: #eaf9ff;
+      --aasiom-chat-ice-2: #d7f4fb;
+      --aasiom-chat-cyan: #1bb8d6;
       --aasiom-chat-blue: #087fa6;
-      --aasiom-chat-blue-2: #1bb8d6;
       --aasiom-chat-deep: #061826;
-      --aasiom-chat-soft: #f3f9fd;
-      --aasiom-chat-line: rgba(8, 127, 166, 0.18);
-      --aasiom-chat-shadow: 0 22px 70px rgba(8, 42, 62, 0.22);
+      --aasiom-chat-muted: #587184;
+      --aasiom-chat-line: rgba(8,127,166,.18);
     }
 
-    /* Parent widget containers used by Botpress across versions */
-    #bp-web-widget,
-    #bp-web-widget-container,
-    .bp-widget-web,
-    .bpWebchat,
-    [id*="botpress"],
-    [class*="botpress"],
-    [class*="bpWebchat"] {
-      font-family: var(--font-body, 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif) !important;
-    }
-
-    /* Floating button / launcher */
+    /* Botpress launcher: replace heavy generic blue with ice-blue gradient */
     #bp-web-widget-container button,
-    .bpFab,
-    .bpw-floating-button,
+    #bp-web-widget button,
+    button[class*="bp"],
+    [class*="bpFab"],
     [class*="FloatingButton"],
     [class*="floatingButton"],
+    [class*="Launcher"],
     [class*="launcher"],
     [aria-label*="chat" i],
     [aria-label*="bot" i] {
-      border-radius: 999px !important;
       background:
-        radial-gradient(circle at 30% 24%, rgba(255,255,255,0.55), transparent 34%),
-        linear-gradient(135deg, var(--aasiom-chat-blue-2), var(--aasiom-chat-blue), #075f7e) !important;
-      border: 1px solid rgba(255,255,255,0.42) !important;
+        radial-gradient(circle at 28% 20%, rgba(255,255,255,.88), transparent 33%),
+        linear-gradient(135deg, #ecfbff 0%, #bff2fb 38%, #1bb8d6 100%) !important;
+      border: 1px solid rgba(255,255,255,.74) !important;
+      color: #075f7e !important;
+      border-radius: 999px !important;
       box-shadow:
-        0 18px 42px rgba(8,127,166,0.32),
-        0 0 0 8px rgba(27,184,214,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.42) !important;
+        0 18px 44px rgba(8,127,166,.22),
+        0 0 0 8px rgba(27,184,214,.08),
+        inset 0 1px 0 rgba(255,255,255,.75) !important;
       overflow: visible !important;
     }
 
+    #bp-web-widget-container button svg,
+    #bp-web-widget button svg,
+    button[class*="bp"] svg,
+    [class*="FloatingButton"] svg,
+    [class*="launcher"] svg {
+      color: #075f7e !important;
+      fill: #075f7e !important;
+      stroke: #075f7e !important;
+      filter: drop-shadow(0 0 10px rgba(27,184,214,.28)) !important;
+    }
+
     #bp-web-widget-container button::before,
-    .bpFab::before,
-    .bpw-floating-button::before,
+    #bp-web-widget button::before,
     [class*="FloatingButton"]::before,
-    [class*="floatingButton"]::before,
     [class*="launcher"]::before {
       content: "" !important;
       position: absolute !important;
       inset: -7px !important;
       border-radius: inherit !important;
-      border: 1px solid rgba(27,184,214,0.22) !important;
-      animation: aasiomChatPulse 3.8s ease-in-out infinite !important;
+      border: 1px solid rgba(27,184,214,.24) !important;
+      animation: aasiomChatPulse 3.6s ease-in-out infinite !important;
       pointer-events: none !important;
     }
 
     #bp-web-widget-container button::after,
-    .bpFab::after,
-    .bpw-floating-button::after,
+    #bp-web-widget button::after,
     [class*="FloatingButton"]::after,
-    [class*="floatingButton"]::after,
     [class*="launcher"]::after {
       content: "Ask AASIOM AI" !important;
       position: absolute !important;
@@ -3922,10 +3924,10 @@ body::after {
       transform: translateY(-50%) translateX(8px) !important;
       padding: 9px 13px !important;
       border-radius: 999px !important;
-      background: rgba(255,255,255,0.88) !important;
+      background: rgba(255,255,255,.92) !important;
       border: 1px solid var(--aasiom-chat-line) !important;
       color: var(--aasiom-chat-deep) !important;
-      box-shadow: 0 12px 32px rgba(8,42,62,0.12) !important;
+      box-shadow: 0 12px 32px rgba(8,42,62,.12) !important;
       font-size: 12px !important;
       font-weight: 800 !important;
       white-space: nowrap !important;
@@ -3935,163 +3937,189 @@ body::after {
     }
 
     #bp-web-widget-container button:hover::after,
-    .bpFab:hover::after,
-    .bpw-floating-button:hover::after,
+    #bp-web-widget button:hover::after,
     [class*="FloatingButton"]:hover::after,
-    [class*="floatingButton"]:hover::after,
     [class*="launcher"]:hover::after {
       opacity: 1 !important;
       transform: translateY(-50%) translateX(0) !important;
     }
 
-    /* Give generic icons a node-assistant feel when SVG inherits color */
-    #bp-web-widget-container button svg,
-    .bpFab svg,
-    .bpw-floating-button svg,
-    [class*="FloatingButton"] svg,
-    [class*="launcher"] svg {
-      color: #ffffff !important;
-      filter: drop-shadow(0 0 10px rgba(255,255,255,0.35)) !important;
-    }
-
-    /* Open chat frame/window */
+    /* Outer iframe/card styling */
     #bp-web-widget-container iframe,
     #bp-web-widget iframe,
     iframe[src*="botpress"],
     iframe[title*="chat" i],
     iframe[title*="bot" i] {
       border-radius: 28px !important;
-      border: 1px solid rgba(8,127,166,0.20) !important;
-      box-shadow: var(--aasiom-chat-shadow) !important;
-      background: rgba(255,255,255,0.86) !important;
+      border: 1px solid rgba(8,127,166,.18) !important;
+      box-shadow: 0 24px 70px rgba(8,42,62,.20) !important;
+      background: rgba(255,255,255,.90) !important;
       overflow: hidden !important;
     }
 
-    /* Non-iframe / web-component Botpress builds */
-    .bpHeader,
-    .bpw-header,
-    [class*="Header"],
-    [class*="header"] {
+    /* For non-iframe Botpress builds */
+    .bpHeader, .bpw-header, [class*="Header"], [class*="header"] {
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(234,247,253,0.92)) !important;
-      border-bottom: 1px solid var(--aasiom-chat-line) !important;
+        radial-gradient(circle at 18% 0%, rgba(255,255,255,.90), transparent 42%),
+        linear-gradient(135deg, #f8fdff 0%, #e6f8fd 48%, #d3f1f8 100%) !important;
       color: var(--aasiom-chat-deep) !important;
-      backdrop-filter: blur(18px) saturate(160%) !important;
-      -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+      border-bottom: 1px solid rgba(8,127,166,.16) !important;
+      box-shadow: 0 12px 30px rgba(8,42,62,.08) !important;
     }
 
-    .bpMessageList,
-    .bpw-msg-list,
-    [class*="MessageList"],
-    [class*="Conversation"],
-    [class*="conversation"] {
+    .bpMessageList, .bpw-msg-list, [class*="MessageList"], [class*="Conversation"] {
       background:
-        radial-gradient(circle at 12% 0%, rgba(27,184,214,0.14), transparent 34%),
-        linear-gradient(rgba(8,48,73,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(8,48,73,0.035) 1px, transparent 1px),
+        radial-gradient(circle at 12% 0%, rgba(27,184,214,.13), transparent 34%),
+        linear-gradient(rgba(8,48,73,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8,48,73,.035) 1px, transparent 1px),
         #f7fcff !important;
-      background-size: auto, 36px 36px, 36px 36px, auto !important;
+      background-size: auto, 34px 34px, 34px 34px, auto !important;
     }
 
-    .bpMessageBubbleFromUser,
-    .bpw-from-user .bpw-chat-bubble,
-    [class*="UserMessage"],
-    [class*="userMessage"] {
-      background: linear-gradient(135deg, var(--aasiom-chat-blue-2), var(--aasiom-chat-blue)) !important;
-      color: #ffffff !important;
+    .bpMessageBubbleFromUser, .bpw-from-user .bpw-chat-bubble, [class*="UserMessage"], [class*="userMessage"] {
+      background: linear-gradient(135deg, #1bb8d6, #087fa6) !important;
+      color: #fff !important;
       border: 0 !important;
-      box-shadow: 0 10px 24px rgba(8,127,166,0.22) !important;
+      box-shadow: 0 10px 24px rgba(8,127,166,.20) !important;
     }
 
-    .bpMessageBubbleFromBot,
-    .bpw-from-bot .bpw-chat-bubble,
-    [class*="BotMessage"],
-    [class*="botMessage"] {
-      background: rgba(255,255,255,0.94) !important;
+    .bpMessageBubbleFromBot, .bpw-from-bot .bpw-chat-bubble, [class*="BotMessage"], [class*="botMessage"] {
+      background: rgba(255,255,255,.96) !important;
       color: var(--aasiom-chat-deep) !important;
-      border: 1px solid rgba(8,48,73,0.09) !important;
-      box-shadow: 0 10px 24px rgba(8,42,62,0.08) !important;
+      border: 1px solid rgba(8,48,73,.09) !important;
+      box-shadow: 0 10px 24px rgba(8,42,62,.08) !important;
     }
 
-    .bpComposer,
-    .bpw-composer,
-    [class*="Composer"],
-    [class*="composer"] {
-      background: rgba(255,255,255,0.92) !important;
-      border-top: 1px solid var(--aasiom-chat-line) !important;
+    .bpComposer, .bpw-composer, [class*="Composer"], [class*="composer"] {
+      background: rgba(255,255,255,.94) !important;
+      border-top: 1px solid rgba(8,127,166,.14) !important;
     }
 
-    .bpComposer input,
-    .bpComposer textarea,
-    .bpw-composer input,
-    .bpw-composer textarea,
-    [class*="Composer"] input,
-    [class*="Composer"] textarea {
-      background: rgba(243,249,253,0.92) !important;
-      color: var(--aasiom-chat-deep) !important;
-      border: 1px solid rgba(8,127,166,0.16) !important;
-      border-radius: 16px !important;
-    }
-
-    /* Logo/avatar safety: no crop */
-    .bpAvatar img,
-    .bpw-bot-avatar img,
-    [class*="Avatar"] img,
-    [class*="avatar"] img {
+    .bpAvatar img, .bpw-bot-avatar img, [class*="Avatar"] img, [class*="avatar"] img {
       object-fit: contain !important;
       padding: 5px !important;
-      background: rgba(255,255,255,0.85) !important;
+      background: rgba(255,255,255,.86) !important;
       border-radius: 12px !important;
     }
 
     @keyframes aasiomChatPulse {
-      0%, 100% { opacity: 0.30; transform: scale(1); }
-      50% { opacity: 0.75; transform: scale(1.12); }
+      0%, 100% { opacity: .30; transform: scale(1); }
+      50% { opacity: .76; transform: scale(1.12); }
     }
 
     @media (max-width: 640px) {
       #bp-web-widget-container button::after,
-      .bpFab::after,
-      .bpw-floating-button::after,
+      #bp-web-widget button::after,
       [class*="FloatingButton"]::after,
-      [class*="floatingButton"]::after,
-      [class*="launcher"]::after {
-        display: none !important;
-      }
-
+      [class*="launcher"]::after { display: none !important; }
       #bp-web-widget-container iframe,
       #bp-web-widget iframe,
-      iframe[src*="botpress"] {
-        border-radius: 22px !important;
-      }
+      iframe[src*="botpress"] { border-radius: 22px !important; }
     }
   </style>
 
   <script>
-    /* Botpress webchat identity/copy configuration. The hosted bot file still controls bot knowledge. */
-    window.botpressWebChat = window.botpressWebChat || {};
-    window.botpressWebChat.initConfig = Object.assign({}, window.botpressWebChat.initConfig || {}, {
-      botName: 'AASIOM AI',
-      botConversationDescription: 'Ask about AASIOM, ANVIRA, pilots, or partnerships',
-      composerPlaceholder: 'Ask AASIOM AI...',
-      showPoweredBy: false,
-      enableTranscriptDownload: false,
-      stylesheet: '',
-      theme: 'light'
-    });
+    /*
+      Botpress v3 webchat is mainly controlled by its cloud configuration.
+      This patch merges AASIOM ice-blue settings before the hosted bot script
+      initializes, and retries after load for Botpress builds that expose updateConfig.
+    */
+    (function () {
+      const AASIOM_BP_THEME = {
+        botName: 'AASIOM AI',
+        botDescription: 'Ask about AASIOM, ANVIRA, pilots, or partnerships',
+        composerPlaceholder: 'Ask me anything about AASIOM or ANVIRA...',
+        showPoweredBy: false,
+        enableTranscriptDownload: false,
+        theme: 'light',
+        themeMode: 'light',
+        color: '#d7f4fb',
+        radius: 2,
+        variant: 'soft',
+        fontFamily: 'Inter',
+        stylesheet: '',
+        configuration: {
+          botName: 'AASIOM AI',
+          botDescription: 'Ask about AASIOM, ANVIRA, pilots, or partnerships',
+          botConversationDescription: 'Ask about AASIOM, ANVIRA, pilots, or partnerships',
+          composerPlaceholder: 'Ask me anything about AASIOM or ANVIRA...',
+          color: '#d7f4fb',
+          variant: 'soft',
+          themeMode: 'light',
+          fontFamily: 'Inter',
+          radius: 2,
+          showPoweredBy: false,
+          enableTranscriptDownload: false,
+          email: {},
+          phone: {},
+          website: {},
+          termsOfService: {},
+          privacyPolicy: {}
+        },
+        userData: {
+          websiteTheme: 'ice-blue',
+          company: 'AASIOM Technologies Pvt. Ltd.'
+        }
+      };
 
-    window.addEventListener('load', function () {
-      var applyAasiomChatLabels = function () {
-        document.querySelectorAll('[aria-label*="chat" i], [aria-label*="bot" i], #bp-web-widget-container button').forEach(function (button) {
+      function deepMerge(target, source) {
+        target = target || {};
+        Object.keys(source || {}).forEach(function (key) {
+          if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+            target[key] = deepMerge(target[key] || {}, source[key]);
+          } else if (source[key] !== undefined) {
+            target[key] = source[key];
+          }
+        });
+        return target;
+      }
+
+      window.botpressWebChat = window.botpressWebChat || {};
+      window.botpressWebChat.initConfig = deepMerge(window.botpressWebChat.initConfig || {}, AASIOM_BP_THEME);
+      window.botpressWebChatConfig = deepMerge(window.botpressWebChatConfig || {}, AASIOM_BP_THEME);
+      window.__AASIOM_BP_THEME__ = AASIOM_BP_THEME;
+
+      function patchBotpressInit() {
+        if (!window.botpress || typeof window.botpress.init !== 'function' || window.botpress.__aasiomThemePatched) return false;
+        const originalInit = window.botpress.init.bind(window.botpress);
+        window.botpress.init = function (config) {
+          config = deepMerge(config || {}, AASIOM_BP_THEME);
+          return originalInit(config);
+        };
+        window.botpress.__aasiomThemePatched = true;
+        return true;
+      }
+
+      function pushRuntimeTheme() {
+        try {
+          if (window.botpress && typeof window.botpress.updateConfig === 'function') {
+            window.botpress.updateConfig(AASIOM_BP_THEME);
+          }
+          if (window.botpress && typeof window.botpress.configure === 'function') {
+            window.botpress.configure(AASIOM_BP_THEME);
+          }
+        } catch (e) {}
+
+        document.querySelectorAll('[aria-label*="chat" i], [aria-label*="bot" i], #bp-web-widget-container button, #bp-web-widget button').forEach(function (button) {
           button.setAttribute('aria-label', 'Ask AASIOM AI');
           button.setAttribute('title', 'Ask AASIOM AI');
         });
-      };
+      }
 
-      applyAasiomChatLabels();
-      setTimeout(applyAasiomChatLabels, 1200);
-      setTimeout(applyAasiomChatLabels, 2800);
-    });
+      const patchTimer = setInterval(function () {
+        patchBotpressInit();
+        pushRuntimeTheme();
+      }, 120);
+      setTimeout(function () { clearInterval(patchTimer); pushRuntimeTheme(); }, 7000);
+
+      window.addEventListener('load', function () {
+        patchBotpressInit();
+        pushRuntimeTheme();
+        setTimeout(pushRuntimeTheme, 900);
+        setTimeout(pushRuntimeTheme, 2200);
+        setTimeout(pushRuntimeTheme, 4200);
+      });
+    })();
   </script>
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2026/06/26/21/20260626210752-7V9KPK36.js" defer></script>
