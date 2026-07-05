@@ -3009,6 +3009,129 @@
     </div>
   </footer>
 
+  <style>
+    /* Final section-frame pass: each major page area sits inside one clean frame. */
+    .page-header--about,
+    body > section.section,
+    body > section.mission-section,
+    body > section.about-block,
+    body > section.about-innovation-section,
+    body > section.trust-docs-section {
+      padding: clamp(28px, 4vw, 52px) 20px !important;
+      background: transparent !important;
+      border: 0 !important;
+      overflow: visible !important;
+    }
+
+    .page-header--about {
+      min-height: auto !important;
+      padding-top: 118px !important;
+    }
+
+    .page-header--about > .container,
+    body > section.section > .container,
+    body > section.mission-section > .container,
+    body > section.about-block > .container,
+    body > section.about-innovation-section > .container,
+    body > section.trust-docs-section > .container,
+    .footer > .container {
+      max-width: 1240px !important;
+      width: min(1240px, calc(100% - 24px)) !important;
+      margin: 0 auto !important;
+      padding: clamp(28px, 4.8vw, 58px) !important;
+      border: 1px solid rgba(8, 48, 73, 0.13) !important;
+      border-radius: 30px !important;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.94), rgba(237,249,255,0.82)) !important;
+      box-shadow:
+        0 24px 70px rgba(8, 48, 73, 0.10),
+        inset 0 1px 0 rgba(255,255,255,0.90) !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    .page-header--about > .container::before,
+    body > section.section > .container::before,
+    body > section.mission-section > .container::before,
+    body > section.about-block > .container::before,
+    body > section.about-innovation-section > .container::before,
+    body > section.trust-docs-section > .container::before,
+    .footer > .container::before {
+      content: '' !important;
+      position: absolute !important;
+      inset: 0 !important;
+      pointer-events: none !important;
+      border-radius: inherit !important;
+      background:
+        linear-gradient(90deg, rgba(10,169,214,0.20), transparent 22%, transparent 78%, rgba(70,217,239,0.18)),
+        radial-gradient(circle at 8% 0%, rgba(70,217,239,0.16), transparent 30%) !important;
+      opacity: 0.72 !important;
+    }
+
+    .page-header--about > .container > *,
+    body > section.section > .container > *,
+    body > section.mission-section > .container > *,
+    body > section.about-block > .container > *,
+    body > section.about-innovation-section > .container > *,
+    body > section.trust-docs-section > .container > *,
+    .footer > .container > * {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+    .section::before,
+    .mission-section::before,
+    .about-innovation-section::before,
+    .trust-docs-section::before,
+    .section::after,
+    .mission-section::after,
+    .about-innovation-section::after,
+    .trust-docs-section::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .mission-grid,
+    .think-grid,
+    .about-principle-grid,
+    .trust-docs-shell,
+    .domains-grid,
+    .footer-grid {
+      width: 100% !important;
+    }
+
+    .footer {
+      padding: clamp(28px, 4vw, 52px) 20px !important;
+      background: transparent !important;
+      border: 0 !important;
+    }
+
+    @media (max-width: 760px) {
+      .page-header--about,
+      body > section.section,
+      body > section.mission-section,
+      body > section.about-block,
+      body > section.about-innovation-section,
+      body > section.trust-docs-section,
+      .footer {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+      }
+
+      .page-header--about > .container,
+      body > section.section > .container,
+      body > section.mission-section > .container,
+      body > section.about-block > .container,
+      body > section.about-innovation-section > .container,
+      body > section.trust-docs-section > .container,
+      .footer > .container {
+        width: 100% !important;
+        padding: 24px !important;
+        border-radius: 22px !important;
+      }
+    }
+  </style>
+
 
   <script>
     (function() {
