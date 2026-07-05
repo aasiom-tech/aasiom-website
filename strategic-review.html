@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AASIOM Strategic Review 2026 | ANVIRA and Operational Infrastructure</title>
+  <meta name="description" content="AASIOM Technologies Private Limited strategic review page covering ANVIRA, operational infrastructure, product direction, execution discipline, and responsible demo boundaries.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AASIOM Strategic Review 2026 | ANVIRA and Operational Infrastructure">
+  <meta property="og:description" content="AASIOM Technologies Private Limited strategic review page covering ANVIRA, operational infrastructure, product direction, execution discipline, and responsible demo boundaries.">
+  <meta property="og:url" content="https://aasiom.com/strategic-review">
+  <meta property="og:image" content="https://aasiom.com/images/aasiom-logo.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AASIOM Strategic Review 2026">
+  <meta name="twitter:description" content="AASIOM Technologies Private Limited strategic review page covering ANVIRA, operational infrastructure, product direction, execution discipline, and responsible demo boundaries.">
+  <script>
+    window.retryAsset = function(el, attempt) {
+      if (attempt > 3) { document.documentElement.classList.add('fonts-failed'); return; }
+      setTimeout(function() {
+        var clone = el.cloneNode();
+        clone.onload = function() { this.onload = null; this.rel = 'stylesheet'; };
+        clone.onerror = function() { window.retryAsset(this, attempt + 1); };
+        el.parentNode.insertBefore(clone, el.nextSibling);
+      }, attempt * 1000);
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" onerror="window.retryAsset?window.retryAsset(this,1):null">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/aasiom-tab.png">
+  <link rel="apple-touch-icon" href="images/aasiom-tab.png">
+  <style>
+    :root {
+      --review-bg: #f7fbfd;
+      --review-bg-soft: #eef7fb;
+      --review-panel: rgba(255, 255, 255, 0.86);
+      --review-panel-strong: #ffffff;
+      --review-text: #091824;
+      --review-heading: #071722;
+      --review-muted: #4a6475;
+      --review-muted-strong: #5d7686;
+      --review-line: rgba(8, 44, 68, 0.12);
+      --review-line-strong: rgba(8, 44, 68, 0.18);
+      --review-blue: #0c7ea2;
+      --review-blue-deep: #0a6784;
+      --review-blue-soft: #d7eef7;
+      --review-gold: #c5852d;
+      --review-shadow: 0 24px 60px rgba(10, 33, 49, 0.10);
+      --review-shadow-hover: 0 30px 72px rgba(10, 33, 49, 0.14);
+      --review-radius: 24px;
+      --review-radius-small: 16px;
+      --review-width: 1240px;
+      --review-transition: 220ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--review-text);
+      font-family: "DM Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 10% 8%, rgba(12, 126, 162, 0.12), transparent 32%),
+        radial-gradient(circle at 90% 16%, rgba(197, 133, 45, 0.08), transparent 26%),
+        linear-gradient(180deg, #fbfeff 0%, var(--review-bg) 36%, var(--review-bg-soft) 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(12, 126, 162, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(12, 126, 162, 0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.38), transparent 75%);
+      z-index: -2;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--review-width), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .nav,
+    .nav.scrolled {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 5000;
+      background: rgba(249, 252, 254, 0.84);
+      border-bottom: 1px solid rgba(8, 44, 68, 0.10);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 10px 28px rgba(10, 33, 49, 0.06);
+      transition: background var(--review-transition), box-shadow var(--review-transition);
+    }
+
+    .nav-inner {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand,
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+    }
+
+    .brand img,
+    .nav-logo img {
+      width: 188px;
+      height: auto;
+      display: block;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 28px;
+      color: var(--review-text);
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+    }
+
+    .nav-links a {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      min-height: 46px;
+      color: #375769;
+      transition: color var(--review-transition), transform var(--review-transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--review-text);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.active::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -8px;
+      width: 72px;
+      height: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, var(--review-blue), transparent);
+    }
+
+    .nav-cta {
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(12, 126, 162, 0.16);
+      background: rgba(12, 126, 162, 0.08);
+    }
+
+    .review-main {
+      padding-top: 88px;
+    }
+
+    .hero {
+      padding: 72px 0 54px;
+      min-height: calc(100vh - 88px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -110px;
+      top: 120px;
+      border: 1px solid rgba(12, 126, 162, 0.12);
+      background: radial-gradient(circle, rgba(12, 126, 162, 0.10), transparent 65%);
+      animation: heroFloat 8s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      width: 520px;
+      height: 220px;
+      left: -150px;
+      bottom: 30px;
+      border: 1px solid rgba(12, 126, 162, 0.10);
+      transform: rotate(-8deg);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+      gap: 46px;
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(12, 126, 162, 0.18);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--review-blue-deep);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      margin: 22px 0 22px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: clamp(3rem, 6vw, 5.3rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+      max-width: 720px;
+      color: var(--review-heading);
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.06rem;
+      line-height: 1.82;
+      color: var(--review-muted);
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 30px 0 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+      transition: transform var(--review-transition), border-color var(--review-transition), background var(--review-transition), box-shadow var(--review-transition), color var(--review-transition);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(10, 33, 49, 0.10);
+    }
+
+    .btn-primary {
+      background: var(--review-text);
+      color: #ffffff;
+      border-color: var(--review-text);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--review-heading);
+      border-color: rgba(12, 126, 162, 0.16);
+    }
+
+    .btn-disabled,
+    .btn-disabled:hover {
+      background: rgba(244, 248, 250, 0.88);
+      color: var(--review-muted-strong);
+      border-color: rgba(8, 44, 68, 0.10);
+      box-shadow: none;
+      transform: none;
+      cursor: default;
+    }
+
+    .hero-disclaimer {
+      margin-top: 12px;
+      padding-left: 18px;
+      border-left: 2px solid rgba(12, 126, 162, 0.28);
+      color: var(--review-muted-strong);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+
+    .snapshot-card {
+      position: relative;
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 250, 252, 0.86));
+      border: 1px solid rgba(12, 126, 162, 0.14);
+      box-shadow: var(--review-shadow);
+      overflow: hidden;
+      animation: snapshotFloat 7s ease-in-out infinite alternate;
+    }
+
+    .snapshot-card::before,
+    .snapshot-card::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border: 1px solid rgba(12, 126, 162, 0.12);
+      z-index: 0;
+    }
+
+    .snapshot-card::before {
+      width: 380px;
+      height: 180px;
+      border-radius: 180px 180px 0 0;
+      left: -110px;
+      top: 48px;
+      transform: rotate(-12deg);
+    }
+
+    .snapshot-card::after {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      right: -70px;
+      top: -70px;
+    }
+
+    .snapshot-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .snapshot-card h2 {
+      margin: 0 0 18px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1.75rem;
+      line-height: 1.14;
+      color: var(--review-heading);
+    }
+
+    .snapshot-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .snapshot-row {
+      display: grid;
+      grid-template-columns: 124px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 14px 15px;
+      border-radius: var(--review-radius-small);
+      border: 1px solid rgba(8, 44, 68, 0.08);
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .snapshot-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--review-blue-deep);
+    }
+
+    .snapshot-value {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--review-text);
+    }
+
+    section.review-section {
+      padding: 54px 0;
+    }
+
+    .section-shell {
+      position: relative;
+      padding: 36px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(8, 44, 68, 0.08);
+      box-shadow: 0 14px 40px rgba(10, 33, 49, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: var(--review-blue-deep);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0 0 16px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--review-heading);
+    }
+
+    .section-text {
+      max-width: 760px;
+      color: var(--review-muted);
+      font-size: 1rem;
+      line-height: 1.84;
+    }
+
+    .section-text p {
+      margin: 0 0 18px;
+    }
+
+    .highlight-line {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 8px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(12, 126, 162, 0.08);
+      border: 1px solid rgba(12, 126, 162, 0.14);
+      color: var(--review-heading);
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+    }
+
+    .founder-card {
+      display: grid;
+      grid-template-columns: 88px 1fr;
+      gap: 24px;
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(245, 249, 252, 0.88));
+      border: 1px solid rgba(8, 44, 68, 0.08);
+      box-shadow: var(--review-shadow);
+    }
+
+    .founder-mark {
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: rgba(12, 126, 162, 0.08);
+      border: 1px solid rgba(12, 126, 162, 0.18);
+      color: var(--review-blue-deep);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+    }
+
+    .founder-card p {
+      margin: 0 0 16px;
+      color: var(--review-muted);
+      line-height: 1.82;
+    }
+
+    .principle-grid,
+    .context-grid,
+    .boundary-grid,
+    .review-grid,
+    .module-grid,
+    .status-grid,
+    .trust-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .principle-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .context-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .boundary-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .review-grid {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .module-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .status-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .trust-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 24px;
+    }
+
+    .info-card,
+    .boundary-card,
+    .module-card,
+    .status-card,
+    .preview-card,
+    .cta-card,
+    .trust-card {
+      min-height: 100%;
+      padding: 22px;
+      border-radius: var(--review-radius-small);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(8, 44, 68, 0.08);
+      transition: transform var(--review-transition), border-color var(--review-transition), box-shadow var(--review-transition), background var(--review-transition);
+    }
+
+    .info-card:hover,
+    .boundary-card:hover,
+    .module-card:hover,
+    .status-card:hover,
+    .preview-card:hover,
+    .cta-card:hover,
+    .trust-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(12, 126, 162, 0.18);
+      box-shadow: var(--review-shadow-hover);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .info-card h3,
+    .boundary-card h3,
+    .module-card h3,
+    .status-card h3,
+    .preview-card h3,
+    .cta-card h3,
+    .trust-card h3 {
+      margin: 0 0 10px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.35;
+      color: var(--review-heading);
+    }
+
+    .info-card p,
+    .boundary-card p,
+    .module-card p,
+    .status-card p,
+    .preview-card p,
+    .trust-card p,
+    .cta-card p {
+      margin: 0;
+      color: var(--review-muted);
+      line-height: 1.7;
+      font-size: 0.96rem;
+    }
+
+    .boundary-card {
+      background: linear-gradient(180deg, rgba(255, 252, 249, 0.92), rgba(255, 255, 255, 0.88));
+      border-color: rgba(197, 133, 45, 0.14);
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 18px;
+      padding-left: 26px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(12, 126, 162, 0.16), rgba(12, 126, 162, 0.36), rgba(12, 126, 162, 0.12));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 18px 20px;
+      border-radius: var(--review-radius-small);
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(8, 44, 68, 0.08);
+      box-shadow: 0 12px 28px rgba(10, 33, 49, 0.05);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -23px;
+      top: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--review-panel-strong);
+      border: 3px solid var(--review-blue);
+      box-shadow: 0 0 0 6px rgba(12, 126, 162, 0.08);
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1rem;
+      color: var(--review-heading);
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      align-items: stretch;
+      margin-top: 24px;
+      position: relative;
+    }
+
+    .flow-grid::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      right: 10%;
+      top: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(12, 126, 162, 0.10), rgba(12, 126, 162, 0.36), rgba(12, 126, 162, 0.10));
+      z-index: 0;
+      transform-origin: left center;
+      animation: lineReveal 1.2s ease both;
+    }
+
+    .flow-card {
+      position: relative;
+      z-index: 1;
+      min-height: 190px;
+      padding: 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(8, 44, 68, 0.08);
+      box-shadow: 0 16px 34px rgba(10, 33, 49, 0.06);
+      transition: transform var(--review-transition), border-color var(--review-transition), box-shadow var(--review-transition);
+    }
+
+    .flow-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(12, 126, 162, 0.18);
+      box-shadow: var(--review-shadow-hover);
+    }
+
+    .flow-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(12, 126, 162, 0.08);
+      border: 1px solid rgba(12, 126, 162, 0.18);
+      color: var(--review-blue);
+      margin-bottom: 14px;
+    }
+
+    .flow-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .flow-card h3 {
+      margin: 0 0 8px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1rem;
+      color: var(--review-heading);
+    }
+
+    .flow-card p {
+      margin: 0;
+      color: var(--review-muted);
+      line-height: 1.65;
+      font-size: 0.94rem;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(8, 44, 68, 0.08);
+      background: rgba(247, 251, 253, 0.92);
+      color: var(--review-blue-deep);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .module-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: rgba(12, 126, 162, 0.08);
+      border: 1px solid rgba(12, 126, 162, 0.16);
+      color: var(--review-blue-deep);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.78rem;
+    }
+
+    .status-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(12, 126, 162, 0.08);
+      border: 1px solid rgba(12, 126, 162, 0.16);
+      color: var(--review-blue-deep);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+    }
+
+    .red-line {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255, 252, 248, 0.88);
+      border: 1px solid rgba(197, 133, 45, 0.20);
+      color: var(--review-heading);
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+    }
+
+    .document-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .small-note {
+      margin-top: 16px;
+      color: var(--review-muted-strong);
+      font-size: 0.94rem;
+      line-height: 1.72;
+      max-width: 760px;
+    }
+
+    .cta-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-end;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding: 54px 0 28px;
+      background: rgba(255, 255, 255, 0.62);
+      border-top: 1px solid rgba(8, 44, 68, 0.08);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .footer-brand p,
+    .footer-col ul,
+    .footer-bottom {
+      color: var(--review-muted-strong);
+      line-height: 1.75;
+    }
+
+    .footer-col h4 {
+      margin: 0 0 12px;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1rem;
+      color: var(--review-heading);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(8, 44, 68, 0.08);
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-copy.reveal {
+      transform: translateY(32px);
+    }
+
+    .hero-copy.reveal.visible {
+      animation: heroReveal 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes heroReveal {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes snapshotFloat {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes heroFloat {
+      from {
+        transform: translateY(0);
+      }
+      to {
+        transform: translateY(-18px);
+      }
+    }
+
+    @keyframes lineReveal {
+      from {
+        transform: scaleX(0);
+        opacity: 0;
+      }
+      to {
+        transform: scaleX(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .cta-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-actions {
+        justify-content: flex-start;
+      }
+
+      .boundary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .review-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow-grid,
+      .principle-grid,
+      .context-grid,
+      .status-grid,
+      .trust-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-grid::before {
+        display: none;
+      }
+
+      .module-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 88px;
+        left: 16px;
+        right: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 18px;
+        border-radius: 22px;
+        background: rgba(255, 255, 255, 0.96);
+        border: 1px solid rgba(8, 44, 68, 0.10);
+        box-shadow: var(--review-shadow);
+      }
+
+      .nav.open .nav-links {
+        display: flex;
+      }
+
+      .nav-links a.active::after {
+        display: none;
+      }
+
+      .nav-cta {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 44px 0 40px;
+      }
+
+      .section-shell,
+      .founder-card,
+      .snapshot-card {
+        padding: 24px;
+      }
+
+      .founder-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: calc(100% - 32px);
+      }
+
+      .hero h1,
+      .section-title {
+        max-width: 100%;
+      }
+
+      .hero-actions,
+      .document-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .snapshot-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .boundary-grid,
+      .review-grid,
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal,
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="AASIOM Home">
+        <img src="images/aasiom-logo.png" alt="AASIOM Technologies Private Limited">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="anvira.html">ANVIRA</a></li>
+        <li><a href="strategic-review.html" class="active">Strategic Review</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="review-main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">AASIOM Strategic Review 2026</div>
+          <h1>Building operational infrastructure for highway incident coordination in India.</h1>
+          <p>AASIOM Technologies Private Limited is focused on ANVIRA: a WhatsApp-first incident control workflow that helps trucking fleet owners reduce post-incident confusion through structured updates, evidence capture, next actions, and case-file discipline.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#current-focus">View Current Focus</a>
+            <a class="btn btn-secondary" href="#document-preview">Download Review PDF</a>
+          </div>
+          <p class="hero-disclaimer">This page describes AASIOM&rsquo;s current strategic direction and controlled demo work. It is not a commercial performance report or a claim of live emergency-response capability.</p>
+        </div>
+        <aside class="snapshot-card reveal" aria-label="Strategic Review Snapshot">
+          <h2>Strategic Review Snapshot</h2>
+          <div class="snapshot-list">
+            <div class="snapshot-row">
+              <div class="snapshot-label">Current focus</div>
+              <div class="snapshot-value">ANVIRA</div>
+            </div>
+            <div class="snapshot-row">
+              <div class="snapshot-label">Market entry</div>
+              <div class="snapshot-value">Indian trucking fleets</div>
+            </div>
+            <div class="snapshot-row">
+              <div class="snapshot-label">Build stage</div>
+              <div class="snapshot-value">Controlled dummy-data demo</div>
+            </div>
+            <div class="snapshot-row">
+              <div class="snapshot-label">Primary workflow</div>
+              <div class="snapshot-value">Incident intake -&gt; Case file -&gt; Evidence dossier</div>
+            </div>
+            <div class="snapshot-row">
+              <div class="snapshot-label">Execution principle</div>
+              <div class="snapshot-value">Narrow wedge before broad platform</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">02 Why this review exists</div>
+        <h2 class="section-title">Why this review exists</h2>
+        <div class="section-text">
+          <p>AASIOM is not publishing this page to look bigger than it is. This review exists to make our direction clear before the product becomes larger.</p>
+          <p>The current priority is ANVIRA. We are building the first controlled demo around a specific operational pain: after a highway incident, fleet owners often lose time, information, documents, and accountability across calls, WhatsApp messages, photos, driver updates, and claim follow-ups.</p>
+          <p>This page explains what we are building, what we are not building, and how we are keeping the work disciplined.</p>
+          <div class="highlight-line">Discipline before expansion.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container">
+        <div class="section-kicker">03 Founder review note</div>
+        <h2 class="section-title">Founder review</h2>
+        <div class="founder-card">
+          <div class="founder-mark" aria-hidden="true">AR</div>
+          <div>
+            <p>AASIOM&rsquo;s current work is focused on one question: can we make the first operational response after a trucking incident more structured, documented, and accountable?</p>
+            <p>ANVIRA is our answer to that question.</p>
+            <p>We are not starting with a broad fleet-management platform. We are not starting with GPS tracking, towing, insurance claims, or emergency dispatch. We are starting with the part of the workflow where confusion is highest and proof is most fragile: the first report, the evidence trail, the internal decisions, and the follow-up actions.</p>
+            <p>The goal for this phase is simple: build a controlled demo, place it in front of fleet owners, learn from real operational feedback, and improve only what makes the workflow clearer and more useful.</p>
+            <p>AASIOM will grow by proving discipline first, not by adding features before the core workflow is trusted.</p>
+          </div>
+        </div>
+        <div class="principle-grid">
+          <div class="info-card">
+            <h3>Narrow wedge</h3>
+            <p>Start with one painful workflow and prove it before widening the scope.</p>
+          </div>
+          <div class="info-card">
+            <h3>Operational proof</h3>
+            <p>Validate the workflow with fleet owners and operators in practical, specific review sessions.</p>
+          </div>
+          <div class="info-card">
+            <h3>Responsible claims</h3>
+            <p>Say exactly what the product can support today, and keep the boundary visible.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">04 Strategic context</div>
+        <h2 class="section-title">Strategic context</h2>
+        <div class="section-text">
+          <p>Indian trucking operations do not fail only because an incident happens. They often lose more value after the incident, when updates are scattered, documents are incomplete, responsibilities are unclear, and follow-up decisions are delayed.</p>
+          <p>For mid-sized interstate fleets, one serious incident can create multiple parallel problems: driver updates, vehicle status, cargo continuity, insurer intimation, evidence collection, repair coordination, senior approval, and customer communication.</p>
+          <p>ANVIRA is designed around this operational gap. The product direction is not to replace fleet teams. The direction is to give them a structured incident case file so that every update, document, blocker, and next action has a place.</p>
+        </div>
+        <div class="context-grid">
+          <div class="info-card">
+            <h3>Scattered updates</h3>
+            <p>Calls, messages, and internal follow-up split the incident story into fragments.</p>
+          </div>
+          <div class="info-card">
+            <h3>Weak evidence trail</h3>
+            <p>Photos, documents, and timestamps become harder to trust when collection is inconsistent.</p>
+          </div>
+          <div class="info-card">
+            <h3>Unclear follow-up ownership</h3>
+            <p>Tasks drift when no single case file holds blockers, decisions, and responsible owners.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal" id="current-focus">
+      <div class="container section-shell">
+        <div class="section-kicker">05 Current focus: ANVIRA</div>
+        <h2 class="section-title">Current focus: ANVIRA</h2>
+        <div class="section-text">
+          <p>ANVIRA helps trucking fleet owners reduce post-incident confusion by collecting driver updates, location details, photos, documents, status, and follow-up actions into one structured incident case file, through a WhatsApp-style intake and a fleet dashboard.</p>
+          <p>The current build is a controlled dummy-data demo. It is being designed to show the workflow clearly before any real customer, driver, vehicle, FIR, insurance, or incident data is used.</p>
+          <p>The demo focuses on ten modules: WhatsApp-style incident intake, fleet owner dashboard, incident list, incident case file, evidence checklist, timeline, next actions, cargo continuity alert, evidence dossier PDF, and internal admin controls.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">06 What ANVIRA is not</div>
+        <h2 class="section-title">What ANVIRA is not</h2>
+        <div class="boundary-grid">
+          <article class="boundary-card">
+            <h3>Not GPS tracking software</h3>
+            <p>ANVIRA does not position itself as a live vehicle-tracking platform. Location details in the current demo are driver-reported and dummy-data based.</p>
+          </article>
+          <article class="boundary-card">
+            <h3>Not emergency rescue</h3>
+            <p>ANVIRA does not replace police, ambulance, hospital, or emergency-response systems. It structures incident information for fleet coordination.</p>
+          </article>
+          <article class="boundary-card">
+            <h3>Not a towing marketplace</h3>
+            <p>ANVIRA does not automatically arrange towing or replacement vehicles. It can help track internal next actions and blockers.</p>
+          </article>
+          <article class="boundary-card">
+            <h3>Not an insurance guarantee</h3>
+            <p>ANVIRA does not guarantee claim approval or settlement. It organises evidence and records that may support the claim process.</p>
+          </article>
+          <article class="boundary-card">
+            <h3>Not a public consumer app</h3>
+            <p>ANVIRA is being designed for trucking fleet operations, not as a public roadside assistance or road-social app.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">07 2026 operating priorities</div>
+        <h2 class="section-title">2026 operating priorities</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <strong>1. Build the controlled ANVIRA demo around realistic dummy incidents.</strong>
+            <span class="section-text">The immediate effort stays inside a workflow that can be demonstrated clearly and checked for accuracy.</span>
+          </div>
+          <div class="timeline-item">
+            <strong>2. Test the workflow with fleet owners and operators before expanding scope.</strong>
+            <span class="section-text">Operational feedback should shape the next build decisions before the product surface grows.</span>
+          </div>
+          <div class="timeline-item">
+            <strong>3. Keep the product focused on incident command, evidence discipline, and operational follow-up.</strong>
+            <span class="section-text">The core workflow remains the first priority while the demo matures toward pilot readiness.</span>
+          </div>
+          <div class="timeline-item">
+            <strong>4. Avoid claims that ANVIRA cannot enforce, including rescue, live tracking, towing, or guaranteed claim outcomes.</strong>
+            <span class="section-text">Positioning discipline is part of product discipline, especially at demo stage.</span>
+          </div>
+          <div class="timeline-item">
+            <strong>5. Convert useful feedback into a narrow pilot-ready product plan.</strong>
+            <span class="section-text">The goal is a tighter operating path, not a broader speculative roadmap.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">08 Review framework</div>
+        <h2 class="section-title">Review framework</h2>
+        <div class="review-grid">
+          <article class="info-card">
+            <h3>Operational usefulness</h3>
+            <p>Does this feature reduce confusion for a fleet owner during or after an incident?</p>
+          </article>
+          <article class="info-card">
+            <h3>Evidence discipline</h3>
+            <p>Does this workflow protect photos, documents, timestamps, blockers, and follow-up records?</p>
+          </article>
+          <article class="info-card">
+            <h3>Execution focus</h3>
+            <p>Does this belong inside the current ANVIRA demo, or is it a distraction from the core workflow?</p>
+          </article>
+          <article class="info-card">
+            <h3>Customer proof</h3>
+            <p>Can a fleet owner understand the value without technical explanation?</p>
+          </article>
+          <article class="info-card">
+            <h3>Responsible boundaries</h3>
+            <p>Does the page clearly state what ANVIRA does and does not do?</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">09 Product system overview</div>
+        <h2 class="section-title">Product system overview</h2>
+        <div class="section-text">
+          <p>Driver update enters the workflow through a WhatsApp-style intake simulation. The incident appears on the fleet dashboard with severity, status, pending actions, and cargo continuity risk. The incident case file then becomes the single place for summary, evidence, timeline, next actions, and blockers. Finally, the evidence dossier converts the case record into a structured PDF for internal review and claim-support preparation.</p>
+        </div>
+        <div class="flow-grid" aria-label="Product system flow">
+          <article class="flow-card">
+            <div class="flow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16v11H7l-3 3V5Z"></path><path d="M8 9h8"></path><path d="M8 12h5"></path></svg>
+            </div>
+            <h3>WhatsApp-style Intake</h3>
+            <p>Simulated incident intake captures the first structured update.</p>
+            <div class="status-pill">Intake active</div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"></path><path d="M8 9h8"></path><path d="M8 13h5"></path></svg>
+            </div>
+            <h3>Fleet Dashboard</h3>
+            <p>Severity, status, pending actions, and cargo continuity risk stay visible.</p>
+            <div class="status-pill">Command view</div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 4h10l3 3v13H7z"></path><path d="M17 4v4h4"></path><path d="M10 12h7"></path><path d="M10 16h5"></path></svg>
+            </div>
+            <h3>Incident Case File</h3>
+            <p>Summary, evidence, timeline, blockers, and next actions stay in one place.</p>
+            <div class="status-pill">Case organised</div>
+          </article>
+          <article class="flow-card">
+            <div class="flow-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M7 4h10l3 3v13H7z"></path><path d="M10 12h7"></path><path d="M10 16h5"></path><path d="M17 4v4h4"></path></svg>
+            </div>
+            <h3>Evidence Dossier PDF</h3>
+            <p>Structured export supports internal review and claim-support preparation.</p>
+            <div class="status-pill">Export ready</div>
+          </article>
+        </div>
+        <div class="module-grid">
+          <article class="module-card">
+            <div class="module-number">1</div>
+            <h3>WhatsApp-style intake</h3>
+            <p>A simulated driver-message flow that shows how the first incident report becomes structured.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">2</div>
+            <h3>Fleet dashboard</h3>
+            <p>A command view for open incidents, severity, pending actions, and cargo-risk flags.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">3</div>
+            <h3>Incident list</h3>
+            <p>A sortable view of dummy incidents by status, severity, and follow-up state.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">4</div>
+            <h3>Case file</h3>
+            <p>One structured place for incident summary, driver, truck, timeline, evidence, and next actions.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">5</div>
+            <h3>Evidence checklist</h3>
+            <p>A clear list of required documents and blockers, using Pending, Collected, Blocked, and Not Applicable.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">6</div>
+            <h3>Incident timeline</h3>
+            <p>A chronological record of updates and actions around the incident.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">7</div>
+            <h3>Next actions</h3>
+            <p>Task ownership for follow-up work such as intimation, document collection, or senior review.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">8</div>
+            <h3>Cargo continuity alert</h3>
+            <p>A flag for load-risk situations where the fleet may need an internal continuation decision.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">9</div>
+            <h3>Evidence dossier PDF</h3>
+            <p>A structured export of the case file for internal review and claim-support preparation.</p>
+          </article>
+          <article class="module-card">
+            <div class="module-number">10</div>
+            <h3>Internal admin controls</h3>
+            <p>A demo-driving layer used to create and update dummy incidents during walkthroughs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">10 Execution status</div>
+        <h2 class="section-title">Execution status</h2>
+        <div class="section-text">
+          <p>Current stage: controlled dummy-data demo.</p>
+          <p>The immediate goal is not to present ANVIRA as a completed commercial platform. The immediate goal is to show the workflow clearly, collect feedback from fleet owners, and identify whether the incident case-file approach is useful enough to justify a pilot.</p>
+          <p>The demo uses fictional incidents, fictional drivers, fictional vehicles, and fictional evidence documents. Real operational data should only be introduced after founder approval, customer consent, and a clear data-handling process.</p>
+        </div>
+        <div class="status-grid">
+          <article class="status-card">
+            <div class="status-label">Current build</div>
+            <h3>Controlled dummy-data demo for internal and fleet-owner feedback.</h3>
+          </article>
+          <article class="status-card">
+            <div class="status-label">Data status</div>
+            <h3>Fictional incidents, drivers, trucks, documents, and evidence only.</h3>
+          </article>
+          <article class="status-card">
+            <div class="status-label">Validation path</div>
+            <h3>Founder-led walkthroughs, feedback form, pilot-readiness decisions.</h3>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">11 Governance and data discipline</div>
+        <h2 class="section-title">Governance and data discipline</h2>
+        <div class="section-text">
+          <p>AASIOM&rsquo;s product direction depends on trust. The ANVIRA demo must therefore stay clear about data boundaries.</p>
+          <p>The current demo uses dummy data only. No real driver phone numbers, vehicle documents, accident photos, FIR copies, insurance documents, or customer records should appear in the demo or on this page.</p>
+          <p>Every external-facing sentence must be checked for accuracy. If a line sounds like a legal promise, rescue promise, claim promise, or certification claim, it must be removed or rewritten.</p>
+        </div>
+        <div class="red-line">No real operational data in the demo without approval and consent.</div>
+        <div class="trust-grid">
+          <article class="trust-card">
+            <h3>Accuracy before scale</h3>
+            <p>External communication should stay precise enough that a fleet owner can understand the current stage without being misled.</p>
+          </article>
+          <article class="trust-card">
+            <h3>Demonstration boundaries</h3>
+            <p>Dummy incidents, dummy records, and founder-controlled walkthroughs remain the operating boundary for this phase.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="review-section reveal" id="document-preview">
+      <div class="container section-shell">
+        <div class="section-kicker">12 Download / document preview</div>
+        <h2 class="section-title">Document preview</h2>
+        <article class="preview-card">
+          <h3>AASIOM Strategic Review 2026</h3>
+          <p>A company-level review of AASIOM&rsquo;s current product direction, ANVIRA&rsquo;s operating thesis, demo boundaries, and execution priorities.</p>
+          <div class="document-actions">
+            <span class="btn btn-disabled" aria-disabled="true">View PDF Coming soon</span>
+            <span class="btn btn-disabled" aria-disabled="true">Download PDF Coming soon</span>
+          </div>
+          <p class="small-note">The PDF is provided for informational and internal-review purposes. It does not represent audited financial information or a commercial performance report.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="review-section reveal">
+      <div class="container section-shell">
+        <div class="section-kicker">13 Closing CTA</div>
+        <div class="cta-shell">
+          <div class="cta-card">
+            <h2 class="section-title">From strategic review to working demo</h2>
+            <p>AASIOM&rsquo;s next step is to test ANVIRA with realistic workflows, disciplined feedback, and a narrow pilot path.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="anvira.html">Explore ANVIRA</a>
+            <a class="btn btn-secondary" href="contact.html">Contact AASIOM</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/aasiom-logo.png" alt="AASIOM Technologies Private Limited">
+          </a>
+          <p>AASIOM Technologies Private Limited is building ANVIRA as its first focused product and documenting its current build direction with disciplined operational boundaries.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="strategic-review.html">Strategic Review</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="anvira.html">ANVIRA</a></li>
+            <li><a href="#current-focus">Current focus</a></li>
+            <li><a href="#document-preview">Document preview</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Direction</h4>
+          <ul>
+            <li><a href="#current-focus">Controlled demo model</a></li>
+            <li><a href="#document-preview">Review PDF</a></li>
+            <li><a href="contact.html">Pilot conversation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 AASIOM Technologies Private Limited. All rights reserved.</span>
+        <span>Internal demo and strategic product direction.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var nav = document.getElementById('nav');
+      var toggle = document.getElementById('navToggle');
+      if (toggle && nav) {
+        toggle.addEventListener('click', function() {
+          nav.classList.toggle('open');
+        });
+      }
+      function onScroll() {
+        if (!nav) return;
+        nav.classList.toggle('scrolled', window.scrollY > 36);
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    (function() {
+      var items = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach(function(item) { item.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -48px 0px' });
+      items.forEach(function(item) { observer.observe(item); });
+    })();
+  </script>
+</body>
+</html>
