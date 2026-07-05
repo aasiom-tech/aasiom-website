@@ -6701,6 +6701,7 @@
         <li><a href="#top" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="anvira.html">ANVIRA</a></li>
+        <li><a href="strategic-review.html">Strategic Review</a></li>
         <li><a href="contact.html" class="nav-cta">Contact</a></li>
       </ul>
     </div>
@@ -8761,7 +8762,330 @@
         padding: 92px 0 56px;
       }
     }
-  </style>
+  
+
+    /* =====================================================================
+       FINAL OVERRIDE — requested fixes only
+       - keeps original logo/nav size and blue active effect
+       - removes header glass/white container and harsh separator
+       - keeps ice-blue theme
+       - tightens Problem section so full frame is visible on laptop screens
+       ===================================================================== */
+
+    :root {
+      --ice-bg: #f4fbff;
+      --ice-bg-2: #eaf7ff;
+      --ice-blue: #0ea5e9;
+      --ice-cyan: #22d3ee;
+      --deep-navy: #061631;
+    }
+
+    /* Header: no glass container, no white strip, no divider; preserve size */
+    .nav,
+    .nav.scrolled {
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+    }
+
+    .nav::before,
+    .nav::after,
+    .nav-inner::before,
+    .nav-inner::after {
+      display: none !important;
+      content: none !important;
+    }
+
+    .nav-inner,
+    .nav.scrolled .nav-inner {
+      height: 88px !important;
+      margin: 0 auto !important;
+      padding: 0 24px !important;
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      max-width: var(--max) !important;
+    }
+
+    .brand img,
+    .nav.scrolled .brand img {
+      width: 68px !important;
+      max-height: 64px !important;
+      filter: drop-shadow(0 8px 18px rgba(14, 165, 233, .16)) !important;
+      transform: none !important;
+    }
+
+    .brand:hover img {
+      transform: none !important;
+    }
+
+    .nav-links {
+      gap: 38px !important;
+      font-size: 1rem !important;
+      font-weight: 700 !important;
+      color: #31475c !important;
+    }
+
+    .nav-links a {
+      padding: 32px 0 !important;
+      text-shadow: 0 10px 25px rgba(255,255,255,.72) !important;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #061631 !important;
+    }
+
+    .nav-links a.active::after {
+      display: block !important;
+      content: "" !important;
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      bottom: 16px !important;
+      width: 72px !important;
+      height: 2px !important;
+      border-radius: 999px !important;
+      background: linear-gradient(90deg, transparent, #0ea5e9, #22d3ee, transparent) !important;
+      box-shadow: 0 0 16px rgba(14, 165, 233, .55) !important;
+    }
+
+    .nav-links a::before {
+      display: none !important;
+    }
+
+    .nav-cta {
+      background: #075979 !important;
+      border-color: #075979 !important;
+      color: #fff !important;
+      box-shadow: 0 14px 32px rgba(7, 89, 121, .22) !important;
+    }
+
+    /* Ice-blue visual polish across current section */
+    body {
+      background:
+        radial-gradient(circle at 8% 8%, rgba(34, 211, 238, .22), transparent 28%),
+        radial-gradient(circle at 92% 6%, rgba(14, 165, 233, .18), transparent 30%),
+        linear-gradient(180deg, #f6fdff 0%, #eaf8ff 44%, #ffffff 100%) !important;
+    }
+
+    body::before {
+      background:
+        radial-gradient(circle at 20% 10%, rgba(34, 211, 238, .16), transparent 30%),
+        radial-gradient(circle at 85% 18%, rgba(14, 165, 233, .12), transparent 32%) !important;
+      opacity: .70 !important;
+    }
+
+    #problem.home-frame {
+      min-height: calc(100svh - 88px) !important;
+      padding: 34px 0 28px !important;
+      display: flex !important;
+      align-items: center !important;
+      overflow: hidden !important;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(34, 211, 238, .16), transparent 26%),
+        radial-gradient(circle at 80% 65%, rgba(14, 165, 233, .13), transparent 34%) !important;
+    }
+
+    #problem .problem-grid {
+      width: 100% !important;
+      display: grid !important;
+      grid-template-columns: minmax(360px, .82fr) minmax(520px, 1fr) !important;
+      gap: clamp(24px, 3vw, 44px) !important;
+      align-items: center !important;
+    }
+
+    /* override inline visual panel glass: make it premium but compact */
+    #problem .visual-panel {
+      height: 300px !important;
+      min-height: 300px !important;
+      padding: 22px !important;
+      border-radius: 24px !important;
+      border: 1px solid rgba(14, 165, 233, .18) !important;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.94), rgba(232,248,255,.82)) !important;
+      box-shadow: 0 24px 58px rgba(6, 40, 70, .10), inset 0 1px 0 rgba(255,255,255,.9) !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
+
+    #problem .visual-panel::before {
+      content: "" !important;
+      position: absolute !important;
+      inset: -20% !important;
+      background:
+        linear-gradient(115deg, transparent 0 33%, rgba(14, 165, 233, .10) 33.2% 33.55%, transparent 34% 100%),
+        linear-gradient(65deg, transparent 0 48%, rgba(34, 211, 238, .14) 48.2% 48.55%, transparent 49% 100%) !important;
+      animation: finalIceDrift 8s ease-in-out infinite alternate !important;
+      pointer-events: none !important;
+    }
+
+    #problem .visual-panel > * {
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+    #problem .frame-kicker {
+      margin-bottom: 8px !important;
+      color: #0f7ea8 !important;
+      letter-spacing: .30em !important;
+      font-size: .72rem !important;
+    }
+
+    #problem .frame-title {
+      max-width: 720px !important;
+      font-size: clamp(2.45rem, 3.55vw, 4rem) !important;
+      line-height: .98 !important;
+      letter-spacing: -.045em !important;
+      color: #061631 !important;
+    }
+
+    #problem .frame-copy {
+      margin-top: 14px !important;
+      max-width: 760px !important;
+      font-size: clamp(.96rem, 1.05vw, 1.08rem) !important;
+      line-height: 1.55 !important;
+      color: #42566d !important;
+    }
+
+    #problem .problem-cards.uc-flip-grid {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 14px !important;
+      margin-top: 20px !important;
+    }
+
+    #problem .uc-flip-card {
+      height: 142px !important;
+      min-height: 142px !important;
+      perspective: 1200px !important;
+    }
+
+    #problem .uc-flip-inner {
+      height: 100% !important;
+    }
+
+    #problem .uc-flip-front,
+    #problem .uc-flip-back {
+      border-radius: 18px !important;
+      padding: 16px 18px !important;
+      border: 1px solid rgba(14, 165, 233, .16) !important;
+      box-shadow: 0 16px 36px rgba(6, 40, 70, .08) !important;
+      background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(237,249,255,.86)) !important;
+    }
+
+    #problem .uc-flip-front::after {
+      content: "" !important;
+      position: absolute !important;
+      left: 18px !important;
+      right: 18px !important;
+      top: 0 !important;
+      height: 3px !important;
+      border-radius: 999px !important;
+      background: linear-gradient(90deg, #0ea5e9, #22d3ee, #0f766e) !important;
+    }
+
+    #problem .uc-flip-back {
+      background: linear-gradient(135deg, #06233d, #075979) !important;
+      color: #ecfbff !important;
+      justify-content: center !important;
+    }
+
+    #problem .uc-flip-ico {
+      width: 38px !important;
+      height: 38px !important;
+      min-height: 38px !important;
+      border-radius: 13px !important;
+      background: linear-gradient(135deg, rgba(14,165,233,.12), rgba(34,211,238,.10)) !important;
+      color: #087fa4 !important;
+      border: 1px solid rgba(14, 165, 233, .16) !important;
+    }
+
+    #problem .uc-flip-front h3 {
+      font-size: clamp(.98rem, 1.08vw, 1.12rem) !important;
+      line-height: 1.14 !important;
+      color: #061631 !important;
+    }
+
+    #problem .uc-flip-hint {
+      font-size: .62rem !important;
+      color: #42566d !important;
+    }
+
+    #problem .uc-flip-back p {
+      font-size: .88rem !important;
+      line-height: 1.38 !important;
+      color: #ecfbff !important;
+    }
+
+    #problem .uc-flip-back .uc-flip-badge {
+      color: #7ee7ff !important;
+    }
+
+    @keyframes finalIceDrift {
+      from { transform: translate3d(-8px, -4px, 0); }
+      to { transform: translate3d(10px, 8px, 0); }
+    }
+
+    @media (max-width: 1180px) {
+      #problem .frame-title {
+        font-size: clamp(2.1rem, 3.15vw, 3.35rem) !important;
+      }
+      #problem .visual-panel {
+        height: 270px !important;
+        min-height: 270px !important;
+      }
+      #problem .uc-flip-card {
+        height: 132px !important;
+        min-height: 132px !important;
+      }
+    }
+
+    @media (max-width: 1050px) {
+      #problem.home-frame {
+        min-height: auto !important;
+        padding: 92px 0 56px !important;
+      }
+      #problem .problem-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #problem .visual-panel {
+        max-width: 720px !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner,
+      .nav.scrolled .nav-inner {
+        height: 78px !important;
+        padding: 0 20px !important;
+      }
+      .brand img,
+      .nav.scrolled .brand img {
+        width: 58px !important;
+        max-height: 56px !important;
+      }
+      .nav-links {
+        background: rgba(255,255,255,.96) !important;
+        box-shadow: 0 20px 55px rgba(15,23,42,.10) !important;
+        border: 1px solid rgba(14,165,233,.14) !important;
+      }
+      #problem .problem-cards.uc-flip-grid {
+        grid-template-columns: 1fr !important;
+      }
+      #problem .uc-flip-card {
+        height: auto !important;
+        min-height: 130px !important;
+      }
+    }
+</style>
 
   <div id="aasiomChatbotPanel" class="aasiom-chatbot-panel" aria-label="AASIOM AI Chatbot">
     <div class="aasiom-chatbot-actions">
@@ -8801,6 +9125,368 @@
       aasiomStartNewChat();
     });
   </script>
+
+
+
+<style id="absolute-final-fix-no-glass-and-fit-frames">
+  /* TRUE FINAL OVERRIDE: remove the header glass strip, keep logo/nav size/effect, and make ANVIRA fit inside one frame. */
+  html body .nav,
+  html body .nav.scrolled,
+  html body.contact-page .nav,
+  html body.contact-page .nav.scrolled {
+    background: transparent !important;
+    border: 0 !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  html body .nav .container.nav-inner,
+  html body .nav-inner,
+  html body.contact-page .nav .container.nav-inner,
+  html body.contact-page .nav-inner {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    height: 92px !important;
+    min-height: 92px !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+  }
+
+  /* Keep the original blue underline/nav effect exactly visible */
+  html body .nav-links li a::after,
+  html body .nav-links li a:not(.nav-cta)::after {
+    background: linear-gradient(90deg, transparent, #0588b7, #22d3ee, transparent) !important;
+    box-shadow: 0 0 16px rgba(34, 211, 238, 0.45) !important;
+  }
+
+  /* Remove the hard white strip feeling at the start of every frame */
+  .home-frame {
+    min-height: auto !important;
+    padding: 88px 0 74px !important;
+    overflow: visible !important;
+  }
+
+  .home-frame .container {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* ANVIRA frame: compact, complete, no clipping, no huge blank visual area */
+  #anvira-preview.home-frame,
+  #anvira-preview.anvira-showcase-frame {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 86px 0 64px !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  #anvira-preview .anvira-showcase {
+    display: grid !important;
+    gap: 22px !important;
+    width: 100% !important;
+  }
+
+  #anvira-preview .anvira-headline-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 390px) !important;
+    gap: 28px !important;
+    align-items: end !important;
+  }
+
+  #anvira-preview .anvira-one-line {
+    font-size: clamp(2.15rem, 3.35vw, 3.35rem) !important;
+    line-height: 1.03 !important;
+    letter-spacing: -0.04em !important;
+    max-width: 860px !important;
+    margin: 0 !important;
+  }
+
+  #anvira-preview .anvira-compact-copy {
+    font-size: .96rem !important;
+    line-height: 1.52 !important;
+    max-width: 390px !important;
+    margin: 0 !important;
+  }
+
+  #anvira-preview .anvira-stage {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 350px !important;
+    gap: 18px !important;
+    align-items: stretch !important;
+    min-height: 0 !important;
+  }
+
+  #anvira-preview .anvira-visual-stage {
+    height: auto !important;
+    min-height: 270px !important;
+    max-height: 310px !important;
+    padding: 28px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    border-radius: 26px !important;
+    background:
+      radial-gradient(circle at 72% 20%, rgba(34,211,238,.22), transparent 34%),
+      linear-gradient(145deg, rgba(255,255,255,.92), rgba(220,246,255,.78)) !important;
+  }
+
+  #anvira-preview .anvira-visual-stage::before,
+  #anvira-preview .anvira-visual-stage::after,
+  #anvira-preview .visual-orbit,
+  #anvira-preview .highway-scene-wide,
+  #anvira-preview .command-dashboard {
+    display: none !important;
+  }
+
+  #anvira-preview .workflow-timeline {
+    width: 100% !important;
+    max-width: none !important;
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(90px, 1fr)) !important;
+    align-items: start !important;
+    gap: 10px !important;
+  }
+
+  #anvira-preview .workflow-timeline-step {
+    display: grid !important;
+    justify-items: center !important;
+    align-content: start !important;
+    gap: 10px !important;
+    min-width: 0 !important;
+    text-align: center !important;
+    color: #0b1b2b !important;
+    font-size: .86rem !important;
+    line-height: 1.2 !important;
+  }
+
+  #anvira-preview .workflow-timeline-step > div {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 999px !important;
+    font-size: .78rem !important;
+    box-shadow: 0 8px 20px rgba(8,127,166,.16) !important;
+  }
+
+  #anvira-preview .workflow-timeline-step span {
+    display: block !important;
+    max-width: 112px !important;
+    font-weight: 800 !important;
+  }
+
+  #anvira-preview .workflow-timeline-connector {
+    display: none !important;
+  }
+
+  #anvira-preview .anvira-action-panel {
+    min-height: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 16px !important;
+    border-radius: 26px !important;
+    align-self: stretch !important;
+    background: rgba(255,255,255,.82) !important;
+  }
+
+  #anvira-preview .mini-title {
+    margin-bottom: 8px !important;
+    font-size: .62rem !important;
+  }
+
+  #anvira-preview .feature-list-polished {
+    gap: 7px !important;
+  }
+
+  #anvira-preview .feature-list-polished div {
+    padding: 8px 9px !important;
+    min-height: 0 !important;
+    border-radius: 14px !important;
+    font-size: .78rem !important;
+    line-height: 1.24 !important;
+  }
+
+  #anvira-preview .feature-icon {
+    width: 22px !important;
+    height: 22px !important;
+    flex: 0 0 22px !important;
+    font-size: .68rem !important;
+    border-radius: 8px !important;
+  }
+
+  #anvira-preview .anvira-action-panel p {
+    font-size: .73rem !important;
+    line-height: 1.32 !important;
+    margin: 10px 0 0 !important;
+  }
+
+  #anvira-preview .pilot-strip {
+    gap: 6px !important;
+    margin: 10px 0 12px !important;
+  }
+
+  #anvira-preview .pilot-strip span {
+    font-size: .52rem !important;
+    padding: 6px 8px !important;
+  }
+
+  #anvira-preview .hero-actions,
+  #anvira-preview .actions {
+    margin-top: 0 !important;
+  }
+
+  #anvira-preview .btn {
+    min-height: 38px !important;
+    padding: 0 16px !important;
+    font-size: .8rem !important;
+  }
+
+  /* Problem cards should not get cut in the screenshot frame */
+  #problem.home-frame {
+    padding-top: 96px !important;
+    padding-bottom: 58px !important;
+  }
+
+  #problem .frame-title {
+    font-size: clamp(2.3rem, 4vw, 4.2rem) !important;
+    line-height: 1.03 !important;
+  }
+
+  #problem .uc-flip-card {
+    min-height: 172px !important;
+  }
+
+  @media (max-width: 1050px) {
+    #anvira-preview .anvira-headline-row,
+    #anvira-preview .anvira-stage {
+      grid-template-columns: 1fr !important;
+    }
+    #anvira-preview .anvira-visual-stage {
+      max-height: none !important;
+      min-height: 250px !important;
+    }
+    #anvira-preview .workflow-timeline {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+
+  @media (max-width: 760px) {
+    html body .nav .container.nav-inner,
+    html body .nav-inner {
+      height: 82px !important;
+      min-height: 82px !important;
+    }
+    .home-frame,
+    #anvira-preview.home-frame,
+    #anvira-preview.anvira-showcase-frame {
+      padding: 84px 0 54px !important;
+    }
+    #anvira-preview .workflow-timeline {
+      grid-template-columns: 1fr 1fr !important;
+    }
+    #anvira-preview .anvira-one-line {
+      font-size: clamp(2rem, 9vw, 3rem) !important;
+    }
+  }
+</style>
+
+
+<style id="final-animated-diagram-polish">
+/* Final visual polish only: keeps header/logo/nav sizes, adds contained animated diagrams, no layout expansion */
+:root{--ice-a:#f6fdff;--ice-b:#e7f8ff;--ice-c:#cff4ff;--deep:#071631;--blue:#0588b7;--cyan2:#22d3ee;--teal2:#10a79b;}
+
+/* Keep every homepage frame safely within the viewport rhythm */
+.home-frame{position:relative!important;overflow:hidden!important;}
+.home-frame::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(circle at 18% 18%, rgba(34,211,238,.16), transparent 30%),
+  radial-gradient(circle at 84% 66%, rgba(5,136,183,.10), transparent 34%);
+z-index:0;}
+.home-frame::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.28;background-image:
+  linear-gradient(115deg, transparent 0 48%, rgba(5,136,183,.16) 49%, transparent 50%),
+  linear-gradient(66deg, transparent 0 46%, rgba(34,211,238,.13) 47%, transparent 49%);
+background-size:330px 330px, 420px 420px;animation:softMapDrift 18s linear infinite;z-index:0;}
+@keyframes softMapDrift{from{background-position:0 0,0 0}to{background-position:330px 220px,-260px 300px}}
+
+/* Header glass strip removed firmly; only logo/text float */
+html body .nav, html body .nav.scrolled{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+html body .nav .container.nav-inner, html body .nav-inner{background:transparent!important;border:0!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+html body .brand img{width:68px!important;max-height:64px!important;}
+html body .nav-links{gap:38px!important;font-size:1rem!important;}
+html body .nav-links a.active::after{width:72px!important;height:2px!important;background:linear-gradient(90deg,transparent,#0588b7,#22d3ee,transparent)!important;box-shadow:0 0 18px rgba(34,211,238,.55)!important;}
+
+/* Problem visual becomes an animated scattered-to-case-file diagram, still same box size */
+#problem .visual-panel{position:relative!important;min-height:230px!important;max-height:260px!important;border-radius:28px!important;padding:24px!important;overflow:hidden!important;background:
+  radial-gradient(circle at 80% 18%, rgba(34,211,238,.22), transparent 34%),
+  linear-gradient(145deg, rgba(255,255,255,.94), rgba(225,247,255,.86))!important;box-shadow:0 24px 60px rgba(7,22,49,.11), inset 0 1px 0 rgba(255,255,255,.92)!important;}
+#problem .visual-panel::before{content:"";position:absolute;inset:18px;border-radius:22px;background-image:
+  linear-gradient(rgba(5,136,183,.08) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(5,136,183,.08) 1px, transparent 1px);background-size:34px 34px;opacity:.55;mask-image:radial-gradient(circle at 50% 50%, black, transparent 78%);animation:gridFloat 9s linear infinite;}
+#problem .visual-panel::after{content:"";position:absolute;left:34%;right:34%;top:50%;height:3px;border-radius:99px;background:linear-gradient(90deg,transparent,#0588b7,#22d3ee,transparent);box-shadow:0 0 18px rgba(34,211,238,.55);animation:routePulse 2.4s ease-in-out infinite;}
+#problem .messy-fragments,#problem .structured-card,#problem .route-line{position:relative!important;z-index:2!important;}
+#problem .messy-fragments>div{animation:floatChip 4.4s ease-in-out infinite;box-shadow:0 10px 24px rgba(7,22,49,.08)!important;}
+#problem .messy-fragments>div:nth-child(2){animation-delay:-1.2s}#problem .messy-fragments>div:nth-child(3){animation-delay:-2.4s}
+#problem .structured-card{border-radius:18px!important;background:rgba(255,255,255,.82)!important;box-shadow:0 18px 42px rgba(7,22,49,.10)!important;animation:caseGlow 3.2s ease-in-out infinite;}
+#problem .route-line{font-size:0!important;width:54px!important;height:54px!important;border-radius:50%!important;border:1px solid rgba(5,136,183,.18)!important;display:grid!important;place-items:center!important;margin:0 20px!important;background:rgba(255,255,255,.62)!important;box-shadow:0 15px 34px rgba(7,22,49,.08)!important;}
+#problem .route-line::before{content:"→";font-size:1.65rem;color:#0588b7;animation:arrowNudge 1.5s ease-in-out infinite;}
+@keyframes gridFloat{to{background-position:34px 34px}}
+@keyframes routePulse{0%,100%{opacity:.38;transform:scaleX(.82)}50%{opacity:1;transform:scaleX(1)}}
+@keyframes floatChip{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes caseGlow{0%,100%{box-shadow:0 18px 42px rgba(7,22,49,.10)}50%{box-shadow:0 22px 55px rgba(34,211,238,.18)}}
+@keyframes arrowNudge{0%,100%{transform:translateX(-3px)}50%{transform:translateX(4px)}}
+
+/* ANVIRA diagram: attractive animated route/timeline but locked inside the existing frame */
+#anvira-preview .anvira-visual-stage{position:relative!important;min-height:282px!important;max-height:310px!important;border-radius:30px!important;background:
+  radial-gradient(circle at 22% 25%, rgba(34,211,238,.22), transparent 30%),
+  radial-gradient(circle at 78% 70%, rgba(16,167,155,.16), transparent 32%),
+  linear-gradient(145deg, rgba(255,255,255,.93), rgba(222,247,255,.82))!important;}
+#anvira-preview .anvira-visual-stage .workflow-timeline{position:relative!important;z-index:3!important;padding:44px 12px 18px!important;}
+#anvira-preview .anvira-visual-stage .workflow-timeline::before{content:"";position:absolute;left:6%;right:6%;top:58px;height:4px;border-radius:999px;background:linear-gradient(90deg,rgba(5,136,183,.18),rgba(34,211,238,.55),rgba(16,167,155,.22));box-shadow:0 0 20px rgba(34,211,238,.26);}
+#anvira-preview .anvira-visual-stage .workflow-timeline::after{content:"";position:absolute;top:51px;left:4%;width:18px;height:18px;border-radius:50%;background:#22d3ee;box-shadow:0 0 0 10px rgba(34,211,238,.12),0 0 24px rgba(34,211,238,.55);animation:timelineRunner 6s ease-in-out infinite;}
+#anvira-preview .workflow-timeline-step{position:relative!important;z-index:4!important;transition:transform .28s ease!important;}
+#anvira-preview .workflow-timeline-step:hover{transform:translateY(-6px)!important;}
+#anvira-preview .workflow-timeline-step>div{border:2px solid rgba(255,255,255,.85)!important;box-shadow:0 12px 28px rgba(7,22,49,.13),0 0 0 8px rgba(255,255,255,.58)!important;}
+#anvira-preview .workflow-timeline-step span{background:rgba(255,255,255,.58)!important;border:1px solid rgba(5,136,183,.10)!important;border-radius:12px!important;padding:7px 8px!important;box-shadow:0 10px 22px rgba(7,22,49,.06)!important;}
+@keyframes timelineRunner{0%{left:4%;opacity:.35}10%,90%{opacity:1}100%{left:94%;opacity:.35}}
+
+/* What AASIOM Builds: animated pipeline card effect, no extra height */
+#what-aasiom-builds .pipeline-wrap{position:relative!important;overflow:hidden!important;border-radius:30px!important;background:rgba(255,255,255,.38)!important;}
+#what-aasiom-builds .pipeline-wrap::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 14% 30%, rgba(34,211,238,.18), transparent 28%),
+  radial-gradient(circle at 86% 60%, rgba(5,136,183,.12), transparent 30%);pointer-events:none;}
+#what-aasiom-builds .pipeline{position:relative!important;z-index:2!important;}
+#what-aasiom-builds .pipe-step{background:rgba(255,255,255,.82)!important;backdrop-filter:blur(14px)!important;box-shadow:0 16px 38px rgba(7,22,49,.08)!important;}
+#what-aasiom-builds .pipe-step::after{content:"";position:absolute;inset:auto 16px 12px 16px;height:2px;border-radius:999px;background:linear-gradient(90deg,#0588b7,#22d3ee,transparent);opacity:.35;transform-origin:left;animation:miniLoad 3.6s ease-in-out infinite;}
+#what-aasiom-builds .pipe-step:nth-child(2)::after{animation-delay:-.6s}#what-aasiom-builds .pipe-step:nth-child(3)::after{animation-delay:-1.2s}#what-aasiom-builds .pipe-step:nth-child(4)::after{animation-delay:-1.8s}#what-aasiom-builds .pipe-step:nth-child(5)::after{animation-delay:-2.4s}
+@keyframes miniLoad{0%,100%{transform:scaleX(.18);opacity:.25}50%{transform:scaleX(1);opacity:.7}}
+
+/* Keep desktop screenshot frames balanced */
+@media (min-width:1051px){
+  #problem .problem-grid{grid-template-columns:minmax(360px,.83fr) minmax(0,1fr)!important;gap:30px!important;align-items:center!important;}
+  #problem .problem-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important;margin-top:24px!important;}
+  #problem .uc-flip-card{min-height:162px!important;}
+  #problem .uc-flip-front,#problem .uc-flip-back{padding:22px!important;}
+  #problem .uc-flip-front h3{font-size:1.12rem!important;}
+  #what-aasiom-builds .frame-title{font-size:clamp(2.05rem,3.15vw,3.45rem)!important;}
+  #what-aasiom-builds .pipeline{grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:14px!important;}
+  #what-aasiom-builds .pipe-step{min-height:168px!important;padding:18px!important;}
+  #what-aasiom-builds .pipe-step h3{font-size:1.05rem!important;}
+  #what-aasiom-builds .pipe-step p{font-size:.83rem!important;line-height:1.42!important;}
+}
+@media (max-width:760px){
+  #problem .visual-panel{min-height:210px!important;max-height:none!important;}
+  #problem .visual-panel{flex-direction:column!important;gap:14px!important;}
+  #problem .route-line{transform:rotate(90deg)!important;margin:2px 0!important;}
+  #anvira-preview .anvira-visual-stage .workflow-timeline{grid-template-columns:repeat(2,1fr)!important;padding-top:28px!important;}
+  #anvira-preview .anvira-visual-stage .workflow-timeline::before,#anvira-preview .anvira-visual-stage .workflow-timeline::after{display:none!important;}
+}
+@media (prefers-reduced-motion:reduce){.home-frame::after,#problem .visual-panel::before,#problem .visual-panel::after,#problem .messy-fragments>div,#problem .structured-card,#problem .route-line::before,#anvira-preview .anvira-visual-stage .workflow-timeline::after,#what-aasiom-builds .pipe-step::after{animation:none!important;}}
+</style>
 
 </body>
 
