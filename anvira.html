@@ -1883,6 +1883,599 @@
   @media(max-width:760px){.anvira-page .container{width:calc(100% - 30px)!important}.anvira-premium-hero{padding-top:120px!important;min-height:auto!important}.anvira-premium-hero h1{font-size:clamp(2.65rem,15vw,4.2rem)!important}.anvira-dashboard{min-height:auto;padding:18px;border-radius:28px}.mock-checklist,.mock-stats,.problem-map,.workflow-grid,.workflow-grid.two,.workflow-grid.three,.boundary-grid{grid-template-columns:1fr}.stage-row{grid-template-columns:1fr;gap:7px}.workflow-shell{padding:18px}.workflow-shell:before{display:none}.workflow-card{min-height:auto}.chapter-head h2{font-size:clamp(2.05rem,12vw,3.4rem)!important}.anvira-chapter{padding:72px 0!important}@keyframes truckMove{0%,100%{transform:translateX(0)}50%{transform:translateX(230px)}}}
 </style>
 
+
+
+<style id="final-anvira-flagship-layout-fix">
+/* FINAL ANVIRA FIX: flagship layout, no lonely hero box, cleaner frames */
+.anvira-page{
+  --flag-navy:#061826;
+  --flag-blue:#087fa6;
+  --flag-cyan:#1bb8d6;
+  --flag-soft:#eef9fd;
+  --flag-line:rgba(8,127,166,.16);
+}
+
+/* HERO: force proper flagship split on normal laptop screens */
+.anvira-page .anvira-premium-hero{
+  padding:136px 0 78px!important;
+  min-height:auto!important;
+  background:
+    radial-gradient(900px 520px at 16% 18%, rgba(27,184,214,.20), transparent 64%),
+    radial-gradient(760px 460px at 88% 18%, rgba(8,127,166,.12), transparent 62%),
+    linear-gradient(180deg,#fbfdff 0%,#eef9fd 58%,#f9fdff 100%)!important;
+}
+.anvira-page .anvira-premium-hero .container.anvira-hero-layout{
+  max-width:1320px!important;
+  width:calc(100% - 72px)!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.08fr) minmax(440px,.92fr)!important;
+  gap:54px!important;
+  align-items:center!important;
+}
+.anvira-page .anvira-hero-copy{
+  text-align:left!important;
+  max-width:none!important;
+}
+.anvira-page .anvira-kicker{margin-left:0!important;}
+.anvira-page .anvira-premium-hero h1{
+  font-size:clamp(3.1rem,5.9vw,6.6rem)!important;
+  line-height:.92!important;
+  max-width:820px!important;
+  margin-top:22px!important;
+}
+.anvira-page .anvira-premium-hero .hero-lead{
+  max-width:720px!important;
+}
+.anvira-page .anvira-chip-row,
+.anvira-page .hero-actions{
+  justify-content:flex-start!important;
+}
+
+/* Make the product visual feel intentional, not like a lonely card */
+.anvira-page .anvira-dashboard{
+  width:100%!important;
+  max-width:none!important;
+  min-height:0!important;
+  padding:24px!important;
+  border-radius:36px!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.92),rgba(239,249,253,.78))!important;
+  border:1px solid rgba(8,127,166,.18)!important;
+  box-shadow:0 30px 90px rgba(8,42,62,.13), inset 0 1px 0 rgba(255,255,255,.78)!important;
+}
+.anvira-page .anvira-dashboard:after{
+  content:"";
+  position:absolute;
+  left:18px;right:18px;bottom:18px;height:82px;
+  border-radius:26px;
+  background:linear-gradient(90deg,rgba(27,184,214,.09),transparent,rgba(8,127,166,.08));
+  border:1px dashed rgba(8,127,166,.13);
+  z-index:0;pointer-events:none;
+}
+.anvira-page .mock-top{margin-bottom:16px!important;}
+.anvira-page .route-board{
+  min-height:134px!important;
+  border-radius:28px!important;
+  margin-bottom:16px!important;
+}
+.anvira-page .mock-case{
+  padding:18px!important;
+  border-radius:24px!important;
+}
+.anvira-page .mock-case h3{font-size:1.2rem!important;text-align:left!important;}
+.anvira-page .mock-row{font-size:.92rem!important;}
+.anvira-page .mock-checklist{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+.anvira-page .mock-stats{position:relative;z-index:1;}
+
+/* If the screen is medium and the hero stacks, the visual becomes a full-width product panel instead of a small box */
+@media (max-width:1180px){
+  .anvira-page .anvira-premium-hero .container.anvira-hero-layout{
+    grid-template-columns:1fr!important;
+    gap:38px!important;
+    width:calc(100% - 48px)!important;
+  }
+  .anvira-page .anvira-hero-copy{text-align:center!important;}
+  .anvira-page .anvira-kicker{margin-left:auto!important;margin-right:auto!important;}
+  .anvira-page .anvira-premium-hero h1,
+  .anvira-page .anvira-premium-hero .hero-lead{margin-left:auto!important;margin-right:auto!important;}
+  .anvira-page .anvira-chip-row,
+  .anvira-page .hero-actions{justify-content:center!important;}
+  .anvira-page .anvira-dashboard{
+    display:grid!important;
+    grid-template-columns:minmax(280px,.92fr) minmax(300px,1.08fr)!important;
+    gap:18px!important;
+    align-items:stretch!important;
+    max-width:980px!important;
+    margin:0 auto!important;
+  }
+  .anvira-page .mock-top{grid-column:1/-1!important;margin-bottom:0!important;}
+  .anvira-page .route-board{margin-bottom:0!important;min-height:100%!important;}
+  .anvira-page .mock-case{margin:0!important;}
+  .anvira-page .mock-stats{grid-column:1/-1!important;margin-top:0!important;}
+}
+
+/* Workflow section: make frames compact, connected and product-like */
+.anvira-page .stack-section{
+  background:
+    radial-gradient(680px 360px at 8% 10%, rgba(27,184,214,.12), transparent 62%),
+    radial-gradient(600px 340px at 90% 16%, rgba(8,127,166,.08), transparent 60%);
+}
+.anvira-page .workflow-shell{
+  max-width:1260px!important;
+  margin:0 auto!important;
+  padding:28px!important;
+  border-radius:38px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(239,249,253,.72))!important;
+  border:1px solid rgba(8,127,166,.16)!important;
+  box-shadow:0 28px 88px rgba(8,42,62,.10)!important;
+}
+.anvira-page .workflow-shell:before{
+  inset:18px!important;
+  border-radius:30px!important;
+  border:1px solid rgba(8,127,166,.10)!important;
+  background:
+    linear-gradient(rgba(8,48,73,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(8,48,73,.025) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+.anvira-page .workflow-shell:after{
+  content:"🚚";
+  position:absolute;
+  top:24px;
+  left:6%;
+  font-size:1.45rem;
+  filter:drop-shadow(0 10px 16px rgba(8,127,166,.18));
+  animation:workflowTruck 13s ease-in-out infinite;
+  z-index:2;
+  opacity:.82;
+}
+@keyframes workflowTruck{
+  0%,100%{transform:translateX(0)}
+  48%{transform:translateX(min(1040px,72vw))}
+  52%{transform:translateX(min(1040px,72vw)) scaleX(-1)}
+  96%{transform:translateX(0) scaleX(-1)}
+}
+.anvira-page .workflow-lane{
+  grid-template-columns:150px 1fr!important;
+  gap:16px!important;
+  padding:14px 0!important;
+  border-bottom:0!important;
+}
+.anvira-page .lane-title{
+  min-height:auto!important;
+  border-radius:22px!important;
+  background:linear-gradient(135deg,#072033,#087fa6)!important;
+  box-shadow:0 16px 34px rgba(8,127,166,.16)!important;
+  font-size:.84rem!important;
+  letter-spacing:.13em!important;
+}
+.anvira-page .workflow-grid,
+.anvira-page .workflow-grid.two,
+.anvira-page .workflow-grid.three{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(175px,1fr))!important;
+  gap:12px!important;
+}
+.anvira-page .workflow-card{
+  min-height:138px!important;
+  padding:17px!important;
+  border-radius:22px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(247,252,255,.84))!important;
+  box-shadow:0 12px 34px rgba(8,42,62,.055)!important;
+}
+.anvira-page .workflow-card:before{
+  content:"";
+  position:absolute;
+  left:0;top:0;bottom:0;width:4px;
+  background:linear-gradient(180deg,#1bb8d6,#087fa6);
+  opacity:.75;
+}
+.anvira-page .workflow-card:after{
+  font-size:1.75rem!important;
+  right:14px!important;
+  top:12px!important;
+  color:rgba(8,127,166,.16)!important;
+}
+.anvira-page .workflow-icon{
+  width:38px!important;height:38px!important;
+  border-radius:15px!important;
+  margin-bottom:10px!important;
+  font-size:1.05rem!important;
+}
+.anvira-page .workflow-card h3{
+  font-size:.98rem!important;
+  line-height:1.28!important;
+  margin:6px 0 7px!important;
+}
+.anvira-page .workflow-card p{
+  font-size:.84rem!important;
+  line-height:1.45!important;
+}
+.anvira-page .workflow-note{
+  margin-top:20px!important;
+  border-radius:24px!important;
+  background:linear-gradient(135deg,rgba(8,127,166,.12),rgba(27,184,214,.09),rgba(255,255,255,.7))!important;
+}
+
+/* Better section rhythm below */
+.anvira-page .problem-card{min-height:190px!important;}
+.anvira-page .current-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,.9fr) minmax(380px,1.1fr)!important;
+  gap:36px!important;
+  align-items:center!important;
+}
+.anvira-page .stage-frame{
+  position:relative!important;
+  border-radius:32px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.94),rgba(244,251,255,.78))!important;
+  border:1px solid rgba(8,127,166,.16)!important;
+  box-shadow:0 24px 70px rgba(8,42,62,.10)!important;
+}
+
+@media (max-width:860px){
+  .anvira-page .anvira-dashboard{grid-template-columns:1fr!important;}
+  .anvira-page .workflow-lane{grid-template-columns:1fr!important;}
+  .anvira-page .lane-title{min-height:54px!important;}
+  .anvira-page .workflow-shell:after{display:none!important;}
+  .anvira-page .current-grid{grid-template-columns:1fr!important;}
+}
+@media (max-width:640px){
+  .anvira-page .anvira-premium-hero .container.anvira-hero-layout{width:calc(100% - 28px)!important;}
+  .anvira-page .anvira-premium-hero h1{font-size:clamp(2.45rem,14vw,4rem)!important;}
+  .anvira-page .anvira-dashboard{padding:16px!important;border-radius:28px!important;}
+  .anvira-page .route-board{min-height:118px!important;}
+}
+</style>
+
+
+
+<style id="anvira-final-frame-visibility-fix">
+/* FINAL FRAME FIX — keeps the good animation, but removes the lonely-box feeling and makes each section readable in one view */
+.anvira-page{
+  --frame-navy:#061826;
+  --frame-text:#344f62;
+  --frame-blue:#087fa6;
+  --frame-cyan:#1bb8d6;
+  --frame-line:rgba(8,127,166,.16);
+  --frame-card:rgba(255,255,255,.88);
+}
+
+/* HERO: title + description + product visual in one proper frame */
+.anvira-page .anvira-premium-hero{
+  min-height:auto!important;
+  padding:118px 0 56px!important;
+  display:flex!important;
+  align-items:center!important;
+  background:
+    radial-gradient(760px 420px at 10% 24%, rgba(27,184,214,.18), transparent 64%),
+    radial-gradient(720px 420px at 92% 18%, rgba(8,127,166,.12), transparent 62%),
+    linear-gradient(180deg,#fbfdff 0%,#edf8fd 58%,#f8fcff 100%)!important;
+}
+.anvira-page .anvira-premium-hero .container.anvira-hero-layout{
+  max-width:1320px!important;
+  width:calc(100% - 58px)!important;
+  display:grid!important;
+  grid-template-columns:minmax(0,1.05fr) minmax(340px,.62fr)!important;
+  gap:34px!important;
+  align-items:center!important;
+}
+.anvira-page .anvira-hero-copy{
+  text-align:left!important;
+  max-width:none!important;
+  min-width:0!important;
+}
+.anvira-page .anvira-kicker{
+  margin-left:0!important;
+  padding:8px 14px!important;
+  font-size:.74rem!important;
+}
+.anvira-page .anvira-premium-hero h1{
+  font-size:clamp(3rem,5.05vw,5.75rem)!important;
+  line-height:.94!important;
+  letter-spacing:-.074em!important;
+  max-width:780px!important;
+  margin:18px 0 16px!important;
+}
+.anvira-page .anvira-premium-hero .hero-lead{
+  max-width:710px!important;
+  font-size:clamp(1rem,1.08vw,1.14rem)!important;
+  line-height:1.58!important;
+  margin:0 0 18px!important;
+}
+.anvira-page .anvira-chip-row{
+  gap:9px!important;
+  margin:0 0 22px!important;
+  justify-content:flex-start!important;
+}
+.anvira-page .anvira-chip-row span{
+  padding:8px 12px!important;
+  font-size:.9rem!important;
+  box-shadow:0 8px 20px rgba(8,42,62,.055)!important;
+}
+.anvira-page .hero-actions{
+  justify-content:flex-start!important;
+  gap:12px!important;
+}
+.anvira-page .btn{
+  padding:12px 19px!important;
+}
+
+/* Product panel: make it part of the hero, not an isolated card below */
+.anvira-page .anvira-dashboard{
+  width:100%!important;
+  max-width:none!important;
+  min-height:0!important;
+  padding:18px!important;
+  border-radius:30px!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.94),rgba(239,249,253,.80))!important;
+  border:1px solid rgba(8,127,166,.18)!important;
+  box-shadow:0 24px 74px rgba(8,42,62,.13), inset 0 1px 0 rgba(255,255,255,.85)!important;
+}
+.anvira-page .mock-top{margin-bottom:12px!important;}
+.anvira-page .mock-logo{font-size:.92rem!important;}
+.anvira-page .mock-logo span{width:30px!important;height:30px!important;border-radius:12px!important;}
+.anvira-page .mock-status{font-size:.72rem!important;padding:7px 10px!important;}
+.anvira-page .route-board{
+  height:102px!important;
+  min-height:102px!important;
+  margin:12px 0!important;
+  border-radius:22px!important;
+}
+.anvira-page .road-line{top:52px!important;}
+.anvira-page .truck-mini{top:34px!important;}
+.anvira-page .mock-case{
+  padding:16px!important;
+  border-radius:22px!important;
+}
+.anvira-page .mock-case h3{
+  text-align:left!important;
+  font-size:1.1rem!important;
+  margin:0 0 11px!important;
+}
+.anvira-page .mock-row{
+  padding:10px 0!important;
+  font-size:.86rem!important;
+}
+.anvira-page .mock-checklist{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;
+  margin-top:12px!important;
+}
+.anvira-page .mock-checklist div{
+  padding:9px 10px!important;
+  font-size:.78rem!important;
+}
+.anvira-page .mock-stats{
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:9px!important;
+  margin-top:12px!important;
+}
+.anvira-page .mini-stat{
+  min-height:70px!important;
+  border-radius:18px!important;
+}
+.anvira-page .mini-stat b{font-size:.78rem!important;}
+.anvira-page .mini-stat span{font-size:.82rem!important;}
+
+/* SECTION FRAMES: compact, premium, readable without endless scrolling */
+.anvira-page .anvira-chapter{
+  padding:58px 0!important;
+}
+.anvira-page .chapter-head{
+  margin-bottom:26px!important;
+}
+.anvira-page .chapter-head.center{
+  text-align:center!important;
+}
+.anvira-page .chapter-head h2{
+  max-width:900px!important;
+  font-size:clamp(2.35rem,4.2vw,4.25rem)!important;
+  line-height:1.02!important;
+  letter-spacing:-.06em!important;
+  margin:12px 0 12px!important;
+}
+.anvira-page .chapter-head.center h2{margin-left:auto!important;margin-right:auto!important;}
+.anvira-page .chapter-head p{
+  max-width:780px!important;
+  font-size:1rem!important;
+  line-height:1.55!important;
+  margin-bottom:0!important;
+}
+
+/* Why ANVIRA exists — stronger icon cards, still compact */
+.anvira-page .problem-map{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.anvira-page .problem-map:before{display:none!important;}
+.anvira-page .problem-card{
+  min-height:168px!important;
+  padding:20px!important;
+  border-radius:24px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(247,252,255,.82))!important;
+  border:1px solid rgba(8,127,166,.14)!important;
+}
+.anvira-page .problem-icon{
+  width:42px!important;height:42px!important;
+  border-radius:16px!important;
+  margin-bottom:12px!important;
+}
+.anvira-page .problem-card h3{
+  font-size:1.08rem!important;
+  line-height:1.24!important;
+  margin:7px 0!important;
+}
+.anvira-page .problem-card p{
+  font-size:.9rem!important;
+  line-height:1.45!important;
+}
+
+/* Workflow: one beautiful connected frame. No tall empty cards. */
+.anvira-page .workflow-shell{
+  max-width:1260px!important;
+  margin:0 auto!important;
+  padding:24px!important;
+  border-radius:34px!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.90),rgba(239,249,253,.74))!important;
+  border:1px solid rgba(8,127,166,.16)!important;
+  box-shadow:0 26px 82px rgba(8,42,62,.10)!important;
+  overflow:hidden!important;
+}
+.anvira-page .workflow-shell:before{
+  inset:16px!important;
+  border-radius:28px!important;
+  border:1px solid rgba(8,127,166,.10)!important;
+  background:
+    linear-gradient(rgba(8,48,73,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(8,48,73,.025) 1px,transparent 1px)!important;
+  background-size:38px 38px!important;
+}
+.anvira-page .workflow-shell:after{
+  content:"🚚"!important;
+  top:18px!important;
+  left:7%!important;
+  font-size:1.35rem!important;
+  animation:workflowTruckClean 12s ease-in-out infinite!important;
+}
+@keyframes workflowTruckClean{
+  0%,100%{transform:translateX(0)}
+  48%{transform:translateX(min(980px,70vw))}
+  52%{transform:translateX(min(980px,70vw)) scaleX(-1)}
+  96%{transform:translateX(0) scaleX(-1)}
+}
+.anvira-page .workflow-lane{
+  grid-template-columns:128px 1fr!important;
+  gap:14px!important;
+  padding:11px 0!important;
+  border-bottom:0!important;
+}
+.anvira-page .lane-title{
+  min-height:100%!important;
+  border-radius:20px!important;
+  font-size:.78rem!important;
+  letter-spacing:.13em!important;
+  background:linear-gradient(135deg,#072033,#087fa6)!important;
+}
+.anvira-page .workflow-grid,
+.anvira-page .workflow-grid.two,
+.anvira-page .workflow-grid.three{
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr))!important;
+  gap:10px!important;
+}
+.anvira-page .workflow-card{
+  min-height:118px!important;
+  padding:14px 15px!important;
+  border-radius:20px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.97),rgba(247,252,255,.86))!important;
+  box-shadow:0 10px 30px rgba(8,42,62,.052)!important;
+}
+.anvira-page .workflow-card:before{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;top:0!important;bottom:0!important;width:4px!important;
+  background:linear-gradient(180deg,#1bb8d6,#087fa6)!important;
+  opacity:.7!important;
+}
+.anvira-page .workflow-card:after{
+  font-size:1.55rem!important;
+  top:9px!important;
+  right:12px!important;
+  color:rgba(8,127,166,.14)!important;
+}
+.anvira-page .workflow-icon{
+  width:34px!important;height:34px!important;
+  border-radius:13px!important;
+  margin-bottom:8px!important;
+  font-size:.98rem!important;
+}
+.anvira-page .workflow-card h3{
+  font-size:.9rem!important;
+  line-height:1.24!important;
+  margin:4px 0 5px!important;
+}
+.anvira-page .workflow-card p{
+  font-size:.78rem!important;
+  line-height:1.38!important;
+}
+.anvira-page .workflow-note{
+  margin-top:18px!important;
+  padding:16px 18px!important;
+  border-radius:22px!important;
+  font-size:.94rem!important;
+}
+
+/* Current stage / boundary frames */
+.anvira-page .current-grid{
+  grid-template-columns:minmax(0,.82fr) minmax(360px,1.18fr)!important;
+  gap:28px!important;
+  align-items:center!important;
+}
+.anvira-page .stage-frame{
+  padding:18px!important;
+  border-radius:26px!important;
+}
+.anvira-page .stage-row{
+  padding:13px 14px!important;
+  font-size:.94rem!important;
+}
+.anvira-page .boundary-grid{
+  gap:18px!important;
+}
+.anvira-page .boundary-box{
+  padding:24px!important;
+  border-radius:26px!important;
+}
+.anvira-page .boundary-box h3{font-size:1.18rem!important;}
+.anvira-page .boundary-box ul{
+  line-height:1.62!important;
+  margin-top:12px!important;
+}
+.anvira-page .boundary-note{
+  margin-top:18px!important;
+  padding:17px 22px!important;
+  line-height:1.55!important;
+}
+
+/* keep layout side-by-side on laptop/zoom; stack only when it truly needs to */
+@media(max-width:960px){
+  .anvira-page .anvira-premium-hero{padding:112px 0 50px!important;}
+  .anvira-page .anvira-premium-hero .container.anvira-hero-layout{
+    grid-template-columns:1fr!important;
+    width:calc(100% - 34px)!important;
+    gap:26px!important;
+  }
+  .anvira-page .anvira-hero-copy{text-align:center!important;}
+  .anvira-page .anvira-kicker{margin-left:auto!important;margin-right:auto!important;}
+  .anvira-page .anvira-premium-hero h1,.anvira-page .anvira-premium-hero .hero-lead{margin-left:auto!important;margin-right:auto!important;}
+  .anvira-page .anvira-chip-row,.anvira-page .hero-actions{justify-content:center!important;}
+  .anvira-page .anvira-dashboard{
+    display:grid!important;
+    grid-template-columns:1fr 1.12fr!important;
+    gap:14px!important;
+    max-width:900px!important;
+    margin:0 auto!important;
+  }
+  .anvira-page .mock-top,.anvira-page .mock-stats{grid-column:1/-1!important;}
+  .anvira-page .route-board{height:auto!important;min-height:100%!important;margin:0!important;}
+  .anvira-page .mock-case{margin:0!important;}
+  .anvira-page .problem-map{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  .anvira-page .workflow-lane{grid-template-columns:1fr!important;}
+  .anvira-page .lane-title{min-height:48px!important;}
+  .anvira-page .current-grid{grid-template-columns:1fr!important;}
+}
+@media(max-width:620px){
+  .anvira-page .anvira-premium-hero h1{font-size:clamp(2.45rem,13.5vw,3.8rem)!important;}
+  .anvira-page .anvira-dashboard{grid-template-columns:1fr!important;padding:15px!important;}
+  .anvira-page .problem-map,.anvira-page .workflow-grid,.anvira-page .workflow-grid.two,.anvira-page .workflow-grid.three,.anvira-page .boundary-grid{grid-template-columns:1fr!important;}
+  .anvira-page .workflow-shell:after{display:none!important;}
+  .anvira-page .anvira-chapter{padding:48px 0!important;}
+}
+</style>
+
 </head>
 <body class="contact-page anvira-page">
 <div aria-hidden="true" class="noise-overlay"></div>
