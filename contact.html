@@ -3079,7 +3079,7 @@ body::after {
 
 
 <style id="direct-contact-semicircle-final">
-/* Final requested hero semicircle: large, faint, and behind the floating box content. */
+/* Final requested Direct Contact semicircle: large, faint, and behind the floating box content. */
 .contact-page .contact-hero,
 .contact-page .contact-hero-grid {
   overflow: visible !important;
@@ -3212,7 +3212,7 @@ body::after {
 
 
 <style id="direct-contact-outside-semicircle-final">
-/* Final correction: the semicircle is outside the floating hero box, like index.html. */
+/* Final correction: the semicircle is OUTSIDE the floating Direct Contact box, like index.html. */
 .contact-page .contact-hero,
 .contact-page .contact-hero-grid {
   overflow: visible !important;
@@ -3495,6 +3495,20 @@ body::after {
       stroke-width: 1.9;
     }
 
+    .contact-page .contact-form-panel {
+      border-radius: 28px !important;
+      border: 1px solid rgba(8,48,73,0.12) !important;
+      background: rgba(255,255,255,0.78) !important;
+      box-shadow: 0 26px 62px rgba(7,38,56,0.1) !important;
+    }
+
+    .contact-page .contact-form-panel > p:first-of-type {
+      max-width: 620px;
+      color: #45616b;
+      font-size: 1.03rem;
+      line-height: 1.7;
+    }
+
     .contact-page .contact-stage-note {
       margin: 18px 0 22px;
       padding: 16px 18px;
@@ -3506,19 +3520,41 @@ body::after {
       font-size: 0.96rem;
     }
 
+    .contact-page .form-guidance {
+      display: none !important;
+    }
+
+    .contact-page .optional-fields-box {
+      padding: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+
     .contact-page .optional-fields-title--star {
       display: flex;
       align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
+      gap: 18px;
+      margin: 18px 0 22px;
+      padding: clamp(22px, 3vw, 32px);
+      border-radius: 24px;
+      border: 1px solid rgba(0,143,169,0.18);
+      background: rgba(236, 247, 251, 0.72);
+      color: #061826;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 2.1vw, 2rem);
+      font-weight: 800;
+      line-height: 1.25;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55), 0 18px 46px rgba(7,38,56,0.07);
     }
 
     .contact-page .optional-fields-title--star svg {
-      width: 20px;
-      height: 20px;
-      color: #fbb040;
-      fill: rgba(251,176,64,0.18);
+      width: 38px;
+      height: 38px;
+      color: #0088a7;
+      fill: rgba(0,136,167,0.08);
       flex: 0 0 auto;
+      filter: drop-shadow(0 8px 18px rgba(0,136,167,0.18));
     }
 
     .contact-page .form-helper {
@@ -3561,6 +3597,15 @@ body::after {
       letter-spacing: 0;
     }
 
+    .contact-page .contact-priority-line p {
+      max-width: 900px;
+      margin: 20px auto 0;
+      color: #45616b;
+      font-size: clamp(1rem, 1.55vw, 1.35rem);
+      line-height: 1.7;
+      text-align: center;
+    }
+
     @keyframes workflowDot {
       0%, 10% { transform: translateY(0); }
       25%, 35% { transform: translateY(52px); }
@@ -3592,6 +3637,11 @@ body::after {
         width: 100% !important;
         padding: 22px !important;
         border-radius: 22px !important;
+      }
+
+      .contact-page .optional-fields-title--star {
+        align-items: flex-start;
+        font-size: 1.28rem;
       }
     }
   </style>
@@ -3838,7 +3888,8 @@ body::after {
         <div class="contact-form-panel">
           <h3>Send a Message</h3>
           <p>
-            Share the operational context first. A short, specific message is more useful than a generic partnership request.
+            Share the fleet situation clearly so we can route the conversation toward a useful demo,
+            pilot discussion, or field-research next step.
           </p>
 
           <p class="contact-stage-note">
@@ -3848,13 +3899,6 @@ body::after {
           </p>
 
           <form id="contactForm" action="#" method="POST" class="premium-contact-form" novalidate>
-            <div class="form-guidance" aria-label="Form guidance">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M12 3.5l1.85 5.3 5.65.12-4.5 3.35 1.62 5.42L12 14.52l-4.62 3.17L9 12.27 4.5 8.92l5.65-.12L12 3.5z"></path>
-              </svg>
-              <span><strong>Fleet owners and transport operators first. Everyone else second.</strong></span>
-            </div>
-
             <div class="form-group">
               <label for="name" class="form-label">Full Name</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="Your full name" required>
@@ -3974,11 +4018,11 @@ body::after {
 
       </div>
 
-      <div class="contact-philosophy contact-philosophy--impact">
+      <div class="contact-philosophy contact-philosophy--impact contact-priority-line">
         <h2><span>Fleet owners and transport operators first.</span> <em>Everyone else second.</em></h2>
         <p>
-          This keeps the contact page focused on ANVIRA pilot conversations, field learning,
-          and structured incident coordination problems.
+          The contact page is meant to surface real fleet incident workflows, pilot-fit questions,
+          and practical coordination problems ANVIRA can study with the right operators.
         </p>
       </div>
     </div>
