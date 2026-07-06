@@ -4742,11 +4742,12 @@
 }
 
 
+
 /* Final splash video replacement: full-screen company video only */
-.splash{background:#000 !important;padding:0 !important;}
+.splash{background:#fff !important;padding:0 !important;}
 .splash::before,.splash::after{display:none !important;}
-.splash-inner{position:fixed !important;inset:0 !important;width:100vw !important;height:100vh !important;padding:0 !important;border:0 !important;border-radius:0 !important;background:#000 !important;box-shadow:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;display:flex !important;align-items:center !important;justify-content:center !important;animation:none !important;overflow:hidden !important;}
-.splash-video{width:100vw !important;height:100vh !important;display:block !important;object-fit:contain !important;border-radius:0 !important;background:#000 !important;}
+.splash-inner{position:fixed !important;inset:-1px 0 0 0 !important;width:100vw !important;height:calc(100vh + 2px) !important;padding:0 !important;border:0 !important;border-radius:0 !important;background:#fff !important;box-shadow:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;display:flex !important;align-items:center !important;justify-content:center !important;animation:none !important;overflow:hidden !important;}
+.splash-video{width:100vw !important;height:calc(100vh + 2px) !important;display:block !important;object-fit:cover !important;border-radius:0 !important;background:#fff !important;}
 </style>
 
   <!-- Header fonts copied from about.html -->
@@ -7575,6 +7576,18 @@ section:has(.anvira-panel){
       var splash = document.getElementById('splash');
       var video = document.getElementById('companySplashVideo');
       if (!splash) return;
+
+      if (sessionStorage.getItem('aasiomSplashShown')) {
+        splash.classList.add('hide');
+        if (video) {
+          video.pause();
+          video.removeAttribute('src');
+          video.load();
+        }
+        return;
+      }
+
+      sessionStorage.setItem('aasiomSplashShown', 'true');
 
       var hidden = false;
       function hideSplash() {
