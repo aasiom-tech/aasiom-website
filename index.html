@@ -4747,7 +4747,10 @@
 .splash{background:#fff !important;padding:0 !important;}
 .splash::before,.splash::after{display:none !important;}
 .splash-inner{position:fixed !important;inset:-1px 0 0 0 !important;width:100vw !important;height:calc(100vh + 2px) !important;padding:0 !important;border:0 !important;border-radius:0 !important;background:#fff !important;box-shadow:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;display:flex !important;align-items:center !important;justify-content:center !important;animation:none !important;overflow:hidden !important;}
-.splash-video{width:100vw !important;height:calc(100vh + 2px) !important;display:block !important;object-fit:cover !important;border-radius:0 !important;background:#fff !important;}
+.splash-video{width:100vw !important;height:calc(100vh + 2px) !important;display:block !important;object-fit:cover !important;border-radius:0 !important;background:#fff !important;opacity:0;transition:opacity .12s ease;transform:translate3d(0,0,0);will-change:opacity;}
+.splash-video.is-ready{opacity:1;}
+body.splash-active{overflow:hidden !important;}
+body.splash-active > :not(.splash):not(script):not(style){visibility:hidden !important;}
 </style>
 
   <!-- Header fonts copied from about.html -->
@@ -7067,7 +7070,7 @@ section:has(.anvira-panel){
   .frame-title{font-size:clamp(2rem,10vw,3rem) !important;}
 }
 </style>
-
+  <link rel="preload" as="video" href="company-splash.mp4?v=20260706-mobile" type="video/mp4">
 </head>
 
 <body id="top" class="contact-page">
@@ -7080,8 +7083,8 @@ section:has(.anvira-panel){
   <div class="splash" id="splash" aria-hidden="true">
     <div class="splash-inner">
       <video id="companySplashVideo" class="splash-video"
-        src="company-splash.mp4"
-        autoplay muted playsinline preload="auto"
+        src="company-splash.mp4?v=20260706-mobile"
+        autoplay muted playsinline preload="auto" disablepictureinpicture
         aria-label="AASIOM Technologies Private Limited company video"></video>
     </div>
   </div>
@@ -7588,37 +7591,49 @@ section:has(.anvira-panel){
       }
 
       sessionStorage.setItem('aasiomSplashShown', 'true');
+      document.body.classList.add('splash-active');
 
       var hidden = false;
+      var started = false;
+      var maxWait = window.matchMedia && window.matchMedia('(max-width: 760px)').matches ? 18000 : 15000;
+
       function hideSplash() {
         if (hidden) return;
         hidden = true;
+        document.body.classList.remove('splash-active');
         splash.classList.add('hide');
       }
 
+      function startVideo() {
+        if (!video || started || hidden) return;
+        started = true;
+        video.classList.add('is-ready');
+        try { video.currentTime = 0; } catch (e) {}
+        var playPromise = video.play && video.play();
+        if (playPromise && playPromise.catch) {
+          playPromise.catch(function () { setTimeout(hideSplash, maxWait); });
+        }
+      }
+
       if (!video) {
-        setTimeout(hideSplash, 20000);
+        setTimeout(hideSplash, 8000);
         return;
       }
 
+      video.addEventListener('canplaythrough', startVideo, { once: true });
+      video.addEventListener('canplay', startVideo, { once: true });
+      video.addEventListener('loadeddata', startVideo, { once: true });
       video.addEventListener('ended', hideSplash, { once: true });
-      video.addEventListener('error', function () { setTimeout(hideSplash, 20000); }, { once: true });
+      video.addEventListener('error', function () { setTimeout(hideSplash, 8000); }, { once: true });
       video.addEventListener('loadedmetadata', function () {
         if (Number.isFinite(video.duration) && video.duration > 0) {
-          setTimeout(hideSplash, Math.ceil(video.duration * 1000) + 800);
+          setTimeout(hideSplash, Math.ceil(video.duration * 1000) + 1800);
         }
       }, { once: true });
 
-      var playPromise = video.play && video.play();
-      if (playPromise && playPromise.catch) {
-        playPromise.catch(function () { setTimeout(hideSplash, 20000); });
-      }
-
-      setTimeout(function () {
-        if (!hidden && (!Number.isFinite(video.duration) || video.duration <= 0)) {
-          setTimeout(hideSplash, 20000);
-        }
-      }, 1000);
+      video.load();
+      setTimeout(startVideo, 2500);
+      setTimeout(hideSplash, maxWait);
     })();
     (function () {
       var nav = document.getElementById('nav');
