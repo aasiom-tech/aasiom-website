@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Contact — AASIOM Technologies Pvt. Ltd.</title>
-  <meta name="description" content="Discuss an ANVIRA demo or pilot with AASIOM. Share fleet size, operating routes, incident-handling process, and where coordination breaks down.">
+  <meta name="description" content="Discuss an ANVIRA demo or pilot with AASIOM. Share fleet size, operating routes, incident process, evidence gaps, claim documentation, and pilot readiness.">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact — AASIOM Technologies Pvt. Ltd.">
@@ -3301,7 +3301,7 @@ body::after {
 
   <link rel="stylesheet" href="shared-header.css">
   <style>
-    /* Final contact section-frame pass */
+    /* Final contact section-frame and fleet-intro pass */
     .contact-page .contact-hero,
     .contact-page .contact-section,
     .contact-page .footer {
@@ -3361,6 +3361,140 @@ body::after {
       display: none !important;
     }
 
+    .contact-page .fleet-intro-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: clamp(24px, 4vw, 46px);
+      align-items: center;
+      margin-bottom: clamp(28px, 5vw, 52px);
+    }
+
+    .contact-page .fleet-intro-copy p {
+      color: #38545d;
+      line-height: 1.75;
+      margin: 14px 0 0;
+    }
+
+    .contact-page .fleet-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .contact-page .fleet-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,143,169,0.18);
+      background: rgba(255,255,255,0.72);
+      color: #234c58;
+      font-size: 0.86rem;
+      font-weight: 700;
+      box-shadow: 0 8px 22px rgba(7,38,56,0.06);
+    }
+
+    .contact-page .fleet-chip::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #fbb040;
+    }
+
+    .contact-page .workflow-card {
+      position: relative;
+      padding: 26px;
+      border-radius: 24px;
+      border: 1px solid rgba(8, 48, 73, 0.12);
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 22px 56px rgba(7,38,56,0.12);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-page .workflow-card::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      opacity: 0.16;
+      background:
+        linear-gradient(115deg, transparent 0 42%, rgba(0,143,169,0.3) 42% 43%, transparent 43%),
+        linear-gradient(25deg, transparent 0 48%, rgba(251,176,64,0.35) 48% 49%, transparent 49%);
+      pointer-events: none;
+    }
+
+    .contact-page .workflow-card h3 {
+      margin: 0 0 18px;
+      color: #061826;
+      font-size: 1.05rem;
+    }
+
+    .contact-page .workflow-steps {
+      position: relative;
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-page .workflow-steps::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      bottom: 18px;
+      left: 18px;
+      width: 2px;
+      background: linear-gradient(#008fa9, #fbb040);
+      opacity: 0.35;
+    }
+
+    .contact-page .workflow-steps::after {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #008fa9;
+      box-shadow: 0 0 0 7px rgba(0,143,169,0.13);
+      animation: workflowDot 6s ease-in-out infinite;
+    }
+
+    .contact-page .workflow-steps li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 38px;
+      padding-left: 44px;
+      color: #244955;
+      font-weight: 700;
+    }
+
+    .contact-page .workflow-icon {
+      position: absolute;
+      left: 0;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      border: 1px solid rgba(0,143,169,0.16);
+      background: rgba(255,255,255,0.82);
+      color: #008fa9;
+    }
+
+    .contact-page .workflow-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 1.9;
+    }
+
     .contact-page .contact-stage-note {
       margin: 18px 0 22px;
       padding: 16px 18px;
@@ -3370,6 +3504,21 @@ body::after {
       color: #244955;
       line-height: 1.6;
       font-size: 0.96rem;
+    }
+
+    .contact-page .optional-fields-title--star {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .contact-page .optional-fields-title--star svg {
+      width: 20px;
+      height: 20px;
+      color: #fbb040;
+      fill: rgba(251,176,64,0.18);
+      flex: 0 0 auto;
     }
 
     .contact-page .form-helper {
@@ -3412,8 +3561,18 @@ body::after {
       letter-spacing: 0;
     }
 
-    .contact-page .contact-direct-list--plain .contact-direct-item {
-      align-items: flex-start;
+    @keyframes workflowDot {
+      0%, 10% { transform: translateY(0); }
+      25%, 35% { transform: translateY(52px); }
+      50%, 60% { transform: translateY(104px); }
+      72%, 82% { transform: translateY(156px); }
+      95%, 100% { transform: translateY(208px); }
+    }
+
+    @media (max-width: 860px) {
+      .contact-page .fleet-intro-layout {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 720px) {
@@ -3472,19 +3631,18 @@ body::after {
           <p class="contact-hero-text">
             Share your fleet size, operating routes, incident-handling process,
             and where coordination breaks down after accidents, vehicle damage,
-            driver alerts, or claim-related documentation.
+            driver alerts, cargo disruption, roadside delay, or claim-related documentation gaps.
           </p>
 
           <p class="contact-note">
-            Fleet owners and transport operators come first. Partners, researchers,
-            and institutions can still reach out when the conversation supports ANVIRA pilots or field research.
+            Fleet owners and transport operators first. Everyone else second.
           </p>
 
           <div class="contact-chip-row">
             <span class="contact-chip">ANVIRA Demo / Pilot</span>
             <span class="contact-chip">Fleet Owner Inquiry</span>
             <span class="contact-chip">Transport Operator Inquiry</span>
-            <span class="contact-chip">Strategic Partnership</span>
+            <span class="contact-chip">Pilot Readiness</span>
           </div>
         </div>
 
@@ -3493,33 +3651,32 @@ body::after {
             <h2>What to Share</h2>
 
           <p>
-            A short, specific message helps us understand whether ANVIRA can create useful operational value.
+            Keep your message specific to the operational workflow. That helps us decide whether
+            ANVIRA is suitable for a demo, pilot, or field-research conversation.
           </p>
 
-          <div class="contact-direct-list contact-direct-list--plain">
+          <div class="contact-direct-list">
             <div class="contact-direct-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M3 7h11v8H3z"></path>
-                <path d="M14 10h4l3 3v2h-7z"></path>
+                <path d="M4 4h16v16H4z"></path>
+                <path d="M4 7l8 6 8-6"></path>
               </svg>
-              <span>Fleet size, truck type, and operating routes</span>
+              <span>Fleet size and operating routes</span>
             </div>
 
             <div class="contact-direct-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M12 8v4l3 2"></path>
-                <circle cx="12" cy="12" r="8"></circle>
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L9 10.5a16 16 0 0 0 4.5 4.5l1.17-1.15a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"></path>
               </svg>
-              <span>Incident handling, driver alerts, and response delays</span>
+              <span>Incident process and escalation gaps</span>
             </div>
 
             <div class="contact-direct-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <path d="M7 3h10l2 2v16H5V5l2-2z"></path>
-                <path d="M9 9h6"></path>
-                <path d="M9 13h6"></path>
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              <span>Claim-related documentation and handoff gaps</span>
+              <span>Evidence, repair, and claim documentation gaps</span>
             </div>
           </div>
           </div>
@@ -3531,14 +3688,145 @@ body::after {
 
   <section class="contact-section">
     <div class="container">
+      <div class="fleet-intro-layout">
+        <div class="fleet-intro-copy">
+          <span class="section-label">Fleet-Focused Intro</span>
+          <h2>Start with the operating problem your fleet is handling today.</h2>
+          <p>
+            Tell us how incidents are currently managed - from the first driver call or WhatsApp update
+            to escalation, location sharing, evidence collection, repair follow-up, cargo continuity,
+            and claim documentation.
+          </p>
+          <p>
+            Share your fleet size, operating routes, common incident types, and where coordination
+            usually breaks down. This helps us understand whether ANVIRA is suitable for a demo,
+            pilot, or field-research conversation.
+          </p>
+
+          <div class="fleet-chip-row" aria-label="Useful details to include">
+            <span class="fleet-chip">Fleet Size</span>
+            <span class="fleet-chip">Operating Routes</span>
+            <span class="fleet-chip">Incident Process</span>
+            <span class="fleet-chip">Evidence Gaps</span>
+            <span class="fleet-chip">Claim Documentation</span>
+            <span class="fleet-chip">Pilot Readiness</span>
+          </div>
+        </div>
+
+        <div class="workflow-card" aria-label="Incident workflow">
+          <h3>Incident workflow for pilot discussion</h3>
+          <ol class="workflow-steps">
+            <li>
+              <span class="workflow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7h11v8H3z"></path><path d="M14 10h4l3 3v2h-7z"></path><circle cx="7" cy="18" r="2"></circle><circle cx="18" cy="18" r="2"></circle></svg>
+              </span>
+              Driver Alert
+            </li>
+            <li>
+              <span class="workflow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg>
+              </span>
+              Fleet Escalation
+            </li>
+            <li>
+              <span class="workflow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              Evidence Collection
+            </li>
+            <li>
+              <span class="workflow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 3h10l2 2v16H5V5l2-2z"></path><path d="M9 9h6"></path><path d="M9 13h6"></path></svg>
+              </span>
+              Repair / Claim Follow-up
+            </li>
+            <li>
+              <span class="workflow-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="M7 15l3-4 3 2 4-6"></path></svg>
+              </span>
+              Pilot Conversation
+            </li>
+          </ol>
+        </div>
+      </div>
+
       <div class="contact-intro">
-        <span class="section-label">Fleet-Focused Intro</span>
-        <h2>Start with the operating problem your fleet faces today.</h2>
+        <span class="section-label">Who We Engage With</span>
+        <h2>Focused on teams closest to fleet incident coordination.</h2>
         <p>
-          The most useful messages describe fleet size, operating routes,
-          incident-handling process, and where coordination breaks down after
-          accidents, vehicle damage, driver alerts, or claim-related documentation.
+          This page mainly serves fleet owners and transport operators. Other conversations
+          should support ANVIRA pilots, field learning, or operational-system collaboration.
         </p>
+      </div>
+
+      <div class="engage-grid">
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M3 7h11v8H3z"></path>
+              <path d="M14 10h4l3 3v2h-7z"></path>
+              <circle cx="7" cy="18" r="2"></circle>
+              <circle cx="18" cy="18" r="2"></circle>
+            </svg>
+          </div>
+          <h3>Fleet &amp; Logistics Teams</h3>
+          <p>
+            For operators managing driver calls, vehicle downtime, dispatch coordination,
+            location sharing, roadside assistance, and post-incident follow-up.
+          </p>
+          <span class="engage-tag">Fleet Operations</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M7 3h10l2 2v16H5V5l2-2z"></path>
+              <path d="M9 9h6"></path>
+              <path d="M9 13h6"></path>
+              <path d="M9 17h4"></path>
+            </svg>
+          </div>
+          <h3>Insurance &amp; Survey Teams</h3>
+          <p>
+            For claim, survey, and risk teams that need clearer incident evidence,
+            faster assessment inputs, and cleaner handoffs from the first report onward.
+          </p>
+          <span class="engage-tag">Insurance / Survey</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="8"></circle>
+              <path d="M12 8v4l3 2"></path>
+              <path d="M4 4l3 3"></path>
+              <path d="M20 4l-3 3"></path>
+            </svg>
+          </div>
+          <h3>Roadside, Repair &amp; Corridor Partners</h3>
+          <p>
+            For towing, repair, survey, road-safety, and corridor-based operators who help
+            fleets respond faster with verified location, vehicle, and incident context.
+          </p>
+          <span class="engage-tag">Corridor Partners</span>
+        </div>
+
+        <div class="engage-card">
+          <div class="engage-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"></path>
+              <path d="M9 12l2 2 4-5"></path>
+            </svg>
+          </div>
+          <h3>Strategic Partners &amp; Researchers</h3>
+          <p>
+            For institutions, researchers, and strategic partners who can support ANVIRA
+            pilots, field research, or responsible operational validation.
+          </p>
+          <span class="engage-tag">Strategic Fit</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -3614,7 +3902,12 @@ body::after {
             </div>
 
             <div class="optional-fields-box">
-              <div class="optional-fields-title">Optional details</div>
+              <div class="optional-fields-title optional-fields-title--star">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M12 3.5l1.85 5.3 5.65.12-4.5 3.35 1.62 5.42L12 14.52l-4.62 3.17L9 12.27 4.5 8.92l5.65-.12L12 3.5z"></path>
+                </svg>
+                <span>Optional details help us respond faster.</span>
+              </div>
 
               <div class="form-group">
                 <label for="fleetSize" class="form-label">Fleet Size / Number of Trucks <span class="optional-label">(optional)</span></label>
@@ -3682,94 +3975,11 @@ body::after {
       </div>
 
       <div class="contact-philosophy contact-philosophy--impact">
-        <h2><span>We understand the workflow first,</span> <em>then decide where ANVIRA can create measurable operational value.</em></h2>
+        <h2><span>Fleet owners and transport operators first.</span> <em>Everyone else second.</em></h2>
         <p>
-          AASIOM focuses on conversations that start with <strong>real workflows, real constraints, and real accountability</strong> —
-          then applies technology only where it can create measurable operational value.
+          This keeps the contact page focused on ANVIRA pilot conversations, field learning,
+          and structured incident coordination problems.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact-section contact-audience-section">
-    <div class="container">
-      <div class="contact-intro">
-        <span class="section-label">Who We Engage With</span>
-        <h2>Focused on teams closest to fleet incident coordination.</h2>
-        <p>
-          This page mainly serves fleet owners and transport operators. Other conversations
-          should support ANVIRA pilots, field learning, or operational-system collaboration.
-        </p>
-      </div>
-
-      <div class="engage-grid">
-
-        <div class="engage-card">
-          <div class="engage-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M3 7h11v8H3z"></path>
-              <path d="M14 10h4l3 3v2h-7z"></path>
-              <circle cx="7" cy="18" r="2"></circle>
-              <circle cx="18" cy="18" r="2"></circle>
-            </svg>
-          </div>
-          <h3>Fleet &amp; Logistics Teams</h3>
-          <p>
-            For operators managing driver calls, vehicle downtime, dispatch coordination,
-            route context, and post-incident follow-up.
-          </p>
-          <span class="engage-tag">Fleet Operations</span>
-        </div>
-
-        <div class="engage-card">
-          <div class="engage-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M7 3h10l2 2v16H5V5l2-2z"></path>
-              <path d="M9 9h6"></path>
-              <path d="M9 13h6"></path>
-              <path d="M9 17h4"></path>
-            </svg>
-          </div>
-          <h3>Insurance &amp; Survey Teams</h3>
-          <p>
-            For claim, survey, and risk teams that need clearer incident evidence,
-            faster assessment inputs, and cleaner handoffs from the first report onward.
-          </p>
-          <span class="engage-tag">Insurance / Survey</span>
-        </div>
-
-        <div class="engage-card">
-          <div class="engage-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <circle cx="12" cy="12" r="8"></circle>
-              <path d="M12 8v4l3 2"></path>
-              <path d="M4 4l3 3"></path>
-              <path d="M20 4l-3 3"></path>
-            </svg>
-          </div>
-          <h3>Roadside, Repair &amp; Corridor Partners</h3>
-          <p>
-            For towing, repair, survey, road-safety, and corridor-based operators who help
-            fleets respond faster with verified location, vehicle, and incident context.
-          </p>
-          <span class="engage-tag">Corridor Partners</span>
-        </div>
-
-        <div class="engage-card">
-          <div class="engage-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3z"></path>
-              <path d="M9 12l2 2 4-5"></path>
-            </svg>
-          </div>
-          <h3>Strategic Partners &amp; Researchers</h3>
-          <p>
-            For institutions, researchers, and strategic partners who can support ANVIRA
-            pilots, field research, or responsible operational validation.
-          </p>
-          <span class="engage-tag">Strategic Fit</span>
-        </div>
-
       </div>
     </div>
   </section>
