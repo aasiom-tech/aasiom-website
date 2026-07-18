@@ -4748,6 +4748,7 @@
 .splash::before,.splash::after{display:none !important;}
 .splash-inner{position:fixed !important;inset:-1px 0 0 0 !important;width:100vw !important;height:calc(100vh + 2px) !important;padding:0 !important;border:0 !important;border-radius:0 !important;background:#fff !important;box-shadow:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;display:flex !important;align-items:center !important;justify-content:center !important;animation:none !important;overflow:hidden !important;}
 .splash-video{width:100vw !important;height:calc(100vh + 2px) !important;display:block !important;object-fit:contain !important;border-radius:0 !important;background:#fff !important;opacity:0;transition:opacity .12s ease;transform:translate3d(0,0,0);will-change:opacity;}
+@media (max-width:899px){.splash-video{object-fit:cover !important;}}
 .splash-video.is-ready{opacity:1;}
 .splash-play-fallback{position:fixed;left:50%;bottom:max(28px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:10002;display:none;align-items:center;justify-content:center;min-width:180px;padding:15px 24px;border:0;border-radius:999px;background:#075f79;color:#fff;font:700 16px/1 Inter,system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.28);cursor:pointer;-webkit-tap-highlight-color:transparent;}
 .splash-play-fallback.show{display:flex;}
@@ -7087,7 +7088,7 @@ section:has(.anvira-panel){
         autoplay muted playsinline webkit-playsinline x5-playsinline preload="auto"
         disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"
         aria-label="AASIOM Technologies Private Limited company video">
-        <source src="company-splash-mobile.mp4?v=20260718-final" media="(max-width: 899px)" type='video/mp4; codecs="avc1.4D401F, mp4a.40.2"'>
+        <source src="company-splash-mobile-portrait-v3.mp4?v=20260718-seamless" media="(max-width: 899px)" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
         <source src="company-splash-hd.mp4?v=20260718-final" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
       </video>
       <button id="splashPlayFallback" class="splash-play-fallback" type="button" aria-label="Play company introduction">Tap to play video</button>
