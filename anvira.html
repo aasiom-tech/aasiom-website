@@ -1703,7 +1703,6 @@
     }
   }
 </style>
-<link href="shared-header.css" rel="stylesheet"/>
 <style id="anvira-document-refinement-final">
   .anvira-page { --aasiom-navy:#061826; --aasiom-muted:#425466; --aasiom-blue:#087fa6; --aasiom-cyan:#1bb8d6; --aasiom-line:rgba(8,48,73,.12); --aasiom-card:rgba(255,255,255,.82); --aasiom-shadow:0 22px 70px rgba(8,42,62,.10); }
   .anvira-page .section, .anvira-page .mission-section, .anvira-page .cta-section { padding-top:clamp(72px,7vw,108px)!important; padding-bottom:clamp(72px,7vw,108px)!important; overflow:hidden; }
@@ -2476,6 +2475,7 @@
 }
 </style>
 
+  <link rel="stylesheet" href="css/chatbot.css">
 </head>
 <body class="contact-page anvira-page">
 <div aria-hidden="true" class="noise-overlay"></div>
@@ -2644,7 +2644,7 @@
 <ul>
 <li><a href="about.html">About Us</a></li>
 <li><a href="about.html#team">Team</a></li>
-<li><a href="projects.html">Projects</a></li>
+<li><a href="anvira.html">Projects</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
 </div>
@@ -2652,9 +2652,9 @@
 <h4>Focus</h4>
 <ul>
 <li><a href="anvira.html">ANVIRA</a></li>
-<li><a href="projects.html">Highway Response</a></li>
-<li><a href="projects.html">Fleet Operations</a></li>
-<li><a href="projects.html">Claims Flow</a></li>
+<li><a href="anvira.html">Highway Response</a></li>
+<li><a href="anvira.html">Fleet Operations</a></li>
+<li><a href="anvira.html">Claims Flow</a></li>
 </ul>
 </div>
 <div class="footer-col">
@@ -2686,5 +2686,16 @@
       if(btn){ btn.addEventListener('click', function(){ nav.classList.toggle('open'); }); }
     })();
   </script>
+
+  <!-- AASIOM AI Chatbot: same implementation as the homepage -->
+  <div id="aasiomChatbotPanel" class="aasiom-chatbot-panel" aria-label="AASIOM AI Chatbot">
+    <div class="aasiom-chatbot-actions">
+      <button type="button" onclick="aasiomToggleChatbot()">Close</button>
+    </div>
+    <iframe id="aasiomChatbotFrame" class="aasiom-chatbot-frame" title="AASIOM AI Chatbot"></iframe>
+  </div>
+
+  <button class="aasiom-chatbot-toggle" type="button" onclick="aasiomToggleChatbot()" aria-label="Open AASIOM AI Chatbot">💬</button>
+  <script src="js/chatbot.js" defer></script>
 </body>
 </html>

@@ -3299,7 +3299,6 @@ body::after {
 }
 </style>
 
-  <link rel="stylesheet" href="shared-header.css">
   <style>
     /* Final contact section-frame and fleet-intro pass */
     .contact-page .contact-hero,
@@ -3645,6 +3644,7 @@ body::after {
       }
     }
   </style>
+  <link rel="stylesheet" href="css/chatbot.css">
 </head>
 
 <body class="contact-page">
@@ -4063,9 +4063,9 @@ body::after {
           <h4>Resources</h4>
           <ul>
             <li><a href="strategic-review.html">Strategic Review</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Use</a></li>
-            <li><a href="disclaimer.html">Disclaimer</a></li>
+            <li><a href="#" aria-disabled="true">Privacy Policy</a></li>
+            <li><a href="#" aria-disabled="true">Terms of Use</a></li>
+            <li><a href="#" aria-disabled="true">Disclaimer</a></li>
           </ul>
         </div>
 
@@ -4194,5 +4194,16 @@ body::after {
     })();
   </script>
 
+
+  <!-- AASIOM AI Chatbot: same implementation as the homepage -->
+  <div id="aasiomChatbotPanel" class="aasiom-chatbot-panel" aria-label="AASIOM AI Chatbot">
+    <div class="aasiom-chatbot-actions">
+      <button type="button" onclick="aasiomToggleChatbot()">Close</button>
+    </div>
+    <iframe id="aasiomChatbotFrame" class="aasiom-chatbot-frame" title="AASIOM AI Chatbot"></iframe>
+  </div>
+
+  <button class="aasiom-chatbot-toggle" type="button" onclick="aasiomToggleChatbot()" aria-label="Open AASIOM AI Chatbot">💬</button>
+  <script src="js/chatbot.js" defer></script>
 </body>
 </html>

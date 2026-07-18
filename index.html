@@ -4747,11 +4747,8 @@
 .splash{background:#fff !important;padding:0 !important;}
 .splash::before,.splash::after{display:none !important;}
 .splash-inner{position:fixed !important;inset:-1px 0 0 0 !important;width:100vw !important;height:calc(100vh + 2px) !important;padding:0 !important;border:0 !important;border-radius:0 !important;background:#fff !important;box-shadow:none !important;backdrop-filter:none !important;-webkit-backdrop-filter:none !important;display:flex !important;align-items:center !important;justify-content:center !important;animation:none !important;overflow:hidden !important;}
-.splash-video{width:100vw !important;height:calc(100vh + 2px) !important;display:block !important;object-fit:contain !important;border-radius:0 !important;background:#fff !important;opacity:0;transition:opacity .12s ease;transform:translate3d(0,0,0);will-change:opacity;}
-@media (max-width:899px){.splash-video{object-fit:cover !important;}}
+.splash-video{width:100vw !important;height:calc(100vh + 2px) !important;display:block !important;object-fit:cover !important;border-radius:0 !important;background:#fff !important;opacity:0;transition:opacity .12s ease;transform:translate3d(0,0,0);will-change:opacity;}
 .splash-video.is-ready{opacity:1;}
-.splash-play-fallback{position:fixed;left:50%;bottom:max(28px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:10002;display:none;align-items:center;justify-content:center;min-width:180px;padding:15px 24px;border:0;border-radius:999px;background:#075f79;color:#fff;font:700 16px/1 Inter,system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.28);cursor:pointer;-webkit-tap-highlight-color:transparent;}
-.splash-play-fallback.show{display:flex;}
 body.splash-active{overflow:hidden !important;}
 body.splash-active > :not(.splash):not(script):not(style){visibility:hidden !important;}
 </style>
@@ -7073,6 +7070,7 @@ section:has(.anvira-panel){
   .frame-title{font-size:clamp(2rem,10vw,3rem) !important;}
 }
 </style>
+  <link rel="preload" as="video" href="company-splash.mp4?v=20260706-mobile" type="video/mp4">
 </head>
 
 <body id="top" class="contact-page">
@@ -7085,13 +7083,9 @@ section:has(.anvira-panel){
   <div class="splash" id="splash" aria-hidden="true">
     <div class="splash-inner">
       <video id="companySplashVideo" class="splash-video"
-        autoplay muted playsinline webkit-playsinline x5-playsinline preload="auto"
-        disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"
-        aria-label="AASIOM Technologies Private Limited company video">
-        <source src="company-splash-mobile-portrait-v3.mp4?v=20260718-seamless" media="(max-width: 899px)" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
-        <source src="company-splash-hd.mp4?v=20260718-final" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
-      </video>
-      <button id="splashPlayFallback" class="splash-play-fallback" type="button" aria-label="Play company introduction">Tap to play video</button>
+        src="company-splash.mp4?v=20260706-mobile"
+        autoplay muted playsinline preload="auto" disablepictureinpicture
+        aria-label="AASIOM Technologies Private Limited company video"></video>
     </div>
   </div>
 
@@ -7584,17 +7578,19 @@ section:has(.anvira-panel){
     (function () {
       var splash = document.getElementById('splash');
       var video = document.getElementById('companySplashVideo');
-      var playFallback = document.getElementById('splashPlayFallback');
       if (!splash) return;
 
-      if (video) {
-        video.muted = true;
-        video.defaultMuted = true;
-        video.setAttribute('muted', '');
-        video.setAttribute('playsinline', '');
-        video.setAttribute('webkit-playsinline', '');
+      if (sessionStorage.getItem('aasiomSplashShown')) {
+        splash.classList.add('hide');
+        if (video) {
+          video.pause();
+          video.removeAttribute('src');
+          video.load();
+        }
+        return;
       }
 
+      sessionStorage.setItem('aasiomSplashShown', 'true');
       document.body.classList.add('splash-active');
 
       var hidden = false;
@@ -7608,10 +7604,6 @@ section:has(.anvira-panel){
         splash.classList.add('hide');
       }
 
-      function showPlayFallback() {
-        if (!hidden && playFallback) playFallback.classList.add('show');
-      }
-
       function startVideo() {
         if (!video || started || hidden) return;
         started = true;
@@ -7619,7 +7611,7 @@ section:has(.anvira-panel){
         try { video.currentTime = 0; } catch (e) {}
         var playPromise = video.play && video.play();
         if (playPromise && playPromise.catch) {
-          playPromise.catch(function () { showPlayFallback(); });
+          playPromise.catch(function () { setTimeout(hideSplash, maxWait); });
         }
       }
 
@@ -7631,9 +7623,6 @@ section:has(.anvira-panel){
       video.addEventListener('canplaythrough', startVideo, { once: true });
       video.addEventListener('canplay', startVideo, { once: true });
       video.addEventListener('loadeddata', startVideo, { once: true });
-      video.addEventListener('playing', function () {
-        if (playFallback) playFallback.classList.remove('show');
-      });
       video.addEventListener('ended', hideSplash, { once: true });
       video.addEventListener('error', function () { setTimeout(hideSplash, 8000); }, { once: true });
       video.addEventListener('loadedmetadata', function () {
@@ -7643,15 +7632,7 @@ section:has(.anvira-panel){
       }, { once: true });
 
       video.load();
-      if (playFallback) {
-        playFallback.addEventListener('click', function () {
-          started = false;
-          video.muted = true;
-          startVideo();
-        });
-      }
       setTimeout(startVideo, 2500);
-      setTimeout(function () { if (video && video.paused) showPlayFallback(); }, 3500);
       setTimeout(hideSplash, maxWait);
     })();
     (function () {
